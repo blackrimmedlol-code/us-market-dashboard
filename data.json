@@ -62,7 +62,7 @@
       }
     },
     "available": true,
-    "breadthState": "偏弱",
+    "breadthState": "weak",
     "changes": [
       {
         "asset": "市场",
@@ -3639,7 +3639,7 @@
       }
     },
     "available": true,
-    "breadthState": "偏弱",
+    "breadthState": "weak",
     "changes": [
       {
         "asset": "市场",
