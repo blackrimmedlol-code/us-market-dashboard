@@ -95,6 +95,8 @@
 
 账本生命周期必须自洽：`open` 不得带 `triggeredAt / invalidatedAt / evaluatedAt`；`triggered` 必须有 `triggeredAt`；`invalidated` 必须有失效或评估时间；`closed / expired` 必须有 `evaluatedAt`。`失败突破 / 剧本失效` 是已结束或已失效的旧剧本，不能同时保持 `outcome.status:"open"` 或 `"triggered"`；若下一轮建立恢复条件，应另建或重置为 `等待触发` 的开放判断。
 
+最新时段仍为 `open / triggered` 的判断必须与对应 `horizons.*.short` 的 `planStatus / trigger / invalidation` 完全一致。上一轮“剧本失效”只保留在 `reviews` 或已结束账本中；一旦建立下一轮恢复条件，当前页必须显示新的“等待触发”剧本，不能把历史结果与当前动作混写。
+
 ### 本机持仓风险联动
 
 持仓成本、股数和计划止损只保存在浏览器本机。页面根据当前可审计价格显示敞口、浮盈亏、距止损和从现价到止损的计划风险；同时引用 `decisionGate` 与事件窗口展示当前是否允许新增风险。页面不得把本机输入写回 `data.json`，也不得把模型权限替代为确定性买卖指令。

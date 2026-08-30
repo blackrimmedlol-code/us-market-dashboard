@@ -176,6 +176,15 @@ else {
     if (outcome.status === 'invalidated' && !outcome.invalidatedAt && !outcome.evaluatedAt) fail(`${path}.outcome`, 'invalidated 必须有失效或评估时间');
     if (['closed', 'expired'].includes(outcome.status) && !outcome.evaluatedAt) fail(`${path}.outcome.evaluatedAt`, `${outcome.status} 必须有评估时间`);
     if (['失败突破', '剧本失效'].includes(call.planStatus) && ['open', 'triggered'].includes(outcome.status)) fail(`${path}.planStatus`, '失败剧本不能仍处于开放或触发未结状态');
+    if (call.sessionDate === data.meta?.sessionDate && call.session === data.meta?.latestSession && ['open', 'triggered'].includes(outcome.status)) {
+      const active = data[call.session]?.horizons?.[call.asset]?.short;
+      if (!active) fail(`${path}.session`, '最新开放判断没有对应的 horizons 短线剧本');
+      else {
+        if (call.planStatus !== active.planStatus) fail(`${path}.planStatus`, '必须与最新 horizons 当前剧本一致');
+        if (call.trigger !== active.trigger) fail(`${path}.trigger`, '必须与最新 horizons 当前剧本一致');
+        if (call.invalidation !== active.invalidation) fail(`${path}.invalidation`, '必须与最新 horizons 当前剧本一致');
+      }
+    }
   });
 }
 

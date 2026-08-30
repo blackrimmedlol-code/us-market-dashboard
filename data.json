@@ -271,11 +271,11 @@
             }
           },
           "driver": "大盘收跌且SOXX跌幅扩大至3.22%",
-          "invalidation": "下个交易日SOXX收回516.06且QQQ收回722.92",
-          "planStatus": "剧本失效",
+          "invalidation": "SOXX再失506.89且SPY、QQQ同步走弱，修复剧本失效",
+          "planStatus": "等待触发",
           "posture": "维持低beta，等待下一交易日重新确认",
           "setupLabel": "风险扩散",
-          "stateNote": "正式收盘锁定",
+          "stateNote": "上轮修复失效；等待下一次价格确认",
           "tradeType": "风险预算",
           "trigger": "SPY收回774.19、QQQ收回722.92且SOXX收回516.06"
         }
@@ -311,11 +311,11 @@
             }
           },
           "driver": "收盘失守关键位且同业全跌",
-          "invalidation": "下个交易日失55.51继续降级；收回56.83且同业多数上涨才修复。",
-          "planStatus": "剧本失效",
+          "invalidation": "失55.51继续降级",
+          "planStatus": "等待触发",
           "posture": "只观察55.51支撑",
           "setupLabel": "存储链支撑测试",
-          "stateNote": "修复未保持到收盘",
+          "stateNote": "上轮修复未保持；重新等待触发",
           "tradeType": "仅观察",
           "trigger": "收回56.83且同业多数上涨"
         }
@@ -351,11 +351,11 @@
             }
           },
           "driver": "收近日低且光通信链同步下跌",
-          "invalidation": "失893.01继续下修；至少收复922.98才停止恶化。",
-          "planStatus": "剧本失效",
+          "invalidation": "失893.01继续下修",
+          "planStatus": "等待触发",
           "posture": "不抄底，等收回922.98",
           "setupLabel": "光通信止跌",
-          "stateNote": "弱势正式收口",
+          "stateNote": "上轮止跌失效；重新等待触发",
           "tradeType": "仅观察",
           "trigger": "收回922.98并获COHR转强确认"
         }
@@ -391,11 +391,11 @@
             }
           },
           "driver": "财报后放量大跌并显著弱于BTC",
-          "invalidation": "失34.825继续下修；收复36.53和38.28才解除锁权。",
-          "planStatus": "剧本失效",
+          "invalidation": "失34.825继续下修",
+          "planStatus": "等待触发",
           "posture": "继续关闭追价和隔夜",
           "setupLabel": "价格否决经营乐观",
-          "stateNote": "财报后负向确认收口",
+          "stateNote": "上轮乐观剧本失效；重新等待恢复",
           "tradeType": "仅观察",
           "trigger": "收复36.53并站38.28"
         }
@@ -431,11 +431,11 @@
             }
           },
           "driver": "自身与一级电力链同步收弱",
-          "invalidation": "失209.20继续下修；收回218.53且至少两同业转强才修复。",
-          "planStatus": "剧本失效",
+          "invalidation": "失209.20继续下修",
+          "planStatus": "等待触发",
           "posture": "等218.53和行业广度修复",
           "setupLabel": "现场供电支撑测试",
-          "stateNote": "自身与行业均未确认",
+          "stateNote": "上轮共振未确认；重新等待修复",
           "tradeType": "仅观察",
           "trigger": "收回218.53且至少两同业转强"
         }
@@ -471,7 +471,7 @@
             }
           },
           "driver": "相对强势并尾盘收回141.50",
-          "invalidation": "失139.75撤销；需稳定站141.50并突破143.11才升级。",
+          "invalidation": "失139.75撤销",
           "planStatus": "部分确认",
           "posture": "等141.50回踩与143.11突破",
           "setupLabel": "供给吸收再验证",
@@ -511,11 +511,11 @@
             }
           },
           "driver": "加密链下跌且负Beta锁定",
-          "invalidation": "失126.42继续扩大负Beta；收回130.99才停止恶化。",
-          "planStatus": "剧本失效",
+          "invalidation": "失126.42继续扩大负Beta",
+          "planStatus": "等待触发",
           "posture": "继续关闭追价和隔夜",
           "setupLabel": "加密链风险扩散",
-          "stateNote": "负Beta正式收口",
+          "stateNote": "上轮正Beta失效；重新等待修复",
           "tradeType": "仅观察",
           "trigger": "收回130.99和133.73且强于BTC/IBIT"
         }
@@ -1369,7 +1369,7 @@
         "linkage": "failed"
       },
       "horizon": "0–3D",
-      "invalidation": "下个交易日SOXX收回516.06且QQQ收回722.92",
+      "invalidation": "SOXX再失506.89且SPY、QQQ同步走弱，修复剧本失效",
       "outcome": {
         "evaluatedAt": null,
         "falseBreakout": false,
@@ -1394,7 +1394,7 @@
       "sessionDate": "2026-08-28",
       "setupLabel": "风险扩散",
       "setupType": "风险预算",
-      "stateNote": "正式收盘锁定",
+      "stateNote": "上轮修复失效；等待下一次价格确认",
       "trigger": "SPY收回774.19、QQQ收回722.92且SOXX收回516.06"
     },
     {
@@ -1406,7 +1406,7 @@
         "linkage": "failed"
       },
       "horizon": "0–3D",
-      "invalidation": "下个交易日失55.51继续降级；收回56.83且同业多数上涨才修复。",
+      "invalidation": "失55.51继续降级",
       "outcome": {
         "evaluatedAt": null,
         "falseBreakout": false,
@@ -1431,7 +1431,7 @@
       "sessionDate": "2026-08-28",
       "setupLabel": "存储链支撑测试",
       "setupType": "仅观察",
-      "stateNote": "修复未保持到收盘",
+      "stateNote": "上轮修复未保持；重新等待触发",
       "trigger": "收回56.83且同业多数上涨"
     },
     {
@@ -1443,7 +1443,7 @@
         "linkage": "failed"
       },
       "horizon": "0–3D",
-      "invalidation": "失893.01继续下修；至少收复922.98才停止恶化。",
+      "invalidation": "失893.01继续下修",
       "outcome": {
         "evaluatedAt": null,
         "falseBreakout": false,
@@ -1468,7 +1468,7 @@
       "sessionDate": "2026-08-28",
       "setupLabel": "光通信止跌",
       "setupType": "仅观察",
-      "stateNote": "弱势正式收口",
+      "stateNote": "上轮止跌失效；重新等待触发",
       "trigger": "收回922.98并获COHR转强确认"
     },
     {
@@ -1480,7 +1480,7 @@
         "linkage": "failed"
       },
       "horizon": "0–3D",
-      "invalidation": "失34.825继续下修；收复36.53和38.28才解除锁权。",
+      "invalidation": "失34.825继续下修",
       "outcome": {
         "evaluatedAt": null,
         "falseBreakout": false,
@@ -1505,7 +1505,7 @@
       "sessionDate": "2026-08-28",
       "setupLabel": "价格否决经营乐观",
       "setupType": "仅观察",
-      "stateNote": "财报后负向确认收口",
+      "stateNote": "上轮乐观剧本失效；重新等待恢复",
       "trigger": "收复36.53并站38.28"
     },
     {
@@ -1517,7 +1517,7 @@
         "linkage": "failed"
       },
       "horizon": "0–3D",
-      "invalidation": "失209.20继续下修；收回218.53且至少两同业转强才修复。",
+      "invalidation": "失209.20继续下修",
       "outcome": {
         "evaluatedAt": null,
         "falseBreakout": false,
@@ -1542,7 +1542,7 @@
       "sessionDate": "2026-08-28",
       "setupLabel": "现场供电支撑测试",
       "setupType": "仅观察",
-      "stateNote": "自身与行业均未确认",
+      "stateNote": "上轮共振未确认；重新等待修复",
       "trigger": "收回218.53且至少两同业转强"
     },
     {
@@ -1554,7 +1554,7 @@
         "linkage": "confirmed"
       },
       "horizon": "0–3D",
-      "invalidation": "失139.75撤销；需稳定站141.50并突破143.11才升级。",
+      "invalidation": "失139.75撤销",
       "outcome": {
         "evaluatedAt": null,
         "falseBreakout": false,
@@ -1591,7 +1591,7 @@
         "linkage": "failed"
       },
       "horizon": "0–3D",
-      "invalidation": "失126.42继续扩大负Beta；收回130.99才停止恶化。",
+      "invalidation": "失126.42继续扩大负Beta",
       "outcome": {
         "evaluatedAt": null,
         "falseBreakout": false,
@@ -1616,7 +1616,7 @@
       "sessionDate": "2026-08-28",
       "setupLabel": "加密链风险扩散",
       "setupType": "仅观察",
-      "stateNote": "负Beta正式收口",
+      "stateNote": "上轮正Beta失效；重新等待修复",
       "trigger": "收回130.99和133.73且强于BTC/IBIT"
     },
     {
