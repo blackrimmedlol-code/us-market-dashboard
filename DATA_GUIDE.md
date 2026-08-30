@@ -1,8 +1,8 @@
-# 美股策略台数据维护指南 · v13
+# 美股策略台数据维护指南 · v14
 
 线上页面：`https://blackrimmedlol-code.github.io/us-market-dashboard/`
 
-页面是纯静态 GitHub Pages：`index.html` 负责渲染，`data.json` 由四个独立定时任务写入。固定使用中国时间：21:05 建立盘前先验、23:05 初次价格复核、次日 02:05 午后盘再验证、04:05 收盘收口。不要改动仓库根目录的卡路里 `data.json`。
+页面是纯静态 GitHub Pages：`index.html` 负责渲染，本仓库根目录的 `data.json` 就是市场数据，由四个独立定时任务写入。固定使用中国时间：21:05 建立盘前先验、23:05 初次价格复核、次日 02:05 午后盘再验证、04:05 收盘收口。不得回退或写入 `blackrimmedlol-code/calorie-tracker`。
 
 > `Asia/Shanghai` 是任务调度、页面展示、幂等比较和通知文字的唯一时区。美股交易日只用于判断是否休市，不作为第二套展示或调度时区。
 
@@ -13,10 +13,10 @@
 1. 更新前先读取 `data.json`，保留其他三个时段、`sourceGroups`、`reviews`、`mediumLedger` 和未知字段。
 2. 四个任务只替换各自对象：中国时间 21:05=`premarket`、23:05=`intraday`、02:05=`late`、04:05=`close`。每个时段都维护自己的 `horizons`、`macroFramework`、`expectationGaps` 与 `odds`。
 3. 同步更新 `meta.updatedAt`、`meta.latestSession`、`meta.sessionDate`、`meta.nextUpdate`。
-   `meta.schemaVersion` 固定为 `13`；后续契约升级必须同步提高版本号，页面遇到低于当前版本的可执行数据时只展示、不开放新增风险权限。
+   `meta.schemaVersion` 固定为 `14`；后续契约升级必须同步提高版本号，页面遇到低于当前版本的可执行数据时只展示、不开放新增风险权限。
 4. 不可靠的具体数字填 `null`，不得编造价格、指标或来源；周期方向可以依据真实 OHLC 聚合或结构推断，但必须在 `timeframeMethods` 和 `timeframeNotes` 说明方法与证据。
 5. `snapshot` 固定 10 项，顺序为 SPY、QQQ、SOXX、DRAM、LITE、IREN、BE、SPCX、MSTR、BTC；股票/ETF 默认写正式时段最新价，不能把盘后价伪装成正式收盘。延长交易统一写入 `extendedHours`。
-6. `news` 仅保留 3–5 条真正影响价格的信息；外链必须指向实际来源。
+6. `news` 只收录能解释当轮价格或行动变化的信息；外链必须指向实际来源。每条必须写 `material / impactFields / directness / impact / tone`：真正改变行动的证据写 `material:true / directness:"行动级"`，普通背景写 `material:false / directness:"背景" / impactFields:[]`，页面会自动折叠。不得为了凑满 3–5 条而重复旧闻。
 7. `reviews` 最新在前，最多保留 20 条；短线复盘样本不足 20 条时不得展示命中率。
 8. 根级 `mediumLedger` 是 1–6 周论点账本，保留历史状态，不随盘中噪音整表覆盖；只有因果证据变化时新增、降级、关闭或更新条目。
 9. 每次更新直接提交到 `main`，GitHub Pages 通常 1–2 分钟后生效。
@@ -48,7 +48,7 @@
   - 未改变行动的量价延续仍可保存在 `changes` 中，但必须写 `material:false / impactFields:[]`，页面会合并为“已收起 N 项非行动级变化”。
   - 不得为了填满七格把普通新闻或微小价格波动标为行动级变化。
 
-## v13 决策有效性契约
+## v14 决策有效性契约
 
 ### 稳定状态与自由说明分离
 
@@ -92,6 +92,8 @@
 - 触发后按可得数据补充 `triggeredAt / invalidatedAt / evaluatedAt / return1D / return3D / mfe / mae / falseBreakout`。
 
 同一剧本跨时段只更新同一 `callId`，不能每次刷新都追加同义样本。未触发判断不能算胜负；只有已触发并完成评估的同类样本进入统计。相同 `setupType + regimeCode + horizon` 的可比已结样本不足 20 条时，页面只展示开放、触发、失效和已结数量，不展示胜率或收益率结论。
+
+账本生命周期必须自洽：`open` 不得带 `triggeredAt / invalidatedAt / evaluatedAt`；`triggered` 必须有 `triggeredAt`；`invalidated` 必须有失效或评估时间；`closed / expired` 必须有 `evaluatedAt`。`失败突破 / 剧本失效` 是已结束或已失效的旧剧本，不能同时保持 `outcome.status:"open"` 或 `"triggered"`；若下一轮建立恢复条件，应另建或重置为 `等待触发` 的开放判断。
 
 ### 本机持仓风险联动
 
@@ -233,6 +235,7 @@ DRAM、LITE、IREN、BE 的 `demandLoop` 只负责基本面兑现，固定按五
 - 252 日分位：中期所处位置；
 - 每条必须写 `asOf / referencePrice / sampleSize / basis / source`；历史 K 线有延迟，不得称为盘中现价；
 - `percentile` 无法可靠计算时必须为 `null`；
+- `percentile:null` 在页面必须显示“待计算 / 样本不足”，不得标为 ACTUAL；样本不足窗口但数值真实时，页面必须显示“上市后 N 日”或“可用 N 日”，不得把不足 60/252 根包装成完整窗口；代理分位必须明确标为“代理”。
 - 新基金不足 252 个交易日时，不得把上市以来样本冒充 252 日。只有能从发行文件确认核心持仓、且成份股有完整日线时，才允许输出显式标记 `proxy:true` 的核心持仓代理；同时保留基金自身上市以来的样本数与分位；
 - SPCX 存在代码换主：旧的 SPAC and New Issue ETF 已于 2026-04-07 改为 SPCK，SpaceX 自 2026-06-12 才以 SPCX 上市。SPCX 的历史序列必须从 2026-06-12 重启，剔除旧 ETF 以及 IPO 前无成交的占位记录。样本不足 60/252 时仍可展示“上市后位置”，但必须写 `sampleNote` 和真实 `sampleSize`，不得把 47 根样本包装成完整窗口；
 - 只有进入前/后 10%，同时出现新催化，并被反转或突破确认，才升级为交易信号。
@@ -252,6 +255,8 @@ DRAM、LITE、IREN、BE、SPCX、MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，
 - `aggregate`：低周期 OHLC 聚合
 - `structure`：多日/多周期结构推断
 - `daily`：日线 OHLC
+
+页面证据权重必须与方法匹配：`structure` 是同一批多日/多周期信息的结构推断，不得与 `direct / aggregate` 一样呈现为多份独立确认。当 15m、30m、1h、4h 全部为 `structure` 时，页面合并为一个“短线结构推断”，只把 1d 作为另一份独立证据；数据层仍保留完整五字段以便审计。
 
 ## 数据源梯队
 
@@ -303,7 +308,7 @@ DRAM、LITE、IREN、BE、SPCX、MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，
 - 当前任务只改自己的时段对象；空时段保持 `available:false`，不能回退到其他时段的快照。
 - 市场、DRAM、LITE、IREN、BE、SPCX、MSTR 的 `changes` 完整，六个重点标的严格按 `TARGET_ORDER` 排序；每个数据模块都有实际时点和状态标签。
 - `regime` 首段是可独立阅读的短标题，`largestChange` 已填写；`MARKET.short.trigger / invalidation` 分别能作为下一确认与总体失效条件。
-- `meta.schemaVersion` 为 13；每个可用时段都有合法 `regimeCode / breadthState / decisionGate / eventCalendar`，所有枚举通过 `validate-data.mjs`。
+- `meta.schemaVersion` 为 14；每个可用时段都有合法 `regimeCode / breadthState / decisionGate / eventCalendar`，所有枚举通过 `validate-data.mjs`。
 - `changes` 七项均显式标明 `material / impactFields`；页面展开行动级变化、收起普通延续。
 - DRAM、LITE、IREN、BE、SPCX、MSTR 同时具有 `supportValue / resistanceValue / priceStatus`，距离计算方向正确。
 - `extendedHours` 如存在，严格按 `TARGET_ORDER`，正式收盘与盘后/夜盘不混写；每条都有 session、时点、状态和来源，页面关键位距离采用的价格口径可见。
@@ -319,4 +324,8 @@ DRAM、LITE、IREN、BE、SPCX、MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，
 - DRAM 的消息—价格一致性、LITE 的公司—光通信链确认、IREN 的 BTC/矿企—AI数据中心双链验证、BE 的数据中心电力需求—合同—部署—利润/现金流闭环、SPCX 的上市后量价与代码换主隔离、MSTR 的 BTC-MSTR 背离必须进入 `verdict` 或 `priceAction`。
 - 复盘区包含至少一个明确的模型调整；`mediumLedger` 只有证据变化时才更新，不输出小样本伪精度。
 - `decisionLedger` 对同一剧本只维护一个 `callId`；未触发与未完成评估的记录不进入胜率或收益统计，少于 20 个可比已结样本不展示绩效结论。
+- `decisionLedger` 生命周期时间戳与状态严格自洽；开放判断不夹带旧触发时间，失败剧本不保持开放状态。
+- `news` 每条均有 `material / impactFields / directness / impact / tone`；页面行动证据只展示 `material:true`，背景信息默认折叠。
+- 五周期的 `timeframeMethods` 与页面证据权重一致：结构推断不会被包装成四份独立 K 线确认。
+- 分位为空、样本不足或使用代理时，标签分别显示“待计算 / 可用 N 日 / 代理”，不误标完整 ACTUAL。
 - 页面只用于信息整理，不输出确定性买卖建议。

@@ -645,17 +645,34 @@
     ],
     "news": [
       {
+        "directness": "行动级",
+        "impact": "市场风险预算维持谨慎，新增 beta、追价与隔夜权限继续受限。",
+        "impactFields": [
+          "regimeCode",
+          "permissions"
+        ],
+        "material": true,
         "source": "Reuters",
         "summary": "通胀约束相关讲话令投资者转谨慎，主要指数收弱；半导体跌幅更大。",
         "time": "2026-08-29 中国时间正式收盘",
         "title": "美股收弱，通胀约束压制风险偏好",
+        "tone": "down",
         "url": "https://www.reuters.com/business/sp-500-nasdaq-futures-slip-after-tech-rally-warshs-speech-awaited-2026-08-28/"
       },
       {
+        "directness": "行动级",
+        "impact": "IREN 的恢复剧本降为等待触发，财报后负向量价优先于长期合同叙事。",
+        "impactFields": [
+          "planStatus",
+          "permissions",
+          "confidence"
+        ],
+        "material": true,
         "source": "Barron's / IREN IR",
         "summary": "IREN基本面披露已在21:05纳入；正式收盘新增证据是财报后放量大跌。",
         "time": "2026-08-29 中国时间正式收盘",
         "title": "IREN财报后负向定价正式收口",
+        "tone": "down",
         "url": "https://www.barrons.com/articles/iren-earnings-stock-price-ai-analyst-buy-6b6ef4d3"
       }
     ],
@@ -1355,21 +1372,21 @@
       "invalidation": "下个交易日SOXX收回516.06且QQQ收回722.92",
       "outcome": {
         "evaluatedAt": null,
-        "falseBreakout": true,
+        "falseBreakout": false,
         "invalidatedAt": null,
         "mae": null,
         "mfe": null,
         "return1D": null,
         "return3D": null,
         "status": "open",
-        "triggeredAt": "2026-08-29T04:00:00+08:00"
+        "triggeredAt": null
       },
       "permissionsAtCall": {
         "beta": "低",
         "chase": "关闭",
         "overnight": "谨慎"
       },
-      "planStatus": "剧本失效",
+      "planStatus": "等待触发",
       "referenceAt": "2026-08-29T04:00:00+08:00",
       "referencePrice": 769.38,
       "regimeCode": "RISK_OFF",
@@ -1392,21 +1409,21 @@
       "invalidation": "下个交易日失55.51继续降级；收回56.83且同业多数上涨才修复。",
       "outcome": {
         "evaluatedAt": null,
-        "falseBreakout": true,
+        "falseBreakout": false,
         "invalidatedAt": null,
         "mae": null,
         "mfe": null,
         "return1D": null,
         "return3D": null,
         "status": "open",
-        "triggeredAt": "2026-08-29T04:00:00+08:00"
+        "triggeredAt": null
       },
       "permissionsAtCall": {
         "beta": "低",
         "chase": "关闭",
         "overnight": "谨慎"
       },
-      "planStatus": "剧本失效",
+      "planStatus": "等待触发",
       "referenceAt": "2026-08-29T04:00:00+08:00",
       "referencePrice": 55.83,
       "regimeCode": "RISK_OFF",
@@ -1429,21 +1446,21 @@
       "invalidation": "失893.01继续下修；至少收复922.98才停止恶化。",
       "outcome": {
         "evaluatedAt": null,
-        "falseBreakout": true,
+        "falseBreakout": false,
         "invalidatedAt": null,
         "mae": null,
         "mfe": null,
         "return1D": null,
         "return3D": null,
         "status": "open",
-        "triggeredAt": "2026-08-29T04:00:00+08:00"
+        "triggeredAt": null
       },
       "permissionsAtCall": {
         "beta": "低",
         "chase": "关闭",
         "overnight": "关闭"
       },
-      "planStatus": "剧本失效",
+      "planStatus": "等待触发",
       "referenceAt": "2026-08-29T04:00:00+08:00",
       "referencePrice": 894.83,
       "regimeCode": "RISK_OFF",
@@ -1466,21 +1483,21 @@
       "invalidation": "失34.825继续下修；收复36.53和38.28才解除锁权。",
       "outcome": {
         "evaluatedAt": null,
-        "falseBreakout": true,
+        "falseBreakout": false,
         "invalidatedAt": null,
         "mae": null,
         "mfe": null,
         "return1D": null,
         "return3D": null,
         "status": "open",
-        "triggeredAt": "2026-08-29T04:00:00+08:00"
+        "triggeredAt": null
       },
       "permissionsAtCall": {
         "beta": "低",
         "chase": "关闭",
         "overnight": "关闭"
       },
-      "planStatus": "剧本失效",
+      "planStatus": "等待触发",
       "referenceAt": "2026-08-29T04:00:00+08:00",
       "referencePrice": 35.44,
       "regimeCode": "RISK_OFF",
@@ -1503,21 +1520,21 @@
       "invalidation": "失209.20继续下修；收回218.53且至少两同业转强才修复。",
       "outcome": {
         "evaluatedAt": null,
-        "falseBreakout": true,
+        "falseBreakout": false,
         "invalidatedAt": null,
         "mae": null,
         "mfe": null,
         "return1D": null,
         "return3D": null,
         "status": "open",
-        "triggeredAt": "2026-08-29T04:00:00+08:00"
+        "triggeredAt": null
       },
       "permissionsAtCall": {
         "beta": "低",
         "chase": "关闭",
         "overnight": "谨慎"
       },
-      "planStatus": "剧本失效",
+      "planStatus": "等待触发",
       "referenceAt": "2026-08-29T04:00:00+08:00",
       "referencePrice": 210.66,
       "regimeCode": "RISK_OFF",
@@ -1547,7 +1564,7 @@
         "return1D": null,
         "return3D": null,
         "status": "open",
-        "triggeredAt": "2026-08-29T04:00:00+08:00"
+        "triggeredAt": null
       },
       "permissionsAtCall": {
         "beta": "低至中",
@@ -1577,21 +1594,21 @@
       "invalidation": "失126.42继续扩大负Beta；收回130.99才停止恶化。",
       "outcome": {
         "evaluatedAt": null,
-        "falseBreakout": true,
+        "falseBreakout": false,
         "invalidatedAt": null,
         "mae": null,
         "mfe": null,
         "return1D": null,
         "return3D": null,
         "status": "open",
-        "triggeredAt": "2026-08-29T04:00:00+08:00"
+        "triggeredAt": null
       },
       "permissionsAtCall": {
         "beta": "低",
         "chase": "关闭",
         "overnight": "关闭"
       },
-      "planStatus": "剧本失效",
+      "planStatus": "等待触发",
       "referenceAt": "2026-08-29T04:00:00+08:00",
       "referencePrice": 127.29,
       "regimeCode": "RISK_OFF",
@@ -2879,17 +2896,34 @@
     ],
     "news": [
       {
+        "directness": "行动级",
+        "impact": "指数与半导体背离，市场总闸由中性修复转为选择性谨慎。",
+        "impactFields": [
+          "regimeCode",
+          "permissions"
+        ],
+        "material": true,
         "source": "Reuters",
         "summary": "SPY与QQQ小涨，半导体下跌；AI链对短期兑现和通胀风险更敏感。",
         "time": "2026-08-28 中国时间盘中",
         "title": "美股指数平稳，AI行情降温",
+        "tone": "down",
         "url": "https://www.reuters.com/business/sp-500-nasdaq-futures-slip-after-tech-rally-warshs-speech-awaited-2026-08-28/"
       },
       {
+        "directness": "行动级",
+        "impact": "IREN 价格否决盘前乐观先验，关闭追价并收紧隔夜权限。",
+        "impactFields": [
+          "planStatus",
+          "permissions",
+          "confidence"
+        ],
+        "material": true,
         "source": "Barron's",
         "summary": "AI Cloud收入增长，但调整后EBITDA低于预期；正式盘继续负向定价。",
         "time": "2026-08-28 中国时间盘中",
         "title": "IREN财报后跌幅扩大",
+        "tone": "down",
         "url": "https://www.barrons.com/articles/iren-earnings-stock-price-ai-analyst-buy-6b6ef4d3"
       }
     ],
@@ -4222,17 +4256,33 @@
     ],
     "news": [
       {
+        "directness": "行动级",
+        "impact": "风险偏好由盘中修复转弱，市场 beta 与隔夜权限继续下调。",
+        "impactFields": [
+          "regimeCode",
+          "permissions"
+        ],
+        "material": true,
         "source": "Reuters",
         "summary": "科技与AI行情降温，政策讲话继续强调通胀约束；午后价格显示风险偏好进一步回落。",
         "time": "2026-08-29 中国时间午后",
         "title": "美股风险偏好回落，AI行情降温",
+        "tone": "down",
         "url": "https://www.reuters.com/business/sp-500-nasdaq-futures-slip-after-tech-rally-warshs-speech-awaited-2026-08-28/"
       },
       {
+        "directness": "行动级",
+        "impact": "IREN 的量价失效进一步确认，恢复条件不变且权限不升级。",
+        "impactFields": [
+          "planStatus",
+          "permissions"
+        ],
+        "material": true,
         "source": "Barron's / IREN IR",
         "summary": "基本面披露已在21:05纳入；本轮新增仅为财报后跌幅和成交量继续扩大。",
         "time": "2026-08-29 中国时间午后",
         "title": "IREN财报后负向价格确认加深",
+        "tone": "down",
         "url": "https://www.barrons.com/articles/iren-earnings-stock-price-ai-analyst-buy-6b6ef4d3"
       }
     ],
@@ -5106,7 +5156,7 @@
   "meta": {
     "latestSession": "close",
     "nextUpdate": "2026-08-31T21:05:00+08:00",
-    "schemaVersion": 13,
+    "schemaVersion": 14,
     "sessionDate": "2026-08-28",
     "timezone": "Asia/Shanghai",
     "updatedAt": "2026-08-29T04:18:00+08:00"
@@ -5856,24 +5906,42 @@
     ],
     "news": [
       {
+        "directness": "行动级",
+        "impact": "经营事实提高中期信心，但短线只建立可证伪的价格触发，不直接开放追价。",
+        "impactFields": [
+          "confidence",
+          "trigger"
+        ],
+        "material": true,
         "source": "IREN Investor Relations",
         "summary": "公司披露2026容量约40亿美元合同ARR、当前约10亿美元运营ARR；Horizon 1已交付，后续部署仍需调试、验收与收入确认。",
         "time": "2026-08-28 中国时间盘前",
         "title": "IREN公布FY26结果并新增多年AI Cloud合同",
+        "tone": "up",
         "url": "https://iren.gcs-web.com/static-files/1cb9f4da-d4c7-4510-8bda-e475022b59f5"
       },
       {
+        "directness": "背景",
+        "impact": "用于解释 AI 硬件链情绪，但未单独改变本台动作权限。",
+        "impactFields": [],
+        "material": false,
         "source": "Reuters",
         "summary": "市场担忧Google相关收入更显著的贡献要到后续年度，Marvell盘前下跌并拖累部分AI硬件链。",
         "time": "2026-08-28 中国时间盘前",
         "title": "Marvell长期展望上调但短期收入时点受质疑",
+        "tone": "down",
         "url": "https://www.reuters.com/business/marvell-shares-slide-concerns-over-timing-google-ai-deal-revenue-eclipse-strong-results-2026-08-28/"
       },
       {
+        "directness": "背景",
+        "impact": "作为风险偏好背景保留，未改变已有触发位或权限。",
+        "impactFields": [],
+        "material": false,
         "source": "Reuters",
         "summary": "截至8月26日一周，美国股票基金净流出约223.3亿美元，显示事件前风险偏好仍谨慎。",
         "time": "2026-08-28 中国时间盘前",
         "title": "美国股票基金出现五个月最大周度流出",
+        "tone": "down",
         "url": "https://www.reuters.com/business/us-equity-funds-post-biggest-weekly-outflow-since-march-ahead-nvidia-earnings-fed-event-2026-08-28/"
       }
     ],
@@ -6592,43 +6660,43 @@
       "assets": [
         {
           "asset": "市场",
-          "expected": "风险扩散保持",
+          "expected": "若指数修复但SOXX与广度不跟随，风险预算不升级；只有SPY、QQQ、SOXX同步收复关键位才解除谨慎。",
           "actual": "收盘 SPY -0.23%、QQQ -0.66%、SOXX -3.22%",
           "result": "确认"
         },
         {
           "asset": "DRAM",
-          "expected": "56.07，-1.34%",
+          "expected": "修复必须守住56.83，并获存储同业多数上涨确认；否则仍按支撑测试处理。",
           "actual": "收55.83，-1.78%",
           "result": "失效"
         },
         {
           "asset": "LITE",
-          "expected": "908.43，-4.99%",
+          "expected": "修复需依次收回940.05与947.52，并获COHR同步转强；仅反弹不算确认。",
           "actual": "收894.83，-6.41%",
           "result": "失效"
         },
         {
           "asset": "IREN",
-          "expected": "35.07，-13.47%",
+          "expected": "先收回38.28，再站稳39.38，才允许把财报后的反弹视为恢复。",
           "actual": "收35.44，-12.60%",
           "result": "失效"
         },
         {
           "asset": "BE",
-          "expected": "212.80，-2.31%",
+          "expected": "收回218.53且VST、NRG、CEG、GEV中至少两只转强，才确认自身与电力链共振。",
           "actual": "收210.66，-3.29%",
           "result": "失效"
         },
         {
           "asset": "SPCX",
-          "expected": "140.71，-0.11%",
+          "expected": "141.50需要保持，并突破143.11才升级；擦边收回一级位只算部分确认。",
           "actual": "收141.55，+0.41%",
           "result": "部分确认"
         },
         {
           "asset": "MSTR",
-          "expected": "127.04，-7.54%",
+          "expected": "依次收回133.73与135.55，并重新强于BTC、IBIT，才解除负Beta判断。",
           "actual": "收127.29，-7.45%",
           "result": "失效"
         }

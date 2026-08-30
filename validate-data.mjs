@@ -15,6 +15,9 @@ const breadthStates = new Set(['broad', 'selective', 'mixed', 'weak', 'unknown']
 const gateStates = new Set(['open', 'caution', 'locked']);
 const outcomeStates = new Set(['open', 'triggered', 'invalidated', 'closed', 'expired']);
 const impactFields = new Set(['regimeCode', 'planStatus', 'tradeType', 'permissions', 'trigger', 'invalidation', 'confidence']);
+const newsDirectness = new Set(['行动级', '背景']);
+const tones = new Set(['up', 'down', 'flat']);
+const timeframeMethods = new Set(['direct', 'aggregate', 'structure', 'daily']);
 const capitalKeys = ['endDemand', 'unitEconomics', 'capex', 'financing', 'price'];
 const demandLoopKeys = ['industryDemand', 'ordersCommitments', 'deliveryUtilization', 'revenueConversion', 'marginCashFlow'];
 const fundamentalLoopAssets = new Set(['DRAM', 'LITE', 'IREN', 'BE']);
@@ -23,7 +26,7 @@ const errors = [];
 const warnings = [];
 const fail = (path, message) => errors.push(`${path}: ${message}`);
 
-if (Number(data?.meta?.schemaVersion) !== 13) fail('meta.schemaVersion', '必须为 13');
+if (Number(data?.meta?.schemaVersion) !== 14) fail('meta.schemaVersion', '必须为 14');
 if (!sessions.includes(data?.meta?.latestSession)) fail('meta.latestSession', '不是合法时段');
 
 for (const key of sessions) {
@@ -68,6 +71,11 @@ for (const key of sessions) {
     const item = (session.watchlist || []).find((candidate) => candidate.symbol === asset);
     const path = `${base}.watchlist.${asset}.demandLoop`;
     if (!item) continue;
+    for (const timeframe of ['15m', '30m', '1h', '4h', '1d']) {
+      if (!['bull', 'bear', 'neutral', 'unknown'].includes(item.timeframes?.[timeframe])) fail(`${base}.watchlist.${asset}.timeframes.${timeframe}`, '非法或缺失');
+      if (!timeframeMethods.has(item.timeframeMethods?.[timeframe])) fail(`${base}.watchlist.${asset}.timeframeMethods.${timeframe}`, '非法或缺失');
+      if (!item.timeframeNotes?.[timeframe]) fail(`${base}.watchlist.${asset}.timeframeNotes.${timeframe}`, '缺失证据说明');
+    }
     if (fundamentalLoopAssets.has(asset)) {
       const actualKeys = (item.demandLoop || []).map((node) => node.key);
       if (JSON.stringify(actualKeys) !== JSON.stringify(demandLoopKeys)) fail(path, `必须是纯基本面兑现链：${demandLoopKeys.join(' / ')}`);
@@ -102,6 +110,33 @@ for (const key of sessions) {
   const oddsOrder = (session.odds || []).map((item) => `${item?.asset}:${item?.window}`);
   const expectedOddsOrder = targetOrder.flatMap((asset) => [`${asset}:60D`, `${asset}:252D`]);
   if (JSON.stringify(oddsOrder) !== JSON.stringify(expectedOddsOrder)) fail(`${base}.odds`, `每个标的必须依次包含 60D / 252D，顺序为 ${targetOrder.join(' / ')}`);
+  (session.odds || []).forEach((item, index) => {
+    const path = `${base}.odds[${index}]`;
+    const target = item.window === '252D' ? 252 : item.window === '60D' ? 60 : null;
+    if (!target) fail(`${path}.window`, '只能为 60D / 252D');
+    if (item.percentile == null) {
+      if (item.referencePrice != null) warnings.push(`${path}: percentile 为空但 referencePrice 非空，页面仍按待计算处理`);
+      if (!item.sampleNote) fail(`${path}.sampleNote`, '分位为空时必须解释原因');
+    } else {
+      if (!Number.isFinite(Number(item.percentile)) || Number(item.percentile) < 0 || Number(item.percentile) > 100) fail(`${path}.percentile`, '必须为 0–100');
+      if (!(Number(item.sampleSize) > 0)) fail(`${path}.sampleSize`, '有效分位必须有真实样本数');
+      for (const field of ['asOf', 'basis', 'source']) if (!item[field]) fail(`${path}.${field}`, '有效分位缺失');
+      if (!(Number(item.referencePrice) > 0)) fail(`${path}.referencePrice`, '有效分位必须有参考价');
+      if (Number(item.sampleSize) < target && !item.proxy && !item.sampleNote) fail(`${path}.sampleNote`, '不足完整窗口时必须明确样本边界');
+      if (item.proxy && !item.components) fail(`${path}.components`, '代理分位必须注明组成');
+    }
+  });
+  if (!Array.isArray(session.news)) fail(`${base}.news`, '必须是数组');
+  else session.news.forEach((item, index) => {
+    const path = `${base}.news[${index}]`;
+    if (typeof item.material !== 'boolean') fail(`${path}.material`, '必须是布尔值');
+    if (!newsDirectness.has(item.directness)) fail(`${path}.directness`, '只能为 行动级 / 背景');
+    if (!tones.has(item.tone)) fail(`${path}.tone`, '只能为 up / down / flat');
+    if (!item.impact) fail(`${path}.impact`, '缺失对行动的影响说明');
+    if (!Array.isArray(item.impactFields) || !item.impactFields.every((field) => impactFields.has(field))) fail(`${path}.impactFields`, '含非法字段');
+    if (item.material && (item.directness !== '行动级' || item.impactFields.length === 0)) fail(path, '行动级新闻必须有影响字段且 directness=行动级');
+    if (!item.material && (item.directness !== '背景' || item.impactFields.length)) fail(path, '背景新闻不得声明行动影响字段');
+  });
   const extendedOrder = (session.extendedHours || []).filter(Boolean).map((item) => item.symbol).filter((symbol) => targetOrder.includes(symbol));
   if (extendedOrder.length && JSON.stringify(extendedOrder) !== JSON.stringify(targetOrder)) fail(`${base}.extendedHours`, `存在时必须覆盖并按 ${targetOrder.join(' / ')} 排序`);
   if (!Array.isArray(session.changes) || session.changes.length !== 7) fail(`${base}.changes`, '必须覆盖市场与六个标的');
@@ -135,6 +170,12 @@ else {
     if (!tradeTypes.has(call.setupType)) fail(`${path}.setupType`, '非法值');
     if (!planStatuses.has(call.planStatus)) fail(`${path}.planStatus`, '非法值');
     if (!outcomeStates.has(call.outcome?.status)) fail(`${path}.outcome.status`, '非法值');
+    const outcome = call.outcome || {};
+    if (outcome.status === 'open' && (outcome.triggeredAt || outcome.invalidatedAt || outcome.evaluatedAt)) fail(`${path}.outcome`, 'open 不得带触发、失效或评估时间');
+    if (outcome.status === 'triggered' && !outcome.triggeredAt) fail(`${path}.outcome.triggeredAt`, 'triggered 必须有触发时间');
+    if (outcome.status === 'invalidated' && !outcome.invalidatedAt && !outcome.evaluatedAt) fail(`${path}.outcome`, 'invalidated 必须有失效或评估时间');
+    if (['closed', 'expired'].includes(outcome.status) && !outcome.evaluatedAt) fail(`${path}.outcome.evaluatedAt`, `${outcome.status} 必须有评估时间`);
+    if (['失败突破', '剧本失效'].includes(call.planStatus) && ['open', 'triggered'].includes(outcome.status)) fail(`${path}.planStatus`, '失败剧本不能仍处于开放或触发未结状态');
   });
 }
 
@@ -143,4 +184,4 @@ if (errors.length) {
   console.error(`INVALID (${errors.length})\n${errors.join('\n')}`);
   process.exit(1);
 }
-console.log(`VALID schema v13 · ${sessions.filter((key) => data[key]?.available !== false).length} sessions · ${data.decisionLedger.length} calls`);
+console.log(`VALID schema v14 · ${sessions.filter((key) => data[key]?.available !== false).length} sessions · ${data.decisionLedger.length} calls`);
