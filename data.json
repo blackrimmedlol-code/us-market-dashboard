@@ -1,7 +1,7 @@
 {
   "close": {
     "aiCapitalCycle": {
-      "asOf": "2026-09-02 04:00 中国时间",
+      "asOf": "2026-09-03 04:03 中国时间",
       "demandFormula": "需求强度 = 场景渗透 × 使用强度 × 工作负载复杂度 ÷ 效率提升",
       "items": [
         {
@@ -37,15 +37,15 @@
           "tone": "flat"
         },
         {
-          "evidence": "SPY -0.83%、QQQ -1.27%、SOXX -2.22%；DRAM/LITE/MSTR弱，BE上涨，IREN/SPCX抗跌。",
-          "invalidation": "下一交易日若三项基准同步收回关键位且多数重点标的获同业确认，再升级为广泛价格修复。",
+          "evidence": "IREN、BE、DRAM尾盘价格较强，但正式收盘未统一取得；价格节点暂不升级为跨日确认。",
+          "invalidation": "正式盘若三项基准同步收回关键位且多数标的获同业确认，再上调价格确认。",
           "key": "price",
           "label": "价格确认",
-          "state": "风险规避、内部选择性修复",
+          "state": "风险规避先验延续，等待正式盘",
           "tone": "down"
         }
       ],
-      "note": "沿用午后静态基本面与五环结构；收盘仅更新价格确认，未用单日下跌推导需求或过建。",
+      "note": "沿用上一正式收盘的静态基本面与五环结构；盘前只更新价格确认，不用缺口改写需求、产能或融资结论。",
       "overbuild": {
         "nextTrigger": "只有可用产能增速持续高于已确认收入和利用率，并伴随租金/价格、项目交付、毛利现金流、融资压力或供应链订单中的多项连续恶化时，才升级预警。",
         "offsettingEvidence": [
@@ -62,101 +62,111 @@
       }
     },
     "available": true,
-    "breadthState": "weak",
+    "breadthState": "mixed",
     "changes": [
       {
         "asset": "市场",
-        "from": "午后SPY -0.71%、QQQ -1.26%、SOXX -2.45%",
-        "to": "收盘SPY -0.83%、QQQ -1.27%、SOXX -2.22%",
-        "reason": "指数弱势保持，半导体离开低点但仍显著跑输。",
-        "tone": "down",
+        "from": "午后指数修复、内部混合",
+        "to": "尾盘修复延续但正式收盘未统一取得",
+        "reason": "SPY/QQQ/SOXX尾盘保持上涨；缺少统一正式收盘打印。",
+        "tone": "up",
         "material": true,
         "impactFields": [
-          "regimeCode",
+          "planStatus",
           "permissions",
           "confidence"
         ]
       },
       {
         "asset": "DRAM",
-        "from": "55.24，-2.92%",
-        "to": "55.21，-2.97%",
-        "reason": "收盘未收回55.52开盘位，且存储同业三跌一涨。",
-        "tone": "down",
-        "material": true,
-        "impactFields": [
-          "planStatus",
-          "permissions"
-        ]
-      },
-      {
-        "asset": "LITE",
-        "from": "865.87，-5.34%",
-        "to": "868.95，-5.01%",
-        "reason": "小幅离开低位但仍失887.60，COHR同步收弱。",
-        "tone": "flat",
-        "material": false,
-        "impactFields": []
-      },
-      {
-        "asset": "IREN",
-        "from": "37.14，+0.07%",
-        "to": "37.14，+0.07%",
-        "reason": "收在接近日高并守住36.53/37.08，但矿企链全跌。",
+        "from": "午后55.99（1.69%）",
+        "to": "尾盘56.11（+1.91%）",
+        "reason": "尾盘56.11、+1.91%，守55.52但未保持在56.41上方；仅保留部分确认，等待正式日线。",
         "tone": "up",
         "material": true,
         "impactFields": [
           "planStatus",
+          "permissions",
+          "confidence"
+        ]
+      },
+      {
+        "asset": "LITE",
+        "from": "午后859.35（-1.1%）",
+        "to": "尾盘864.95（-0.46%）",
+        "reason": "尾盘864.95、-0.46%，明显脱离846低点但仍未收回868.95；止跌未确认。",
+        "tone": "up",
+        "material": true,
+        "impactFields": [
+          "planStatus",
+          "permissions",
+          "confidence"
+        ]
+      },
+      {
+        "asset": "IREN",
+        "from": "午后38.48（4.51%）",
+        "to": "尾盘39.67（+7.74%）",
+        "reason": "尾盘39.67、+7.74%，接近日高；午后量价修复延续，但无正式收盘打印，不升级为下一日确认。",
+        "tone": "up",
+        "material": true,
+        "impactFields": [
+          "planStatus",
+          "permissions",
           "confidence"
         ]
       },
       {
         "asset": "BE",
-        "from": "205.67，-0.31%",
-        "to": "210.00，+1.79%",
-        "reason": "尾盘转正并收回209.20，成为最强反转标的；电力同业仅二涨二跌。",
+        "from": "午后212.71（-0.43%）",
+        "to": "尾盘216.08（+1.15%）",
+        "reason": "尾盘216.08、+1.15%，从204.49强力反转并收回213.63；因缺正式收盘打印，仅部分确认。",
         "tone": "up",
         "material": true,
         "impactFields": [
           "planStatus",
-          "trigger",
           "permissions",
           "confidence"
         ]
       },
       {
         "asset": "SPCX",
-        "from": "143.31，-0.26%",
-        "to": "143.40，-0.20%",
-        "reason": "保持141.50上方但未站稳145，供给吸收仅部分确认。",
-        "tone": "flat",
-        "material": false,
-        "impactFields": []
-      },
-      {
-        "asset": "MSTR",
-        "from": "125.66，-5.48%",
-        "to": "125.76，-5.40%",
-        "reason": "仍显著弱于BTC与IBIT，正Beta恢复失败。",
+        "from": "午后140.85（-0.97%）",
+        "to": "尾盘140.75（-1.04%）",
+        "reason": "15:53报140.75、-1.04%，仍未收回141.50；午后反弹未完成结构修复。",
         "tone": "down",
         "material": true,
         "impactFields": [
           "planStatus",
-          "permissions"
+          "permissions",
+          "confidence"
+        ]
+      },
+      {
+        "asset": "MSTR",
+        "from": "午后123.14（-1.39%）",
+        "to": "尾盘122.91（-1.58%）",
+        "reason": "尾盘122.91、-1.58%，继续弱于转正的BTC；负Beta未修复。",
+        "tone": "down",
+        "material": true,
+        "impactFields": [
+          "planStatus",
+          "permissions",
+          "confidence"
         ]
       }
     ],
-    "confidence": "高",
+    "confidence": "中",
     "decisionGate": {
-      "quoteAsOf": "2026-09-02T04:00:00+08:00",
-      "validUntil": "2026-09-02T21:05:00+08:00",
+      "quoteAsOf": "2026-09-03T03:49:00+08:00",
+      "validUntil": "2026-09-03T21:05:00+08:00",
       "sourceConflict": false,
-      "volumeComplete": true,
-      "closeFinal": true,
-      "status": "caution",
-      "note": "已取得2026-09-01正式收盘价、OHLC与成交量；跨源尾差以S&P Global历史日线为主，未使用盘后价冒充收盘。"
+      "volumeComplete": false,
+      "closeFinal": false,
+      "status": "locked",
+      "note": "主行情源与备用来源均未统一给出正式收盘打印；当前仅有15:49–15:53尾盘快照及累计成交量，BTC成交量亦缺失。任何盘中突破均不带入下一交易日主剧本。"
     },
-    "deltaLabel": "相对02:05午后复核",
+    "deltaLabel": "相对午后复核",
     "eventCalendar": [
       {
         "affectedAssets": [
@@ -211,48 +221,48 @@
     ],
     "expectationGaps": [
       {
-        "event": "午后RISK_OFF延续",
-        "expected": "SPY/QQQ/SOXX若保持弱势，收盘应继续限制总beta",
-        "actual": "SPY -0.83%、QQQ -1.27%、SOXX -2.22%",
-        "reaction": "正式确认",
-        "implication": "维持低beta、关闭追价",
+        "event": "上一收盘RISK_OFF",
+        "expected": "若风险未解除，纳指/半导体与高Beta应继续承压",
+        "actual": "纳指期货约-0.40%、SOXX盘前约-0.74%；LITE、IREN、BE、MSTR下跌",
+        "reaction": "初步延续",
+        "implication": "维持低beta，等待正式盘",
         "kind": "宏观/价格"
       },
       {
-        "event": "BE恢复条件",
-        "expected": "收回207.20并接近210.36才升级",
-        "actual": "收210.00、日高210.97",
-        "reaction": "部分确认",
-        "implication": "个股修复成立，但需电力链扩散",
+        "event": "BE尾盘反转",
+        "expected": "守住207.20/209.20并获电力链确认才延续",
+        "actual": "盘前208.28，回吐约2.50%",
+        "reaction": "待验证",
+        "implication": "降为等待正式盘保持",
         "kind": "价格/联动"
       },
       {
-        "event": "IREN与SPCX相对强势",
-        "expected": "需收盘保持关键位且不被行业弱势拖回",
-        "actual": "IREN收37.14、SPCX收143.40，均保持关键位上方",
-        "reaction": "部分确认",
-        "implication": "保留观察，不替代市场解锁",
+        "event": "SPCX相对抗跌",
+        "expected": "守141.50才保留供给吸收先验",
+        "actual": "盘前142.29、近乎平盘",
+        "reaction": "初步保持",
+        "implication": "仅观察，不追盘前",
         "kind": "价格/相对强弱"
       }
     ],
-    "extendedAsOf": null,
+    "extendedAsOf": "2026-09-03 03:49 中国时间",
     "extendedHours": false,
     "freshness": {
       "quotes": {
-        "asOf": "2026-09-02 04:00 中国时间",
-        "status": "完整正式收盘价"
+        "asOf": "2026-09-03 03:49 中国时间",
+        "status": "15:49–15:53尾盘价格、OHLC与累计成交量；正式收盘未统一取得"
       },
       "timeframes": {
-        "asOf": "2026-09-02 04:00 中国时间",
-        "status": "完整日线OHLC；盘中周期只保留结构解释"
+        "asOf": "2026-09-03 03:49 中国时间",
+        "status": "累计OHLC可用；独立周期K线与正式日线未收口"
       },
       "daily": {
         "asOf": "2026-09-01",
-        "status": "最新完整正式日线"
+        "status": "最新统一、完整的正式日线；2026-09-02未结算"
       },
       "macro": {
-        "asOf": "2026-09-02 04:05 中国时间",
-        "status": "正式收盘指数、油价/收益率冲击与行业广度"
+        "asOf": "2026-09-03 04:03 中国时间",
+        "status": "当日油价、收益率与尾盘市场反应"
       }
     },
     "horizons": {
@@ -270,30 +280,30 @@
           "overnight": "关闭"
         },
         "short": {
-          "bias": "偏空",
-          "confidence": "高",
+          "bias": "中性",
+          "confidence": "中",
           "confirmations": {
             "price": {
-              "state": "confirmed",
-              "note": "SPY -0.83%、QQQ -1.27%、SOXX -2.22%"
+              "state": "mixed",
+              "note": "尾盘SPY +0.48%、QQQ +0.22%、SOXX +0.18%，但非统一正式收盘"
             },
             "volume": {
-              "state": "confirmed",
-              "note": "三项基准正式日量已收口"
+              "state": "unknown",
+              "note": "累计成交量未完成正式结算，BTC成交量缺失"
             },
             "linkage": {
               "state": "mixed",
-              "note": "DRAM/LITE/MSTR弱；BE上涨，IREN/SPCX抗跌"
+              "note": "IREN、BE、DRAM强；LITE、SPCX、MSTR弱"
             }
           },
-          "driver": "油价和长端收益率上升，SPY/QQQ/SOXX正式收跌",
-          "invalidation": "SPY失759.48、QQQ失704.67、SOXX失495.09且多数高Beta同步破低",
-          "planStatus": "已确认",
-          "posture": "维持低beta，下一交易日前不把个股反转外推为市场解锁",
-          "setupLabel": "收盘风险规避",
-          "stateNote": "RISK_OFF锁定，但BE/IREN/SPCX显示内部有选择性修复",
+          "driver": "指数尾盘温和上涨，目标内部强弱分化；正式日线仍待结算",
+          "invalidation": "正式日线失SPY759.29、QQQ702.96、SOXX492.71且高Beta广度转弱",
+          "planStatus": "等待触发",
+          "posture": "不以尾盘快照建立隔夜或次日主剧本",
+          "setupLabel": "正式收盘确认待结算",
+          "stateNote": "指数修复与IREN/BE反转尚未取得统一正式收盘打印。",
           "tradeType": "风险预算",
-          "trigger": "SPY收回764.67、QQQ收回712.30、SOXX收回504.72，且至少四个目标标的同步转强"
+          "trigger": "取得正式收盘日线后，再验证SPY764.67、QQQ709.71、SOXX503.85与至少四个目标同步转强"
         }
       },
       "DRAM": {
@@ -310,30 +320,30 @@
           "overnight": "关闭"
         },
         "short": {
-          "bias": "偏空",
-          "confidence": "高",
+          "bias": "中性偏多",
+          "confidence": "中",
           "confirmations": {
             "price": {
-              "state": "failed",
-              "note": "O/H/L/C 55.52/56.76/54.59/55.21，-2.97%"
+              "state": "mixed",
+              "note": "尾盘56.11，+1.91%；非正式收盘"
             },
             "volume": {
-              "state": "confirmed",
-              "note": "正式成交量19922013"
+              "state": "unknown",
+              "note": "正式成交量尚未结算"
             },
             "linkage": {
-              "state": "failed",
-              "note": "MU/SNDK/STX下跌，WDC上涨，三跌一涨"
+              "state": "unknown",
+              "note": "正式收盘同业数据未统一取得；午后联动仅作非终局参考。"
             }
           },
-          "driver": "收55.21，未收回55.52开盘位且同业三跌一涨",
-          "invalidation": "失54.59继续下修",
-          "planStatus": "等待触发",
-          "posture": "只观察恢复条件",
+          "driver": "尾盘56.11、+1.91%，守55.52但未保持在56.41上方；仅保留部分确认，等待正式日线。",
+          "invalidation": "正式收盘失55.52或进一步失54.45",
+          "planStatus": "部分确认",
+          "posture": "等待正式收盘确认，不带入下一日主剧本",
           "setupLabel": "存储链修复",
-          "stateNote": "早盘修复未保持到收盘",
+          "stateNote": "尾盘56.11、+1.91%，守55.52但未保持在56.41上方；仅保留部分确认，等待正式日线。",
           "tradeType": "仅观察",
-          "trigger": "收回55.52并突破56.76，且MU/SNDK/WDC/STX多数转强"
+          "trigger": "正式日线站上56.41并突破56.76，且存储同业多数转强"
         }
       },
       "LITE": {
@@ -350,30 +360,30 @@
           "overnight": "关闭"
         },
         "short": {
-          "bias": "偏空",
-          "confidence": "高",
+          "bias": "中性偏空",
+          "confidence": "中",
           "confirmations": {
             "price": {
               "state": "failed",
-              "note": "O/H/L/C 901.04/908.97/854.28/868.95，-5.01%"
+              "note": "尾盘864.95，-0.46%；非正式收盘"
             },
             "volume": {
-              "state": "confirmed",
-              "note": "正式成交量约3680000"
+              "state": "unknown",
+              "note": "正式成交量尚未结算"
             },
             "linkage": {
-              "state": "failed",
-              "note": "COHR收跌约2.6%"
+              "state": "unknown",
+              "note": "正式收盘同业数据未统一取得；午后联动仅作非终局参考。"
             }
           },
-          "driver": "收868.95，虽离开854.28低点但仍失887.60且COHR同步下跌",
-          "invalidation": "失854.28继续下修",
+          "driver": "尾盘864.95、-0.46%，明显脱离846低点但仍未收回868.95；止跌未确认。",
+          "invalidation": "正式收盘失846继续下修",
           "planStatus": "等待触发",
-          "posture": "继续锁权",
+          "posture": "等待正式收盘确认，不带入下一日主剧本",
           "setupLabel": "光通信止跌",
-          "stateNote": "盘中止跌未获收盘与同业确认",
+          "stateNote": "尾盘864.95、-0.46%，明显脱离846低点但仍未收回868.95；止跌未确认。",
           "tradeType": "仅观察",
-          "trigger": "收回887.60并进一步站上901.04，且COHR转强"
+          "trigger": "正式日线收回868.95并突破886.21，且COHR转强"
         }
       },
       "IREN": {
@@ -390,30 +400,30 @@
           "overnight": "关闭"
         },
         "short": {
-          "bias": "中性偏多",
-          "confidence": "高",
+          "bias": "偏多",
+          "confidence": "中",
           "confirmations": {
             "price": {
-              "state": "confirmed",
-              "note": "O/H/L/C 36.08/37.26/35.14/37.14，+0.07%"
+              "state": "mixed",
+              "note": "尾盘39.67，+7.74%；非正式收盘"
             },
             "volume": {
-              "state": "confirmed",
-              "note": "正式成交量28408233"
+              "state": "unknown",
+              "note": "正式成交量尚未结算"
             },
             "linkage": {
-              "state": "failed",
-              "note": "MARA、RIOT、CLSK均收跌约4%–5%"
+              "state": "unknown",
+              "note": "正式收盘同业数据未统一取得；午后联动仅作非终局参考。"
             }
           },
-          "driver": "收37.14接近日高并守住36.53/37.08，但矿企链全跌",
-          "invalidation": "跌回36.53并进一步失35.14",
+          "driver": "尾盘39.67、+7.74%，接近日高；午后量价修复延续，但无正式收盘打印，不升级为下一日确认。",
+          "invalidation": "正式收盘失38.49并进一步失37.83",
           "planStatus": "部分确认",
-          "posture": "保留观察，不追收盘",
+          "posture": "等待正式收盘确认，不带入下一日主剧本",
           "setupLabel": "财报后价格修复",
-          "stateNote": "自身修复成立，跨资产联动失败",
+          "stateNote": "尾盘39.67、+7.74%，接近日高；午后量价修复延续，但无正式收盘打印，不升级为下一日确认。",
           "tradeType": "仅观察",
-          "trigger": "突破37.26并站上38.28，且BTC/矿企或AI数据中心链至少一条转强"
+          "trigger": "正式收盘站稳39.69/40，且BTC或矿企链保持转强"
         }
       },
       "BE": {
@@ -425,35 +435,35 @@
           "trigger": "1.2GW部署转化为收入并维持毛利和经营现金流"
         },
         "permissions": {
-          "beta": "低至中",
+          "beta": "低",
           "chase": "关闭",
-          "overnight": "谨慎"
+          "overnight": "关闭"
         },
         "short": {
           "bias": "中性偏多",
-          "confidence": "高",
+          "confidence": "中",
           "confirmations": {
             "price": {
-              "state": "confirmed",
-              "note": "O/H/L/C 203.50/210.97/197.50/210.00，+1.79%"
+              "state": "mixed",
+              "note": "尾盘216.08，+1.15%；非正式收盘"
             },
             "volume": {
-              "state": "confirmed",
-              "note": "正式成交量8963425"
+              "state": "unknown",
+              "note": "正式成交量尚未结算"
             },
             "linkage": {
-              "state": "mixed",
-              "note": "VST/CEG上涨，NRG/GEV下跌，二涨二跌"
+              "state": "unknown",
+              "note": "正式收盘同业数据未统一取得；午后联动仅作非终局参考。"
             }
           },
-          "driver": "尾盘收210.00并接近日高，收回202.90、207.20与209.20",
-          "invalidation": "跌回207.20并再失202.90",
+          "driver": "尾盘216.08、+1.15%，从204.49强力反转并收回213.63；因缺正式收盘打印，仅部分确认。",
+          "invalidation": "正式收盘失213.63并进一步失209.20",
           "planStatus": "部分确认",
-          "posture": "允许低至中beta观察，不追高",
-          "setupLabel": "失守后的恢复条件",
-          "stateNote": "自身价格反转成立，电力链二涨二跌使完整确认仍不足",
-          "tradeType": "趋势交易",
-          "trigger": "站稳210.97并进一步收回215.15，且至少三项电力同业转强"
+          "posture": "等待正式收盘确认，不带入下一日主剧本",
+          "setupLabel": "尾盘反转保持",
+          "stateNote": "尾盘216.08、+1.15%，从204.49强力反转并收回213.63；因缺正式收盘打印，仅部分确认。",
+          "tradeType": "仅观察",
+          "trigger": "正式日线站稳217.05并获电力同业多数确认"
         }
       },
       "SPCX": {
@@ -467,33 +477,33 @@
         "permissions": {
           "beta": "低",
           "chase": "关闭",
-          "overnight": "谨慎"
+          "overnight": "关闭"
         },
         "short": {
-          "bias": "中性偏多",
-          "confidence": "高",
+          "bias": "偏空",
+          "confidence": "中",
           "confirmations": {
             "price": {
-              "state": "mixed",
-              "note": "O/H/L/C 141.87/145.23/141.17/143.40，-0.20%"
+              "state": "failed",
+              "note": "尾盘140.75，-1.04%；非正式收盘"
             },
             "volume": {
-              "state": "confirmed",
-              "note": "正式成交量46358569"
+              "state": "unknown",
+              "note": "正式成交量尚未结算"
             },
             "linkage": {
-              "state": "confirmed",
-              "note": "六标的中仅次于BE/IREN，显著强于半导体与高Beta链"
+              "state": "unknown",
+              "note": "正式收盘同业数据未统一取得；午后联动仅作非终局参考。"
             }
           },
-          "driver": "收143.40守住141.50，但未持续站稳145",
-          "invalidation": "失141.17并收在141.50下方",
-          "planStatus": "部分确认",
-          "posture": "保留观察，不追收盘",
+          "driver": "15:53报140.75、-1.04%，仍未收回141.50；午后反弹未完成结构修复。",
+          "invalidation": "正式收盘低于138.17",
+          "planStatus": "等待触发",
+          "posture": "等待正式收盘确认，不带入下一日主剧本",
           "setupLabel": "供给吸收确认",
-          "stateNote": "相对抗跌保持，二级突破未锁定",
+          "stateNote": "15:53报140.75、-1.04%，仍未收回141.50；午后反弹未完成结构修复。",
           "tradeType": "短线事件交易",
-          "trigger": "守住141.50并站稳145.23"
+          "trigger": "正式日线收回141.50并突破143.10"
         }
       },
       "MSTR": {
@@ -511,38 +521,33 @@
         },
         "short": {
           "bias": "偏空",
-          "confidence": "高",
+          "confidence": "中",
           "confirmations": {
             "price": {
               "state": "failed",
-              "note": "O/H/L/C 128.03/129.90/123.59/125.76，-5.40%"
+              "note": "尾盘122.91，-1.58%；非正式收盘"
             },
             "volume": {
-              "state": "confirmed",
-              "note": "正式成交量16662786"
+              "state": "unknown",
+              "note": "正式成交量尚未结算"
             },
             "linkage": {
-              "state": "failed",
-              "note": "BTC约-2%、IBIT约-2.2%，MSTR明显落后"
+              "state": "unknown",
+              "note": "正式收盘同业数据未统一取得；午后联动仅作非终局参考。"
             }
           },
-          "driver": "收125.76、-5.40%，显著弱于BTC与IBIT",
-          "invalidation": "失123.59继续下修",
+          "driver": "尾盘122.91、-1.58%，继续弱于转正的BTC；负Beta未修复。",
+          "invalidation": "正式收盘失121.14继续下修",
           "planStatus": "等待触发",
-          "posture": "只观察恢复条件",
+          "posture": "等待正式收盘确认，不带入下一日主剧本",
           "setupLabel": "正Beta恢复",
-          "stateNote": "正Beta恢复未发生，融资/股权弹性压力继续主导",
+          "stateNote": "尾盘122.91、-1.58%，继续弱于转正的BTC；负Beta未修复。",
           "tradeType": "仅观察",
-          "trigger": "收回128.03并突破129.90，且重新强于BTC/IBIT"
+          "trigger": "正式日线收回124.88并突破125.62，且重新强于BTC/IBIT"
         }
       }
     },
-    "largestChange": {
-      "asset": "BE",
-      "label": "尾盘由午后-0.31%转为收盘+1.79%",
-      "detail": "收210.00并接近日高210.97，收回202.90、207.20及209.20，但电力同业仅二涨二跌。",
-      "tone": "up"
-    },
+    "largestChange": "IREN尾盘扩大至+7.74%，BE转为+1.15%；但因正式收盘打印未统一取得，两者均不升级为下一交易日主剧本。",
     "macroFramework": {
       "pillars": [
         {
@@ -611,92 +616,60 @@
         "asset": "市场",
         "fundamental": "0",
         "macro": "-",
-        "positioning": "-",
-        "price": "-",
-        "verdict": "指数再探低位，RISK_OFF延续"
+        "positioning": "0",
+        "price": "0",
+        "verdict": "尾盘修复但正式收盘待结算"
       },
       {
         "asset": "DRAM",
-        "fundamental": "+",
-        "macro": "-",
-        "positioning": "-",
-        "price": "-",
-        "verdict": "失55.26，早盘修复失效"
-      },
-      {
-        "asset": "LITE",
-        "fundamental": "+",
-        "macro": "-",
-        "positioning": "-",
-        "price": "-",
-        "verdict": "仍守854.28但未收887.60"
-      },
-      {
-        "asset": "IREN",
-        "fundamental": "+",
+        "fundamental": "0",
         "macro": "-",
         "positioning": "0",
         "price": "+",
-        "verdict": "转正并收回37.08，联动仍失败"
+        "verdict": "尾盘56.11、+1.91%，守55.52但未保持在56.41上方；仅保留部分确认，等待正式日线。"
+      },
+      {
+        "asset": "LITE",
+        "fundamental": "0",
+        "macro": "-",
+        "positioning": "0",
+        "price": "-",
+        "verdict": "尾盘864.95、-0.46%，明显脱离846低点但仍未收回868.95；止跌未确认。"
+      },
+      {
+        "asset": "IREN",
+        "fundamental": "0",
+        "macro": "-",
+        "positioning": "0",
+        "price": "+",
+        "verdict": "尾盘39.67、+7.74%，接近日高；午后量价修复延续，但无正式收盘打印，不升级为下一日确认。"
       },
       {
         "asset": "BE",
-        "fundamental": "+",
+        "fundamental": "0",
         "macro": "-",
         "positioning": "0",
-        "price": "0",
-        "verdict": "收回202.90但同业一涨三跌"
+        "price": "+",
+        "verdict": "尾盘216.08、+1.15%，从204.49强力反转并收回213.63；因缺正式收盘打印，仅部分确认。"
       },
       {
         "asset": "SPCX",
         "fundamental": "0",
         "macro": "-",
-        "positioning": "+",
-        "price": "0",
-        "verdict": "触及144.99，保持相对抗跌"
+        "positioning": "0",
+        "price": "-",
+        "verdict": "15:53报140.75、-1.04%，仍未收回141.50；午后反弹未完成结构修复。"
       },
       {
         "asset": "MSTR",
         "fundamental": "0",
         "macro": "-",
-        "positioning": "-",
+        "positioning": "0",
         "price": "-",
-        "verdict": "逼近124.01且负Beta扩大"
+        "verdict": "尾盘122.91、-1.58%，继续弱于转正的BTC；负Beta未修复。"
       }
     ],
-    "news": [
-      {
-        "title": "美股在油价与债券收益率上升压力下收跌",
-        "summary": "S&P 500与道指均约跌0.8%，纳指约跌1.1%；Brent收94.65美元、涨4.6%，美国10年期收益率升至约4.80%。",
-        "time": "2026-09-02 04:05 中国时间",
-        "source": "Associated Press",
-        "url": "https://apnews.com/article/775d7cf741349c7c8e689c0beb57f074",
-        "tone": "down",
-        "material": true,
-        "impactFields": [
-          "regimeCode",
-          "permissions",
-          "confidence"
-        ],
-        "directness": "行动级",
-        "impact": "正式确认总风险预算继续受通胀与利率约束。"
-      },
-      {
-        "title": "油价因美伊冲突再度大涨",
-        "summary": "Brent收94.65美元、涨4.6%；WTI收90.22美元、涨5.2%。",
-        "time": "2026-09-02 04:05 中国时间",
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/energy/oil-prices-rise-latest-fighting-resurrects-middle-east-supply-disruption-risks-2026-09-01/",
-        "tone": "down",
-        "material": true,
-        "impactFields": [
-          "permissions",
-          "invalidation"
-        ],
-        "directness": "行动级",
-        "impact": "强化通胀与长端利率压力，限制科技与高Beta估值修复。"
-      }
-    ],
+    "news": [],
     "odds": [
       {
         "asOf": "2026-08-19",
@@ -844,12 +817,12 @@
       }
     ],
     "oddsMethod": "价格位置分位仍截至2026-08-19；参考价与样本完全沿用可审计历史窗口，未把08-20收盘或08-21盘前价混入。SPCX仍为47根有效样本口径，待取得更新后的完整日线序列再增加样本。 本次未取得完整60D/252D滚动原始序列，因此保留原asOf、参考价、样本数与分位，未用08-25收盘价伪算。；本次未取得完整滚动日线序列，分位沿用原asOf，未用盘前或开盘价伪算。；本轮未取得完整滚动日线序列，分位继续沿用原asOf，未用盘中价伪算。；本轮未取得新的完整滚动日线序列，保留原分位及真实样本边界，不用单日收盘伪算。",
-    "regime": "风险规避",
-    "regimeCode": "RISK_OFF",
-    "reviewNote": "完整日线确认市场风险规避；BE尾盘反转是主要模型修正，IREN/SPCX保持相对强势但不允许外推为全面risk-on。",
-    "reviewStatus": "已收口",
-    "riskAppetite": "低",
-    "riskNote": "SPY、QQQ与SOXX正式收跌，油价和长端收益率压力未解除；BE、IREN、SPCX的个股修复不构成市场风险解锁。",
+    "regime": "事件锁定",
+    "regimeCode": "EVENT_LOCK",
+    "reviewNote": "收盘时点未取得统一正式日线；本轮为尾盘快照，不伪装为收盘确认。",
+    "reviewStatus": "收盘待结算",
+    "riskAppetite": "中低",
+    "riskNote": "正式收盘与成交量尚未统一结算，Broadcom盘后财报临近；关闭隔夜、追价及新增beta。",
     "scenarios": [
       {
         "label": "基准",
@@ -868,110 +841,110 @@
         "text": "当前不是收盘数据；任何午后突破必须等待04:05正式日线锁定。"
       }
     ],
-    "sessionContext": "2026-09-01 美股正式收盘；完整日线已收口，页面时间为中国时间2026-09-02 04:00。",
+    "sessionContext": "2026年9月2日收盘时点更新；结构化行情仅结算至美东15:49，SPCX至15:53，未统一取得正式收盘打印。以下为尾盘快照，不冒充正式日线。",
     "snapshot": [
       {
         "symbol": "SPY",
         "name": "State Street SPDR S&P 500 ETF",
-        "price": 760.72,
-        "changePct": -0.83,
-        "tone": "down",
-        "priceStatus": "正式收盘 · 2026-09-02 04:00 中国时间"
+        "price": 765.41,
+        "changePct": 0.48,
+        "tone": "up",
+        "priceStatus": "尾盘快照 · 2026-09-03 03:49 中国时间"
       },
       {
         "symbol": "QQQ",
         "name": "Invesco QQQ",
-        "price": 707.67,
-        "changePct": -1.27,
-        "tone": "down",
-        "priceStatus": "正式收盘 · 2026-09-02 04:00 中国时间"
+        "price": 709.17,
+        "changePct": 0.22,
+        "tone": "up",
+        "priceStatus": "尾盘快照 · 2026-09-03 03:49 中国时间"
       },
       {
         "symbol": "SOXX",
         "name": "iShares Semiconductor ETF",
-        "price": 499.71,
-        "changePct": -2.22,
-        "tone": "down",
-        "priceStatus": "正式收盘 · 2026-09-02 04:00 中国时间"
+        "price": 501.2,
+        "changePct": 0.18,
+        "tone": "up",
+        "priceStatus": "尾盘快照 · 2026-09-03 03:49 中国时间"
       },
       {
         "symbol": "DRAM",
         "name": "Roundhill Memory ETF",
-        "price": 55.21,
-        "changePct": -2.97,
-        "tone": "down",
-        "priceStatus": "正式收盘 · 2026-09-02 04:00 中国时间"
+        "price": 56.11,
+        "changePct": 1.91,
+        "tone": "up",
+        "priceStatus": "尾盘快照 · 2026-09-03 03:49 中国时间"
       },
       {
         "symbol": "LITE",
         "name": "Lumentum Holdings",
-        "price": 868.95,
-        "changePct": -5.01,
+        "price": 864.95,
+        "changePct": -0.46,
         "tone": "down",
-        "priceStatus": "正式收盘 · 2026-09-02 04:00 中国时间"
+        "priceStatus": "尾盘快照 · 2026-09-03 03:49 中国时间"
       },
       {
         "symbol": "IREN",
         "name": "IREN",
-        "price": 37.14,
-        "changePct": 0.07,
+        "price": 39.67,
+        "changePct": 7.74,
         "tone": "up",
-        "priceStatus": "正式收盘 · 2026-09-02 04:00 中国时间"
+        "priceStatus": "尾盘快照 · 2026-09-03 03:49 中国时间"
       },
       {
         "symbol": "BE",
         "name": "Bloom Energy",
-        "price": 210,
-        "changePct": 1.79,
+        "price": 216.08,
+        "changePct": 1.15,
         "tone": "up",
-        "priceStatus": "正式收盘 · 2026-09-02 04:00 中国时间"
+        "priceStatus": "尾盘快照 · 2026-09-03 03:49 中国时间"
       },
       {
         "symbol": "SPCX",
         "name": "Space Exploration Technologies",
-        "price": 143.4,
-        "changePct": -0.2,
+        "price": 140.75,
+        "changePct": -1.04,
         "tone": "down",
-        "priceStatus": "正式收盘 · 2026-09-02 04:00 中国时间"
+        "priceStatus": "尾盘快照 · 2026-09-03 03:49 中国时间"
       },
       {
         "symbol": "MSTR",
         "name": "Strategy",
-        "price": 125.76,
-        "changePct": -5.4,
+        "price": 122.91,
+        "changePct": -1.58,
         "tone": "down",
-        "priceStatus": "正式收盘 · 2026-09-02 04:00 中国时间"
+        "priceStatus": "尾盘快照 · 2026-09-03 03:49 中国时间"
       },
       {
         "symbol": "BTC",
         "name": "Bitcoin",
-        "price": 77343,
-        "changePct": -2,
-        "tone": "down",
-        "priceStatus": "实时参考 · 2026-09-02 04:00 中国时间"
+        "price": 77315,
+        "changePct": 0.12,
+        "tone": "up",
+        "priceStatus": "尾盘快照 · 2026-09-03 03:49 中国时间"
       }
     ],
     "sources": [
       {
-        "name": "午后价格、OHLC与成交量",
+        "name": "尾盘价格、OHLC与累计成交量",
         "source": "结构化美股报价",
         "url": "https://finance.yahoo.com/markets/stocks/",
-        "asOf": "2026-09-02 01:51 中国时间"
+        "asOf": "2026-09-03 03:49 中国时间"
       },
       {
-        "name": "油价与午后风险驱动",
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/energy/oil-prices-rise-latest-fighting-resurrects-middle-east-supply-disruption-risks-2026-09-01/",
-        "asOf": "2026-09-02 02:05 中国时间"
+        "name": "备用尾盘报价",
+        "source": "MarketWatch",
+        "url": "https://www.marketwatch.com/investing",
+        "asOf": "2026-09-03 04:03 中国时间"
       }
     ],
-    "thesis": "RISK_OFF正式收口，但内部并非普跌：半导体与加密高Beta承压，BE逆势转强，IREN和SPCX守住相对强势。",
-    "updateStatus": "按时更新",
-    "updatedAt": "2026-09-02T04:08:00+08:00",
-    "watchVariable": "下一交易日先看SPY能否收回764.67、QQQ能否收回712.30、SOXX能否收回504.72；未同步收回前维持低beta。",
+    "thesis": "尾盘指数修复，IREN与BE最强、DRAM次之；但正式收盘未统一取得，不形成下一交易日主剧本。",
+    "updateStatus": "数据不完整",
+    "updatedAt": "2026-09-03T04:03:00+08:00",
+    "watchVariable": "待下一次有效时段确认正式日线、Broadcom财报反应及IREN/BE是否保持突破。",
     "watchlist": [
       {
-        "changePct": -2.97,
+        "changePct": 1.91,
         "demandLoop": [
           {
             "key": "industryDemand",
@@ -1009,17 +982,17 @@
             "tone": "flat"
           }
         ],
-        "fundamental": "无新增合同、交付、利用率、行业报价、融资或财报结构事件；沿用收盘基线。",
-        "invalidation": "失54.59继续下修",
+        "fundamental": "无新增结构性基本面证据；沿用盘前基线。",
+        "invalidation": "正式收盘失55.52或进一步失54.45",
         "name": "Roundhill Memory ETF",
-        "price": 55.21,
-        "priceAction": "早盘修复未保持到收盘",
-        "priceStatus": "正式收盘 · 2026-09-02 04:00 中国时间",
-        "relativeStrength": "MU/SNDK/STX下跌，WDC上涨，三跌一涨",
-        "resistance": "56.76",
-        "resistanceValue": 56.76,
-        "support": "54.59",
-        "supportValue": 54.59,
+        "price": 56.11,
+        "priceAction": "尾盘56.11、+1.91%；O/H/L 55.49/56.41/54.45，累计成交量17410478；正式收盘未统一取得。",
+        "priceStatus": "尾盘快照 · 2026-09-03 03:49 中国时间",
+        "relativeStrength": "正式收盘同业数据未统一取得；午后联动仅作非终局参考。",
+        "resistance": "56.41–56.76",
+        "resistanceValue": 56.41,
+        "support": "55.52–54.45",
+        "supportValue": 55.52,
         "symbol": "DRAM",
         "timeframeMethods": {
           "15m": "structure",
@@ -1029,11 +1002,11 @@
           "1d": "daily"
         },
         "timeframeNotes": {
-          "15m": "基于截至01:51的累计O/H/L 55.59/56.74/55.185推断；未取得该周期独立K线。",
-          "30m": "基于截至01:51的累计O/H/L 55.59/56.74/55.185推断；未取得该周期独立K线。",
-          "1h": "基于截至01:51的累计O/H/L 55.59/56.74/55.185推断；未取得该周期独立K线。",
-          "4h": "基于截至01:51的累计O/H/L 55.59/56.74/55.185推断；未取得该周期独立K线。",
-          "1d": "正式日线 O/H/L/C 55.52/56.76/54.59/55.21，成交量19922013"
+          "15m": "基于截至03:49的累计O/H/L 55.49/56.41/54.45推断；未取得该周期独立K线。",
+          "30m": "基于截至03:49的累计O/H/L 55.49/56.41/54.45推断；未取得该周期独立K线。",
+          "1h": "基于截至03:49的累计O/H/L 55.49/56.41/54.45推断；未取得该周期独立K线。",
+          "4h": "基于截至03:49的累计O/H/L 55.49/56.41/54.45推断；未取得该周期独立K线。",
+          "1d": "2026-09-02正式日线尚未统一取得；不得以尾盘快照替代。"
         },
         "timeframes": {
           "15m": "unknown",
@@ -1042,11 +1015,11 @@
           "4h": "unknown",
           "1d": "bear"
         },
-        "tone": "down",
-        "verdict": "等待触发：只观察恢复条件"
+        "tone": "up",
+        "verdict": "尾盘56.11、+1.91%，守55.52但未保持在56.41上方；仅保留部分确认，等待正式日线。"
       },
       {
-        "changePct": -5.01,
+        "changePct": -0.46,
         "demandLoop": [
           {
             "key": "industryDemand",
@@ -1084,17 +1057,17 @@
             "tone": "flat"
           }
         ],
-        "fundamental": "无新增合同、交付、利用率、行业报价、融资或财报结构事件；沿用收盘基线。",
-        "invalidation": "失854.28继续下修",
+        "fundamental": "无新增结构性基本面证据；沿用盘前基线。",
+        "invalidation": "正式收盘失846继续下修",
         "name": "Lumentum Holdings",
-        "price": 868.95,
-        "priceAction": "盘中止跌未获收盘与同业确认",
-        "priceStatus": "正式收盘 · 2026-09-02 04:00 中国时间",
-        "relativeStrength": "COHR收跌约2.6%",
-        "resistance": "908.97",
-        "resistanceValue": 908.97,
-        "support": "854.28",
-        "supportValue": 854.28,
+        "price": 864.95,
+        "priceAction": "尾盘864.95、-0.46%；O/H/L 864.49/886.21/846，累计成交量2173952；正式收盘未统一取得。",
+        "priceStatus": "尾盘快照 · 2026-09-03 03:49 中国时间",
+        "relativeStrength": "正式收盘同业数据未统一取得；午后联动仅作非终局参考。",
+        "resistance": "868.95–886.21",
+        "resistanceValue": 868.95,
+        "support": "846–840",
+        "supportValue": 846,
         "symbol": "LITE",
         "timeframeMethods": {
           "15m": "structure",
@@ -1104,11 +1077,11 @@
           "1d": "daily"
         },
         "timeframeNotes": {
-          "15m": "基于截至01:51的累计O/H/L 901.04/919.69/854.28推断；未取得该周期独立K线。",
-          "30m": "基于截至01:51的累计O/H/L 901.04/919.69/854.28推断；未取得该周期独立K线。",
-          "1h": "基于截至01:51的累计O/H/L 901.04/919.69/854.28推断；未取得该周期独立K线。",
-          "4h": "基于截至01:51的累计O/H/L 901.04/919.69/854.28推断；未取得该周期独立K线。",
-          "1d": "正式日线 O/H/L/C 901.04/908.97/854.28/868.95，成交量3680000"
+          "15m": "基于截至03:49的累计O/H/L 864.49/886.21/846推断；未取得该周期独立K线。",
+          "30m": "基于截至03:49的累计O/H/L 864.49/886.21/846推断；未取得该周期独立K线。",
+          "1h": "基于截至03:49的累计O/H/L 864.49/886.21/846推断；未取得该周期独立K线。",
+          "4h": "基于截至03:49的累计O/H/L 864.49/886.21/846推断；未取得该周期独立K线。",
+          "1d": "2026-09-02正式日线尚未统一取得；不得以尾盘快照替代。"
         },
         "timeframes": {
           "15m": "unknown",
@@ -1118,10 +1091,10 @@
           "1d": "bear"
         },
         "tone": "down",
-        "verdict": "等待触发：继续锁权"
+        "verdict": "尾盘864.95、-0.46%，明显脱离846低点但仍未收回868.95；止跌未确认。"
       },
       {
-        "changePct": 0.07,
+        "changePct": 7.74,
         "demandLoop": [
           {
             "key": "industryDemand",
@@ -1160,16 +1133,16 @@
           }
         ],
         "fundamental": "财报后的合同、交付、收入与融资基线不变；本轮只更新价格。",
-        "invalidation": "跌回36.53并进一步失35.14",
+        "invalidation": "正式收盘失38.49并进一步失37.83",
         "name": "IREN",
-        "price": 37.14,
-        "priceAction": "自身修复成立，跨资产联动失败",
-        "priceStatus": "正式收盘 · 2026-09-02 04:00 中国时间",
-        "relativeStrength": "MARA、RIOT、CLSK均收跌约4%–5%",
-        "resistance": "37.26",
-        "resistanceValue": 37.26,
-        "support": "35.14",
-        "supportValue": 35.14,
+        "price": 39.67,
+        "priceAction": "尾盘39.67、+7.74%；O/H/L 35.85/39.69/35.68，累计成交量33170745；正式收盘未统一取得。",
+        "priceStatus": "尾盘快照 · 2026-09-03 03:49 中国时间",
+        "relativeStrength": "正式收盘同业数据未统一取得；午后联动仅作非终局参考。",
+        "resistance": "39.69–40",
+        "resistanceValue": 39.69,
+        "support": "38.49–37.83",
+        "supportValue": 38.485,
         "symbol": "IREN",
         "timeframeMethods": {
           "15m": "structure",
@@ -1179,11 +1152,11 @@
           "1d": "daily"
         },
         "timeframeNotes": {
-          "15m": "基于截至01:51的累计O/H/L 36.07/37.14/35.16推断；未取得该周期独立K线。",
-          "30m": "基于截至01:51的累计O/H/L 36.07/37.14/35.16推断；未取得该周期独立K线。",
-          "1h": "基于截至01:51的累计O/H/L 36.07/37.14/35.16推断；未取得该周期独立K线。",
-          "4h": "基于截至01:51的累计O/H/L 36.07/37.14/35.16推断；未取得该周期独立K线。",
-          "1d": "正式日线 O/H/L/C 36.08/37.26/35.14/37.14，成交量28408233"
+          "15m": "基于截至03:49的累计O/H/L 35.85/39.69/35.68推断；未取得该周期独立K线。",
+          "30m": "基于截至03:49的累计O/H/L 35.85/39.69/35.68推断；未取得该周期独立K线。",
+          "1h": "基于截至03:49的累计O/H/L 35.85/39.69/35.68推断；未取得该周期独立K线。",
+          "4h": "基于截至03:49的累计O/H/L 35.85/39.69/35.68推断；未取得该周期独立K线。",
+          "1d": "2026-09-02正式日线尚未统一取得；不得以尾盘快照替代。"
         },
         "timeframes": {
           "15m": "unknown",
@@ -1193,10 +1166,10 @@
           "1d": "bull"
         },
         "tone": "up",
-        "verdict": "部分确认：保留观察，不追收盘"
+        "verdict": "尾盘39.67、+7.74%，接近日高；午后量价修复延续，但无正式收盘打印，不升级为下一日确认。"
       },
       {
-        "changePct": 1.79,
+        "changePct": 1.15,
         "demandLoop": [
           {
             "key": "industryDemand",
@@ -1235,16 +1208,16 @@
           }
         ],
         "fundamental": "BE五步兑现链无新增结构证据；本轮只更新价格。",
-        "invalidation": "跌回207.20并再失202.90",
+        "invalidation": "正式收盘失213.63并进一步失209.20",
         "name": "Bloom Energy",
-        "price": 210,
-        "priceAction": "自身价格反转成立，电力链二涨二跌使完整确认仍不足",
-        "priceStatus": "正式收盘 · 2026-09-02 04:00 中国时间",
-        "relativeStrength": "VST/CEG上涨，NRG/GEV下跌，二涨二跌",
-        "resistance": "210.97",
-        "resistanceValue": 210.97,
-        "support": "197.5",
-        "supportValue": 197.5,
+        "price": 216.08,
+        "priceAction": "尾盘216.08、+1.15%；O/H/L 207.64/217.05/204.49，累计成交量7226200；正式收盘未统一取得。",
+        "priceStatus": "尾盘快照 · 2026-09-03 03:49 中国时间",
+        "relativeStrength": "正式收盘同业数据未统一取得；午后联动仅作非终局参考。",
+        "resistance": "217.05–218",
+        "resistanceValue": 217.05,
+        "support": "213.63–209.20",
+        "supportValue": 213.63,
         "symbol": "BE",
         "timeframeMethods": {
           "15m": "structure",
@@ -1254,11 +1227,11 @@
           "1d": "daily"
         },
         "timeframeNotes": {
-          "15m": "基于截至01:51的累计O/H/L 203.5/210.36/197.62推断；未取得该周期独立K线。",
-          "30m": "基于截至01:51的累计O/H/L 203.5/210.36/197.62推断；未取得该周期独立K线。",
-          "1h": "基于截至01:51的累计O/H/L 203.5/210.36/197.62推断；未取得该周期独立K线。",
-          "4h": "基于截至01:51的累计O/H/L 203.5/210.36/197.62推断；未取得该周期独立K线。",
-          "1d": "正式日线 O/H/L/C 203.5/210.97/197.5/210，成交量8963425"
+          "15m": "基于截至03:49的累计O/H/L 207.64/217.05/204.49推断；未取得该周期独立K线。",
+          "30m": "基于截至03:49的累计O/H/L 207.64/217.05/204.49推断；未取得该周期独立K线。",
+          "1h": "基于截至03:49的累计O/H/L 207.64/217.05/204.49推断；未取得该周期独立K线。",
+          "4h": "基于截至03:49的累计O/H/L 207.64/217.05/204.49推断；未取得该周期独立K线。",
+          "1d": "2026-09-02正式日线尚未统一取得；不得以尾盘快照替代。"
         },
         "timeframes": {
           "15m": "unknown",
@@ -1268,22 +1241,22 @@
           "1d": "bull"
         },
         "tone": "up",
-        "verdict": "部分确认：允许低至中beta观察，不追高"
+        "verdict": "尾盘216.08、+1.15%，从204.49强力反转并收回213.63；因缺正式收盘打印，仅部分确认。"
       },
       {
-        "changePct": -0.2,
+        "changePct": -1.04,
         "demandLoop": null,
-        "fundamental": "无新增合同、交付、利用率、行业报价、融资或财报结构事件；沿用收盘基线。",
-        "invalidation": "失141.17并收在141.50下方",
+        "fundamental": "无新增结构性基本面证据；沿用盘前基线。",
+        "invalidation": "正式收盘低于138.17",
         "name": "Space Exploration Technologies",
-        "price": 143.4,
-        "priceAction": "相对抗跌保持，二级突破未锁定",
-        "priceStatus": "正式收盘 · 2026-09-02 04:00 中国时间",
-        "relativeStrength": "六标的中仅次于BE/IREN，显著强于半导体与高Beta链",
-        "resistance": "145.23",
-        "resistanceValue": 145.23,
-        "support": "141.17",
-        "supportValue": 141.17,
+        "price": 140.75,
+        "priceAction": "尾盘140.75、-1.04%；O/H/L 142.68/143.1/138.17，累计成交量42650000；正式收盘未统一取得。",
+        "priceStatus": "尾盘快照 · 2026-09-03 03:49 中国时间",
+        "relativeStrength": "正式收盘同业数据未统一取得；午后联动仅作非终局参考。",
+        "resistance": "141.50–143.10",
+        "resistanceValue": 141.5,
+        "support": "138.17–135",
+        "supportValue": 138.17,
         "symbol": "SPCX",
         "timeframeMethods": {
           "15m": "structure",
@@ -1293,11 +1266,11 @@
           "1d": "daily"
         },
         "timeframeNotes": {
-          "15m": "基于截至01:51的累计O/H/L 141.87/144.99/141.19推断；未取得该周期独立K线。",
-          "30m": "基于截至01:51的累计O/H/L 141.87/144.99/141.19推断；未取得该周期独立K线。",
-          "1h": "基于截至01:51的累计O/H/L 141.87/144.99/141.19推断；未取得该周期独立K线。",
-          "4h": "基于截至01:51的累计O/H/L 141.87/144.99/141.19推断；未取得该周期独立K线。",
-          "1d": "正式日线 O/H/L/C 141.87/145.23/141.17/143.4，成交量46358569"
+          "15m": "基于截至03:49的累计O/H/L 142.68/143.1/138.17推断；未取得该周期独立K线。",
+          "30m": "基于截至03:49的累计O/H/L 142.68/143.1/138.17推断；未取得该周期独立K线。",
+          "1h": "基于截至03:49的累计O/H/L 142.68/143.1/138.17推断；未取得该周期独立K线。",
+          "4h": "基于截至03:49的累计O/H/L 142.68/143.1/138.17推断；未取得该周期独立K线。",
+          "1d": "2026-09-02正式日线尚未统一取得；不得以尾盘快照替代。"
         },
         "timeframes": {
           "15m": "unknown",
@@ -1307,22 +1280,22 @@
           "1d": "bull"
         },
         "tone": "down",
-        "verdict": "部分确认：保留观察，不追收盘"
+        "verdict": "15:53报140.75、-1.04%，仍未收回141.50；午后反弹未完成结构修复。"
       },
       {
-        "changePct": -5.4,
+        "changePct": -1.58,
         "demandLoop": null,
-        "fundamental": "无新增合同、交付、利用率、行业报价、融资或财报结构事件；沿用收盘基线。",
-        "invalidation": "失123.59继续下修",
+        "fundamental": "无新增结构性基本面证据；沿用盘前基线。",
+        "invalidation": "正式收盘失121.14继续下修",
         "name": "Strategy",
-        "price": 125.76,
-        "priceAction": "正Beta恢复未发生，融资/股权弹性压力继续主导",
-        "priceStatus": "正式收盘 · 2026-09-02 04:00 中国时间",
-        "relativeStrength": "BTC约-2%、IBIT约-2.2%，MSTR明显落后",
-        "resistance": "129.9",
-        "resistanceValue": 129.9,
-        "support": "123.59",
-        "supportValue": 123.59,
+        "price": 122.91,
+        "priceAction": "尾盘122.91、-1.58%；O/H/L 123.25/125.62/121.14，累计成交量11948415；正式收盘未统一取得。",
+        "priceStatus": "尾盘快照 · 2026-09-03 03:49 中国时间",
+        "relativeStrength": "正式收盘同业数据未统一取得；午后联动仅作非终局参考。",
+        "resistance": "124.88–125.62",
+        "resistanceValue": 124.88,
+        "support": "121.14–120",
+        "supportValue": 121.14,
         "symbol": "MSTR",
         "timeframeMethods": {
           "15m": "structure",
@@ -1332,11 +1305,11 @@
           "1d": "daily"
         },
         "timeframeNotes": {
-          "15m": "基于截至01:51的累计O/H/L 127.95/131.36/124.01推断；未取得该周期独立K线。",
-          "30m": "基于截至01:51的累计O/H/L 127.95/131.36/124.01推断；未取得该周期独立K线。",
-          "1h": "基于截至01:51的累计O/H/L 127.95/131.36/124.01推断；未取得该周期独立K线。",
-          "4h": "基于截至01:51的累计O/H/L 127.95/131.36/124.01推断；未取得该周期独立K线。",
-          "1d": "正式日线 O/H/L/C 128.03/129.9/123.59/125.76，成交量16662786"
+          "15m": "基于截至03:49的累计O/H/L 123.25/125.62/121.14推断；未取得该周期独立K线。",
+          "30m": "基于截至03:49的累计O/H/L 123.25/125.62/121.14推断；未取得该周期独立K线。",
+          "1h": "基于截至03:49的累计O/H/L 123.25/125.62/121.14推断；未取得该周期独立K线。",
+          "4h": "基于截至03:49的累计O/H/L 123.25/125.62/121.14推断；未取得该周期独立K线。",
+          "1d": "2026-09-02正式日线尚未统一取得；不得以尾盘快照替代。"
         },
         "timeframes": {
           "15m": "unknown",
@@ -1346,7 +1319,7 @@
           "1d": "bear"
         },
         "tone": "down",
-        "verdict": "等待触发：只观察恢复条件"
+        "verdict": "尾盘122.91、-1.58%，继续弱于转正的BTC；负Beta未修复。"
       }
     ]
   },
@@ -3163,6 +3136,265 @@
       "setupType": "仅观察",
       "stateNote": "由123.45回落至123.14，BTC与IBIT转正而MSTR仍跌，负Beta继续扩大。",
       "trigger": "收回124.88并突破125.62，且重新强于BTC/IBIT"
+    },
+    {
+      "asset": "MARKET",
+      "callId": "2026-09-02-close-market",
+      "evidenceAtCall": {
+        "price": "mixed",
+        "volume": "unknown",
+        "linkage": "mixed"
+      },
+      "horizon": "0–3D",
+      "invalidation": "正式日线失SPY759.29、QQQ702.96、SOXX492.71且高Beta广度转弱",
+      "outcome": {
+        "evaluatedAt": null,
+        "falseBreakout": false,
+        "invalidatedAt": null,
+        "mae": null,
+        "mfe": null,
+        "return1D": null,
+        "return3D": null,
+        "status": "open",
+        "triggeredAt": null
+      },
+      "permissionsAtCall": {
+        "beta": "低",
+        "chase": "关闭",
+        "overnight": "关闭"
+      },
+      "planStatus": "等待触发",
+      "referenceAt": "2026-09-03T03:49:00+08:00",
+      "referencePrice": 765.41,
+      "regimeCode": "EVENT_LOCK",
+      "session": "close",
+      "sessionDate": "2026-09-02",
+      "setupLabel": "正式收盘确认待结算",
+      "setupType": "风险预算",
+      "stateNote": "指数修复与IREN/BE反转尚未取得统一正式收盘打印。",
+      "trigger": "取得正式收盘日线后，再验证SPY764.67、QQQ709.71、SOXX503.85与至少四个目标同步转强"
+    },
+    {
+      "asset": "DRAM",
+      "callId": "2026-09-02-close-dram",
+      "evidenceAtCall": {
+        "price": "mixed",
+        "volume": "unknown",
+        "linkage": "unknown"
+      },
+      "horizon": "0–3D",
+      "invalidation": "正式收盘失55.52或进一步失54.45",
+      "outcome": {
+        "evaluatedAt": null,
+        "falseBreakout": false,
+        "invalidatedAt": null,
+        "mae": null,
+        "mfe": null,
+        "return1D": null,
+        "return3D": null,
+        "status": "open",
+        "triggeredAt": null
+      },
+      "permissionsAtCall": {
+        "beta": "低",
+        "chase": "关闭",
+        "overnight": "关闭"
+      },
+      "planStatus": "部分确认",
+      "referenceAt": "2026-09-03T03:49:00+08:00",
+      "referencePrice": 56.11,
+      "regimeCode": "EVENT_LOCK",
+      "session": "close",
+      "sessionDate": "2026-09-02",
+      "setupLabel": "存储链修复",
+      "setupType": "仅观察",
+      "stateNote": "尾盘56.11、+1.91%，守55.52但未保持在56.41上方；仅保留部分确认，等待正式日线。",
+      "trigger": "正式日线站上56.41并突破56.76，且存储同业多数转强"
+    },
+    {
+      "asset": "LITE",
+      "callId": "2026-09-02-close-lite",
+      "evidenceAtCall": {
+        "price": "failed",
+        "volume": "unknown",
+        "linkage": "unknown"
+      },
+      "horizon": "0–3D",
+      "invalidation": "正式收盘失846继续下修",
+      "outcome": {
+        "evaluatedAt": null,
+        "falseBreakout": false,
+        "invalidatedAt": null,
+        "mae": null,
+        "mfe": null,
+        "return1D": null,
+        "return3D": null,
+        "status": "open",
+        "triggeredAt": null
+      },
+      "permissionsAtCall": {
+        "beta": "低",
+        "chase": "关闭",
+        "overnight": "关闭"
+      },
+      "planStatus": "等待触发",
+      "referenceAt": "2026-09-03T03:49:00+08:00",
+      "referencePrice": 864.95,
+      "regimeCode": "EVENT_LOCK",
+      "session": "close",
+      "sessionDate": "2026-09-02",
+      "setupLabel": "光通信止跌",
+      "setupType": "仅观察",
+      "stateNote": "尾盘864.95、-0.46%，明显脱离846低点但仍未收回868.95；止跌未确认。",
+      "trigger": "正式日线收回868.95并突破886.21，且COHR转强"
+    },
+    {
+      "asset": "IREN",
+      "callId": "2026-09-02-close-iren",
+      "evidenceAtCall": {
+        "price": "mixed",
+        "volume": "unknown",
+        "linkage": "unknown"
+      },
+      "horizon": "0–3D",
+      "invalidation": "正式收盘失38.49并进一步失37.83",
+      "outcome": {
+        "evaluatedAt": null,
+        "falseBreakout": false,
+        "invalidatedAt": null,
+        "mae": null,
+        "mfe": null,
+        "return1D": null,
+        "return3D": null,
+        "status": "open",
+        "triggeredAt": null
+      },
+      "permissionsAtCall": {
+        "beta": "低",
+        "chase": "关闭",
+        "overnight": "关闭"
+      },
+      "planStatus": "部分确认",
+      "referenceAt": "2026-09-03T03:49:00+08:00",
+      "referencePrice": 39.67,
+      "regimeCode": "EVENT_LOCK",
+      "session": "close",
+      "sessionDate": "2026-09-02",
+      "setupLabel": "财报后价格修复",
+      "setupType": "仅观察",
+      "stateNote": "尾盘39.67、+7.74%，接近日高；午后量价修复延续，但无正式收盘打印，不升级为下一日确认。",
+      "trigger": "正式收盘站稳39.69/40，且BTC或矿企链保持转强"
+    },
+    {
+      "asset": "BE",
+      "callId": "2026-09-02-close-be",
+      "evidenceAtCall": {
+        "price": "mixed",
+        "volume": "unknown",
+        "linkage": "unknown"
+      },
+      "horizon": "0–3D",
+      "invalidation": "正式收盘失213.63并进一步失209.20",
+      "outcome": {
+        "evaluatedAt": null,
+        "falseBreakout": false,
+        "invalidatedAt": null,
+        "mae": null,
+        "mfe": null,
+        "return1D": null,
+        "return3D": null,
+        "status": "open",
+        "triggeredAt": null
+      },
+      "permissionsAtCall": {
+        "beta": "低",
+        "chase": "关闭",
+        "overnight": "关闭"
+      },
+      "planStatus": "部分确认",
+      "referenceAt": "2026-09-03T03:49:00+08:00",
+      "referencePrice": 216.08,
+      "regimeCode": "EVENT_LOCK",
+      "session": "close",
+      "sessionDate": "2026-09-02",
+      "setupLabel": "尾盘反转保持",
+      "setupType": "仅观察",
+      "stateNote": "尾盘216.08、+1.15%，从204.49强力反转并收回213.63；因缺正式收盘打印，仅部分确认。",
+      "trigger": "正式日线站稳217.05并获电力同业多数确认"
+    },
+    {
+      "asset": "SPCX",
+      "callId": "2026-09-02-close-spcx",
+      "evidenceAtCall": {
+        "price": "failed",
+        "volume": "unknown",
+        "linkage": "unknown"
+      },
+      "horizon": "0–3D",
+      "invalidation": "正式收盘低于138.17",
+      "outcome": {
+        "evaluatedAt": null,
+        "falseBreakout": false,
+        "invalidatedAt": null,
+        "mae": null,
+        "mfe": null,
+        "return1D": null,
+        "return3D": null,
+        "status": "open",
+        "triggeredAt": null
+      },
+      "permissionsAtCall": {
+        "beta": "低",
+        "chase": "关闭",
+        "overnight": "关闭"
+      },
+      "planStatus": "等待触发",
+      "referenceAt": "2026-09-03T03:49:00+08:00",
+      "referencePrice": 140.75,
+      "regimeCode": "EVENT_LOCK",
+      "session": "close",
+      "sessionDate": "2026-09-02",
+      "setupLabel": "供给吸收确认",
+      "setupType": "短线事件交易",
+      "stateNote": "15:53报140.75、-1.04%，仍未收回141.50；午后反弹未完成结构修复。",
+      "trigger": "正式日线收回141.50并突破143.10"
+    },
+    {
+      "asset": "MSTR",
+      "callId": "2026-09-02-close-mstr",
+      "evidenceAtCall": {
+        "price": "failed",
+        "volume": "unknown",
+        "linkage": "unknown"
+      },
+      "horizon": "0–3D",
+      "invalidation": "正式收盘失121.14继续下修",
+      "outcome": {
+        "evaluatedAt": null,
+        "falseBreakout": false,
+        "invalidatedAt": null,
+        "mae": null,
+        "mfe": null,
+        "return1D": null,
+        "return3D": null,
+        "status": "open",
+        "triggeredAt": null
+      },
+      "permissionsAtCall": {
+        "beta": "低",
+        "chase": "关闭",
+        "overnight": "关闭"
+      },
+      "planStatus": "等待触发",
+      "referenceAt": "2026-09-03T03:49:00+08:00",
+      "referencePrice": 122.91,
+      "regimeCode": "EVENT_LOCK",
+      "session": "close",
+      "sessionDate": "2026-09-02",
+      "setupLabel": "正Beta恢复",
+      "setupType": "仅观察",
+      "stateNote": "尾盘122.91、-1.58%，继续弱于转正的BTC；负Beta未修复。",
+      "trigger": "正式日线收回124.88并突破125.62，且重新强于BTC/IBIT"
     }
   ],
   "intraday": {
@@ -6044,12 +6276,12 @@
     }
   ],
   "meta": {
-    "latestSession": "late",
-    "nextUpdate": "2026-09-03T04:05:00+08:00",
+    "latestSession": "close",
+    "nextUpdate": "2026-09-03T21:05:00+08:00",
     "schemaVersion": 14,
     "sessionDate": "2026-09-02",
     "timezone": "Asia/Shanghai",
-    "updatedAt": "2026-09-03T02:03:00+08:00"
+    "updatedAt": "2026-09-03T04:03:00+08:00"
   },
   "premarket": {
     "aiCapitalCycle": {
