@@ -1355,9 +1355,9 @@
       "asset": "DRAM",
       "callId": "2026-09-01-late-dram-recovery",
       "evidenceAtCall": {
-        "price": "mixed",
-        "volume": "unknown",
-        "linkage": "unknown"
+        "price": "failed",
+        "volume": "confirmed",
+        "linkage": "failed"
       },
       "horizon": "0–3D",
       "invalidation": "失54.59继续下修",
@@ -1378,26 +1378,26 @@
         "overnight": "关闭"
       },
       "planStatus": "等待触发",
-      "referenceAt": "2026-09-02T21:04:00+08:00",
-      "referencePrice": 54.99,
-      "regimeCode": "EVENT_LOCK",
-      "session": "premarket",
-      "sessionDate": "2026-09-02",
+      "referenceAt": "2026-09-02T04:00:00+08:00",
+      "referencePrice": 55.21,
+      "regimeCode": "RISK_OFF",
+      "session": "close",
+      "sessionDate": "2026-09-01",
       "setupLabel": "存储链修复",
       "setupType": "仅观察",
-      "stateNote": "盘前54.99，缺口有限但仍低于55.52；等待正式盘确认。",
-      "trigger": "收回55.52并突破56.76，且存储同业多数转强"
+      "stateNote": "早盘修复未保持到收盘",
+      "trigger": "收回55.52并突破56.76，且MU/SNDK/WDC/STX多数转强"
     },
     {
       "asset": "MSTR",
       "callId": "2026-09-01-intraday-mstr-recovery",
       "evidenceAtCall": {
         "price": "failed",
-        "volume": "unknown",
-        "linkage": "unknown"
+        "volume": "confirmed",
+        "linkage": "failed"
       },
       "horizon": "0–3D",
-      "invalidation": "失123.59并继续下修",
+      "invalidation": "失123.59继续下修",
       "outcome": {
         "evaluatedAt": null,
         "falseBreakout": false,
@@ -1415,26 +1415,26 @@
         "overnight": "关闭"
       },
       "planStatus": "等待触发",
-      "referenceAt": "2026-09-02T21:04:00+08:00",
-      "referencePrice": 123.51,
-      "regimeCode": "EVENT_LOCK",
-      "session": "premarket",
-      "sessionDate": "2026-09-02",
+      "referenceAt": "2026-09-02T04:00:00+08:00",
+      "referencePrice": 125.76,
+      "regimeCode": "RISK_OFF",
+      "session": "close",
+      "sessionDate": "2026-09-01",
       "setupLabel": "正Beta恢复",
       "setupType": "仅观察",
-      "stateNote": "盘前123.51且略弱于BTC；等待正式盘确认。",
-      "trigger": "收回124.88并突破129.90，且重新强于BTC/IBIT"
+      "stateNote": "正Beta恢复未发生，融资/股权弹性压力继续主导",
+      "trigger": "收回128.03并突破129.90，且重新强于BTC/IBIT"
     },
     {
       "asset": "BE",
       "callId": "2026-09-01-intraday-be-recovery",
       "evidenceAtCall": {
-        "price": "mixed",
-        "volume": "unknown",
-        "linkage": "unknown"
+        "price": "confirmed",
+        "volume": "confirmed",
+        "linkage": "mixed"
       },
       "horizon": "0–3D",
-      "invalidation": "失207.20并进一步失202.90",
+      "invalidation": "跌回207.20并再失202.90",
       "outcome": {
         "evaluatedAt": null,
         "falseBreakout": false,
@@ -1447,28 +1447,28 @@
         "triggeredAt": null
       },
       "permissionsAtCall": {
-        "beta": "低",
+        "beta": "低至中",
         "chase": "关闭",
-        "overnight": "关闭"
+        "overnight": "谨慎"
       },
-      "planStatus": "等待触发",
-      "referenceAt": "2026-09-02T21:04:00+08:00",
-      "referencePrice": 208.28,
-      "regimeCode": "EVENT_LOCK",
-      "session": "premarket",
-      "sessionDate": "2026-09-02",
-      "setupLabel": "尾盘反转保持",
-      "setupType": "仅观察",
-      "stateNote": "盘前208.28，回吐昨日反转但仍守207.20；等待正式盘确认。",
-      "trigger": "正式盘守207.20并收回209.20，且电力同业至少两项转强"
+      "planStatus": "部分确认",
+      "referenceAt": "2026-09-02T04:00:00+08:00",
+      "referencePrice": 210,
+      "regimeCode": "RISK_OFF",
+      "session": "close",
+      "sessionDate": "2026-09-01",
+      "setupLabel": "失守后的恢复条件",
+      "setupType": "趋势交易",
+      "stateNote": "自身价格反转成立，电力链二涨二跌使完整确认仍不足",
+      "trigger": "站稳210.97并进一步收回215.15，且至少三项电力同业转强"
     },
     {
       "asset": "LITE",
       "callId": "2026-09-01-intraday-lite-recovery",
       "evidenceAtCall": {
         "price": "failed",
-        "volume": "unknown",
-        "linkage": "unknown"
+        "volume": "confirmed",
+        "linkage": "failed"
       },
       "horizon": "0–3D",
       "invalidation": "失854.28继续下修",
@@ -1489,14 +1489,14 @@
         "overnight": "关闭"
       },
       "planStatus": "等待触发",
-      "referenceAt": "2026-09-02T21:04:00+08:00",
-      "referencePrice": 862.44,
-      "regimeCode": "EVENT_LOCK",
-      "session": "premarket",
-      "sessionDate": "2026-09-02",
+      "referenceAt": "2026-09-02T04:00:00+08:00",
+      "referencePrice": 868.95,
+      "regimeCode": "RISK_OFF",
+      "session": "close",
+      "sessionDate": "2026-09-01",
       "setupLabel": "光通信止跌",
       "setupType": "仅观察",
-      "stateNote": "盘前862.44，继续低于887.60；等待正式盘确认。",
+      "stateNote": "盘中止跌未获收盘与同业确认",
       "trigger": "收回887.60并进一步站上901.04，且COHR转强"
     },
     {
@@ -1540,12 +1540,12 @@
       "asset": "MARKET",
       "callId": "2026-09-01-intraday-market-recovery",
       "evidenceAtCall": {
-        "price": "mixed",
-        "volume": "unknown",
-        "linkage": "failed"
+        "price": "confirmed",
+        "volume": "confirmed",
+        "linkage": "mixed"
       },
       "horizon": "0–3D",
-      "invalidation": "SPY失759.48、QQQ失704.66、SOXX失495.09且多数高Beta同步破低",
+      "invalidation": "SPY失759.48、QQQ失704.67、SOXX失495.09且多数高Beta同步破低",
       "outcome": {
         "evaluatedAt": null,
         "falseBreakout": false,
@@ -1562,16 +1562,16 @@
         "chase": "关闭",
         "overnight": "关闭"
       },
-      "planStatus": "等待触发",
-      "referenceAt": "2026-09-02T21:04:00+08:00",
-      "referencePrice": 761.98,
-      "regimeCode": "EVENT_LOCK",
-      "session": "premarket",
-      "sessionDate": "2026-09-02",
-      "setupLabel": "正式盘风险验证",
+      "planStatus": "已确认",
+      "referenceAt": "2026-09-02T04:00:00+08:00",
+      "referencePrice": 760.72,
+      "regimeCode": "RISK_OFF",
+      "session": "close",
+      "sessionDate": "2026-09-01",
+      "setupLabel": "收盘风险规避",
       "setupType": "风险预算",
-      "stateNote": "上一收盘RISK_OFF延续为盘前先验，尚未获得正式盘量价确认",
-      "trigger": "SPY收回764.67、QQQ收回712.30、SOXX收回504.72，且至少四个目标同步转强"
+      "stateNote": "RISK_OFF锁定，但BE/IREN/SPCX显示内部有选择性修复",
+      "trigger": "SPY收回764.67、QQQ收回712.30、SOXX收回504.72，且至少四个目标标的同步转强"
     },
     {
       "asset": "BE",
@@ -1725,12 +1725,12 @@
       "asset": "IREN",
       "callId": "2026-08-28-close-iren-short",
       "evidenceAtCall": {
-        "price": "failed",
-        "volume": "unknown",
-        "linkage": "unknown"
+        "price": "confirmed",
+        "volume": "confirmed",
+        "linkage": "failed"
       },
       "horizon": "0–3D",
-      "invalidation": "失35.14继续下修",
+      "invalidation": "跌回36.53并进一步失35.14",
       "outcome": {
         "evaluatedAt": null,
         "falseBreakout": false,
@@ -1747,16 +1747,16 @@
         "chase": "关闭",
         "overnight": "关闭"
       },
-      "planStatus": "等待触发",
-      "referenceAt": "2026-09-02T21:04:00+08:00",
-      "referencePrice": 36.09,
-      "regimeCode": "EVENT_LOCK",
-      "session": "premarket",
-      "sessionDate": "2026-09-02",
+      "planStatus": "部分确认",
+      "referenceAt": "2026-09-02T04:00:00+08:00",
+      "referencePrice": 37.14,
+      "regimeCode": "RISK_OFF",
+      "session": "close",
+      "sessionDate": "2026-09-01",
       "setupLabel": "财报后价格修复",
       "setupType": "仅观察",
-      "stateNote": "盘前36.09，重新跌回36.53下方；等待正式盘确认。",
-      "trigger": "收回36.53并突破37.26，且BTC/矿企或AI链转强"
+      "stateNote": "自身修复成立，跨资产联动失败",
+      "trigger": "突破37.26并站上38.28，且BTC/矿企或AI数据中心链至少一条转强"
     },
     {
       "asset": "BE",
@@ -1800,8 +1800,8 @@
       "callId": "2026-08-28-close-spcx-short",
       "evidenceAtCall": {
         "price": "mixed",
-        "volume": "unknown",
-        "linkage": "unknown"
+        "volume": "confirmed",
+        "linkage": "confirmed"
       },
       "horizon": "0–3D",
       "invalidation": "失141.17并收在141.50下方",
@@ -1819,18 +1819,18 @@
       "permissionsAtCall": {
         "beta": "低",
         "chase": "关闭",
-        "overnight": "关闭"
+        "overnight": "谨慎"
       },
       "planStatus": "部分确认",
-      "referenceAt": "2026-09-02T21:04:00+08:00",
-      "referencePrice": 142.29,
-      "regimeCode": "EVENT_LOCK",
-      "session": "premarket",
-      "sessionDate": "2026-09-02",
+      "referenceAt": "2026-09-02T04:00:00+08:00",
+      "referencePrice": 143.4,
+      "regimeCode": "RISK_OFF",
+      "session": "close",
+      "sessionDate": "2026-09-01",
       "setupLabel": "供给吸收确认",
       "setupType": "短线事件交易",
-      "stateNote": "盘前142.29近乎平盘并守141.50；等待正式盘确认。",
-      "trigger": "正式盘守141.50并站稳145.23"
+      "stateNote": "相对抗跌保持，二级突破未锁定",
+      "trigger": "守住141.50并站稳145.23"
     },
     {
       "asset": "MSTR",
@@ -2095,12 +2095,12 @@
       "asset": "BE",
       "callId": "2026-08-25-close-be-baseline",
       "evidenceAtCall": {
-        "price": "mixed",
-        "volume": "unknown",
-        "linkage": "unknown"
+        "linkage": "unknown",
+        "price": "confirmed",
+        "volume": "confirmed"
       },
       "horizon": "0–3D",
-      "invalidation": "失207.20并进一步失202.90",
+      "invalidation": "跌破208.30",
       "outcome": {
         "evaluatedAt": null,
         "falseBreakout": false,
@@ -2113,20 +2113,20 @@
         "triggeredAt": null
       },
       "permissionsAtCall": {
-        "beta": "低",
+        "beta": "低至标准",
         "chase": "关闭",
-        "overnight": "关闭"
+        "overnight": "观察"
       },
       "planStatus": "等待触发",
-      "referenceAt": "2026-09-02T21:04:00+08:00",
-      "referencePrice": 208.28,
-      "regimeCode": "EVENT_LOCK",
-      "session": "premarket",
-      "sessionDate": "2026-09-02",
-      "setupLabel": "尾盘反转保持",
-      "setupType": "仅观察",
-      "stateNote": "盘前208.28，回吐昨日反转但仍守207.20；等待正式盘确认。",
-      "trigger": "正式盘守207.20并收回209.20，且电力同业至少两项转强"
+      "referenceAt": "2026-08-25T16:00:00-04:00",
+      "referencePrice": 217.45,
+      "regimeCode": "SELECTIVE_RISK_ON",
+      "session": "close",
+      "sessionDate": "2026-08-25",
+      "setupLabel": "AI现场供电趋势验证",
+      "setupType": "趋势交易",
+      "stateNote": "新基线",
+      "trigger": "收盘站稳218.53且电力链至少两项同向确认"
     },
     {
       "asset": "MARKET",
@@ -2317,12 +2317,12 @@
       "asset": "SPCX",
       "callId": "2026-08-27-premarket-spcx-short",
       "evidenceAtCall": {
-        "price": "mixed",
-        "volume": "unknown",
-        "linkage": "unknown"
+        "linkage": "mixed",
+        "price": "confirmed",
+        "volume": "confirmed"
       },
       "horizon": "0–3D",
-      "invalidation": "失141.17并收在141.50下方",
+      "invalidation": "跌回138.33，尤其失135.20",
       "outcome": {
         "evaluatedAt": "2026-08-28T04:17:00+08:00",
         "falseBreakout": false,
@@ -2333,6 +2333,265 @@
         "return3D": null,
         "status": "triggered",
         "triggeredAt": "2026-08-28T02:20:57+08:00"
+      },
+      "permissionsAtCall": {
+        "beta": "低至中",
+        "chase": "关闭",
+        "overnight": "关闭"
+      },
+      "planStatus": "部分确认",
+      "referenceAt": "2026-08-27T21:00:00+08:00",
+      "referencePrice": 140.16,
+      "regimeCode": "SELECTIVE_RISK_ON",
+      "session": "premarket",
+      "sessionDate": "2026-08-27",
+      "setupLabel": "供给吸收验证",
+      "setupType": "短线事件交易",
+      "stateNote": "轻微突破待锁定",
+      "trigger": "正式盘守139.75并有持续成交承接"
+    },
+    {
+      "asset": "MSTR",
+      "callId": "2026-08-27-premarket-mstr-short",
+      "evidenceAtCall": {
+        "linkage": "confirmed",
+        "price": "confirmed",
+        "volume": "confirmed"
+      },
+      "horizon": "0–3D",
+      "invalidation": "跌回123.16并再度弱于BTC",
+      "outcome": {
+        "evaluatedAt": "2026-08-28T04:17:00+08:00",
+        "falseBreakout": false,
+        "invalidatedAt": null,
+        "mae": null,
+        "mfe": null,
+        "return1D": null,
+        "return3D": null,
+        "status": "triggered",
+        "triggeredAt": "2026-08-27T23:06:02+08:00"
+      },
+      "permissionsAtCall": {
+        "beta": "标准以下至标准",
+        "chase": "关闭",
+        "overnight": "关闭"
+      },
+      "planStatus": "已确认",
+      "referenceAt": "2026-08-27T21:00:00+08:00",
+      "referencePrice": 125.6,
+      "regimeCode": "SELECTIVE_RISK_ON",
+      "session": "premarket",
+      "sessionDate": "2026-08-27",
+      "setupLabel": "BTC beta修复",
+      "setupType": "短线事件交易",
+      "stateNote": "币股联动初步恢复",
+      "trigger": "正式盘守124.50且BTC、IBIT、COIN同向"
+    },
+    {
+      "asset": "MARKET",
+      "callId": "2026-09-02-premarket-market",
+      "evidenceAtCall": {
+        "price": "mixed",
+        "volume": "unknown",
+        "linkage": "failed"
+      },
+      "horizon": "0–3D",
+      "invalidation": "SPY失759.48、QQQ失704.66、SOXX失495.09且多数高Beta同步破低",
+      "outcome": {
+        "evaluatedAt": null,
+        "falseBreakout": false,
+        "invalidatedAt": null,
+        "mae": null,
+        "mfe": null,
+        "return1D": null,
+        "return3D": null,
+        "status": "open",
+        "triggeredAt": null
+      },
+      "permissionsAtCall": {
+        "beta": "低",
+        "chase": "关闭",
+        "overnight": "关闭"
+      },
+      "planStatus": "等待触发",
+      "referenceAt": "2026-09-02T21:04:00+08:00",
+      "referencePrice": 761.98,
+      "regimeCode": "EVENT_LOCK",
+      "session": "premarket",
+      "sessionDate": "2026-09-02",
+      "setupLabel": "正式盘风险验证",
+      "setupType": "风险预算",
+      "stateNote": "上一收盘RISK_OFF延续为盘前先验，尚未获得正式盘量价确认",
+      "trigger": "SPY收回764.67、QQQ收回712.30、SOXX收回504.72，且至少四个目标同步转强"
+    },
+    {
+      "asset": "DRAM",
+      "callId": "2026-09-02-premarket-dram",
+      "evidenceAtCall": {
+        "price": "mixed",
+        "volume": "unknown",
+        "linkage": "unknown"
+      },
+      "horizon": "0–3D",
+      "invalidation": "失54.59继续下修",
+      "outcome": {
+        "evaluatedAt": null,
+        "falseBreakout": false,
+        "invalidatedAt": null,
+        "mae": null,
+        "mfe": null,
+        "return1D": null,
+        "return3D": null,
+        "status": "open",
+        "triggeredAt": null
+      },
+      "permissionsAtCall": {
+        "beta": "低",
+        "chase": "关闭",
+        "overnight": "关闭"
+      },
+      "planStatus": "等待触发",
+      "referenceAt": "2026-09-02T21:04:00+08:00",
+      "referencePrice": 54.99,
+      "regimeCode": "EVENT_LOCK",
+      "session": "premarket",
+      "sessionDate": "2026-09-02",
+      "setupLabel": "存储链修复",
+      "setupType": "仅观察",
+      "stateNote": "盘前54.99，缺口有限但仍低于55.52；等待正式盘确认。",
+      "trigger": "收回55.52并突破56.76，且存储同业多数转强"
+    },
+    {
+      "asset": "LITE",
+      "callId": "2026-09-02-premarket-lite",
+      "evidenceAtCall": {
+        "price": "failed",
+        "volume": "unknown",
+        "linkage": "unknown"
+      },
+      "horizon": "0–3D",
+      "invalidation": "失854.28继续下修",
+      "outcome": {
+        "evaluatedAt": null,
+        "falseBreakout": false,
+        "invalidatedAt": null,
+        "mae": null,
+        "mfe": null,
+        "return1D": null,
+        "return3D": null,
+        "status": "open",
+        "triggeredAt": null
+      },
+      "permissionsAtCall": {
+        "beta": "低",
+        "chase": "关闭",
+        "overnight": "关闭"
+      },
+      "planStatus": "等待触发",
+      "referenceAt": "2026-09-02T21:04:00+08:00",
+      "referencePrice": 862.44,
+      "regimeCode": "EVENT_LOCK",
+      "session": "premarket",
+      "sessionDate": "2026-09-02",
+      "setupLabel": "光通信止跌",
+      "setupType": "仅观察",
+      "stateNote": "盘前862.44，继续低于887.60；等待正式盘确认。",
+      "trigger": "收回887.60并进一步站上901.04，且COHR转强"
+    },
+    {
+      "asset": "IREN",
+      "callId": "2026-09-02-premarket-iren",
+      "evidenceAtCall": {
+        "price": "failed",
+        "volume": "unknown",
+        "linkage": "unknown"
+      },
+      "horizon": "0–3D",
+      "invalidation": "失35.14继续下修",
+      "outcome": {
+        "evaluatedAt": null,
+        "falseBreakout": false,
+        "invalidatedAt": null,
+        "mae": null,
+        "mfe": null,
+        "return1D": null,
+        "return3D": null,
+        "status": "open",
+        "triggeredAt": null
+      },
+      "permissionsAtCall": {
+        "beta": "低",
+        "chase": "关闭",
+        "overnight": "关闭"
+      },
+      "planStatus": "等待触发",
+      "referenceAt": "2026-09-02T21:04:00+08:00",
+      "referencePrice": 36.09,
+      "regimeCode": "EVENT_LOCK",
+      "session": "premarket",
+      "sessionDate": "2026-09-02",
+      "setupLabel": "财报后价格修复",
+      "setupType": "仅观察",
+      "stateNote": "盘前36.09，重新跌回36.53下方；等待正式盘确认。",
+      "trigger": "收回36.53并突破37.26，且BTC/矿企或AI链转强"
+    },
+    {
+      "asset": "BE",
+      "callId": "2026-09-02-premarket-be",
+      "evidenceAtCall": {
+        "price": "mixed",
+        "volume": "unknown",
+        "linkage": "unknown"
+      },
+      "horizon": "0–3D",
+      "invalidation": "失207.20并进一步失202.90",
+      "outcome": {
+        "evaluatedAt": null,
+        "falseBreakout": false,
+        "invalidatedAt": null,
+        "mae": null,
+        "mfe": null,
+        "return1D": null,
+        "return3D": null,
+        "status": "open",
+        "triggeredAt": null
+      },
+      "permissionsAtCall": {
+        "beta": "低",
+        "chase": "关闭",
+        "overnight": "关闭"
+      },
+      "planStatus": "等待触发",
+      "referenceAt": "2026-09-02T21:04:00+08:00",
+      "referencePrice": 208.28,
+      "regimeCode": "EVENT_LOCK",
+      "session": "premarket",
+      "sessionDate": "2026-09-02",
+      "setupLabel": "尾盘反转保持",
+      "setupType": "仅观察",
+      "stateNote": "盘前208.28，回吐昨日反转但仍守207.20；等待正式盘确认。",
+      "trigger": "正式盘守207.20并收回209.20，且电力同业至少两项转强"
+    },
+    {
+      "asset": "SPCX",
+      "callId": "2026-09-02-premarket-spcx",
+      "evidenceAtCall": {
+        "price": "mixed",
+        "volume": "unknown",
+        "linkage": "unknown"
+      },
+      "horizon": "0–3D",
+      "invalidation": "失141.17并收在141.50下方",
+      "outcome": {
+        "evaluatedAt": null,
+        "falseBreakout": false,
+        "invalidatedAt": null,
+        "mae": null,
+        "mfe": null,
+        "return1D": null,
+        "return3D": null,
+        "status": "open",
+        "triggeredAt": null
       },
       "permissionsAtCall": {
         "beta": "低",
@@ -2352,7 +2611,7 @@
     },
     {
       "asset": "MSTR",
-      "callId": "2026-08-27-premarket-mstr-short",
+      "callId": "2026-09-02-premarket-mstr",
       "evidenceAtCall": {
         "price": "failed",
         "volume": "unknown",
