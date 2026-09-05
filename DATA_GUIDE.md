@@ -367,3 +367,42 @@ DRAM、LITE、CIEN、CRDO、IREN、BE、SPCX、MSTR 固定写入 `15m / 30m / 1h
 正式数据写前、写后均运行契约校验与目标时段完成检查；分位可用`node verify-history.mjs data.json close`复算，少样本仅DRAM上市起及SPCX新主体上市起允许。日内原始序列暂缺时，五个按钮显示待验证，不能用日线伪造分钟信号。
 
 `check-session`分别返回`complete`（主行情）与`researchComplete`（收盘分位）。正式OHLCV齐全可以显示已收盘，分位待补不重锁股票；但任一研究分位陈旧/空值/无可复算样本时退出2，自动任务不能幂等跳过。两项都完成且写后复读通过，才算本轮完全完成。
+
+## 前瞻评估协议 v1（条件判断体检改进）
+
+2026-09-05体检发现：121条记录中14条标为失效，其中13条没有触发时间；3条closed没有收益结果；21条带触发时间中8条不晚于参考行情时点。旧记录完整保留，不能把13条改成“未成交所以正确”，也不能把14条当成交易亏损。审计由`node audit-ledger.mjs data.json`与页面共用规则实时重算，完整初始分析见`ANALYSIS_AUDIT.md`。
+
+`meta.analysisProtocol`记录启用时间和原始基线SHA，不能随行情更新重置。此后新增callId必须冻结`evaluationPlan`；规则发生实质变化时建立新callId，沿用同一`familyId`并关联supersededBy。没有实质变化复用原callId。旧记录不事后补一个“当时已知”的新协议。
+
+evaluationPlan必填：
+
+| 字段 | 约定 |
+|---|---|
+| version / kind | 1；trade（趋势/短线事件）、observation（仅观察/中期）、market（市场预算）分开 |
+| familyId / hypothesisId | 同一标的同一轮行情的修订共用family；假设编号用于前瞻分组，不把四时段当四次独立成功 |
+| recordedAt / validUntil | 真实形成时间、不早于参考行情；触发截止时间。中国时间ISO；不能倒签 |
+| confirmationTimeframe | 15m / 30m / 1d，形成前选定，结果出现后不得换周期 |
+| conditions | 非空数组`[{id,rule}]`；所有条件AND，复合OR写清在单条rule中。数字关键位、比较符号、连续根数、同业名单/数量、相对强弱比较区间必须写清，禁止只写“站稳/转强” |
+| invalidationRule | 明确触价还是哪一周期收线、AND/OR；区分入场前取消条件与入场后止损 |
+| direction / stopPrice / stopRule | trade必填：long/short、初始止损价、touch/bar_close |
+| entryRule / exitRule | trade固定next_bar_open / stop_or_horizon；确认收线后下一根可交易开盘模拟成交；跳空越过止损则跳过并记原因，不假设成交在突破价 |
+| horizonTradingDays / roundTripCostBps | trade必填：1或3个交易日，双边成本基点（包含费用和滑点假设）。必须预先固定，不能忽略休市或结果出来后调整 |
+
+最小示例（说明格式，非实际标的建议）：
+```json
+{"version":1,"kind":"trade","familyId":"EXAMPLE-episode-1","hypothesisId":"repair-v1","recordedAt":"2026-09-08T21:05:00+08:00","validUntil":"2026-09-09T04:00:00+08:00","confirmationTimeframe":"15m","conditions":[{"id":"price","rule":"正式盘一根15m收盘严格大于100；不得以日内最高价等于100替代"}],"invalidationRule":"入场前15m收盘小于95则取消；入场后触及95止损","direction":"long","stopPrice":95,"stopRule":"touch","entryRule":"next_bar_open","exitRule":"stop_or_horizon","horizonTradingDays":1,"roundTripCostBps":20}
+```
+
+写triggeredAt时必须同时写`outcome.triggerEvidence={barClosedAt,timeframe,checks:[{conditionId,result:"pass",observed,asOf,sourceUrl}]}`，覆盖每一条conditions。observed写真实测量结果；asOf为实际行情时点；必须晚于方案形成、不晚于触发；barClosedAt等于triggeredAt。先有方案，再有收线证据，不能拿形成时已经看到的高点当未来预测命中。只有价格碰位而同业/量能未确认时保持部分确认，不得写triggered。
+
+每轮先复核已有判断，再写新判断：逐项核对原条件，不用新条件解释旧结果。盘中确认只回答盘中执行；是否隔夜在收盘另作持有判断，不把“当日正式收盘确认”事后加到原盘中策略来消除亏损。风险预算不是市场涨跌预测，观察取消不是交易失败。
+
+有足够分钟原始数据时尽力修复历史触发与后续路径，另附补证时间和来源；不能用全天最高/最低价推算入场后的MFE/MAE，不能虚构分钟数据、成交或手续费。找不到的写明缺证并保留待核验。旧记录重建结果也只作回顾性分析，不混入新协议前瞻绩效。
+
+新trade结束时写`outcome.execution={entryAt,entryPrice,exitAt,exitPrice,exitReason:"stop"|"horizon",horizonAt,sourceUrl,pathVerified:true,ambiguous:false}`；horizonAt按真实交易日历指定为进场后的第N个交易日正式收盘。先止损则按实际可成交价退出；若同一根K线同时出现目标/止损而无法恢复先后，标ambiguous并保留空收益，不选有利路径。模拟结果不是用户实际成交。`return1D`或`return3D`为对应既定期限的**止损或到期净收益百分比**，不混写成不止损的持有收益；净收益=方向×(退出/进入−1)×100−roundTripCostBps/100。MFE非负、MAE非正，单位均为相对进入价的百分比，只用进入至退出路径。evaluatedAt不早于exitAt。
+
+旧数据标签作为历史事实保留；仅当新方案、逐项触发证据、进出场路径、费用和结果均核验后，才算可统计模拟交易。收益为负也必须计入。按市场状态×类型×假设×确认周期×持有期×方向×费用口径分组，同family重复修订不能重复贡献独立样本；同日多个AI资产仍相关。20个可比family只是最低展示门槛，不是统计显著或模型有效的证明。还应列样本覆盖率、遗漏机会、净收益分布和回撤，不能单靠提高胜率。
+
+首轮改进只验证三项假设：弱市修复与趋势延续分开；行业强势必须有个股确认；触及关键位不等于收线突破。不凭一个失败增加永久禁令，不事后找最优周期。新规则在下一批未见结果的样本前冻结，积累后与预先固定的基准、成本和风险预算比较，明确减少假突破是否同时错过大趋势。
+
+自动任务完成检查之外，每次还运行audit-ledger并复核到期/已触发待评估项。主行情已更新不代表结果台账已完成；有到期项必须尝试补结果或记录本轮`outcome.assessmentAttempt={at,status:"blocked",reason,sourcesTried:[...]}`，同轮已经记录无法取得的数据不无限重试。此审计不锁定行情或交易权限、不新增重叠任务。写后复读协议字段、原计划完整性和结果数量；新规则实际效果等待后续样本验证。

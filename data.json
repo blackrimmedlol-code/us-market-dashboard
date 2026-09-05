@@ -11815,7 +11815,12 @@
     "timezone": "Asia/Shanghai",
     "updatedAt": "2026-09-05T09:49:38.603+08:00",
     "scheduledTimezone": "America/New_York",
-    "maintenanceNote": "v15：八标的、局部质量提示、正式收盘完成校验与原始判断冻结"
+    "maintenanceNote": "v15：八标的、局部质量提示、正式收盘完成校验与原始判断冻结",
+    "analysisProtocol": {
+      "version": 1,
+      "activatedAt": "2026-09-05T17:51:22+08:00",
+      "baselineSHA": "7b03ecc0885d1ab441c549c42635b989a2242ae2"
+    }
   },
   "premarket": {
     "aiCapitalCycle": {

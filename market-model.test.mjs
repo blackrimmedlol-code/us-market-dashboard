@@ -101,4 +101,71 @@ test('all session renderers run, eight cards retain five timeframes, ledger stay
     assert.doesNotMatch(element('action-board').innerHTML, /数据锁权/);
   }
   assert.equal(Number.isNaN(context.window.testQuoteFor({ symbol: 'CIEN', price: null }, data.premarket).price), true);
+  const audit = model.auditLedger(data.decisionLedger);
+  assert.ok(element('calibration-summary').innerHTML.includes('可统计模拟交易</span><b>' + audit.eligible));
+  assert.ok(element('calibration-findings').innerHTML.includes(audit.chronologyFlags + ' 条触发不晚于参考时点'));
+});
+
+function prospective() {
+  return {
+    callId: 'synthetic-test', asset: 'BE', setupType: '趋势交易', regimeCode: 'ROTATION_NEUTRAL',
+    referenceAt: '2026-09-08T21:04:00+08:00',
+    evaluationPlan: { version: 1, kind: 'trade', familyId: 'BE-episode', hypothesisId: 'repair-v1', recordedAt: '2026-09-08T21:05:00+08:00', validUntil: '2026-09-09T04:00:00+08:00', confirmationTimeframe: '15m', conditions: [{ id: 'price', rule: '15m close > 100' }, { id: 'peers', rule: '至少2个同业本轮上涨' }], invalidationRule: '触及95止损', direction: 'long', stopPrice: 95, stopRule: 'touch', entryRule: 'next_bar_open', exitRule: 'stop_or_horizon', horizonTradingDays: 1, roundTripCostBps: 20 },
+    outcome: { status: 'closed', triggeredAt: '2026-09-08T21:45:00+08:00', evaluatedAt: '2026-09-10T04:25:00+08:00', return1D: 4.8, return3D: null, mfe: 6, mae: -2,
+      triggerEvidence: { barClosedAt: '2026-09-08T21:45:00+08:00', timeframe: '15m', checks: ['price', 'peers'].map(conditionId => ({ conditionId, result: 'pass', observed: 'synthetic verified test value', asOf: '2026-09-08T21:45:00+08:00', sourceUrl: 'https://example.com/test-bars' })) },
+      execution: { entryAt: '2026-09-08T21:45:01+08:00', entryPrice: 100, exitAt: '2026-09-10T04:00:00+08:00', exitPrice: 105, exitReason: 'horizon', horizonAt: '2026-09-10T04:00:00+08:00', sourceUrl: 'https://example.com/test-bars', pathVerified: true, ambiguous: false }
+    }
+  };
+}
+test('historical labels do not manufacture losses, wins or comparable samples', () => {
+  const a = model.auditLedger([
+    { callId: 'a', referenceAt: '2026-09-01T21:00:00+08:00', outcome: { status: 'invalidated', triggeredAt: null, falseBreakout: true } },
+    { callId: 'b', referenceAt: '2026-09-01T21:00:00+08:00', outcome: { status: 'invalidated', triggeredAt: '2026-09-01T22:00:00+08:00' } },
+    { callId: 'c', referenceAt: '2026-09-01T21:00:00+08:00', outcome: { status: 'closed', triggeredAt: '2026-09-01T21:00:00+08:00', return1D: null } }
+  ]);
+  assert.equal(a.invalidated, 2); assert.equal(a.invalidatedWithTrigger, 1);
+  assert.equal(a.invalidatedUnverified, 1); assert.equal(a.closedMissingReturns, 1);
+  assert.equal(a.chronologyFlags, 1); assert.equal(a.falseBreakoutUnverified, 1); assert.equal(a.eligible, 0);
+  const missing = { callId: 'missing', outcome: { status: 'invalidated' } };
+  assert.equal(model.auditCall(missing).label, '失效·触发待证');
+});
+test('prospective audit requires every condition, chronology and net result evidence', () => {
+  const good = prospective(); assert.deepEqual(model.planErrors(good), []); assert.equal(model.auditCall(good).eligible, true);
+  for (const mutate of [
+    c => c.outcome.triggerEvidence.checks.pop(),
+    c => c.outcome.triggerEvidence.checks[1].result = 'unknown',
+    c => c.outcome.triggeredAt = c.referenceAt,
+    c => c.outcome.execution.ambiguous = true,
+    c => c.outcome.execution.entryPrice = 94,
+    c => c.outcome.return1D = 5,
+    c => c.outcome.mfe = null,
+    c => c.outcome.execution.pathVerified = false,
+    c => c.evaluationPlan.conditions = [null]
+  ]) { const c = structuredClone(good); mutate(c); assert.equal(model.auditCall(c).eligible, false); }
+  const observation = structuredClone(good); observation.setupType = '仅观察'; observation.evaluationPlan.kind = 'observation';
+  assert.equal(model.auditCall(observation).eligible, false);
+});
+test('verified losses count and repeated revisions do not become independent families', () => {
+  const win = prospective(), loss = prospective(); loss.callId = 'loss';
+  loss.outcome.status = 'invalidated'; loss.outcome.return1D = -5.2; loss.outcome.mae = -5;
+  loss.outcome.execution.exitPrice = 95; loss.outcome.execution.exitReason = 'stop';
+  assert.equal(model.auditCall(loss).eligible, true); assert.equal(model.auditCall(loss).netReturn, -5.2);
+  const a = model.auditLedger([win, loss]); assert.equal(a.eligible, 2); assert.equal(a.cohorts.length, 1); assert.equal(a.cohorts[0].families.length, 1);
+});
+test('writer rejects new unplanned calls and retrospective evaluation changes', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'audit-contract-'));
+  try {
+    const previous = join(dir, 'previous.json'), candidate = join(dir, 'candidate.json');
+    writeFileSync(previous, JSON.stringify(data));
+    const bad = structuredClone(data), call = structuredClone(data.decisionLedger[0]); call.callId += '-unplanned'; bad.decisionLedger.push(call);
+    writeFileSync(candidate, JSON.stringify(bad));
+    let r = spawnSync(process.execPath, [new URL('./validate-data.mjs', import.meta.url).pathname, candidate, previous], { encoding: 'utf8' });
+    assert.equal(r.status, 1); assert.match(r.stderr, /新判断必须事先冻结评估方案/);
+    const old = structuredClone(data), fresh = structuredClone(data);
+    old.decisionLedger[0].evaluationPlan = prospective().evaluationPlan;
+    fresh.decisionLedger[0].evaluationPlan = { ...prospective().evaluationPlan, confirmationTimeframe: '30m' };
+    writeFileSync(previous, JSON.stringify(old)); writeFileSync(candidate, JSON.stringify(fresh));
+    r = spawnSync(process.execPath, [new URL('./validate-data.mjs', import.meta.url).pathname, candidate, previous], { encoding: 'utf8' });
+    assert.equal(r.status, 1); assert.match(r.stderr, /不得在结果出现后改动评估规则/);
+  } finally { rmSync(dir, { recursive: true, force: true }); }
 });

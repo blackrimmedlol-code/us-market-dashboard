@@ -217,6 +217,12 @@ else {
     if (!call.originalPlan || !model.validTime(call.originalPlan.capturedAt)) fail(`${path}.originalPlan`, '缺失原判断快照');
     else for (const field of immutable) if (call.originalPlan[field] !== call[field]) fail(`${path}.${field}`, '原判断不可改写，变更应新建 callId');
     if (call.supersededBy && !data.decisionLedger.some(x => x.callId === call.supersededBy && x.asset === call.asset && x.callId !== call.callId)) fail(`${path}.supersededBy`, '必须引用同标的另一个判断');
+    if (call.evaluationPlan) {
+      for (const error of model.planErrors(call)) fail(`${path}.evaluationPlan`, error);
+      if (outcome.triggeredAt) for (const error of model.triggerErrors(call)) fail(`${path}.outcome.triggerEvidence`, error);
+      if (outcome.falseBreakout === true && !outcome.triggeredAt) fail(`${path}.outcome.falseBreakout`, '没有触发证据不得判为失败突破');
+      if (outcome.return1D != null || outcome.return3D != null) for (const error of model.resultErrors(call)) fail(`${path}.outcome`, error);
+    }
     if (!call.supersededBy && call.sessionDate === data.meta?.sessionDate && call.session === data.meta?.latestSession && ['open', 'triggered'].includes(outcome.status)) {
       const active = data[call.session]?.horizons?.[call.asset]?.short;
       if (!active) fail(`${path}.session`, '最新开放判断没有对应的 horizons 短线剧本');
@@ -231,11 +237,18 @@ else {
 
 if (process.argv[3]) {
   const previous = JSON.parse(readFileSync(process.argv[3], 'utf8'));
+  if (previous.meta?.analysisProtocol && JSON.stringify(data.meta?.analysisProtocol) !== JSON.stringify(previous.meta.analysisProtocol)) fail('meta.analysisProtocol', '前瞻评估启用基线不可移除或改写');
+  const oldIds = new Set((previous.decisionLedger || []).map(c => c.callId));
+  if (data.meta?.analysisProtocol?.version === 1) for (const call of data.decisionLedger || []) {
+    if (!oldIds.has(call.callId) && (!call.evaluationPlan || call.evaluationPlan.version !== 1)) fail(`decisionLedger.${call.callId}.evaluationPlan`, '新判断必须事先冻结评估方案');
+    if (!oldIds.has(call.callId) && call.evaluationPlan && !(Date.parse(call.evaluationPlan.recordedAt) >= Date.parse(data.meta.analysisProtocol.activatedAt))) fail(`decisionLedger.${call.callId}.evaluationPlan.recordedAt`, '新方案不得倒签至协议启用之前');
+  }
   for (const old of previous.decisionLedger || []) {
     const current = data.decisionLedger?.find(c => c.callId === old.callId);
     if (!current) { fail(`decisionLedger.${old.callId}`, '历史判断不可删除'); continue; }
     for (const field of ['asset', 'trigger', 'invalidation', 'referenceAt', 'referencePrice', 'setupType', 'session', 'sessionDate']) if (JSON.stringify(old[field]) !== JSON.stringify(current[field])) fail(`decisionLedger.${old.callId}.${field}`, '与写前原始判断不同');
     if (old.originalPlan && JSON.stringify(old.originalPlan) !== JSON.stringify(current.originalPlan)) fail(`decisionLedger.${old.callId}.originalPlan`, '原始快照不可改写');
+    if (old.evaluationPlan && JSON.stringify(old.evaluationPlan) !== JSON.stringify(current.evaluationPlan)) fail(`decisionLedger.${old.callId}.evaluationPlan`, '不得在结果出现后改动评估规则');
   }
 }
 

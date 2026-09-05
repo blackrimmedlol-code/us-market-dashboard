@@ -21,3 +21,4 @@ Codex 维护本仓库的页面和市场数据自动任务；Hermes 不参与本�
 - schema v15；质量按影响范围处理，BTC辅助量能缺失不得全局锁定。
 - 原判断触发、失效与参考价不可覆盖；改剧本新建callId并关联supersededBy。
 - 五周期按钮保留；1–6周论点账本默认展开；CRDO与CRDU价格和持仓计算不得混用。
+- 新条件判断必须遵守 DATA_GUIDE 的“前瞻评估协议 v1”，冻结 evaluationPlan；运行 node audit-ledger.mjs data.json。失效、已结标签不直接代表交易输赢，历史缺证不得伪造补齐。
