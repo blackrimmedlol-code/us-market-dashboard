@@ -1,9 +1,10 @@
 import { readFileSync } from 'node:fs';
+import model from './market-model.js';
 
 const file = process.argv[2] || new URL('./data.json', import.meta.url).pathname;
 const data = JSON.parse(readFileSync(file, 'utf8'));
 const sessions = ['premarket', 'intraday', 'late', 'close'];
-const targetOrder = ['DRAM', 'LITE', 'IREN', 'BE', 'SPCX', 'MSTR'];
+const targetOrder = model.TARGETS;
 const actionOrder = ['MARKET', ...targetOrder];
 const changeOrder = ['市场', ...targetOrder];
 const snapshotOrder = ['SPY', 'QQQ', 'SOXX', ...targetOrder, 'BTC'];
@@ -20,13 +21,13 @@ const tones = new Set(['up', 'down', 'flat']);
 const timeframeMethods = new Set(['direct', 'aggregate', 'structure', 'daily']);
 const capitalKeys = ['endDemand', 'unitEconomics', 'capex', 'financing', 'price'];
 const demandLoopKeys = ['industryDemand', 'ordersCommitments', 'deliveryUtilization', 'revenueConversion', 'marginCashFlow'];
-const fundamentalLoopAssets = new Set(['DRAM', 'LITE', 'IREN', 'BE']);
+const fundamentalLoopAssets = new Set(['DRAM', 'LITE', 'CIEN', 'CRDO', 'IREN', 'BE']);
 const overbuildStates = new Set(['unknown', 'no_signal', 'early_warning', 'confirmed']);
 const errors = [];
 const warnings = [];
 const fail = (path, message) => errors.push(`${path}: ${message}`);
 
-if (Number(data?.meta?.schemaVersion) !== 14) fail('meta.schemaVersion', '必须为 14');
+if (Number(data?.meta?.schemaVersion) !== model.SCHEMA) fail('meta.schemaVersion', '必须为 15');
 if (!sessions.includes(data?.meta?.latestSession)) fail('meta.latestSession', '不是合法时段');
 
 for (const key of sessions) {
@@ -35,6 +36,35 @@ for (const key of sessions) {
   const base = key;
   if (!session.updatedAt) fail(`${base}.updatedAt`, '缺失');
   if (!session.largestChange) fail(`${base}.largestChange`, '缺失');
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(session.sessionDate || '')) fail(`${base}.sessionDate`, '缺失美东交易日');
+  for (const field of ['nominalAt', 'marketCloseAt']) if (!model.validTime(session[field])) fail(`${base}.${field}`, '必须是 ISO 时间');
+  const quality = session.quality;
+  if (!quality || !Array.isArray(quality.issues) || !quality.quotes || !model.validTime(quality.checkedAt)) fail(`${base}.quality`, '缺少结构化问题、行情或核验时间');
+  else {
+    quality.issues.forEach((issue, i) => {
+      const path = `${base}.quality.issues[${i}]`;
+      if (!issue.code || !issue.message || !['global', 'asset', 'metric'].includes(issue.scope) || !['info', 'warning', 'critical'].includes(issue.level) || !['execution', 'volume', 'linkage', 'reference'].includes(issue.effect)) fail(path, '非法分级提示');
+      if (!Array.isArray(issue.assets) || !issue.assets.every(a => actionOrder.includes(a))) fail(path, '非法影响标的');
+      if (issue.scope !== 'global' && !issue.assets?.length) fail(path, '局部问题必须写明影响范围');
+      if (issue.scope === 'global' && issue.assets?.length) fail(path, '全局问题不得混入局部资产');
+    });
+    snapshotOrder.forEach(symbol => {
+      const q = quality.quotes[symbol], path = `${base}.quality.quotes.${symbol}`;
+      if (!q || !['verified', 'missing', 'conflict', 'unverified'].includes(q.status)) { fail(path, '缺失或非法行情状态'); return; }
+      if (q.status === 'missing' && q.price != null) fail(path, '缺失报价必须为 null');
+      if (q.status === 'verified' && (!model.positive(q.price) || !model.validTime(q.asOf) || !q.sourceUrl)) fail(path, '已核实报价必须有正价格、时间与来源');
+      if (q.isFinal && (q.session !== 'regular' || ![q.open, q.high, q.low, q.price, q.volume].every(model.positive) || model.marketDate(q.asOf) !== q.marketDate || Date.parse(q.asOf) < Date.parse(session.marketCloseAt))) fail(path, '正式日线必须为本交易日收盘后完整 OHLCV');
+      if ([q.open, q.high, q.low, q.price].every(model.positive) && (q.high < Math.max(q.open, q.price) || q.low > Math.min(q.open, q.price) || q.low > q.high)) fail(path, 'OHLC 上下界矛盾');
+      const snapshot = session.snapshot?.find(x => x.symbol === symbol), watch = session.watchlist?.find(x => x.symbol === symbol);
+      if (snapshot && snapshot.price !== q.price) fail(path, '与 snapshot 价格不一致');
+      if (watch && watch.price !== q.price) fail(path, '与 watchlist 价格不一致');
+    });
+  }
+  if (!['pending', 'partial', 'final', 'snapshot'].includes(session.completion?.status)) fail(`${base}.completion`, '缺失完成状态');
+  if (key === 'close' && (session.completion?.status === 'final' || session.decisionGate?.closeFinal)) {
+    const result = model.completion(data, key, session.sessionDate);
+    if (!result.complete) fail(`${base}.completion`, result.errors.join('；'));
+  }
   if (!regimeCodes.has(session.regimeCode)) fail(`${base}.regimeCode`, `非法值 ${session.regimeCode ?? 'null'}`);
   if (!breadthStates.has(session.breadthState)) fail(`${base}.breadthState`, `非法值 ${session.breadthState ?? 'null'}`);
   const gate = session.decisionGate;
@@ -63,6 +93,13 @@ for (const key of sessions) {
     if (!tradeTypes.has(short.tradeType)) fail(`${path}.tradeType`, `非法值 ${short.tradeType ?? 'null'}`);
     for (const evidence of ['price', 'volume', 'linkage']) {
       if (!confirmationStates.has(short.confirmations?.[evidence]?.state)) fail(`${path}.confirmations.${evidence}.state`, '非法或缺失');
+    }
+    for (const field of ['holdingPlan', 'entryPlan']) if (!short[field]) fail(`${path}.${field}`, '必须区分已有持仓与新增仓位');
+    const volume = short.confirmations?.volume;
+    if (volume?.state === 'confirmed') {
+      const benchmark = volume.benchmark;
+      if (!benchmark || !model.positive(benchmark.value) || !model.positive(benchmark.current) || !benchmark.basis || !benchmark.asOf || !benchmark.sourceUrl) fail(`${path}.confirmations.volume`, '量能确认缺少可审计比较基准');
+      if (key !== 'close' && benchmark?.basis !== 'same-time') fail(`${path}.confirmations.volume.benchmark`, '盘中只能与同时间进度比较');
     }
   }
   const watchOrder = (session.watchlist || []).map((item) => item.symbol).filter((symbol) => targetOrder.includes(symbol));
@@ -139,7 +176,7 @@ for (const key of sessions) {
   });
   const extendedOrder = (session.extendedHours || []).filter(Boolean).map((item) => item.symbol).filter((symbol) => targetOrder.includes(symbol));
   if (extendedOrder.length && JSON.stringify(extendedOrder) !== JSON.stringify(targetOrder)) fail(`${base}.extendedHours`, `存在时必须覆盖并按 ${targetOrder.join(' / ')} 排序`);
-  if (!Array.isArray(session.changes) || session.changes.length !== 7) fail(`${base}.changes`, '必须覆盖市场与六个标的');
+  if (!Array.isArray(session.changes) || session.changes.length !== 9) fail(`${base}.changes`, '必须覆盖市场与八个标的');
   else {
     const actualChangeOrder = session.changes.map((change) => change.asset);
     if (JSON.stringify(actualChangeOrder) !== JSON.stringify(changeOrder)) fail(`${base}.changes`, `顺序必须为 ${changeOrder.join(' / ')}`);
@@ -176,7 +213,11 @@ else {
     if (outcome.status === 'invalidated' && !outcome.invalidatedAt && !outcome.evaluatedAt) fail(`${path}.outcome`, 'invalidated 必须有失效或评估时间');
     if (['closed', 'expired'].includes(outcome.status) && !outcome.evaluatedAt) fail(`${path}.outcome.evaluatedAt`, `${outcome.status} 必须有评估时间`);
     if (['失败突破', '剧本失效'].includes(call.planStatus) && ['open', 'triggered'].includes(outcome.status)) fail(`${path}.planStatus`, '失败剧本不能仍处于开放或触发未结状态');
-    if (call.sessionDate === data.meta?.sessionDate && call.session === data.meta?.latestSession && ['open', 'triggered'].includes(outcome.status)) {
+    const immutable = ['trigger', 'invalidation', 'referenceAt', 'referencePrice', 'setupType'];
+    if (!call.originalPlan || !model.validTime(call.originalPlan.capturedAt)) fail(`${path}.originalPlan`, '缺失原判断快照');
+    else for (const field of immutable) if (call.originalPlan[field] !== call[field]) fail(`${path}.${field}`, '原判断不可改写，变更应新建 callId');
+    if (call.supersededBy && !data.decisionLedger.some(x => x.callId === call.supersededBy && x.asset === call.asset && x.callId !== call.callId)) fail(`${path}.supersededBy`, '必须引用同标的另一个判断');
+    if (!call.supersededBy && call.sessionDate === data.meta?.sessionDate && call.session === data.meta?.latestSession && ['open', 'triggered'].includes(outcome.status)) {
       const active = data[call.session]?.horizons?.[call.asset]?.short;
       if (!active) fail(`${path}.session`, '最新开放判断没有对应的 horizons 短线剧本');
       else {
@@ -188,9 +229,19 @@ else {
   });
 }
 
+if (process.argv[3]) {
+  const previous = JSON.parse(readFileSync(process.argv[3], 'utf8'));
+  for (const old of previous.decisionLedger || []) {
+    const current = data.decisionLedger?.find(c => c.callId === old.callId);
+    if (!current) { fail(`decisionLedger.${old.callId}`, '历史判断不可删除'); continue; }
+    for (const field of ['asset', 'trigger', 'invalidation', 'referenceAt', 'referencePrice', 'setupType', 'session', 'sessionDate']) if (JSON.stringify(old[field]) !== JSON.stringify(current[field])) fail(`decisionLedger.${old.callId}.${field}`, '与写前原始判断不同');
+    if (old.originalPlan && JSON.stringify(old.originalPlan) !== JSON.stringify(current.originalPlan)) fail(`decisionLedger.${old.callId}.originalPlan`, '原始快照不可改写');
+  }
+}
+
 if (warnings.length) console.warn(`WARNINGS (${warnings.length})\n${warnings.join('\n')}`);
 if (errors.length) {
   console.error(`INVALID (${errors.length})\n${errors.join('\n')}`);
   process.exit(1);
 }
-console.log(`VALID schema v14 · ${sessions.filter((key) => data[key]?.available !== false).length} sessions · ${data.decisionLedger.length} calls`);
+console.log(`VALID schema v15 · ${sessions.filter((key) => data[key]?.available !== false).length} sessions · ${data.decisionLedger.length} calls`);
