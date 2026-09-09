@@ -37,7 +37,7 @@
           "tone": "flat"
         },
         {
-          "evidence": "正式收盘：SPY -0.39% / QQQ +0.18% / SOXX +3.52%。 DRAM/IREN保持原价格条件，LITE/BE未完全突破；新纳入CIEN/CRDO仍处财报后修复。",
+          "evidence": "正式收盘：SPY -0.46%、QQQ -0.28%、SOXX +0.68%；半导体相对抗跌，但市场广度仍偏弱。 DDOG +7.10%独强；LITE/DRAM上涨，IREN/BE/SPCX/MSTR收弱。",
           "invalidation": "SOXX失507.25且SPY/QQQ同步走弱",
           "key": "price",
           "label": "价格确认",
@@ -66,113 +66,124 @@
     "changes": [
       {
         "asset": "市场",
-        "from": "盘中分化",
-        "to": "SPY -0.35%、QQQ +0.14%、SOXX +2.12%；强势仍集中在半导体与AI网络链，未扩散为全面市场趋势。",
-        "reason": "SPY -0.35%、QQQ +0.14%、SOXX +2.12%；强势仍集中在半导体与AI网络链，未扩散为全面市场趋势。",
-        "material": false,
-        "impactFields": [],
-        "tone": "flat",
-        "verdict": "正式收盘确认大盘偏弱、半导体相对强势；风险偏好未全面扩散。"
-      },
-      {
-        "asset": "DRAM",
-        "from": "61.70",
-        "to": "61.76（+3.46%），午后基本横盘，仍未以15分钟收线确认突破62.00。",
-        "reason": "61.76（+3.46%），午后基本横盘，仍未以15分钟收线确认突破62.00。",
-        "material": false,
-        "impactFields": [],
-        "tone": "up",
-        "verdict": "正式收于60.99（+2.18%），盘中触及62.07后回落；日线偏强，但未把触价等同持续突破。"
-      },
-      {
-        "asset": "LITE",
-        "from": "987.80",
-        "to": "987.39（+12.04%），守住AI网络链大幅跳升，日内触及998.50；急涨后不追高。",
-        "reason": "987.39（+12.04%），守住AI网络链大幅跳升，日内触及998.50；急涨后不追高。",
-        "material": false,
-        "impactFields": [],
-        "tone": "up",
-        "verdict": "正式收于978.54（+11.04%），AI网络链跳空上行，盘中触及1000.15；急涨后继续禁止追高。"
-      },
-      {
-        "asset": "CRDO",
-        "from": "175.60",
-        "to": "175.12（+2.67%），从178.00日高回落，仍守172.05上方；只记部分确认。",
-        "reason": "175.12（+2.67%），从178.00日高回落，仍守172.05上方；只记部分确认。",
-        "material": false,
-        "impactFields": [],
-        "tone": "up",
-        "verdict": "正式收于167.75（-1.65%），冲高178.00后转跌，明显弱于LITE与CIEN；行业强势未替代个股确认。"
-      },
-      {
-        "asset": "DDOG",
-        "from": "迁移前未纳入核心矩阵",
-        "to": "建立 09/08 正式收盘参考基线",
-        "reason": "2026-09-09 起核心矩阵由 CIEN 切换为 DDOG；CIEN 历史判断与复盘冻结保留，DDOG 不继承 CIEN 的价格、触发、分位或胜负。",
+        "from": "02:05午后复核",
+        "to": "正式收盘：SPY -0.46%、QQQ -0.28%、SOXX +0.68%；半导体相对抗跌，但市场广度仍偏弱。",
+        "reason": "正式收盘：SPY -0.46%、QQQ -0.28%、SOXX +0.68%；半导体相对抗跌，但市场广度仍偏弱。",
         "material": true,
         "impactFields": [
           "confidence",
           "permissions"
         ],
-        "tone": "flat",
-        "verdict": "DDOG 新纳入核心矩阵；PANW / MDB 仅作软件同行温度计，本时段不回填 CIEN 数据。"
+        "tone": "down"
+      },
+      {
+        "asset": "DRAM",
+        "from": "02:05午后复核",
+        "to": "正式收于61.48（+0.62%），盘中触及62.58后回落；守住61.10，但未以收盘完成62.00上方突破。",
+        "reason": "SOXX +0.68%，存储ETF自身温和上涨。",
+        "material": true,
+        "impactFields": [
+          "confidence",
+          "permissions"
+        ],
+        "tone": "up"
+      },
+      {
+        "asset": "LITE",
+        "from": "02:05午后复核",
+        "to": "正式收于988.98（+1.07%），盘中触及1026.76后回落；仍高于978.54，但急涨后的持续性尚待下一交易日确认。",
+        "reason": "LITE保持上涨，但CRDO仅+0.10%，AI网络链内部强弱分化。",
+        "material": true,
+        "impactFields": [
+          "confidence",
+          "permissions"
+        ],
+        "tone": "up"
+      },
+      {
+        "asset": "CRDO",
+        "from": "02:05午后复核",
+        "to": "正式收于167.92（+0.10%），冲高173.24后几乎平收；明显弱于LITE，行业强势没有替代个股确认。",
+        "reason": "LITE +1.07%，CRDO仅+0.10%；同行强势不替代CRDO自身确认。",
+        "material": true,
+        "impactFields": [
+          "confidence",
+          "permissions"
+        ],
+        "tone": "up"
+      },
+      {
+        "asset": "DDOG",
+        "from": "02:05午后复核",
+        "to": "正式收于225.16（+7.10%），接近日高225.71；MDB上涨而PANW下跌，DDOG为独立软件强势，未用同行替代自身确认。",
+        "reason": "PANW -0.56%、MDB +0.64%，同行温度分化；DDOG +7.10%显著独立走强。",
+        "material": true,
+        "impactFields": [
+          "confidence",
+          "permissions"
+        ],
+        "tone": "up"
       },
       {
         "asset": "IREN",
-        "from": "48.40",
-        "to": "48.33（+8.17%），高位横盘并守住48.05附近；BTC偏弱，AI云强势与加密链继续分化。",
-        "reason": "48.33（+8.17%），高位横盘并守住48.05附近；BTC偏弱，AI云强势与加密链继续分化。",
-        "material": false,
-        "impactFields": [],
-        "tone": "up",
-        "verdict": "正式收于46.93（+5.04%），盘中冲高49.29后回落；仍强于偏弱BTC，AI云与加密链继续分化。"
+        "from": "02:05午后复核",
+        "to": "正式收于45.36（-3.36%），低于46.93且接近日低；BTC未能带动正Beta修复，AI云与加密链继续分化。",
+        "reason": "IREN -3.36%，未跟随盘中偏稳的BTC；双链分化延续。",
+        "material": true,
+        "impactFields": [
+          "confidence",
+          "permissions"
+        ],
+        "tone": "down"
       },
       {
         "asset": "BE",
-        "from": "275.89",
-        "to": "282.60（+11.76%），突破278.99后继续走高；指数纳入事件承接延续，但日线未收盘。",
-        "reason": "282.60（+11.76%），突破278.99后继续走高；指数纳入事件承接延续，但日线未收盘。",
+        "from": "02:05午后复核",
+        "to": "正式收于269.16（-2.91%），跌破277.22并接近日低；指数纳入事件后的承接继续降温。",
+        "reason": "BE -2.91%，事件驱动后的价格承接转弱。",
         "material": true,
         "impactFields": [
-          "confidence"
+          "confidence",
+          "permissions"
         ],
-        "tone": "up",
-        "verdict": "正式收于277.22（+9.63%），标普500纳入事件获得承接，但从283.83回落；不追事件高点。"
+        "tone": "down"
       },
       {
         "asset": "SPCX",
-        "from": "149.26",
-        "to": "153.02（+3.43%），午后收回149.77并越过152.30供给区；缺少15分钟序列，仍不把现价当作收线突破。",
-        "reason": "153.02（+3.43%），午后收回149.77并越过152.30供给区；缺少15分钟序列，仍不把现价当作收线突破。",
+        "from": "02:05午后复核",
+        "to": "正式收于147.58（-3.84%），跌回152.30供给区下方；日线确认前一日突破未能保持。",
+        "reason": "SPCX -3.84%，在大盘偏弱日表现更差。",
         "material": true,
         "impactFields": [
-          "confidence"
+          "confidence",
+          "permissions"
         ],
-        "tone": "up",
-        "verdict": "正式收于153.47（+3.73%），日线站上152.30供给区；单日收口后仍需下一时段保持。"
+        "tone": "down"
       },
       {
         "asset": "MSTR",
-        "from": "137.67",
-        "to": "137.25（-3.89%），仍弱于大盘且未收回139.31；午后弱势延续。",
-        "reason": "137.25（-3.89%），仍弱于大盘且未收回139.31；午后弱势延续。",
-        "material": false,
-        "impactFields": [],
-        "tone": "down",
-        "verdict": "正式收于136.52（-4.40%），继续弱于BTC并未收回139.31；加密正Beta尚未修复。"
+        "from": "02:05午后复核",
+        "to": "正式收于132.70（-2.80%），未收回139.31并接近日低；加密正Beta仍未恢复。",
+        "reason": "MSTR -2.80%，未形成相对BTC的正Beta修复。",
+        "material": true,
+        "impactFields": [
+          "confidence",
+          "permissions"
+        ],
+        "tone": "down"
       }
     ],
-    "confidence": "中",
+    "confidence": "低",
     "decisionGate": {
-      "quoteAsOf": "2026-09-09T04:00:00+08:00",
-      "validUntil": "2026-09-09T21:05:00+08:00",
+      "quoteAsOf": "2026-09-10T04:00:00+08:00",
+      "validUntil": "2026-09-10T21:05:00+08:00",
       "sourceConflict": false,
       "volumeComplete": true,
       "closeFinal": true,
       "status": "caution",
-      "note": "正式收盘主行情完整；研究分位待补不重新锁住股票，原策略权限不自动放宽。"
+      "note": "十一项股票/ETF正式OHLCV完整；研究分位已复算。数据完成不自动放宽原策略权限。"
     },
-    "deltaLabel": "相对午后：正式日线收口，AI网络与电力链强势但内部明显分化",
+    "deltaLabel": "相对午后：正式日线收口，软件/AI网络与高Beta链继续分化",
     "eventCalendar": [
       {
         "affectedAssets": [
@@ -227,11 +238,11 @@
     ],
     "expectationGaps": [
       {
-        "event": "CIEN / CRDO 财报后价格检验",
+        "event": "迁移前标的 / CRDO 财报后价格检验",
         "kind": "事实与推断分开",
         "expected": "强增长是否足以支持原有预期：目前没有完整一致预期数据，不虚构“超预期”。",
         "actual": "两家公司披露收入增长及下一季度指引；财报后的价格先下跌，随后出现反弹。",
-        "reaction": "09/04 CIEN +1.12%、CRDO +3.90%，均未收复财报后主要压力区。",
+        "reaction": "09/04 迁移前标的 +1.12%、CRDO +3.90%，均未收复财报后主要压力区。",
         "implication": "解释为预期重估仍待完成的研究假设；持仓防守与新仓确认分别列示。"
       },
       {
@@ -251,24 +262,24 @@
         "implication": "下一正式时段重新验证144.92，旧剧本不追认命中。"
       }
     ],
-    "extendedAsOf": "2026-09-09T04:31:00+08:00",
+    "extendedAsOf": "2026-09-10T04:25:00+08:00",
     "extendedHours": false,
     "freshness": {
       "quotes": {
-        "asOf": "2026-09-09 04:00 中国时间",
+        "asOf": "2026-09-10 04:00 中国时间",
         "status": "十一项股票/ETF正式收盘OHLCV完整"
       },
       "timeframes": {
-        "asOf": "2026-09-08",
-        "status": "正式日线完整；无分钟序列，15m/30m/1h/4h保持unknown"
+        "asOf": "2026-09-09",
+        "status": "正式日线完整；缺少形成后分钟序列，15m/30m/1h/4h保持unknown"
       },
       "daily": {
-        "asOf": "2026-09-04",
-        "status": "60D/252D仍为最近可复算正式样本；9月8日完整历史待补"
+        "asOf": "2026-09-09",
+        "status": "八股60D/252D共16项由可审计日线复算"
       },
       "macro": {
-        "asOf": "2026-09-08",
-        "status": "大盘偏弱、半导体/光网络/电力偏强，加密链偏弱"
+        "asOf": "2026-09-09",
+        "status": "SPY/QQQ收跌、SOXX收涨；软件与行业轮动未扩散为全面风险偏好"
       }
     },
     "horizons": {
@@ -286,37 +297,37 @@
           "overnight": "关闭"
         },
         "short": {
-          "bias": "中性",
-          "confidence": "中",
+          "bias": "中性偏谨慎",
+          "confidence": "低",
           "confirmations": {
             "price": {
               "state": "mixed",
-              "note": "SPY -0.35%、QQQ +0.14%、SOXX +2.12%；强势仍集中在半导体与AI网络链，未扩散为全面市场趋势。"
+              "note": "正式收盘：SPY -0.46%、QQQ -0.28%、SOXX +0.68%；半导体相对抗跌，但市场广度仍偏弱。"
             },
             "volume": {
               "state": "unknown",
-              "note": "仅有累计成交量，没有同时间进度历史基准；不作放量确认。"
+              "note": "正式累计成交量完整，但缺少形成后分钟序列与同进度基准；不倒签盘中放量确认。"
             },
             "linkage": {
               "state": "mixed",
-              "note": "SOXX明显强于SPY、QQQ，行业强势不替代大盘确认。"
+              "note": "SOXX +0.68%强于SPY/QQQ，但行业强势不替代市场广度确认。"
             }
           },
-          "driver": "SPY -0.55%、QQQ -0.08%、SOXX +1.64%；正式收盘仍为选择性而非全面风险偏好。",
-          "invalidation": "15分钟收线 SPY<765.99 AND QQQ<715.57；SOXX独强不抵消市场失效。",
+          "driver": "正式收盘：SPY -0.46%、QQQ -0.28%、SOXX +0.68%；半导体相对抗跌，但市场广度仍偏弱。 SOXX +0.68%强于SPY/QQQ，但行业强势不替代市场广度确认。",
+          "invalidation": "15分钟收线 SPY<760 AND QQQ<710；单一行业反弹不抵消市场失效。",
           "planStatus": "等待触发",
-          "posture": "行业强势未扩散，下一轮重新核价",
-          "setupLabel": "行业轮动初验",
-          "stateNote": "SPY -0.55%、QQQ -0.08%、SOXX +1.64%；正式收盘仍为选择性而非全面风险偏好。",
+          "posture": "弱市修复确认",
+          "setupLabel": "弱市修复确认",
+          "stateNote": "正式收盘：SPY -0.46%、QQQ -0.28%、SOXX +0.68%；半导体相对抗跌，但市场广度仍偏弱。",
           "tradeType": "风险预算",
-          "trigger": "15分钟收线同时满足 SPY≥769.07 AND QQQ≥720.91 AND SOXX≥530.50，才视为弱市修复向市场扩散。",
-          "holdingPlan": "维持低风险预算，分别管理个股；不因SOXX独强提高全市场Beta。",
-          "entryPlan": "等待SPY、QQQ与SOXX三项AND条件完成15分钟收线。",
+          "trigger": "15分钟收线同时满足 SPY≥765.96 AND QQQ≥718.36 AND SOXX≥528.40，才将弱市修复视为扩散。",
+          "holdingPlan": "已有风险仓位维持低Beta；基准未同时收回前不加总仓。",
+          "entryPlan": "仅在三项基准同一15分钟收线全部满足后分批恢复风险预算。",
           "reviewOfPrior": {
-            "originalTrigger": "下一正式时段SOXX保持519.86上方且SPY/QQQ同步改善",
-            "assessment": "SPY -0.35%、QQQ +0.14%、SOXX +2.12%；强势仍集中在半导体与AI网络链，未扩散为全面市场趋势。",
-            "assessedAt": "2026-09-09T02:12:00+08:00",
-            "evidenceAsOf": "2026-09-09T02:06:00+08:00",
+            "originalTrigger": "15分钟收线同时满足 SPY≥765.96 AND QQQ≥718.36 AND SOXX≥528.40，才将弱市修复视为扩散。",
+            "assessment": "正式收盘：SPY -0.46%、QQQ -0.28%、SOXX +0.68%；半导体相对抗跌，但市场广度仍偏弱。",
+            "assessedAt": "2026-09-10T04:25:00+08:00",
+            "evidenceAsOf": "2026-09-10T04:00:00+08:00",
             "result": "pending"
           }
         }
@@ -335,37 +346,37 @@
           "overnight": "关闭"
         },
         "short": {
-          "bias": "偏多",
-          "confidence": "中",
+          "bias": "中性偏谨慎",
+          "confidence": "低",
           "confirmations": {
             "price": {
               "state": "mixed",
-              "note": "正式收于60.99（+2.18%），盘中触及62.07后回落；日线偏强，但未把触价等同持续突破。"
+              "note": "正式收于61.48（+0.62%），盘中触及62.58后回落；守住61.10，但未以收盘完成62.00上方突破。"
             },
             "volume": {
               "state": "unknown",
-              "note": "正式日累计成交量完整，但没有同时间进度基准与分钟序列；不倒签盘中放量确认。"
+              "note": "正式累计成交量完整，但缺少形成后分钟序列与同进度基准；不倒签盘中放量确认。"
             },
             "linkage": {
               "state": "mixed",
-              "note": "SOXX +1.64%；半导体偏强，但本轮未取得统一存储同业正式收盘组。"
+              "note": "SOXX +0.68%，存储ETF自身温和上涨。"
             }
           },
-          "driver": "正式收于60.99（+2.18%），盘中触及62.07后回落；日线偏强，但未把触价等同持续突破。 SOXX +1.64%；半导体偏强，但本轮未取得统一存储同业正式收盘组。",
-          "invalidation": "15分钟收线 DRAM<60.72；若SOXX同时转弱则进一步降级。",
+          "driver": "正式收于61.48（+0.62%），盘中触及62.58后回落；守住61.10，但未以收盘完成62.00上方突破。 SOXX +0.68%，存储ETF自身温和上涨。",
+          "invalidation": "15分钟收线 DRAM<60.00；若SOXX同步转弱则降为仅观察。",
           "planStatus": "等待触发",
-          "posture": "突破保持，先防回吐",
-          "setupLabel": "存储链修复",
-          "stateNote": "正式收于60.99（+2.18%），盘中触及62.07后回落；日线偏强，但未把触价等同持续突破。",
+          "posture": "存储链收盘锚修复",
+          "setupLabel": "存储链收盘锚修复",
+          "stateNote": "正式收于61.48（+0.62%），盘中触及62.58后回落；守住61.10，但未以收盘完成62.00上方突破。",
           "tradeType": "趋势交易",
-          "trigger": "15分钟收线 DRAM≥62.00 AND SOXX≥530.50；缺一项只算部分确认。",
-          "holdingPlan": "已有持仓观察60.72承接；不在日内高点追价。",
-          "entryPlan": "等待DRAM收线站上62.00，并由SOXX保持530.50以上确认。",
+          "trigger": "15分钟收线 DRAM≥61.10 AND SOXX≥528.40。",
+          "holdingPlan": "已有仓位以60.00为盘中防守，未收回61.10前不加仓。",
+          "entryPlan": "等DRAM与SOXX同一15分钟收线同时达标后，再评估小仓回踩。",
           "reviewOfPrior": {
-            "originalTrigger": "不追单日急涨；下一正式时段重新站稳59.79，且存储同业保持多数上涨后再评估。",
-            "assessment": "正式收于60.99（+2.18%），盘中触及62.07后回落；日线偏强，但未把触价等同持续突破。",
-            "assessedAt": "2026-09-09T04:31:00+08:00",
-            "evidenceAsOf": "2026-09-09T04:00:00+08:00",
+            "originalTrigger": "15分钟收线 DRAM≥61.10 AND SOXX≥528.40。",
+            "assessment": "正式收于61.48（+0.62%），盘中触及62.58后回落；守住61.10，但未以收盘完成62.00上方突破。",
+            "assessedAt": "2026-09-10T04:25:00+08:00",
+            "evidenceAsOf": "2026-09-10T04:00:00+08:00",
             "result": "pending"
           }
         }
@@ -384,74 +395,74 @@
           "overnight": "关闭"
         },
         "short": {
-          "bias": "偏多",
-          "confidence": "中",
+          "bias": "中性偏谨慎",
+          "confidence": "低",
           "confirmations": {
             "price": {
               "state": "mixed",
-              "note": "正式收于978.54（+11.04%），AI网络链跳空上行，盘中触及1000.15；急涨后继续禁止追高。"
+              "note": "正式收于988.98（+1.07%），盘中触及1026.76后回落；仍高于978.54，但急涨后的持续性尚待下一交易日确认。"
             },
             "volume": {
               "state": "unknown",
-              "note": "正式日累计成交量完整，但没有同时间进度基准与分钟序列；不倒签盘中放量确认。"
+              "note": "正式累计成交量完整，但缺少形成后分钟序列与同进度基准；不倒签盘中放量确认。"
             },
             "linkage": {
               "state": "mixed",
-              "note": "CIEN +6.06%、CRDO -1.65%；AI网络链分化，LITE自身强势成立。"
+              "note": "LITE保持上涨，但CRDO仅+0.10%，AI网络链内部强弱分化。"
             }
           },
-          "driver": "正式收于978.54（+11.04%），AI网络链跳空上行，盘中触及1000.15；急涨后继续禁止追高。 CIEN +6.06%、CRDO -1.65%；AI网络链分化，LITE自身强势成立。",
-          "invalidation": "15分钟收线 LITE<884.70；同链强势不能替代LITE自身防守。",
+          "driver": "正式收于988.98（+1.07%），盘中触及1026.76后回落；仍高于978.54，但急涨后的持续性尚待下一交易日确认。 LITE保持上涨，但CRDO仅+0.10%，AI网络链内部强弱分化。",
+          "invalidation": "15分钟收线 LITE<940；同链反弹不能替代自身防守。",
           "planStatus": "等待触发",
-          "posture": "修复有效，突破尚待确认",
-          "setupLabel": "光通信止跌",
-          "stateNote": "正式收于978.54（+11.04%），AI网络链跳空上行，盘中触及1000.15；急涨后继续禁止追高。",
+          "posture": "AI网络高位保持",
+          "setupLabel": "AI网络高位保持",
+          "stateNote": "正式收于988.98（+1.07%），盘中触及1026.76后回落；仍高于978.54，但急涨后的持续性尚待下一交易日确认。",
           "tradeType": "趋势交易",
-          "trigger": "15分钟收线 LITE≥971.86 AND（CIEN≥339.99 OR CRDO≥174.90）。",
-          "holdingPlan": "已有持仓以884.70为事件缺口防守，急涨后不追高。",
-          "entryPlan": "等待LITE站稳971.86，且CIEN或CRDO至少一项保持强势。",
+          "trigger": "15分钟收线 LITE≥978.54 AND CRDO≥167.75；缺一项只算部分确认。",
+          "holdingPlan": "已有仓位保留核心但收紧至940防守，不追盘前反弹。",
+          "entryPlan": "等待978.54上方收线并有CRDO同步后，只考虑回踩承接。",
           "reviewOfPrior": {
-            "originalTrigger": "下一正式时段突破885.83且光通信同业保持强势；收盘仍未突破，不提前升级。",
-            "assessment": "正式收于978.54（+11.04%），AI网络链跳空上行，盘中触及1000.15；急涨后继续禁止追高。",
-            "assessedAt": "2026-09-09T04:31:00+08:00",
-            "evidenceAsOf": "2026-09-09T04:00:00+08:00",
+            "originalTrigger": "15分钟收线 LITE≥978.54 AND CRDO≥167.75；缺一项只算部分确认。",
+            "assessment": "正式收于988.98（+1.07%），盘中触及1026.76后回落；仍高于978.54，但急涨后的持续性尚待下一交易日确认。",
+            "assessedAt": "2026-09-10T04:25:00+08:00",
+            "evidenceAsOf": "2026-09-10T04:00:00+08:00",
             "result": "pending"
           }
         }
       },
       "CRDO": {
         "short": {
-          "bias": "中性",
-          "posture": "急跌后反弹，先验仍需修复",
-          "driver": "正式收于167.75（-1.65%），冲高178.00后转跌，明显弱于LITE与CIEN；行业强势未替代个股确认。 LITE +11.04%、CIEN +6.06%；同链上涨未能替代CRDO自身收跌。",
-          "trigger": "15分钟收线 CRDO≥175.60 AND（LITE≥971.86 OR CIEN≥340.15）。",
-          "invalidation": "15分钟收线 CRDO<167.38；CRDU实际持仓另按ETF自身报价管理。",
+          "bias": "中性偏谨慎",
+          "posture": "高速互连修复",
+          "driver": "正式收于167.92（+0.10%），冲高173.24后几乎平收；明显弱于LITE，行业强势没有替代个股确认。 LITE +1.07%，CRDO仅+0.10%；同行强势不替代CRDO自身确认。",
+          "trigger": "15分钟收线 CRDO≥167.75 AND（LITE≥978.54 OR SOXX≥528.40）。",
+          "invalidation": "15分钟收线 CRDO<160.75；LITE强势不能覆盖CRDO失守。",
           "planStatus": "等待触发",
-          "tradeType": "短线事件交易",
+          "tradeType": "趋势交易",
           "confidence": "低",
-          "setupLabel": "财报后预期重估",
-          "stateNote": "正式收于167.75（-1.65%），冲高178.00后转跌，明显弱于LITE与CIEN；行业强势未替代个股确认。",
-          "holdingPlan": "观察167.38防守；CRDO研究价不用于CRDU盈亏。",
-          "entryPlan": "等待CRDO站稳175.60，且LITE或CIEN至少一项保持强势。",
+          "setupLabel": "高速互连修复",
+          "stateNote": "正式收于167.92（+0.10%），冲高173.24后几乎平收；明显弱于LITE，行业强势没有替代个股确认。",
+          "holdingPlan": "已有仓位以160.75为防守；报价刷新前不据旧盘前价行动。",
+          "entryPlan": "先等自身报价刷新，再等167.75上方收线及至少一项同行条件。",
           "confirmations": {
             "price": {
               "state": "mixed",
-              "note": "正式收于167.75（-1.65%），冲高178.00后转跌，明显弱于LITE与CIEN；行业强势未替代个股确认。"
+              "note": "正式收于167.92（+0.10%），冲高173.24后几乎平收；明显弱于LITE，行业强势没有替代个股确认。"
             },
             "volume": {
               "state": "unknown",
-              "note": "正式日累计成交量完整，但没有同时间进度基准与分钟序列；不倒签盘中放量确认。"
+              "note": "正式累计成交量完整，但缺少形成后分钟序列与同进度基准；不倒签盘中放量确认。"
             },
             "linkage": {
               "state": "mixed",
-              "note": "LITE +11.04%、CIEN +6.06%；同链上涨未能替代CRDO自身收跌。"
+              "note": "LITE +1.07%，CRDO仅+0.10%；同行强势不替代CRDO自身确认。"
             }
           },
           "reviewOfPrior": {
-            "originalTrigger": "下一正式时段突破172.05并保持，再评估188.63附近的财报后缺口压力；不把反弹等同反转。",
-            "assessment": "正式收于167.75（-1.65%），冲高178.00后转跌，明显弱于LITE与CIEN；行业强势未替代个股确认。",
-            "assessedAt": "2026-09-09T04:31:00+08:00",
-            "evidenceAsOf": "2026-09-09T04:00:00+08:00",
+            "originalTrigger": "15分钟收线 CRDO≥167.75 AND（LITE≥978.54 OR SOXX≥528.40）。",
+            "assessment": "正式收于167.92（+0.10%），冲高173.24后几乎平收；明显弱于LITE，行业强势没有替代个股确认。",
+            "assessedAt": "2026-09-10T04:25:00+08:00",
+            "evidenceAsOf": "2026-09-10T04:00:00+08:00",
             "result": "pending"
           }
         },
@@ -482,37 +493,37 @@
           "overnight": "关闭"
         },
         "short": {
-          "bias": "偏多",
-          "confidence": "中",
+          "bias": "中性偏谨慎",
+          "confidence": "低",
           "confirmations": {
             "price": {
               "state": "mixed",
-              "note": "正式收于46.93（+5.04%），盘中冲高49.29后回落；仍强于偏弱BTC，AI云与加密链继续分化。"
+              "note": "正式收于45.36（-3.36%），低于46.93且接近日低；BTC未能带动正Beta修复，AI云与加密链继续分化。"
             },
             "volume": {
               "state": "unknown",
-              "note": "正式日累计成交量完整，但没有同时间进度基准与分钟序列；不倒签盘中放量确认。"
+              "note": "正式累计成交量完整，但缺少形成后分钟序列与同进度基准；不倒签盘中放量确认。"
             },
             "linkage": {
               "state": "mixed",
-              "note": "BTC约-0.87%，IREN +5.04%；独立AI云强势存在，加密量能证据缺失。"
+              "note": "IREN -3.36%，未跟随盘中偏稳的BTC；双链分化延续。"
             }
           },
-          "driver": "正式收于46.93（+5.04%），盘中冲高49.29后回落；仍强于偏弱BTC，AI云与加密链继续分化。 BTC约-0.87%，IREN +5.04%；独立AI云强势存在，加密量能证据缺失。",
-          "invalidation": "15分钟收线 IREN<46.01；BTC走弱只降低加密证据。",
+          "driver": "正式收于45.36（-3.36%），低于46.93且接近日低；BTC未能带动正Beta修复，AI云与加密链继续分化。 IREN -3.36%，未跟随盘中偏稳的BTC；双链分化延续。",
+          "invalidation": "15分钟收线 IREN<45.00；BTC量能缺失不扩大为全市场限制。",
           "planStatus": "等待触发",
-          "posture": "新高附近，验证独立强势",
-          "setupLabel": "财报后修复保持",
-          "stateNote": "正式收于46.93（+5.04%），盘中冲高49.29后回落；仍强于偏弱BTC，AI云与加密链继续分化。",
+          "posture": "AI云与加密双链",
+          "setupLabel": "AI云与加密双链",
+          "stateNote": "正式收于45.36（-3.36%），低于46.93且接近日低；BTC未能带动正Beta修复，AI云与加密链继续分化。",
           "tradeType": "趋势交易",
-          "trigger": "15分钟收线 IREN≥48.05 AND IREN≥46.01；BTC仅作独立联动，不替代个股确认。",
-          "holdingPlan": "已有持仓观察46.01承接；区分AI云业务与BTC波动。",
-          "entryPlan": "等待IREN自身收线站稳48.05，不以BTC反弹单独触发。",
+          "trigger": "15分钟收线 IREN≥46.93 AND BTC≥79700。",
+          "holdingPlan": "已有仓位以45.00为防守；BTC反弹而IREN回落时不加仓。",
+          "entryPlan": "等IREN收回46.93且BTC价格条件同时满足，再观察下一根开盘。",
           "reviewOfPrior": {
-            "originalTrigger": "下一正式时段站稳44.75并获数据中心/矿企价格确认；不强制要求BTC上涨才能认可AI云业务。",
-            "assessment": "正式收于46.93（+5.04%），盘中冲高49.29后回落；仍强于偏弱BTC，AI云与加密链继续分化。",
-            "assessedAt": "2026-09-09T04:31:00+08:00",
-            "evidenceAsOf": "2026-09-09T04:00:00+08:00",
+            "originalTrigger": "15分钟收线 IREN≥46.93 AND BTC≥79700。",
+            "assessment": "正式收于45.36（-3.36%），低于46.93且接近日低；BTC未能带动正Beta修复，AI云与加密链继续分化。",
+            "assessedAt": "2026-09-10T04:25:00+08:00",
+            "evidenceAsOf": "2026-09-10T04:00:00+08:00",
             "result": "pending"
           }
         }
@@ -531,37 +542,37 @@
           "overnight": "关闭"
         },
         "short": {
-          "bias": "偏多",
-          "confidence": "中",
+          "bias": "中性偏谨慎",
+          "confidence": "低",
           "confirmations": {
             "price": {
               "state": "mixed",
-              "note": "正式收于277.22（+9.63%），标普500纳入事件获得承接，但从283.83回落；不追事件高点。"
+              "note": "正式收于269.16（-2.91%），跌破277.22并接近日低；指数纳入事件后的承接继续降温。"
             },
             "volume": {
               "state": "unknown",
-              "note": "正式日累计成交量完整，但没有同时间进度基准与分钟序列；不倒签盘中放量确认。"
+              "note": "正式累计成交量完整，但缺少形成后分钟序列与同进度基准；不倒签盘中放量确认。"
             },
             "linkage": {
               "state": "mixed",
-              "note": "指数纳入事件只作BE自身催化；本轮未统一补齐电力同业正式收盘组。"
+              "note": "BE -2.91%，事件驱动后的价格承接转弱。"
             }
           },
-          "driver": "正式收于277.22（+9.63%），标普500纳入事件获得承接，但从283.83回落；不追事件高点。 指数纳入事件只作BE自身催化；本轮未统一补齐电力同业正式收盘组。",
-          "invalidation": "15分钟收线 BE<264.30；指数纳入消息不抵消价格失效。",
+          "driver": "正式收于269.16（-2.91%），跌破277.22并接近日低；指数纳入事件后的承接继续降温。 BE -2.91%，事件驱动后的价格承接转弱。",
+          "invalidation": "15分钟收线 BE<259.78；指数纳入叙事不覆盖价格失守。",
           "planStatus": "等待触发",
-          "posture": "上涨未过确认位，别提前升级",
-          "setupLabel": "反转保持",
-          "stateNote": "正式收于277.22（+9.63%），标普500纳入事件获得承接，但从283.83回落；不追事件高点。",
-          "tradeType": "趋势交易",
-          "trigger": "15分钟收线 BE≥278.99 AND BE≥267.76，确认事件缺口承接。",
-          "holdingPlan": "已有持仓观察267.76–264.30缺口承接；不追事件高点。",
-          "entryPlan": "等待BE收线突破278.99且保持267.76以上。",
+          "posture": "指数纳入承接",
+          "setupLabel": "指数纳入承接",
+          "stateNote": "正式收于269.16（-2.91%），跌破277.22并接近日低；指数纳入事件后的承接继续降温。",
+          "tradeType": "短线事件交易",
+          "trigger": "15分钟收线 BE≥277.22 AND 对应周期低点≥270。",
+          "holdingPlan": "已有仓位可保留事件核心，以259.78为失效线并防范高波动。",
+          "entryPlan": "不追盘前缺口；只在277.22上方收线且周期内守住270后等回踩。",
           "reviewOfPrior": {
-            "originalTrigger": "下一正式时段突破253.30并保持、电力同业不转弱；原253.13条件在收盘未保持。",
-            "assessment": "正式收于277.22（+9.63%），标普500纳入事件获得承接，但从283.83回落；不追事件高点。",
-            "assessedAt": "2026-09-09T04:31:00+08:00",
-            "evidenceAsOf": "2026-09-09T04:00:00+08:00",
+            "originalTrigger": "15分钟收线 BE≥277.22 AND 对应周期低点≥270。",
+            "assessment": "正式收于269.16（-2.91%），跌破277.22并接近日低；指数纳入事件后的承接继续降温。",
+            "assessedAt": "2026-09-10T04:25:00+08:00",
+            "evidenceAsOf": "2026-09-10T04:00:00+08:00",
             "result": "pending"
           }
         }
@@ -580,37 +591,37 @@
           "overnight": "关闭"
         },
         "short": {
-          "bias": "中性",
-          "confidence": "中",
+          "bias": "中性偏谨慎",
+          "confidence": "低",
           "confirmations": {
             "price": {
               "state": "mixed",
-              "note": "正式收于153.47（+3.73%），日线站上152.30供给区；单日收口后仍需下一时段保持。"
+              "note": "正式收于147.58（-3.84%），跌回152.30供给区下方；日线确认前一日突破未能保持。"
             },
             "volume": {
               "state": "unknown",
-              "note": "正式日累计成交量完整，但没有同时间进度基准与分钟序列；不倒签盘中放量确认。"
+              "note": "正式累计成交量完整，但缺少形成后分钟序列与同进度基准；不倒签盘中放量确认。"
             },
             "linkage": {
               "state": "mixed",
-              "note": "SPY -0.55%、QQQ -0.08%，SPCX +3.73%，相对强势成立。"
+              "note": "SPCX -3.84%，在大盘偏弱日表现更差。"
             }
           },
-          "driver": "正式收于153.47（+3.73%），日线站上152.30供给区；单日收口后仍需下一时段保持。 SPY -0.55%、QQQ -0.08%，SPCX +3.73%，相对强势成立。",
-          "invalidation": "15分钟收线 SPCX<145.14。",
+          "driver": "正式收于147.58（-3.84%），跌回152.30供给区下方；日线确认前一日突破未能保持。 SPCX -3.84%，在大盘偏弱日表现更差。",
+          "invalidation": "15分钟收线 SPCX<147.32；基准问题不替代SPCX自身防守。",
           "planStatus": "等待触发",
-          "posture": "弱于AI链，等收回供给区",
-          "setupLabel": "供给吸收确认",
-          "stateNote": "正式收于153.47（+3.73%），日线站上152.30供给区；单日收口后仍需下一时段保持。",
+          "posture": "供给区保持",
+          "setupLabel": "供给区保持",
+          "stateNote": "正式收于147.58（-3.84%），跌回152.30供给区下方；日线确认前一日突破未能保持。",
           "tradeType": "短线事件交易",
-          "trigger": "15分钟收线 SPCX≥149.77 AND 后续保持≥149.05；触及高点不算突破。",
-          "holdingPlan": "已有持仓观察145.14防守；未收回149.77前维持观察。",
-          "entryPlan": "等待SPCX正式收线站稳149.77，再观察152.30供给区。",
+          "trigger": "15分钟收线 SPCX≥153.47 AND SPY≥765.96。",
+          "holdingPlan": "已有仓位以147.32为防守；报价刷新前不据20:48快照调整。",
+          "entryPlan": "先补齐自身与SPY有效报价，再等两者同一15分钟收线达标。",
           "reviewOfPrior": {
-            "originalTrigger": "下一正式时段收回152.30且成交量有可比较支撑；未收回前维持观察。",
-            "assessment": "正式收于153.47（+3.73%），日线站上152.30供给区；单日收口后仍需下一时段保持。",
-            "assessedAt": "2026-09-09T04:31:00+08:00",
-            "evidenceAsOf": "2026-09-09T04:00:00+08:00",
+            "originalTrigger": "15分钟收线 SPCX≥153.47 AND SPY≥765.96。",
+            "assessment": "正式收于147.58（-3.84%），跌回152.30供给区下方；日线确认前一日突破未能保持。",
+            "assessedAt": "2026-09-10T04:25:00+08:00",
+            "evidenceAsOf": "2026-09-10T04:00:00+08:00",
             "result": "pending"
           }
         }
@@ -629,68 +640,75 @@
           "overnight": "关闭"
         },
         "short": {
-          "bias": "中性",
-          "confidence": "中",
+          "bias": "中性偏谨慎",
+          "confidence": "低",
           "confirmations": {
             "price": {
               "state": "mixed",
-              "note": "正式收于136.52（-4.40%），继续弱于BTC并未收回139.31；加密正Beta尚未修复。"
+              "note": "正式收于132.70（-2.80%），未收回139.31并接近日低；加密正Beta仍未恢复。"
             },
             "volume": {
               "state": "unknown",
-              "note": "正式日累计成交量完整，但没有同时间进度基准与分钟序列；不倒签盘中放量确认。"
+              "note": "正式累计成交量完整，但缺少形成后分钟序列与同进度基准；不倒签盘中放量确认。"
             },
             "linkage": {
               "state": "mixed",
-              "note": "BTC约-0.87%、MSTR -4.40%，MSTR继续明显弱于BTC。"
+              "note": "MSTR -2.80%，未形成相对BTC的正Beta修复。"
             }
           },
-          "driver": "正式收于136.52（-4.40%），继续弱于BTC并未收回139.31；加密正Beta尚未修复。 BTC约-0.87%、MSTR -4.40%，MSTR继续明显弱于BTC。",
-          "invalidation": "15分钟收线 MSTR<135.38；BTC成交量缺失不感染其他股票。",
+          "driver": "正式收于132.70（-2.80%），未收回139.31并接近日低；加密正Beta仍未恢复。 MSTR -2.80%，未形成相对BTC的正Beta修复。",
+          "invalidation": "15分钟收线 MSTR<135.38且BTC同步转弱。",
           "planStatus": "等待触发",
-          "posture": "相对抗跌，不等于趋势突破",
-          "setupLabel": "BTC正Beta复核",
-          "stateNote": "正式收于136.52（-4.40%），继续弱于BTC并未收回139.31；加密正Beta尚未修复。",
+          "posture": "加密正Beta修复",
+          "setupLabel": "加密正Beta修复",
+          "stateNote": "正式收于132.70（-2.80%），未收回139.31并接近日低；加密正Beta仍未恢复。",
           "tradeType": "趋势交易",
-          "trigger": "15分钟收线 MSTR≥139.31 AND BTC≥79432；两项必须同时成立。",
-          "holdingPlan": "已有持仓观察135.38防守，继续核对BTC正Beta。",
-          "entryPlan": "等待MSTR收线站上139.31且BTC回到79432以上。",
+          "trigger": "15分钟收线 MSTR≥140.40 AND BTC≥79700。",
+          "holdingPlan": "已有仓位以135.38为防守；盘前触及140.40不追。",
+          "entryPlan": "等MSTR与BTC条件在形成后同时确认，再按下一根开盘评估。",
           "reviewOfPrior": {
-            "originalTrigger": "下一正式时段收回144.92并继续强于IBIT；BTC成交量缺失不单独封禁，但不能据此确认加密放量。",
-            "assessment": "正式收于136.52（-4.40%），继续弱于BTC并未收回139.31；加密正Beta尚未修复。",
-            "assessedAt": "2026-09-09T04:31:00+08:00",
-            "evidenceAsOf": "2026-09-09T04:00:00+08:00",
+            "originalTrigger": "15分钟收线 MSTR≥140.40 AND BTC≥79700。",
+            "assessment": "正式收于132.70（-2.80%），未收回139.31并接近日低；加密正Beta仍未恢复。",
+            "assessedAt": "2026-09-10T04:25:00+08:00",
+            "evidenceAsOf": "2026-09-10T04:00:00+08:00",
             "result": "pending"
           }
         }
       },
       "DDOG": {
         "short": {
-          "bias": "中性",
-          "posture": "新纳入核心矩阵，等待独立基线",
-          "driver": "09/08 正式收盘 210.23 仅作为迁移参考价；尚未建立事前 DDOG 触发条件。PANW / MDB 仅作软件同行温度计。",
-          "trigger": "等待下一有效交易时段取得 DDOG 独立价格结构、量能与 PANW / MDB 同行证据后再冻结触发条件。",
-          "invalidation": "前瞻基线建立前不开放新增风险权限；不得用 CIEN 历史条件替代。",
+          "bias": "中性偏谨慎",
+          "posture": "AI软件独立突破",
+          "driver": "正式收于225.16（+7.10%），接近日高225.71；MDB上涨而PANW下跌，DDOG为独立软件强势，未用同行替代自身确认。 PANW -0.56%、MDB +0.64%，同行温度分化；DDOG +7.10%显著独立走强。",
+          "trigger": "15分钟收线 DDOG≥211.18 AND（PANW≥336.98 OR MDB≥356.00）。",
+          "invalidation": "15分钟收线 DDOG<203.24；同行强势不能抵消自身失守。",
           "planStatus": "等待触发",
-          "tradeType": "仅观察",
+          "tradeType": "趋势交易",
           "confidence": "低",
-          "setupLabel": "AI软件 / Observability 新基线",
-          "stateNote": "DDOG 自 2026-09-09 起进入核心矩阵；历史不倒填。",
-          "holdingPlan": "若已有 DDOG 持仓，仅将 09/08 正式收盘作为参考锚；等待新时段建立独立防守条件。",
-          "entryPlan": "迁移阶段不新增；等待下一有效时段形成并冻结前瞻条件。",
+          "setupLabel": "AI软件独立突破",
+          "stateNote": "正式收于225.16（+7.10%），接近日高225.71；MDB上涨而PANW下跌，DDOG为独立软件强势，未用同行替代自身确认。",
+          "holdingPlan": "已有仓位以203.24为正式日线防守，不因同行盘前上行加码。",
+          "entryPlan": "只在DDOG自身站上211.18且PANW/MDB至少一项同步后，等下一根可交易开盘。",
           "confirmations": {
             "price": {
-              "state": "unknown",
-              "note": "迁移时不倒签价格结构确认。"
+              "state": "confirmed",
+              "note": "正式收于225.16（+7.10%），接近日高225.71；MDB上涨而PANW下跌，DDOG为独立软件强势，未用同行替代自身确认。"
             },
             "volume": {
               "state": "unknown",
-              "note": "迁移时不倒签量能确认；需下一有效时段建立可审计比较基准。"
+              "note": "正式累计成交量完整，但缺少形成后分钟序列与同进度基准；不倒签盘中放量确认。"
             },
             "linkage": {
-              "state": "unknown",
-              "note": "PANW / MDB 仅作软件同行温度计，需下一有效时段重新核验。"
+              "state": "mixed",
+              "note": "PANW -0.56%、MDB +0.64%，同行温度分化；DDOG +7.10%显著独立走强。"
             }
+          },
+          "reviewOfPrior": {
+            "originalTrigger": "15分钟收线 DDOG≥211.18 AND（PANW≥336.98 OR MDB≥356.00）。",
+            "assessment": "正式收于225.16（+7.10%），接近日高225.71；MDB上涨而PANW下跌，DDOG为独立软件强势，未用同行替代自身确认。",
+            "assessedAt": "2026-09-10T04:25:00+08:00",
+            "evidenceAsOf": "2026-09-10T04:00:00+08:00",
+            "result": "pending"
           }
         },
         "medium": {
@@ -707,7 +725,7 @@
         }
       }
     },
-    "largestChange": "LITE与BE保持双位数附近涨幅；CRDO和MSTR收跌，强势未全面扩散。",
+    "largestChange": "CRDO由盘中约+2.90%回落至近乎平盘，SPCX扩大至约-4.85%；DDOG维持约+6.85%的独立强势。",
     "macroFramework": {
       "pillars": [
         {
@@ -763,7 +781,7 @@
           "verdict": "选择性确认"
         },
         {
-          "from": "LITE/CIEN/CRDO共同AI网络需求",
+          "from": "LITE/迁移前标的/CRDO共同AI网络需求",
           "through": "公司兑现不同、共同资本开支风险",
           "to": "合并审视敞口，分别定义失效",
           "tone": "flat",
@@ -777,64 +795,64 @@
         "fundamental": "0",
         "macro": "-",
         "positioning": "0",
-        "price": "0",
-        "verdict": "SPY -0.55%、QQQ -0.08%、SOXX +1.64%；正式收盘为选择性风险偏好。"
+        "price": "-",
+        "verdict": "正式收盘：SPY -0.46%、QQQ -0.28%、SOXX +0.68%；半导体相对抗跌，但市场广度仍偏弱。"
       },
       {
         "asset": "DRAM",
         "fundamental": "+",
         "macro": "0",
         "positioning": "0",
-        "price": "+",
-        "verdict": "正式收于60.99（+2.18%），盘中触及62.07后回落；日线偏强，但未把触价等同持续突破。"
+        "price": "0",
+        "verdict": "正式收于61.48（+0.62%），盘中触及62.58后回落；守住61.10，但未以收盘完成62.00上方突破。"
       },
       {
         "asset": "LITE",
         "fundamental": "+",
         "macro": "0",
         "positioning": "0",
-        "price": "+",
-        "verdict": "正式收于978.54（+11.04%），AI网络链跳空上行，盘中触及1000.15；急涨后继续禁止追高。"
+        "price": "0",
+        "verdict": "正式收于988.98（+1.07%），盘中触及1026.76后回落；仍高于978.54，但急涨后的持续性尚待下一交易日确认。"
       },
       {
         "asset": "CRDO",
         "fundamental": "+",
         "macro": "0",
         "positioning": "0",
-        "price": "-",
-        "verdict": "正式收于167.75（-1.65%），冲高178.00后转跌，明显弱于LITE与CIEN；行业强势未替代个股确认。"
+        "price": "0",
+        "verdict": "正式收于167.92（+0.10%），冲高173.24后几乎平收；明显弱于LITE，行业强势没有替代个股确认。"
       },
       {
         "asset": "DDOG",
         "fundamental": "0",
         "macro": "0",
         "positioning": "0",
-        "price": "0",
-        "verdict": "新纳入核心矩阵，等待独立前瞻基线；PANW / MDB 为同行温度计。"
+        "price": "+",
+        "verdict": "正式收于225.16（+7.10%），接近日高225.71；MDB上涨而PANW下跌，DDOG为独立软件强势，未用同行替代自身确认。"
       },
       {
         "asset": "IREN",
         "fundamental": "+",
         "macro": "0",
         "positioning": "0",
-        "price": "+",
-        "verdict": "正式收于46.93（+5.04%），盘中冲高49.29后回落；仍强于偏弱BTC，AI云与加密链继续分化。"
+        "price": "-",
+        "verdict": "正式收于45.36（-3.36%），低于46.93且接近日低；BTC未能带动正Beta修复，AI云与加密链继续分化。"
       },
       {
         "asset": "BE",
         "fundamental": "+",
         "macro": "0",
         "positioning": "0",
-        "price": "+",
-        "verdict": "正式收于277.22（+9.63%），标普500纳入事件获得承接，但从283.83回落；不追事件高点。"
+        "price": "-",
+        "verdict": "正式收于269.16（-2.91%），跌破277.22并接近日低；指数纳入事件后的承接继续降温。"
       },
       {
         "asset": "SPCX",
         "fundamental": "0",
         "macro": "0",
         "positioning": "0",
-        "price": "+",
-        "verdict": "正式收于153.47（+3.73%），日线站上152.30供给区；单日收口后仍需下一时段保持。"
+        "price": "-",
+        "verdict": "正式收于147.58（-3.84%），跌回152.30供给区下方；日线确认前一日突破未能保持。"
       },
       {
         "asset": "MSTR",
@@ -842,16 +860,16 @@
         "macro": "0",
         "positioning": "0",
         "price": "-",
-        "verdict": "正式收于136.52（-4.40%），继续弱于BTC并未收回139.31；加密正Beta尚未修复。"
+        "verdict": "正式收于132.70（-2.80%），未收回139.31并接近日低；加密正Beta仍未恢复。"
       }
     ],
     "news": [
       {
-        "title": "美股大盘走弱，芯片与数据中心受益链相对强势",
-        "summary": "正式收盘呈现指数偏弱、芯片与数据中心受益链偏强的分化。",
-        "time": "2026-09-09 04:00 中国时间",
+        "title": "油价突破100美元附近，美股期指承压",
+        "summary": "能源冲击与利率担忧压制风险偏好；盘前弱势尚不能等同正式盘趋势。",
+        "time": "2026-09-09 20:55 中国时间",
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/wall-st-futures-slip-oil-surge-puts-markets-edge-2026-09-08/",
+        "url": "https://www.reuters.com/commentary/reuters-open-interest/global-markets-view-usa-2026-09-09/",
         "tone": "down",
         "material": true,
         "impactFields": [
@@ -860,522 +878,418 @@
           "permissions"
         ],
         "directness": "行动级",
-        "impact": "支持选择性RISK_ON而非全面风险偏好。"
-      },
-      {
-        "title": "IREN 2GW Sweetwater Hub有条件纳入ERCOT Batch Zero Base Load",
-        "summary": "条件性纳入推进电力路径，但不等同最终并网、交付与收入。",
-        "time": "2026-09-08 20:00 中国时间",
-        "source": "GlobeNewswire",
-        "url": "https://www.globenewswire.com/news-release/2026/09/08/3159947/0/en/IREN-s-2GW-Sweetwater-Hub-Included-as-Base-Load-in-ERCOT-Batch-Zero.html",
-        "tone": "up",
-        "material": true,
-        "impactFields": [
-          "confidence",
-          "trigger",
-          "invalidation"
-        ],
-        "directness": "行动级",
-        "impact": "提高电力路径证据，但保留交付与收入验证。"
-      },
-      {
-        "title": "Bloom Energy将加入标普500",
-        "summary": "指数纳入解释事件性需求，但不替代基本面和价格保持。",
-        "time": "2026-09-08 21:00 中国时间",
-        "source": "Investopedia",
-        "url": "https://www.investopedia.com/market-update-bloom-energy-rallies-on-news-of-sp-500-addition-be-stock-12111057",
-        "tone": "up",
-        "material": true,
-        "impactFields": [
-          "confidence",
-          "permissions"
-        ],
-        "directness": "行动级",
-        "impact": "解释BE跳升；不自动放宽追价与隔夜权限。"
+        "impact": "维持低风险预算，等待SPY/QQQ/SOXX正式盘同步确认。"
       }
     ],
     "odds": [
       {
         "asset": "DRAM",
         "window": "60D",
-        "percentile": 62.5,
+        "percentile": 72.5,
         "sampleSize": 60,
-        "asOf": "2026-09-04",
-        "referencePrice": 59.69,
+        "asOf": "2026-09-09",
+        "referencePrice": 61.48,
         "rangeLow": 44.85,
         "rangeHigh": 80.72,
-        "basis": "Nasdaq historical Close/Last；非复权总回报；不拼接其他供应商或旧代码历史",
-        "source": "Nasdaq historical daily OHLCV",
+        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
+        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
         "sourceUrl": "https://www.nasdaq.com/market-activity/etf/dram/historical",
         "sampleOrigin": "rolling",
         "sampleNote": "",
-        "historyFile": "history/2026-09-04.json"
+        "historyFile": "history/2026-09-09.json"
       },
       {
         "asset": "DRAM",
         "window": "252D",
-        "percentile": 69.9,
-        "sampleSize": 108,
-        "asOf": "2026-09-04",
-        "referencePrice": 59.69,
+        "percentile": 77.7,
+        "sampleSize": 110,
+        "asOf": "2026-09-09",
+        "referencePrice": 61.48,
         "rangeLow": 27.76,
         "rangeHigh": 80.72,
-        "basis": "Nasdaq historical Close/Last；非复权总回报；不拼接其他供应商或旧代码历史",
-        "source": "Nasdaq historical daily OHLCV",
+        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
+        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
         "sourceUrl": "https://www.nasdaq.com/market-activity/etf/dram/historical",
-        "sampleOrigin": "inception",
-        "sampleNote": "仅108根上市后真实日线，不补齐或拼接旧代码历史。",
-        "historyFile": "history/2026-09-04.json"
+        "sampleOrigin": "rolling",
+        "sampleNote": "上市后109日正式收盘样本",
+        "historyFile": "history/2026-09-09.json"
       },
       {
         "asset": "LITE",
         "window": "60D",
-        "percentile": 77.5,
+        "percentile": 99.2,
         "sampleSize": 60,
-        "asOf": "2026-09-04",
-        "referencePrice": 881.255,
+        "asOf": "2026-09-09",
+        "referencePrice": 988.98,
         "rangeLow": 602.35,
-        "rangeHigh": 968.9,
-        "basis": "Nasdaq historical Close/Last；非复权总回报；不拼接其他供应商或旧代码历史",
-        "source": "Nasdaq historical daily OHLCV",
+        "rangeHigh": 988.98,
+        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
+        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
         "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/lite/historical",
         "sampleOrigin": "rolling",
         "sampleNote": "",
-        "historyFile": "history/2026-09-04.json"
+        "historyFile": "history/2026-09-09.json"
       },
       {
         "asset": "LITE",
         "window": "252D",
-        "percentile": 82.7,
+        "percentile": 97.4,
         "sampleSize": 252,
-        "asOf": "2026-09-04",
-        "referencePrice": 881.255,
-        "rangeLow": 149.4,
+        "asOf": "2026-09-09",
+        "referencePrice": 988.98,
+        "rangeLow": 149.61,
         "rangeHigh": 1053.09,
-        "basis": "Nasdaq historical Close/Last；非复权总回报；不拼接其他供应商或旧代码历史",
-        "source": "Nasdaq historical daily OHLCV",
+        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
+        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
         "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/lite/historical",
         "sampleOrigin": "rolling",
         "sampleNote": "",
-        "historyFile": "history/2026-09-04.json"
+        "historyFile": "history/2026-09-09.json"
       },
       {
         "asset": "CRDO",
         "window": "60D",
-        "percentile": 4.2,
+        "percentile": 5.8,
         "sampleSize": 60,
-        "asOf": "2026-09-04",
-        "referencePrice": 170.57,
+        "asOf": "2026-09-09",
+        "referencePrice": 167.92,
         "rangeLow": 164.17,
         "rangeHigh": 302.52,
-        "basis": "Nasdaq historical Close/Last；非复权总回报；不拼接其他供应商或旧代码历史",
-        "source": "Nasdaq historical daily OHLCV",
+        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
+        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
         "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/crdo/historical",
         "sampleOrigin": "rolling",
         "sampleNote": "",
-        "historyFile": "history/2026-09-04.json"
+        "historyFile": "history/2026-09-09.json"
       },
       {
         "asset": "CRDO",
         "window": "252D",
-        "percentile": 58.9,
+        "percentile": 56.5,
         "sampleSize": 252,
-        "asOf": "2026-09-04",
-        "referencePrice": 170.57,
+        "asOf": "2026-09-09",
+        "referencePrice": 167.92,
         "rangeLow": 87.81,
         "rangeHigh": 302.52,
-        "basis": "Nasdaq historical Close/Last；非复权总回报；不拼接其他供应商或旧代码历史",
-        "source": "Nasdaq historical daily OHLCV",
+        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
+        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
         "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/crdo/historical",
         "sampleOrigin": "rolling",
         "sampleNote": "",
-        "historyFile": "history/2026-09-04.json"
+        "historyFile": "history/2026-09-09.json"
       },
       {
         "asset": "DDOG",
         "window": "60D",
-        "percentile": null,
-        "sampleSize": 0,
-        "asOf": null,
-        "referencePrice": null,
-        "rangeLow": null,
-        "rangeHigh": null,
-        "basis": "DDOG 独立历史待刷新",
-        "source": "pending",
-        "sourceUrl": null,
-        "sampleOrigin": "migration",
-        "sampleNote": "2026-09-09 新纳入核心矩阵；不得继承 CIEN 历史分位，等待 DDOG 独立日线历史刷新。",
-        "historyFile": null
+        "percentile": 19.2,
+        "sampleSize": 60,
+        "asOf": "2026-09-09",
+        "referencePrice": 225.16,
+        "rangeLow": 209.23,
+        "rangeHigh": 288.15,
+        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
+        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
+        "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/ddog/historical",
+        "sampleOrigin": "rolling",
+        "sampleNote": "",
+        "historyFile": "history/2026-09-09.json"
       },
       {
         "asset": "DDOG",
         "window": "252D",
-        "percentile": null,
-        "sampleSize": 0,
-        "asOf": null,
-        "referencePrice": null,
-        "rangeLow": null,
-        "rangeHigh": null,
-        "basis": "DDOG 独立历史待刷新",
-        "source": "pending",
-        "sourceUrl": null,
-        "sampleOrigin": "migration",
-        "sampleNote": "2026-09-09 新纳入核心矩阵；不得继承 CIEN 历史分位，等待 DDOG 独立日线历史刷新。",
-        "historyFile": null
+        "percentile": 76,
+        "sampleSize": 252,
+        "asOf": "2026-09-09",
+        "referencePrice": 225.16,
+        "rangeLow": 102.615,
+        "rangeHigh": 288.15,
+        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
+        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
+        "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/ddog/historical",
+        "sampleOrigin": "rolling",
+        "sampleNote": "",
+        "historyFile": "history/2026-09-09.json"
       },
       {
         "asset": "IREN",
+        "window": "60D",
+        "percentile": 79.2,
+        "sampleSize": 60,
+        "asOf": "2026-09-09",
+        "referencePrice": 45.36,
+        "rangeLow": 29.31,
+        "rangeHigh": 60.85,
+        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
+        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
+        "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/iren/historical",
+        "sampleOrigin": "rolling",
+        "sampleNote": "",
+        "historyFile": "history/2026-09-09.json"
+      },
+      {
+        "asset": "IREN",
+        "window": "252D",
+        "percentile": 51.4,
+        "sampleSize": 252,
+        "asOf": "2026-09-09",
+        "referencePrice": 45.36,
+        "rangeLow": 29.31,
+        "rangeHigh": 76.41,
+        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
+        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
+        "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/iren/historical",
+        "sampleOrigin": "rolling",
+        "sampleNote": "",
+        "historyFile": "history/2026-09-09.json"
+      },
+      {
+        "asset": "BE",
         "window": "60D",
         "percentile": 74.2,
         "sampleSize": 60,
-        "asOf": "2026-09-04",
-        "referencePrice": 44.68,
-        "rangeLow": 29.31,
-        "rangeHigh": 60.85,
-        "basis": "Nasdaq historical Close/Last；非复权总回报；不拼接其他供应商或旧代码历史",
-        "source": "Nasdaq historical daily OHLCV",
-        "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/iren/historical",
-        "sampleOrigin": "rolling",
-        "sampleNote": "",
-        "historyFile": "history/2026-09-04.json"
-      },
-      {
-        "asset": "IREN",
-        "window": "252D",
-        "percentile": 49.4,
-        "sampleSize": 252,
-        "asOf": "2026-09-04",
-        "referencePrice": 44.68,
-        "rangeLow": 26.15,
-        "rangeHigh": 76.41,
-        "basis": "Nasdaq historical Close/Last；非复权总回报；不拼接其他供应商或旧代码历史",
-        "source": "Nasdaq historical daily OHLCV",
-        "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/iren/historical",
-        "sampleOrigin": "rolling",
-        "sampleNote": "",
-        "historyFile": "history/2026-09-04.json"
-      },
-      {
-        "asset": "BE",
-        "window": "60D",
-        "percentile": 70.8,
-        "sampleSize": 60,
-        "asOf": "2026-09-04",
-        "referencePrice": 252.87,
+        "asOf": "2026-09-09",
+        "referencePrice": 269.16,
         "rangeLow": 163.75,
         "rangeHigh": 345.85,
-        "basis": "Nasdaq historical Close/Last；非复权总回报；不拼接其他供应商或旧代码历史",
-        "source": "Nasdaq historical daily OHLCV",
+        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
+        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
         "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/be/historical",
         "sampleOrigin": "rolling",
         "sampleNote": "",
-        "historyFile": "history/2026-09-04.json"
+        "historyFile": "history/2026-09-09.json"
       },
       {
         "asset": "BE",
         "window": "252D",
-        "percentile": 81.5,
+        "percentile": 85.1,
         "sampleSize": 252,
-        "asOf": "2026-09-04",
-        "referencePrice": 252.87,
-        "rangeLow": 53.44,
+        "asOf": "2026-09-09",
+        "referencePrice": 269.16,
+        "rangeLow": 55,
         "rangeHigh": 345.85,
-        "basis": "Nasdaq historical Close/Last；非复权总回报；不拼接其他供应商或旧代码历史",
-        "source": "Nasdaq historical daily OHLCV",
+        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
+        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
         "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/be/historical",
         "sampleOrigin": "rolling",
         "sampleNote": "",
-        "historyFile": "history/2026-09-04.json"
+        "historyFile": "history/2026-09-09.json"
       },
       {
         "asset": "SPCX",
         "window": "60D",
-        "percentile": 66.9,
-        "sampleSize": 59,
-        "asOf": "2026-09-04",
-        "referencePrice": 147.95,
+        "percentile": 65.8,
+        "sampleSize": 60,
+        "asOf": "2026-09-09",
+        "referencePrice": 147.58,
         "rangeLow": 108.27,
         "rangeHigh": 201.8,
-        "basis": "Nasdaq historical Close/Last；非复权总回报；不拼接其他供应商或旧代码历史",
-        "source": "Nasdaq historical daily OHLCV",
+        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
+        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
         "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/spcx/historical",
-        "sampleOrigin": "inception",
-        "sampleNote": "仅59根上市后真实日线，不补齐或拼接旧代码历史。",
-        "historyFile": "history/2026-09-04.json"
+        "sampleOrigin": "rolling",
+        "sampleNote": "",
+        "historyFile": "history/2026-09-09.json"
       },
       {
         "asset": "SPCX",
         "window": "252D",
-        "percentile": 66.9,
-        "sampleSize": 59,
-        "asOf": "2026-09-04",
-        "referencePrice": 147.95,
+        "percentile": 64.8,
+        "sampleSize": 61,
+        "asOf": "2026-09-09",
+        "referencePrice": 147.58,
         "rangeLow": 108.27,
         "rangeHigh": 201.8,
-        "basis": "Nasdaq historical Close/Last；非复权总回报；不拼接其他供应商或旧代码历史",
-        "source": "Nasdaq historical daily OHLCV",
+        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
+        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
         "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/spcx/historical",
-        "sampleOrigin": "inception",
-        "sampleNote": "仅59根上市后真实日线，不补齐或拼接旧代码历史。",
-        "historyFile": "history/2026-09-04.json"
+        "sampleOrigin": "rolling",
+        "sampleNote": "上市后60日正式收盘样本",
+        "historyFile": "history/2026-09-09.json"
       },
       {
         "asset": "MSTR",
         "window": "60D",
-        "percentile": 97.5,
+        "percentile": 90.8,
         "sampleSize": 60,
-        "asOf": "2026-09-04",
-        "referencePrice": 142.8,
+        "asOf": "2026-09-09",
+        "referencePrice": 132.7,
         "rangeLow": 82.31,
         "rangeHigh": 144.82,
-        "basis": "Nasdaq historical Close/Last；非复权总回报；不拼接其他供应商或旧代码历史",
-        "source": "Nasdaq historical daily OHLCV",
+        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
+        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
         "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/mstr/historical",
         "sampleOrigin": "rolling",
         "sampleNote": "",
-        "historyFile": "history/2026-09-04.json"
+        "historyFile": "history/2026-09-09.json"
       },
       {
         "asset": "MSTR",
         "window": "252D",
-        "percentile": 44.6,
+        "percentile": 33.9,
         "sampleSize": 252,
-        "asOf": "2026-09-04",
-        "referencePrice": 142.8,
+        "asOf": "2026-09-09",
+        "referencePrice": 132.7,
         "rangeLow": 82.31,
         "rangeHigh": 359.69,
-        "basis": "Nasdaq historical Close/Last；非复权总回报；不拼接其他供应商或旧代码历史",
-        "source": "Nasdaq historical daily OHLCV",
+        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
+        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
         "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/mstr/historical",
         "sampleOrigin": "rolling",
         "sampleNote": "",
-        "historyFile": "history/2026-09-04.json"
+        "historyFile": "history/2026-09-09.json"
       }
     ],
-    "oddsMethod": "全部按Nasdaq截至2026-09-04的真实日线重算：(#低于参考收盘 + 0.5×#等于参考收盘) / 样本数。60D和252D分别滚动；同价中位秩。分位不是胜率或估值。DRAM仅108日、SPCX仅59日，保留上市边界；原始样本见history/2026-09-04.json。",
-    "regime": "选择性风险偏好：半导体、光网络与电力偏强，大盘和加密链偏弱",
-    "regimeCode": "SELECTIVE_RISK_ON",
-    "reviewNote": "逐项复核盘前/盘中先验：行业强势没有替代CRDO确认；LITE、BE虽强但不追价；SPCX仅确认一根日线，未升级为持续趋势。",
-    "reviewStatus": "正式收盘复核完成；分位待补",
-    "riskAppetite": "选择性RISK_ON",
-    "riskNote": "正式OHLCV完整，但完整日线历史主源尚未发布9月8日记录、备用源遭限流；股票主行情可作收盘参考，60D/252D继续沿用9月4日结果且研究未完成。",
+    "oddsMethod": "截至2026-09-09的可审计真实日线复算：(#低于参考收盘 + 0.5×#等于参考收盘) / 样本数。60D与252D分别滚动，同价中位秩；分位不是胜率或估值。DRAM仅上市后110日，SPCX仅上市后61日；DDOG使用自身269日日线。原始样本见history/2026-09-09.json；Nasdaq当日行未及时释出，9月9日正式OHLCV按逐项披露备用源追加。",
+    "regime": "选择性轮动",
+    "regimeCode": "ROTATION_NEUTRAL",
+    "reviewNote": "所有盘前/盘中判断按原条件复核；缺少形成后分钟序列的15分钟条件仍不倒签触发或失效。",
+    "reviewStatus": "正式收盘已复核",
+    "riskAppetite": "低",
+    "riskNote": "SPY、QQQ收跌而SOXX收涨；DDOG独强，LITE/DRAM温和上涨，IREN/BE/SPCX/MSTR收弱。行业强势未扩散为全面风险偏好。",
     "scenarios": [
       {
         "label": "基准",
-        "text": "AI网络与半导体保持强势，大盘与加密链较弱；维持选择性RISK_ON，不扩大为全面趋势。",
-        "evidence": "正式收盘：",
-        "asOf": "2026-09-09T04:00:00+08:00"
+        "text": "SPY/QQQ收跌、SOXX收涨；DDOG独强，维持选择性轮动和低风险预算。"
       },
       {
-        "label": "风险扩散",
-        "text": "SPY、QQQ与SOXX完成15分钟AND条件，且各标的独立站稳触发位后，才提高对应风险预算。",
-        "evidence": "正式收盘：",
-        "asOf": "2026-09-09T04:00:00+08:00"
+        "label": "软件分支",
+        "text": "DDOG日线强势成立，但PANW/MDB分化；下一交易日仍以DDOG自身价格和使用量兑现为核心。"
       },
       {
-        "label": "风险回吐",
-        "text": "SPY/QQQ继续走弱或个股跌破自身失效位时分别降级；单一报价问题不感染全组。",
-        "evidence": "正式收盘：",
-        "asOf": "2026-09-09T04:00:00+08:00"
+        "label": "高Beta分支",
+        "text": "IREN、BE、SPCX、MSTR正式收弱；数据完成不等于策略解锁，等待各自原条件重新确认。"
       },
       {
         "label": "验证边界",
-        "text": "无完整分钟序列时不登记15分钟触发；日内最高价与当前累计量不能替代收线及同时间量能基准。",
-        "evidence": "正式收盘：",
-        "asOf": "2026-09-09T04:00:00+08:00"
+        "text": "正式日线只确认日线收口；缺少分钟序列，不倒签任何15分钟触发、失效或交易执行。"
       }
     ],
-    "sessionContext": "2026-09-08正式收盘；全部十一项股票/ETF OHLCV在16:00 EDT形成。",
+    "sessionContext": "2026-09-09 正式收盘；中国时间09-10 04:25复核",
     "snapshot": [
       {
         "symbol": "SPY",
         "name": "State Street SPDR S&P 500 ETF",
-        "price": 765.94,
-        "changePct": -0.55,
+        "price": 762.4,
+        "changePct": -0.46,
         "tone": "down",
-        "priceStatus": "正式收盘 · 09-09 04:00 中国时间"
+        "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
       },
       {
         "symbol": "QQQ",
         "name": "Invesco QQQ",
-        "price": 718.36,
-        "changePct": -0.08,
+        "price": 716.35,
+        "changePct": -0.28,
         "tone": "down",
-        "priceStatus": "正式收盘 · 09-09 04:00 中国时间"
+        "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
       },
       {
         "symbol": "SOXX",
         "name": "iShares Semiconductor ETF",
-        "price": 528.4,
-        "changePct": 1.64,
+        "price": 532,
+        "changePct": 0.68,
         "tone": "up",
-        "priceStatus": "正式收盘 · 09-09 04:00 中国时间"
+        "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
       },
       {
         "symbol": "DRAM",
         "name": "Roundhill Memory ETF",
-        "price": 60.99,
-        "changePct": 2.18,
+        "price": 61.48,
+        "changePct": 0.62,
         "tone": "up",
-        "priceStatus": "正式收盘 · 09-09 04:00 中国时间"
+        "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
       },
       {
         "symbol": "LITE",
         "name": "Lumentum Holdings",
-        "price": 978.54,
-        "changePct": 11.04,
+        "price": 988.98,
+        "changePct": 1.07,
         "tone": "up",
-        "priceStatus": "正式收盘 · 09-09 04:00 中国时间"
+        "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
       },
       {
         "symbol": "CRDO",
         "name": "Credo · 高速互连",
-        "price": 167.75,
-        "changePct": -1.65,
-        "tone": "down",
-        "priceStatus": "正式收盘 · 09-09 04:00 中国时间"
+        "price": 167.92,
+        "changePct": 0.1,
+        "tone": "up",
+        "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
       },
       {
         "symbol": "DDOG",
         "name": "Datadog · AI软件 / Observability",
-        "price": 210.23,
-        "changePct": -1.27,
-        "tone": "down",
-        "priceStatus": "正式收盘 · 09-09 04:00 中国时间（迁移参考基线）"
+        "price": 225.16,
+        "changePct": 7.1,
+        "tone": "up",
+        "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
       },
       {
         "symbol": "IREN",
         "name": "IREN",
-        "price": 46.93,
-        "changePct": 5.04,
-        "tone": "up",
-        "priceStatus": "正式收盘 · 09-09 04:00 中国时间"
+        "price": 45.36,
+        "changePct": -3.36,
+        "tone": "down",
+        "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
       },
       {
         "symbol": "BE",
         "name": "Bloom Energy",
-        "price": 277.22,
-        "changePct": 9.63,
-        "tone": "up",
-        "priceStatus": "正式收盘 · 09-09 04:00 中国时间"
+        "price": 269.16,
+        "changePct": -2.91,
+        "tone": "down",
+        "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
       },
       {
         "symbol": "SPCX",
         "name": "Space Exploration Technologies",
-        "price": 153.47,
-        "changePct": 3.73,
-        "tone": "up",
-        "priceStatus": "正式收盘 · 09-09 04:00 中国时间"
+        "price": 147.58,
+        "changePct": -3.84,
+        "tone": "down",
+        "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
       },
       {
         "symbol": "MSTR",
         "name": "Strategy",
-        "price": 136.52,
-        "changePct": -4.4,
+        "price": 132.7,
+        "changePct": -2.8,
         "tone": "down",
-        "priceStatus": "正式收盘 · 09-09 04:00 中国时间"
+        "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
       },
       {
         "symbol": "BTC",
         "name": "Bitcoin",
-        "price": 78508,
-        "changePct": -0.87,
-        "tone": "down",
-        "priceStatus": "实时现货 · 09-09 04:31 中国时间"
+        "price": 78758,
+        "changePct": 0.3,
+        "tone": "up",
+        "priceStatus": "实时现货 · 09-10 02:03 中国时间"
       }
     ],
     "sources": [
       {
-        "name": "盘中股票与ETF报价/OHLC/累计成交量",
-        "source": "StockAnalysis",
-        "url": "https://stockanalysis.com/markets/",
-        "asOf": "2026-09-08 22:39–23:06 中国时间"
+        "label": "正式收盘主源",
+        "name": "StockAnalysis",
+        "note": "QQQ、SOXX及八股中除MSTR外的正式OHLCV；DDOG使用自身日线。",
+        "url": "https://stockanalysis.com/markets/stocks/"
       },
       {
-        "name": "DRAM与LITE备用核验",
-        "source": "MarketWatch",
-        "url": "https://www.marketwatch.com/investing/stock/lite",
-        "asOf": "2026-09-08 22:49 中国时间"
+        "label": "正式收盘备用",
+        "name": "MarketWatch / Google Finance",
+        "note": "补证MSTR与SPY正式收盘；未用15:55–15:56快照冒充final。",
+        "url": "https://www.marketwatch.com/investing/stock/mstr"
       },
       {
-        "name": "BTC实时现货",
-        "source": "Google Finance",
-        "url": "https://www.google.com/finance/quote/BTC-USD",
-        "asOf": "2026-09-08 23:07 中国时间"
-      },
-      {
-        "name": "BE指数纳入事件",
-        "source": "WSJ",
-        "url": "https://www.wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-09-08-2026/card/stocks-to-watch-amgen-nike-bloom-energy-cg2CI9iPuPrPrQKnUDxu",
-        "asOf": "2026-09-08"
-      },
-      {
-        "name": "CIEN最新财报",
-        "source": "公司IR",
-        "url": "https://investor.ciena.com/news/news-details/2026/Ciena-Reports-Fiscal-Third-Quarter-2026-Financial-Results/default.aspx",
-        "asOf": "2026-09-03"
-      },
-      {
-        "name": "CRDO最新财报",
-        "source": "公司IR",
-        "url": "https://investors.credosemi.com/news-events/news/news-details/2026/Credo-Technology-Group-Holding-Ltd-Reports-First-Quarter-of-Fiscal-Year-2027-Financial-Results/",
-        "asOf": "2026-09-01"
-      },
-      {
-        "title": "美股大盘走弱，芯片与数据中心受益链相对强势",
-        "summary": "正式收盘呈现指数偏弱、芯片与数据中心受益链偏强的分化。",
-        "time": "2026-09-09 04:00 中国时间",
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/wall-st-futures-slip-oil-surge-puts-markets-edge-2026-09-08/",
-        "tone": "down",
-        "material": true,
-        "impactFields": [
-          "regimeCode",
-          "confidence",
-          "permissions"
-        ],
-        "directness": "行动级",
-        "impact": "支持选择性RISK_ON而非全面风险偏好。"
-      },
-      {
-        "title": "IREN 2GW Sweetwater Hub有条件纳入ERCOT Batch Zero Base Load",
-        "summary": "条件性纳入推进电力路径，但不等同最终并网、交付与收入。",
-        "time": "2026-09-08 20:00 中国时间",
-        "source": "GlobeNewswire",
-        "url": "https://www.globenewswire.com/news-release/2026/09/08/3159947/0/en/IREN-s-2GW-Sweetwater-Hub-Included-as-Base-Load-in-ERCOT-Batch-Zero.html",
-        "tone": "up",
-        "material": true,
-        "impactFields": [
-          "confidence",
-          "trigger",
-          "invalidation"
-        ],
-        "directness": "行动级",
-        "impact": "提高电力路径证据，但保留交付与收入验证。"
-      },
-      {
-        "title": "Bloom Energy将加入标普500",
-        "summary": "指数纳入解释事件性需求，但不替代基本面和价格保持。",
-        "time": "2026-09-08 21:00 中国时间",
-        "source": "Investopedia",
-        "url": "https://www.investopedia.com/market-update-bloom-energy-rallies-on-news-of-sp-500-addition-be-stock-12111057",
-        "tone": "up",
-        "material": true,
-        "impactFields": [
-          "confidence",
-          "permissions"
-        ],
-        "directness": "行动级",
-        "impact": "解释BE跳升；不自动放宽追价与隔夜权限。"
+        "label": "历史样本",
+        "name": "Nasdaq历史窗口 + 披露备用行",
+        "note": "截至9月8日完整Nasdaq窗口，追加9月9日逐项披露正式OHLCV。",
+        "url": "https://www.nasdaq.com/market-activity/quotes/historical"
       }
     ],
-    "thesis": "正式收盘确认的是窄幅选择性风险偏好：SOXX、LITE、CIEN、IREN与BE强于大盘；CRDO与MSTR未同步。数据恢复不放宽追价、隔夜和新增Beta策略。",
-    "updateStatus": "正式收盘已到齐；历史分位待补",
-    "updatedAt": "2026-09-09T04:31:00+08:00",
-    "watchVariable": "下一交易日观察LITE/CIEN强势能否扩散至CRDO，以及BE/SPCX能否保持事件收口；MSTR继续核对BTC正Beta。",
+    "thesis": "油价与长端收益率压制大盘；半导体相对抗跌，DDOG形成独立软件强势，但高Beta与加密链弱。维持低风险预算，不追单日急涨。",
+    "updateStatus": "正式收盘与16项分位已完成",
+    "updatedAt": "2026-09-10T04:25:00+08:00",
+    "watchVariable": "收盘前补齐QQQ与六项核心股有效窗口；观察DDOG能否守住211.18、DRAM守61.10，以及SPCX是否继续低于147.32。",
     "watchlist": [
       {
-        "changePct": 2.18,
+        "changePct": 0.62,
         "demandLoop": [
           {
             "key": "industryDemand",
@@ -1416,10 +1330,10 @@
         "fundamental": "无新增结构性基本面证据；沿用盘前基线。",
         "invalidation": "回落56.74下方，并伴随存储同业转弱",
         "name": "Roundhill Memory ETF",
-        "price": 60.99,
-        "priceAction": "正式收于60.99（+2.18%），盘中触及62.07后回落；日线偏强，但未把触价等同持续突破。 正式O/H/L 61.67/62.07/60.73，量38,258,937。",
-        "priceStatus": "正式收盘 · 09-09 04:00 中国时间",
-        "relativeStrength": "SOXX +1.64%；半导体偏强，但本轮未取得统一存储同业正式收盘组。",
+        "price": 61.48,
+        "priceAction": "正式收于61.48（+0.62%），盘中触及62.58后回落；守住61.10，但未以收盘完成62.00上方突破。",
+        "priceStatus": "正式收盘 · 09-10 04:00 中国时间",
+        "relativeStrength": "SOXX +0.68%，存储ETF自身温和上涨。",
         "resistance": "59.78",
         "resistanceValue": 59.785,
         "support": "59.57",
@@ -1433,24 +1347,24 @@
           "1d": "daily"
         },
         "timeframeNotes": {
-          "15m": "未取得完整15m原始序列；不倒签盘中收线触发。",
-          "30m": "未取得完整30m原始序列。",
-          "1h": "未取得完整1h原始序列。",
-          "4h": "未取得完整4h原始序列。",
-          "1d": "09/08正式日线O/H/L/C 61.67/62.07/60.73/60.99，成交量38,258,937。"
+          "15m": "未取得形成后完整15m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "30m": "未取得形成后完整30m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "1h": "未取得形成后完整1h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "4h": "未取得形成后完整4h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "1d": "09/09正式日线：O 60.89 / H 62.58 / L 60.71 / C 61.48 / V 25244251。"
         },
         "timeframes": {
           "15m": "unknown",
           "30m": "unknown",
           "1h": "unknown",
           "4h": "unknown",
-          "1d": "bull"
+          "1d": "neutral"
         },
         "tone": "up",
-        "verdict": "正式收于60.99（+2.18%），盘中触及62.07后回落；日线偏强，但未把触价等同持续突破。"
+        "verdict": "正式收于61.48（+0.62%），盘中触及62.58后回落；守住61.10，但未以收盘完成62.00上方突破。"
       },
       {
-        "changePct": 11.04,
+        "changePct": 1.07,
         "demandLoop": [
           {
             "key": "industryDemand",
@@ -1491,10 +1405,10 @@
         "fundamental": "无新增结构性基本面证据；沿用盘前基线。",
         "invalidation": "跌回841.04下方且COHR同步走弱",
         "name": "Lumentum Holdings",
-        "price": 978.54,
-        "priceAction": "正式收于978.54（+11.04%），AI网络链跳空上行，盘中触及1000.15；急涨后继续禁止追高。 正式O/H/L 897.56/1000.15/884.7，量7,353,610。",
-        "priceStatus": "正式收盘 · 09-09 04:00 中国时间",
-        "relativeStrength": "CIEN +6.06%、CRDO -1.65%；AI网络链分化，LITE自身强势成立。",
+        "price": 988.98,
+        "priceAction": "正式收于988.98（+1.07%），盘中触及1026.76后回落；仍高于978.54，但急涨后的持续性尚待下一交易日确认。",
+        "priceStatus": "正式收盘 · 09-10 04:00 中国时间",
+        "relativeStrength": "LITE保持上涨，但CRDO仅+0.10%，AI网络链内部强弱分化。",
         "resistance": "885.83",
         "resistanceValue": 885.83,
         "support": "870.58",
@@ -1508,11 +1422,11 @@
           "1d": "daily"
         },
         "timeframeNotes": {
-          "15m": "未取得完整15m原始序列；不倒签盘中收线触发。",
-          "30m": "未取得完整30m原始序列。",
-          "1h": "未取得完整1h原始序列。",
-          "4h": "未取得完整4h原始序列。",
-          "1d": "09/08正式日线O/H/L/C 897.56/1000.15/884.7/978.54，成交量7,353,610。"
+          "15m": "未取得形成后完整15m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "30m": "未取得形成后完整30m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "1h": "未取得形成后完整1h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "4h": "未取得形成后完整4h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "1d": "09/09正式日线：O 980.06 / H 1026.76 / L 978.11 / C 988.98 / V 4235814。"
         },
         "timeframes": {
           "15m": "unknown",
@@ -1522,30 +1436,30 @@
           "1d": "bull"
         },
         "tone": "up",
-        "verdict": "正式收于978.54（+11.04%），AI网络链跳空上行，盘中触及1000.15；急涨后继续禁止追高。"
+        "verdict": "正式收于988.98（+1.07%），盘中触及1026.76后回落；仍高于978.54，但急涨后的持续性尚待下一交易日确认。"
       },
       {
         "symbol": "CRDO",
         "name": "Credo · 高速互连",
-        "price": 167.75,
-        "changePct": -1.65,
-        "tone": "down",
-        "priceStatus": "正式收盘 · 09-09 04:00 中国时间",
+        "price": 167.92,
+        "changePct": 0.1,
+        "tone": "up",
+        "priceStatus": "正式收盘 · 09-10 04:00 中国时间",
         "support": "160.75",
         "resistance": "172.05",
         "supportValue": 160.75,
         "resistanceValue": 172.05,
         "invalidation": "跌破160.75且无法收回，或交付/利润率指引持续走弱",
-        "priceAction": "正式收于167.75（-1.65%），冲高178.00后转跌，明显弱于LITE与CIEN；行业强势未替代个股确认。 正式O/H/L 170.55/178/167.22，量10,161,202。",
-        "relativeStrength": "LITE +11.04%、CIEN +6.06%；同链上涨未能替代CRDO自身收跌。",
+        "priceAction": "正式收于167.92（+0.10%），冲高173.24后几乎平收；明显弱于LITE，行业强势没有替代个股确认。",
+        "relativeStrength": "LITE +1.07%，CRDO仅+0.10%；同行强势不替代CRDO自身确认。",
         "fundamental": "FY2027 Q1收入4.790亿美元、同比+114.7%、环比+9.6%；非GAAP毛利率68.0%。Q2收入指引5.25–5.35亿美元、非GAAP毛利率67%–69%；GAAP净利润环比下降，不能只看调整后增长。",
-        "verdict": "正式收于167.75（-1.65%），冲高178.00后转跌，明显弱于LITE与CIEN；行业强势未替代个股确认。",
+        "verdict": "正式收于167.92（+0.10%），冲高173.24后几乎平收；明显弱于LITE，行业强势没有替代个股确认。",
         "timeframes": {
           "15m": "unknown",
           "30m": "unknown",
           "1h": "unknown",
           "4h": "unknown",
-          "1d": "bear"
+          "1d": "neutral"
         },
         "timeframeMethods": {
           "15m": "structure",
@@ -1555,11 +1469,11 @@
           "1d": "daily"
         },
         "timeframeNotes": {
-          "15m": "未取得完整15m原始序列；不倒签盘中收线触发。",
-          "30m": "未取得完整30m原始序列。",
-          "1h": "未取得完整1h原始序列。",
-          "4h": "未取得完整4h原始序列。",
-          "1d": "09/08正式日线O/H/L/C 170.55/178/167.22/167.75，成交量10,161,202。"
+          "15m": "未取得形成后完整15m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "30m": "未取得形成后完整30m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "1h": "未取得形成后完整1h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "4h": "未取得形成后完整4h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "1d": "09/09正式日线：O 165.02 / H 173.24 / L 164.19 / C 167.92 / V 6618916。"
         },
         "demandLoop": [
           {
@@ -1567,7 +1481,7 @@
             "label": "产业需求",
             "state": "需求增长",
             "tone": "up",
-            "note": "区分光网络系统（CIEN）与高速互连芯片/AEC（CRDO），不把AI资本开支等同公司订单。"
+            "note": "区分光网络系统（迁移前标的）与高速互连芯片/AEC（CRDO），不把AI资本开支等同公司订单。"
           },
           {
             "key": "ordersCommitments",
@@ -1602,25 +1516,25 @@
       {
         "symbol": "DDOG",
         "name": "Datadog · AI软件 / Observability",
-        "price": 210.23,
-        "changePct": -1.27,
-        "tone": "down",
-        "priceStatus": "正式收盘 · 09-09 04:00 中国时间（迁移参考基线）",
-        "support": "待下一有效时段建立",
-        "resistance": "待下一有效时段建立",
-        "supportValue": null,
-        "resistanceValue": null,
-        "invalidation": "前瞻基线建立前不开放新增风险权限；不得继承 CIEN 技术位。",
-        "priceAction": "09/08 正式 O/H/L/C 207.00 / 211.18 / 203.24 / 210.23，-1.27%；只作迁移参考，不计作事前判断。",
-        "relativeStrength": "软件同行温度计：PANW（Security 平台/企业安全支出）+ MDB（数据库/AI Data Layer）；二者不是核心八股。",
-        "fundamental": "核心观察 AI/云 workload、Observability + Security 平台扩张、消费型收入、大客户扩张、AI 产品采用与 FCF/利润率质量。",
-        "verdict": "DDOG 新纳入核心矩阵；等待下一有效时段建立独立前瞻基线。",
+        "price": 225.16,
+        "changePct": 7.1,
+        "tone": "up",
+        "priceStatus": "正式收盘 · 09-10 04:00 中国时间",
+        "support": "203.24",
+        "resistance": "211.18",
+        "supportValue": 203.24,
+        "resistanceValue": 211.1775,
+        "invalidation": "15分钟收线跌破203.24；PANW/MDB强势不能抵消DDOG自身失守",
+        "priceAction": "正式收于225.16（+7.10%），接近日高225.71；MDB上涨而PANW下跌，DDOG为独立软件强势，未用同行替代自身确认。",
+        "relativeStrength": "PANW -0.56%、MDB +0.64%，同行温度分化；DDOG +7.10%显著独立走强。",
+        "fundamental": "沿用中期基线：验证AI/云工作负载、Observability + Security平台扩张、消费型收入、大客户与AI产品采用，以及FCF/利润率/SBC质量；本轮无新增结构证据。",
+        "verdict": "正式收于225.16（+7.10%），接近日高225.71；MDB上涨而PANW下跌，DDOG为独立软件强势，未用同行替代自身确认。",
         "timeframes": {
           "15m": "unknown",
           "30m": "unknown",
           "1h": "unknown",
           "4h": "unknown",
-          "1d": "unknown"
+          "1d": "bull"
         },
         "timeframeMethods": {
           "15m": "structure",
@@ -1630,11 +1544,11 @@
           "1d": "daily"
         },
         "timeframeNotes": {
-          "15m": "迁移时不回填 15m 结构；下一有效时段重新获取。",
-          "30m": "迁移时不回填 30m 结构；下一有效时段重新获取。",
-          "1h": "迁移时不回填 1h 结构；下一有效时段重新获取。",
-          "4h": "迁移时不回填 4h 结构；下一有效时段重新获取。",
-          "1d": "09/08 正式日线仅作参考基线，不据此倒签交易条件。"
+          "15m": "未取得形成后完整15m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "30m": "未取得形成后完整30m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "1h": "未取得形成后完整1h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "4h": "未取得形成后完整4h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "1d": "09/09正式日线：O 212.06 / H 225.71 / L 212.06 / C 225.16 / V 4959043。"
         },
         "demandLoop": [
           {
@@ -1675,7 +1589,7 @@
         ]
       },
       {
-        "changePct": 5.04,
+        "changePct": -3.36,
         "demandLoop": [
           {
             "key": "industryDemand",
@@ -1713,13 +1627,13 @@
             "tone": "down"
           }
         ],
-        "fundamental": "新增行动级证据：公司9月8日披露2GW Sweetwater Hub有条件纳入ERCOT Batch Zero Base Load；条件性纳入不等同已获全部并网与交付许可。",
+        "fundamental": "财报后的合同、交付、收入与融资基线不变；本轮只更新价格。",
         "invalidation": "跌回41.82下方且同业承接转弱",
         "name": "IREN",
-        "price": 46.93,
-        "priceAction": "正式收于46.93（+5.04%），盘中冲高49.29后回落；仍强于偏弱BTC，AI云与加密链继续分化。 正式O/H/L 46.14/49.29/46.01，量50,096,615。",
-        "priceStatus": "正式收盘 · 09-09 04:00 中国时间",
-        "relativeStrength": "BTC约-0.87%，IREN +5.04%；独立AI云强势存在，加密量能证据缺失。",
+        "price": 45.36,
+        "priceAction": "正式收于45.36（-3.36%），低于46.93且接近日低；BTC未能带动正Beta修复，AI云与加密链继续分化。",
+        "priceStatus": "正式收盘 · 09-10 04:00 中国时间",
+        "relativeStrength": "IREN -3.36%，未跟随盘中偏稳的BTC；双链分化延续。",
         "resistance": "44.74",
         "resistanceValue": 44.745,
         "support": "41.82",
@@ -1733,24 +1647,24 @@
           "1d": "daily"
         },
         "timeframeNotes": {
-          "15m": "未取得完整15m原始序列；不倒签盘中收线触发。",
-          "30m": "未取得完整30m原始序列。",
-          "1h": "未取得完整1h原始序列。",
-          "4h": "未取得完整4h原始序列。",
-          "1d": "09/08正式日线O/H/L/C 46.14/49.29/46.01/46.93，成交量50,096,615。"
+          "15m": "未取得形成后完整15m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "30m": "未取得形成后完整30m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "1h": "未取得形成后完整1h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "4h": "未取得形成后完整4h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "1d": "09/09正式日线：O 46.89 / H 47.27 / L 45.09 / C 45.36 / V 28063651。"
         },
         "timeframes": {
           "15m": "unknown",
           "30m": "unknown",
           "1h": "unknown",
           "4h": "unknown",
-          "1d": "bull"
+          "1d": "bear"
         },
-        "tone": "up",
-        "verdict": "正式收于46.93（+5.04%），盘中冲高49.29后回落；仍强于偏弱BTC，AI云与加密链继续分化。"
+        "tone": "down",
+        "verdict": "正式收于45.36（-3.36%），低于46.93且接近日低；BTC未能带动正Beta修复，AI云与加密链继续分化。"
       },
       {
-        "changePct": 9.63,
+        "changePct": -2.91,
         "demandLoop": [
           {
             "key": "industryDemand",
@@ -1788,13 +1702,13 @@
             "tone": "up"
           }
         ],
-        "fundamental": "新增行动级证据：BE将于9月21日开盘前纳入标普500；指数资金需求是事件催化，不替代部署、收入与现金流验证。",
+        "fundamental": "BE五步兑现链无新增结构证据；本轮只更新价格。",
         "invalidation": "跌回235.55下方并伴随电力同业转弱",
         "name": "Bloom Energy",
-        "price": 277.22,
-        "priceAction": "正式收于277.22（+9.63%），标普500纳入事件获得承接，但从283.83回落；不追事件高点。 正式O/H/L 267.76/283.83/259.78，量27,372,953。",
-        "priceStatus": "正式收盘 · 09-09 04:00 中国时间",
-        "relativeStrength": "指数纳入事件只作BE自身催化；本轮未统一补齐电力同业正式收盘组。",
+        "price": 269.16,
+        "priceAction": "正式收于269.16（-2.91%），跌破277.22并接近日低；指数纳入事件后的承接继续降温。",
+        "priceStatus": "正式收盘 · 09-10 04:00 中国时间",
+        "relativeStrength": "BE -2.91%，事件驱动后的价格承接转弱。",
         "resistance": "253.30",
         "resistanceValue": 253.2999,
         "support": "238.41",
@@ -1808,32 +1722,32 @@
           "1d": "daily"
         },
         "timeframeNotes": {
-          "15m": "未取得完整15m原始序列；不倒签盘中收线触发。",
-          "30m": "未取得完整30m原始序列。",
-          "1h": "未取得完整1h原始序列。",
-          "4h": "未取得完整4h原始序列。",
-          "1d": "09/08正式日线O/H/L/C 267.76/283.83/259.78/277.22，成交量27,372,953。"
+          "15m": "未取得形成后完整15m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "30m": "未取得形成后完整30m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "1h": "未取得形成后完整1h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "4h": "未取得形成后完整4h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "1d": "09/09正式日线：O 272.5 / H 280.3 / L 268.66 / C 269.16 / V 11564173。"
         },
         "timeframes": {
           "15m": "unknown",
           "30m": "unknown",
           "1h": "unknown",
           "4h": "unknown",
-          "1d": "bull"
+          "1d": "bear"
         },
-        "tone": "up",
-        "verdict": "正式收于277.22（+9.63%），标普500纳入事件获得承接，但从283.83回落；不追事件高点。"
+        "tone": "down",
+        "verdict": "正式收于269.16（-2.91%），跌破277.22并接近日低；指数纳入事件后的承接继续降温。"
       },
       {
-        "changePct": 3.73,
+        "changePct": -3.84,
         "demandLoop": null,
         "fundamental": "无新增结构性基本面证据；沿用盘前基线。",
         "invalidation": "跌回147.32并继续跌破141.05",
         "name": "Space Exploration Technologies",
-        "price": 153.47,
-        "priceAction": "正式收于153.47（+3.73%），日线站上152.30供给区；单日收口后仍需下一时段保持。 正式O/H/L 149.05/155/145.14，量85,188,076。",
-        "priceStatus": "正式收盘 · 09-09 04:00 中国时间",
-        "relativeStrength": "SPY -0.55%、QQQ -0.08%，SPCX +3.73%，相对强势成立。",
+        "price": 147.58,
+        "priceAction": "正式收于147.58（-3.84%），跌回152.30供给区下方；日线确认前一日突破未能保持。",
+        "priceStatus": "正式收盘 · 09-10 04:00 中国时间",
+        "relativeStrength": "SPCX -3.84%，在大盘偏弱日表现更差。",
         "resistance": "152.30",
         "resistanceValue": 152.3,
         "support": "147.32",
@@ -1847,32 +1761,32 @@
           "1d": "daily"
         },
         "timeframeNotes": {
-          "15m": "未取得完整15m原始序列；不倒签盘中收线触发。",
-          "30m": "未取得完整30m原始序列。",
-          "1h": "未取得完整1h原始序列。",
-          "4h": "未取得完整4h原始序列。",
-          "1d": "09/08正式日线O/H/L/C 149.05/155/145.14/153.47，成交量85,188,076。"
+          "15m": "未取得形成后完整15m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "30m": "未取得形成后完整30m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "1h": "未取得形成后完整1h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "4h": "未取得形成后完整4h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "1d": "09/09正式日线：O 152.04 / H 153 / L 145.56 / C 147.58 / V 114428220。"
         },
         "timeframes": {
           "15m": "unknown",
           "30m": "unknown",
           "1h": "unknown",
           "4h": "unknown",
-          "1d": "bull"
+          "1d": "bear"
         },
-        "tone": "up",
-        "verdict": "正式收于153.47（+3.73%），日线站上152.30供给区；单日收口后仍需下一时段保持。"
+        "tone": "down",
+        "verdict": "正式收于147.58（-3.84%），跌回152.30供给区下方；日线确认前一日突破未能保持。"
       },
       {
-        "changePct": -4.4,
+        "changePct": -2.8,
         "demandLoop": null,
         "fundamental": "无新增结构性基本面证据；沿用盘前基线。",
         "invalidation": "跌破137.07且BTC/IBIT继续走弱",
         "name": "Strategy",
-        "price": 136.52,
-        "priceAction": "正式收于136.52（-4.40%），继续弱于BTC并未收回139.31；加密正Beta尚未修复。 正式O/H/L 137.62/139.31/135.38，量19,252,962。",
-        "priceStatus": "正式收盘 · 09-09 04:00 中国时间",
-        "relativeStrength": "BTC约-0.87%、MSTR -4.40%，MSTR继续明显弱于BTC。",
+        "price": 132.7,
+        "priceAction": "正式收于132.70（-2.80%），未收回139.31并接近日低；加密正Beta仍未恢复。",
+        "priceStatus": "正式收盘 · 09-10 04:00 中国时间",
+        "relativeStrength": "MSTR -2.80%，未形成相对BTC的正Beta修复。",
         "resistance": "144.92",
         "resistanceValue": 144.92,
         "support": "137.07",
@@ -1886,11 +1800,11 @@
           "1d": "daily"
         },
         "timeframeNotes": {
-          "15m": "未取得完整15m原始序列；不倒签盘中收线触发。",
-          "30m": "未取得完整30m原始序列。",
-          "1h": "未取得完整1h原始序列。",
-          "4h": "未取得完整4h原始序列。",
-          "1d": "09/08正式日线O/H/L/C 137.62/139.31/135.38/136.52，成交量19,252,962。"
+          "15m": "未取得形成后完整15m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "30m": "未取得形成后完整30m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "1h": "未取得形成后完整1h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "4h": "未取得形成后完整4h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
+          "1d": "09/09正式日线：O 141.82 / H 141.98 / L 132.59 / C 132.7 / V 16880000。"
         },
         "timeframes": {
           "15m": "unknown",
@@ -1900,206 +1814,206 @@
           "1d": "bear"
         },
         "tone": "down",
-        "verdict": "正式收于136.52（-4.40%），继续弱于BTC并未收回139.31；加密正Beta尚未修复。"
+        "verdict": "正式收于132.70（-2.80%），未收回139.31并接近日低；加密正Beta仍未恢复。"
       }
     ],
-    "sessionDate": "2026-09-08",
-    "nominalAt": "2026-09-09T04:25:00+08:00",
-    "marketCloseAt": "2026-09-09T04:00:00+08:00",
+    "sessionDate": "2026-09-09",
+    "nominalAt": "2026-09-10T04:25:00+08:00",
+    "marketCloseAt": "2026-09-10T04:00:00+08:00",
     "quality": {
-      "checkedAt": "2026-09-09T04:31:00+08:00",
+      "checkedAt": "2026-09-10T04:25:00+08:00",
       "quotes": {
         "SPY": {
-          "open": 769.02,
-          "high": 769.69,
-          "low": 765.15,
-          "volume": 34925559,
-          "price": 765.94,
+          "open": 764.08,
+          "high": 764.47,
+          "low": 760.94,
+          "volume": 31504311,
+          "price": 762.4,
           "status": "verified",
-          "asOf": "2026-09-09T04:00:00+08:00",
-          "marketDate": "2026-09-08",
+          "asOf": "2026-09-10T04:00:00+08:00",
+          "marketDate": "2026-09-09",
           "session": "regular",
           "isFinal": true,
-          "source": "StockAnalysis formal close",
-          "sourceUrl": "https://stockanalysis.com/etf/spy/",
-          "maxAgeMinutes": 150
+          "source": "Google Finance close / StockAnalysis OHLC range",
+          "sourceUrl": "https://www.google.com/finance/quote/SPY:NYSEARCA",
+          "maxAgeMinutes": 90
         },
         "QQQ": {
-          "open": 720.91,
-          "high": 721.89,
-          "low": 715.57,
-          "volume": 27400878,
-          "price": 718.36,
+          "open": 716.4,
+          "high": 719.7,
+          "low": 714.02,
+          "volume": 24726098,
+          "price": 716.35,
           "status": "verified",
-          "asOf": "2026-09-09T04:00:00+08:00",
-          "marketDate": "2026-09-08",
+          "asOf": "2026-09-10T04:00:00+08:00",
+          "marketDate": "2026-09-09",
           "session": "regular",
           "isFinal": true,
-          "source": "StockAnalysis formal close",
+          "source": "StockAnalysis official close",
           "sourceUrl": "https://stockanalysis.com/etf/qqq/",
-          "maxAgeMinutes": 150
+          "maxAgeMinutes": 90
         },
         "SOXX": {
-          "open": 530.59,
-          "high": 534.23,
-          "low": 525.91,
-          "volume": 8607136,
-          "price": 528.4,
+          "open": 524.85,
+          "high": 535.48,
+          "low": 524.85,
+          "volume": 6215415,
+          "price": 532,
           "status": "verified",
-          "asOf": "2026-09-09T04:00:00+08:00",
-          "marketDate": "2026-09-08",
+          "asOf": "2026-09-10T04:00:00+08:00",
+          "marketDate": "2026-09-09",
           "session": "regular",
           "isFinal": true,
-          "source": "StockAnalysis formal close",
+          "source": "StockAnalysis official close",
           "sourceUrl": "https://stockanalysis.com/etf/soxx/",
-          "maxAgeMinutes": 150
+          "maxAgeMinutes": 90
         },
         "DRAM": {
-          "open": 61.67,
-          "high": 62.07,
-          "low": 60.73,
-          "volume": 38258937,
-          "price": 60.99,
+          "open": 60.89,
+          "high": 62.58,
+          "low": 60.71,
+          "volume": 25244251,
+          "price": 61.48,
           "status": "verified",
-          "asOf": "2026-09-09T04:00:00+08:00",
-          "marketDate": "2026-09-08",
+          "asOf": "2026-09-10T04:00:00+08:00",
+          "marketDate": "2026-09-09",
           "session": "regular",
           "isFinal": true,
-          "source": "StockAnalysis formal close",
+          "source": "StockAnalysis official close",
           "sourceUrl": "https://stockanalysis.com/etf/dram/",
-          "maxAgeMinutes": 150
+          "maxAgeMinutes": 90
         },
         "LITE": {
-          "open": 897.56,
-          "high": 1000.15,
-          "low": 884.7,
-          "volume": 7353610,
-          "price": 978.54,
+          "open": 980.06,
+          "high": 1026.76,
+          "low": 978.11,
+          "volume": 4235814,
+          "price": 988.98,
           "status": "verified",
-          "asOf": "2026-09-09T04:00:00+08:00",
-          "marketDate": "2026-09-08",
+          "asOf": "2026-09-10T04:00:00+08:00",
+          "marketDate": "2026-09-09",
           "session": "regular",
           "isFinal": true,
-          "source": "StockAnalysis formal close",
+          "source": "StockAnalysis official close",
           "sourceUrl": "https://stockanalysis.com/stocks/lite/",
-          "maxAgeMinutes": 150
+          "maxAgeMinutes": 90
         },
         "CRDO": {
-          "open": 170.55,
-          "high": 178,
-          "low": 167.22,
-          "volume": 10161202,
-          "price": 167.75,
+          "open": 165.02,
+          "high": 173.24,
+          "low": 164.19,
+          "volume": 6618916,
+          "price": 167.92,
           "status": "verified",
-          "asOf": "2026-09-09T04:00:00+08:00",
-          "marketDate": "2026-09-08",
+          "asOf": "2026-09-10T04:00:00+08:00",
+          "marketDate": "2026-09-09",
           "session": "regular",
           "isFinal": true,
-          "source": "StockAnalysis formal close",
+          "source": "StockAnalysis official close",
           "sourceUrl": "https://stockanalysis.com/stocks/crdo/",
-          "maxAgeMinutes": 150
+          "maxAgeMinutes": 90
+        },
+        "DDOG": {
+          "open": 212.06,
+          "high": 225.71,
+          "low": 212.06,
+          "volume": 4959043,
+          "price": 225.16,
+          "status": "verified",
+          "asOf": "2026-09-10T04:00:00+08:00",
+          "marketDate": "2026-09-09",
+          "session": "regular",
+          "isFinal": true,
+          "source": "StockAnalysis official close",
+          "sourceUrl": "https://stockanalysis.com/stocks/ddog/",
+          "maxAgeMinutes": 90
         },
         "IREN": {
-          "open": 46.14,
-          "high": 49.29,
-          "low": 46.01,
-          "volume": 50096615,
-          "price": 46.93,
+          "open": 46.89,
+          "high": 47.27,
+          "low": 45.09,
+          "volume": 28063651,
+          "price": 45.36,
           "status": "verified",
-          "asOf": "2026-09-09T04:00:00+08:00",
-          "marketDate": "2026-09-08",
+          "asOf": "2026-09-10T04:00:00+08:00",
+          "marketDate": "2026-09-09",
           "session": "regular",
           "isFinal": true,
-          "source": "StockAnalysis formal close",
+          "source": "StockAnalysis official close",
           "sourceUrl": "https://stockanalysis.com/stocks/iren/",
-          "maxAgeMinutes": 150
+          "maxAgeMinutes": 90
         },
         "BE": {
-          "open": 267.76,
-          "high": 283.83,
-          "low": 259.78,
-          "volume": 27372953,
-          "price": 277.22,
+          "open": 272.5,
+          "high": 280.3,
+          "low": 268.66,
+          "volume": 11564173,
+          "price": 269.16,
           "status": "verified",
-          "asOf": "2026-09-09T04:00:00+08:00",
-          "marketDate": "2026-09-08",
+          "asOf": "2026-09-10T04:00:00+08:00",
+          "marketDate": "2026-09-09",
           "session": "regular",
           "isFinal": true,
-          "source": "StockAnalysis formal close",
+          "source": "StockAnalysis official close",
           "sourceUrl": "https://stockanalysis.com/stocks/be/",
-          "maxAgeMinutes": 150
+          "maxAgeMinutes": 90
         },
         "SPCX": {
-          "open": 149.05,
-          "high": 155,
-          "low": 145.14,
-          "volume": 85188076,
-          "price": 153.47,
+          "open": 152.04,
+          "high": 153,
+          "low": 145.56,
+          "volume": 114428220,
+          "price": 147.58,
           "status": "verified",
-          "asOf": "2026-09-09T04:00:00+08:00",
-          "marketDate": "2026-09-08",
+          "asOf": "2026-09-10T04:00:00+08:00",
+          "marketDate": "2026-09-09",
           "session": "regular",
           "isFinal": true,
-          "source": "StockAnalysis formal close",
+          "source": "StockAnalysis official close",
           "sourceUrl": "https://stockanalysis.com/stocks/spcx/",
-          "maxAgeMinutes": 150
+          "maxAgeMinutes": 90
         },
         "MSTR": {
-          "open": 137.62,
-          "high": 139.31,
-          "low": 135.38,
-          "volume": 19252962,
-          "price": 136.52,
+          "open": 141.82,
+          "high": 141.98,
+          "low": 132.59,
+          "volume": 16880000,
+          "price": 132.7,
           "status": "verified",
-          "asOf": "2026-09-09T04:00:00+08:00",
-          "marketDate": "2026-09-08",
+          "asOf": "2026-09-10T04:00:00+08:00",
+          "marketDate": "2026-09-09",
           "session": "regular",
           "isFinal": true,
-          "source": "StockAnalysis formal close",
-          "sourceUrl": "https://stockanalysis.com/stocks/mstr/",
-          "maxAgeMinutes": 150
+          "source": "MarketWatch official close",
+          "sourceUrl": "https://www.marketwatch.com/investing/stock/mstr",
+          "maxAgeMinutes": 90
         },
         "BTC": {
           "open": null,
-          "high": 79432,
-          "low": 77680,
+          "high": 79701,
+          "low": 78098,
           "volume": null,
-          "price": 78508,
+          "price": 78758,
           "status": "verified",
-          "asOf": "2026-09-09T04:31:00+08:00",
-          "marketDate": "2026-09-08",
+          "asOf": "2026-09-10T02:03:00+08:00",
+          "marketDate": "2026-09-09",
           "session": "crypto",
           "isFinal": false,
-          "source": "Google Finance crypto quote",
+          "source": "Google Finance live crypto quote",
           "sourceUrl": "https://www.google.com/finance/quote/BTC-USD",
-          "maxAgeMinutes": 150
-        },
-        "DDOG": {
-          "open": 207,
-          "high": 211.18,
-          "low": 203.24,
-          "volume": 5198974,
-          "price": 210.23,
-          "status": "verified",
-          "asOf": "2026-09-09T04:00:00+08:00",
-          "marketDate": "2026-09-08",
-          "session": "regular",
-          "isFinal": true,
-          "source": "Forbes / S&P-Xignite historical OHLCV",
-          "sourceUrl": "https://www.forbes.com/companies/datadog/",
           "maxAgeMinutes": 150
         }
       },
       "issues": [
         {
-          "code": "HISTORY_PRIMARY_STALE",
-          "message": "Nasdaq历史接口尚未包含9月8日正式日线；备用Yahoo接口返回429，60D/252D未重算",
+          "code": "MINUTE_SEQUENCE_MISSING",
+          "message": "正式日线与累计成交量完整，但缺少形成后分钟序列；15m/30m/1h/4h及盘中量能确认保持unknown",
           "scope": "metric",
           "assets": [
             "DRAM",
             "LITE",
-            "CIEN",
             "CRDO",
+            "DDOG",
             "IREN",
             "BE",
             "SPCX",
@@ -2109,22 +2023,38 @@
           "level": "warning"
         },
         {
-          "code": "BTC_VOLUME_MISSING",
-          "message": "BTC成交量未取得，仅降低IREN/MSTR加密量能证据；不影响美股正式收盘完成",
+          "code": "DDOG_PEER_MIXED",
+          "message": "PANW -0.56%、MDB +0.64%；仅作DDOG软件同行温度计，不替代DDOG自身确认",
+          "scope": "asset",
+          "assets": [
+            "DDOG"
+          ],
+          "effect": "linkage",
+          "level": "warning"
+        },
+        {
+          "code": "HISTORY_FALLBACK_DISCLOSED",
+          "message": "Nasdaq当日日线未及时释出；9月8日前完整窗口保留，9月9日正式OHLCV按逐项披露备用源追加",
           "scope": "metric",
           "assets": [
+            "DRAM",
+            "LITE",
+            "CRDO",
+            "DDOG",
             "IREN",
+            "BE",
+            "SPCX",
             "MSTR"
           ],
-          "effect": "volume",
+          "effect": "reference",
           "level": "warning"
         }
       ]
     },
     "completion": {
       "status": "final",
-      "checkedAt": "2026-09-09T04:31:00+08:00",
-      "note": "八标的与SPY/QQQ/SOXX正式OHLCV已到齐；完整历史样本待数据源发布。",
+      "checkedAt": "2026-09-10T04:25:00+08:00",
+      "note": "八标的及SPY/QQQ/SOXX正式OHLCV完整，DDOG独立历史与16项分位已复算。",
       "pendingAssets": [],
       "finalAssets": [
         "SPY",
@@ -2132,15 +2062,14 @@
         "SOXX",
         "DRAM",
         "LITE",
-        "CIEN",
         "CRDO",
+        "DDOG",
         "IREN",
         "BE",
         "SPCX",
         "MSTR"
       ]
-    },
-    "nextUpdate": "2026-09-09T21:05:00+08:00"
+    }
   },
   "decisionLedger": [
     {
@@ -13598,12 +13527,12 @@
     }
   ],
   "meta": {
-    "latestSession": "late",
-    "nextUpdate": "2026-09-10T04:25:00+08:00",
+    "latestSession": "close",
+    "nextUpdate": "2026-09-10T21:05:00+08:00",
     "schemaVersion": 16,
     "sessionDate": "2026-09-09",
     "timezone": "Asia/Shanghai",
-    "updatedAt": "2026-09-10T02:05:00+08:00",
+    "updatedAt": "2026-09-10T04:25:00+08:00",
     "scheduledTimezone": "America/New_York",
     "maintenanceNote": "v16：核心八股切换 DDOG；CIEN 历史冻结；PANW/MDB 为软件同行温度计",
     "analysisProtocol": {
@@ -13611,8 +13540,8 @@
       "activatedAt": "2026-09-05T17:51:22+08:00",
       "baselineSHA": "7b03ecc0885d1ab441c549c42635b989a2242ae2"
     },
-    "nominalAt": "2026-09-10T02:05:00+08:00",
-    "updateStatus": "午后已写暂存；QQQ及六项核心股时点待补",
+    "nominalAt": "2026-09-10T04:25:00+08:00",
+    "updateStatus": "正式收盘与研究数据完成",
     "coreMigration": {
       "date": "2026-09-09",
       "from": "CIEN",
@@ -15733,6 +15662,73 @@
   },
   "reviews": [
     {
+      "date": "2026-09-09",
+      "stage": "04:25 正式收盘复盘",
+      "status": "已复核",
+      "title": "DDOG独立走强，行业轮动未扩散",
+      "summary": "正式收盘：SPY -0.46%、QQQ -0.28%、SOXX +0.68%；半导体相对抗跌，但市场广度仍偏弱。",
+      "errorLayer": "市场广度 / 个股确认 / 分钟证据边界",
+      "failedAssumption": "盘中行业强势会自然扩散至高Beta与加密链。",
+      "validDriver": "DDOG自身日线与LITE/DRAM相对强势有效；IREN、BE、SPCX、MSTR正式收弱。",
+      "modelChange": "保留原15分钟条件；正式日线只更新日线状态，缺分钟序列不倒签触发或交易结果。",
+      "assets": [
+        {
+          "asset": "市场",
+          "expected": "SPY/QQQ/SOXX同步修复才扩大风险预算",
+          "actual": "正式收盘：SPY -0.46%、QQQ -0.28%、SOXX +0.68%；半导体相对抗跌，但市场广度仍偏弱。",
+          "result": "未确认"
+        },
+        {
+          "asset": "DRAM",
+          "expected": "15分钟收线 DRAM≥61.10 AND SOXX≥528.40。",
+          "actual": "正式收于61.48（+0.62%），盘中触及62.58后回落；守住61.10，但未以收盘完成62.00上方突破。",
+          "result": "待分钟证据"
+        },
+        {
+          "asset": "LITE",
+          "expected": "15分钟收线 LITE≥978.54 AND CRDO≥167.75；缺一项只算部分确认。",
+          "actual": "正式收于988.98（+1.07%），盘中触及1026.76后回落；仍高于978.54，但急涨后的持续性尚待下一交易日确认。",
+          "result": "待分钟证据"
+        },
+        {
+          "asset": "CRDO",
+          "expected": "15分钟收线 CRDO≥167.75 AND（LITE≥978.54 OR SOXX≥528.40）。",
+          "actual": "正式收于167.92（+0.10%），冲高173.24后几乎平收；明显弱于LITE，行业强势没有替代个股确认。",
+          "result": "待分钟证据"
+        },
+        {
+          "asset": "DDOG",
+          "expected": "15分钟收线 DDOG≥211.18 AND（PANW≥336.98 OR MDB≥356.00）。",
+          "actual": "正式收于225.16（+7.10%），接近日高225.71；MDB上涨而PANW下跌，DDOG为独立软件强势，未用同行替代自身确认。",
+          "result": "待分钟证据"
+        },
+        {
+          "asset": "IREN",
+          "expected": "15分钟收线 IREN≥46.93 AND BTC≥79700。",
+          "actual": "正式收于45.36（-3.36%），低于46.93且接近日低；BTC未能带动正Beta修复，AI云与加密链继续分化。",
+          "result": "待分钟证据"
+        },
+        {
+          "asset": "BE",
+          "expected": "15分钟收线 BE≥277.22 AND 对应周期低点≥270。",
+          "actual": "正式收于269.16（-2.91%），跌破277.22并接近日低；指数纳入事件后的承接继续降温。",
+          "result": "待分钟证据"
+        },
+        {
+          "asset": "SPCX",
+          "expected": "15分钟收线 SPCX≥153.47 AND SPY≥765.96。",
+          "actual": "正式收于147.58（-3.84%），跌回152.30供给区下方；日线确认前一日突破未能保持。",
+          "result": "待分钟证据"
+        },
+        {
+          "asset": "MSTR",
+          "expected": "15分钟收线 MSTR≥140.40 AND BTC≥79700。",
+          "actual": "正式收于132.70（-2.80%），未收回139.31并接近日低；加密正Beta仍未恢复。",
+          "result": "待分钟证据"
+        }
+      ]
+    },
+    {
       "date": "2026-09-04",
       "stage": "正式收盘补全",
       "status": "已复核",
@@ -16869,98 +16865,98 @@
     {
       "symbol": "SPY",
       "name": "State Street SPDR S&P 500 ETF",
-      "price": 765.94,
-      "changePct": -0.55,
+      "price": 762.4,
+      "changePct": -0.46,
       "tone": "down",
-      "priceStatus": "正式收盘 · 09-09 04:00 中国时间"
+      "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
     },
     {
       "symbol": "QQQ",
       "name": "Invesco QQQ",
-      "price": 718.36,
-      "changePct": -0.08,
+      "price": 716.35,
+      "changePct": -0.28,
       "tone": "down",
-      "priceStatus": "正式收盘 · 09-09 04:00 中国时间"
+      "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
     },
     {
       "symbol": "SOXX",
       "name": "iShares Semiconductor ETF",
-      "price": 528.4,
-      "changePct": 1.64,
+      "price": 532,
+      "changePct": 0.68,
       "tone": "up",
-      "priceStatus": "正式收盘 · 09-09 04:00 中国时间"
+      "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
     },
     {
       "symbol": "DRAM",
       "name": "Roundhill Memory ETF",
-      "price": 60.99,
-      "changePct": 2.18,
+      "price": 61.48,
+      "changePct": 0.62,
       "tone": "up",
-      "priceStatus": "正式收盘 · 09-09 04:00 中国时间"
+      "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
     },
     {
       "symbol": "LITE",
       "name": "Lumentum Holdings",
-      "price": 978.54,
-      "changePct": 11.04,
+      "price": 988.98,
+      "changePct": 1.07,
       "tone": "up",
-      "priceStatus": "正式收盘 · 09-09 04:00 中国时间"
+      "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
     },
     {
       "symbol": "CRDO",
       "name": "Credo · 高速互连",
-      "price": 167.75,
-      "changePct": -1.65,
-      "tone": "down",
-      "priceStatus": "正式收盘 · 09-09 04:00 中国时间"
+      "price": 167.92,
+      "changePct": 0.1,
+      "tone": "up",
+      "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
     },
     {
       "symbol": "DDOG",
       "name": "Datadog · AI软件 / Observability",
-      "price": 210.23,
-      "changePct": -1.27,
-      "tone": "down",
-      "priceStatus": "正式收盘 · 09-09 04:00 中国时间（迁移参考基线）"
+      "price": 225.16,
+      "changePct": 7.1,
+      "tone": "up",
+      "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
     },
     {
       "symbol": "IREN",
       "name": "IREN",
-      "price": 46.93,
-      "changePct": 5.04,
-      "tone": "up",
-      "priceStatus": "正式收盘 · 09-09 04:00 中国时间"
+      "price": 45.36,
+      "changePct": -3.36,
+      "tone": "down",
+      "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
     },
     {
       "symbol": "BE",
       "name": "Bloom Energy",
-      "price": 277.22,
-      "changePct": 9.63,
-      "tone": "up",
-      "priceStatus": "正式收盘 · 09-09 04:00 中国时间"
+      "price": 269.16,
+      "changePct": -2.91,
+      "tone": "down",
+      "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
     },
     {
       "symbol": "SPCX",
       "name": "Space Exploration Technologies",
-      "price": 153.47,
-      "changePct": 3.73,
-      "tone": "up",
-      "priceStatus": "正式收盘 · 09-09 04:00 中国时间"
+      "price": 147.58,
+      "changePct": -3.84,
+      "tone": "down",
+      "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
     },
     {
       "symbol": "MSTR",
       "name": "Strategy",
-      "price": 136.52,
-      "changePct": -4.4,
+      "price": 132.7,
+      "changePct": -2.8,
       "tone": "down",
-      "priceStatus": "正式收盘 · 09-09 04:00 中国时间"
+      "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
     },
     {
       "symbol": "BTC",
       "name": "Bitcoin",
-      "price": 78508,
-      "changePct": -0.87,
-      "tone": "down",
-      "priceStatus": "实时现货 · 09-09 04:31 中国时间"
+      "price": 78758,
+      "changePct": 0.3,
+      "tone": "up",
+      "priceStatus": "实时现货 · 09-10 02:03 中国时间"
     }
   ],
   "sourceGroups": [
@@ -17015,13 +17011,13 @@
       "status": "机制校验"
     },
     {
-      "group": "CIEN / AI网络",
+      "group": "CRDO / AI网络",
       "method": "公司IR与SEC核验订单、交付、收入、毛利和现金流；Nasdaq日线核价。",
       "status": "已接入，不作排名"
     },
     {
-      "group": "CRDO / AI网络",
-      "method": "公司IR与SEC核验订单、交付、收入、毛利和现金流；Nasdaq日线核价。",
+      "group": "DDOG / AI软件与Observability",
+      "method": "Datadog IR/SEC核验AI/云工作负载、平台采用、消费型收入、大客户、FCF/利润率/SBC；PANW与MDB仅作同行温度计。",
       "status": "已接入，不作排名"
     }
   ],
