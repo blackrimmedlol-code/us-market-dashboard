@@ -1,0 +1,60 @@
+name: DDOG core migration
+
+on:
+  push:
+    paths:
+      - '.github/workflows/ddog-migration.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Inspect current contract and CIEN data paths
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const data = JSON.parse(fs.readFileSync('data.json','utf8'));
+          console.log('meta', JSON.stringify(data.meta, null, 2));
+          console.log('root keys', Object.keys(data));
+          const hits = [];
+          function walk(v, path='$') {
+            if (hits.length >= 240) return;
+            if (Array.isArray(v)) {
+              v.forEach((x,i)=>walk(x, `${path}[${i}]`));
+              return;
+            }
+            if (v && typeof v === 'object') {
+              for (const [k,x] of Object.entries(v)) {
+                if (k === 'CIEN' || x === 'CIEN') {
+                  hits.push({path: `${path}.${k}`, value: typeof x === 'object' ? Object.keys(x) : x});
+                }
+                walk(x, `${path}.${k}`);
+              }
+            }
+          }
+          walk(data);
+          console.log('CIEN hit count shown', hits.length);
+          console.log(JSON.stringify(hits, null, 2));
+          for (const s of ['premarket','intraday','late','close']) {
+            const x = data.sessions?.[s];
+            if (!x) continue;
+            console.log(`SESSION ${s} KEYS`, Object.keys(x));
+            for (const key of Object.keys(x)) {
+              const v=x[key];
+              if (Array.isArray(v)) console.log(`${s}.${key}: array(${v.length})`, v.slice(0,10).map(z=>z?.symbol||z?.asset||z?.ticker||z?.id||typeof z));
+              else if (v && typeof v==='object') console.log(`${s}.${key}: object keys`, Object.keys(v).slice(0,20));
+            }
+          }
+          console.log('horizons keys', data.horizons && Object.keys(data.horizons));
+          console.log('quality keys', data.quality && Object.keys(data.quality));
+          console.log('reviews summary', Array.isArray(data.reviews) ? data.reviews.slice(0,3).map(r=>({date:r.date, keys:Object.keys(r), assets:Array.isArray(r.assets)?r.assets.map(a=>a.asset||a.symbol):null})) : typeof data.reviews);
+          console.log('mediumLedger', Array.isArray(data.mediumLedger) ? data.mediumLedger.map(x=>x.asset||x.symbol) : Object.keys(data.mediumLedger||{}));
+          console.log('decisionLedger count', Array.isArray(data.decisionLedger) ? data.decisionLedger.length : typeof data.decisionLedger);
+          NODE
