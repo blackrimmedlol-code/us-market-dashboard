@@ -9,7 +9,7 @@
 
 本仓库已与卡路里追踪页面分离，市场更新不会再触发卡路里仓库的提交或部署。
 
-当前契约：v15，八标的。共享规则：`market-model.js`。
+当前契约：v16，八标的（DRAM / LITE / CRDO / DDOG / IREN / BE / SPCX / MSTR）。共享规则：`market-model.js`；CIEN 只保留迁移前历史。
 
 - 回归：`node --test market-model.test.mjs`
 - 写前校验：`node validate-data.mjs data.json previous.json`

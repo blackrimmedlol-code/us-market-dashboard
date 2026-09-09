@@ -342,7 +342,7 @@ DRAM、LITE、CRDO、DDOG、IREN、BE、SPCX、MSTR 固定写入 `15m / 30m / 1h
 - 当前任务只改自己的时段对象；空时段保持 `available:false`，不能回退到其他时段的快照。
 - 市场、DRAM、LITE、CRDO、DDOG、IREN、BE、SPCX、MSTR 的 `changes` 完整，八个重点标的严格按 `TARGET_ORDER` 排序；每个数据模块都有实际时点和状态标签。
 - `regime` 首段是可独立阅读的短标题，`largestChange` 已填写；`MARKET.short.trigger / invalidation` 分别能作为下一确认与总体失效条件。
-- `meta.schemaVersion` 为 15；每个可用时段都有合法 `regimeCode / breadthState / decisionGate / eventCalendar`，所有枚举通过 `validate-data.mjs`。
+- `meta.schemaVersion` 为 16；每个可用时段都有合法 `regimeCode / breadthState / decisionGate / eventCalendar`，所有枚举通过 `validate-data.mjs`。
 - `changes` 九项均显式标明 `material / impactFields`；页面展开行动级变化、收起普通延续。
 - DRAM、LITE、CRDO、DDOG、IREN、BE、SPCX、MSTR 同时具有 `supportValue / resistanceValue / priceStatus`，距离计算方向正确。
 - `extendedHours` 如存在，严格按 `TARGET_ORDER`，正式收盘与盘后/夜盘不混写；每条都有 session、时点、状态和来源，页面关键位距离采用的价格口径可见。

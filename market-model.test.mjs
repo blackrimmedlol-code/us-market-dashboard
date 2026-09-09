@@ -82,6 +82,9 @@ test('writer rejects retrospective trigger edits and unbenchmarked volume confir
 test('all session renderers run, eight cards retain five timeframes, ledger stays open', async () => {
   const html = readFileSync(new URL('./index.html', import.meta.url), 'utf8');
   assert.match(html, /<details class="ledger-shell"[^>]*open/);
+  const cardIds = [...html.matchAll(/<article class="watch-card" id="watch-([^"]+)"/g)].map(match => match[1].toUpperCase());
+  assert.deepEqual(cardIds, model.TARGETS, '静态卡槽必须与核心八股同序；不能依靠测试桩凭空创建缺失节点');
+  assert.doesNotMatch(html, /id="watch-cien"/);
   const elements = new Map();
   function element(id) {
     if (!elements.has(id)) elements.set(id, { innerHTML: '', textContent: '', hidden: false, dataset: {}, style: {}, classList: { add() {}, remove() {}, toggle() {} }, setAttribute() {}, addEventListener() {}, querySelectorAll() { return []; }, scrollIntoView() {} });
@@ -100,6 +103,9 @@ test('all session renderers run, eight cards retain five timeframes, ledger stay
     assert.equal((element('quick-dock').innerHTML.match(/data-quick=/g) || []).length, 8);
     assert.doesNotMatch(element('action-board').innerHTML, /数据锁权/);
   }
+  const ddogCard = element('watch-ddog').innerHTML;
+  for (const text of ['迁移状态', '持仓计划', '入场计划', '触发', '失效', '中期 THESIS', '软件同行温度计', 'PANW', 'MDB']) assert.match(ddogCard, new RegExp(text));
+  assert.match(ddogCard, /09\/08 正式收盘只作历史参考，不是事前预测/);
   assert.equal(Number.isNaN(context.window.testQuoteFor({ symbol: 'DDOG', price: null }, data.premarket).price), true);
   const audit = model.auditLedger(data.decisionLedger);
   assert.ok(element('calibration-summary').innerHTML.includes('可统计模拟交易</span><b>' + audit.eligible));
