@@ -62,7 +62,7 @@ test('CRDU never inherits CRDO price, and unfinished daily research cannot be sk
   assert.equal(model.positionPrice('CRDO', 'CRDU', 170.57, 7), 7);
   assert.equal(model.positionPrice('CRDO', 'CRDO', 170.57, 7), 170.57);
   const stale = structuredClone(data); stale.close.odds.find(x => x.asset === 'DDOG').asOf = '2026-09-03';
-  const result = model.completion(stale, 'close', '2026-09-04');
+  const result = model.completion(stale, 'close', data.close.sessionDate);
   assert.equal(result.complete, true); assert.equal(result.researchComplete, false);
 });
 test('writer rejects retrospective trigger edits and unbenchmarked volume confirmation', () => {
@@ -157,7 +157,7 @@ test('writer rejects new unplanned calls and retrospective evaluation changes', 
   try {
     const previous = join(dir, 'previous.json'), candidate = join(dir, 'candidate.json');
     writeFileSync(previous, JSON.stringify(data));
-    const bad = structuredClone(data), call = structuredClone(data.decisionLedger[0]); call.callId += '-unplanned'; bad.decisionLedger.push(call);
+    const bad = structuredClone(data), call = structuredClone(data.decisionLedger[0]); call.callId += '-unplanned'; delete call.evaluationPlan; bad.decisionLedger.push(call);
     writeFileSync(candidate, JSON.stringify(bad));
     let r = spawnSync(process.execPath, [new URL('./validate-data.mjs', import.meta.url).pathname, candidate, previous], { encoding: 'utf8' });
     assert.equal(r.status, 1); assert.match(r.stderr, /新判断必须事先冻结评估方案/);
