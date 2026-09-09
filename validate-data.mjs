@@ -6,6 +6,9 @@ const data = JSON.parse(readFileSync(file, 'utf8'));
 const sessions = ['premarket', 'intraday', 'late', 'close'];
 const targetOrder = model.TARGETS;
 const actionOrder = ['MARKET', ...targetOrder];
+const legacyReviewOrder = ['MARKET', 'DRAM', 'LITE', 'CIEN', 'CRDO', 'IREN', 'BE', 'SPCX', 'MSTR'];
+const legacyAssets = new Set(['CIEN']);
+const historicalAssetAllowed = (asset) => actionOrder.includes(asset) || legacyAssets.has(asset);
 const changeOrder = ['市场', ...targetOrder];
 const snapshotOrder = ['SPY', 'QQQ', 'SOXX', ...targetOrder, 'BTC'];
 const planStatuses = new Set(['等待触发', '已触发', '部分确认', '已确认', '失败突破', '剧本失效']);
@@ -21,13 +24,13 @@ const tones = new Set(['up', 'down', 'flat']);
 const timeframeMethods = new Set(['direct', 'aggregate', 'structure', 'daily']);
 const capitalKeys = ['endDemand', 'unitEconomics', 'capex', 'financing', 'price'];
 const demandLoopKeys = ['industryDemand', 'ordersCommitments', 'deliveryUtilization', 'revenueConversion', 'marginCashFlow'];
-const fundamentalLoopAssets = new Set(['DRAM', 'LITE', 'CIEN', 'CRDO', 'IREN', 'BE']);
+const fundamentalLoopAssets = new Set(['DRAM', 'LITE', 'CRDO', 'DDOG', 'IREN', 'BE']);
 const overbuildStates = new Set(['unknown', 'no_signal', 'early_warning', 'confirmed']);
 const errors = [];
 const warnings = [];
 const fail = (path, message) => errors.push(`${path}: ${message}`);
 
-if (Number(data?.meta?.schemaVersion) !== model.SCHEMA) fail('meta.schemaVersion', '必须为 15');
+if (Number(data?.meta?.schemaVersion) !== model.SCHEMA) fail('meta.schemaVersion', '必须为 16');
 if (!sessions.includes(data?.meta?.latestSession)) fail('meta.latestSession', '不是合法时段');
 
 for (const key of sessions) {
@@ -44,7 +47,7 @@ for (const key of sessions) {
     quality.issues.forEach((issue, i) => {
       const path = `${base}.quality.issues[${i}]`;
       if (!issue.code || !issue.message || !['global', 'asset', 'metric'].includes(issue.scope) || !['info', 'warning', 'critical'].includes(issue.level) || !['execution', 'volume', 'linkage', 'reference'].includes(issue.effect)) fail(path, '非法分级提示');
-      if (!Array.isArray(issue.assets) || !issue.assets.every(a => actionOrder.includes(a))) fail(path, '非法影响标的');
+      if (!Array.isArray(issue.assets) || !issue.assets.every(a => historicalAssetAllowed(a))) fail(path, '非法影响标的');
       if (issue.scope !== 'global' && !issue.assets?.length) fail(path, '局部问题必须写明影响范围');
       if (issue.scope === 'global' && issue.assets?.length) fail(path, '全局问题不得混入局部资产');
     });
@@ -81,7 +84,7 @@ for (const key of sessions) {
   else session.eventCalendar.forEach((event, index) => {
     const path = `${base}.eventCalendar[${index}]`;
     if (!event.id || !event.label || !event.eventDate) fail(path, '缺少 id / label / eventDate');
-    if (!Array.isArray(event.affectedAssets) || !event.affectedAssets.every((asset) => actionOrder.includes(asset))) fail(`${path}.affectedAssets`, '包含非法标的');
+    if (!Array.isArray(event.affectedAssets) || !event.affectedAssets.every((asset) => historicalAssetAllowed(asset))) fail(`${path}.affectedAssets`, '包含非法标的');
     if (event.startsAt && Number.isNaN(Date.parse(event.startsAt))) fail(`${path}.startsAt`, '必须是 ISO 时间');
   });
   if (!session.horizons || typeof session.horizons !== 'object') fail(`${base}.horizons`, '缺失');
@@ -191,7 +194,9 @@ for (const key of sessions) {
 }
 
 const latestReviewAssets = (data.reviews?.[0]?.assets || []).map((item) => item.asset === '市场' ? 'MARKET' : item.asset);
-if (JSON.stringify(latestReviewAssets) !== JSON.stringify(actionOrder)) fail('reviews[0].assets', `顺序必须为 MARKET / ${targetOrder.join(' / ')}`);
+const latestReviewDate = data.reviews?.[0]?.date || '';
+const expectedReviewOrder = latestReviewDate && latestReviewDate < '2026-09-09' ? legacyReviewOrder : actionOrder;
+if (JSON.stringify(latestReviewAssets) !== JSON.stringify(expectedReviewOrder)) fail('reviews[0].assets', `顺序与该复盘日期的核心矩阵不一致`);
 const mediumOrder = (data.mediumLedger || []).map((item) => item.asset === '市场' ? 'MARKET' : item.asset);
 if (JSON.stringify(mediumOrder) !== JSON.stringify(actionOrder)) fail('mediumLedger', `顺序必须为 MARKET / ${targetOrder.join(' / ')}`);
 
@@ -202,7 +207,7 @@ else {
     const path = `decisionLedger[${index}]`;
     if (!call.callId || ids.has(call.callId)) fail(`${path}.callId`, '缺失或重复');
     ids.add(call.callId);
-    if (!actionOrder.includes(call.asset)) fail(`${path}.asset`, '非法标的');
+    if (!historicalAssetAllowed(call.asset)) fail(`${path}.asset`, '非法标的');
     if (!regimeCodes.has(call.regimeCode)) fail(`${path}.regimeCode`, '非法值');
     if (!tradeTypes.has(call.setupType)) fail(`${path}.setupType`, '非法值');
     if (!planStatuses.has(call.planStatus)) fail(`${path}.planStatus`, '非法值');
@@ -257,4 +262,4 @@ if (errors.length) {
   console.error(`INVALID (${errors.length})\n${errors.join('\n')}`);
   process.exit(1);
 }
-console.log(`VALID schema v15 · ${sessions.filter((key) => data[key]?.available !== false).length} sessions · ${data.decisionLedger.length} calls`);
+console.log(`VALID schema v16 · ${sessions.filter((key) => data[key]?.available !== false).length} sessions · ${data.decisionLedger.length} calls`);

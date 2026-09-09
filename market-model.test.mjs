@@ -8,7 +8,7 @@ import vm from 'node:vm';
 import model from './market-model.js';
 
 const data = JSON.parse(readFileSync(new URL('./data.json', import.meta.url), 'utf8'));
-const opts = { schemaVersion: 15, key: 'intraday', latestSession: 'intraday', now: Date.parse('2026-09-04T15:10:00Z') };
+const opts = { schemaVersion: 16, key: 'intraday', latestSession: 'intraday', now: Date.parse('2026-09-04T15:10:00Z') };
 function live() {
   const b = structuredClone(data.close);
   b.decisionGate.validUntil = '2026-09-04T18:05:00Z';
@@ -25,13 +25,13 @@ test('BTC volume missing does not lock unrelated equities or invent confirmation
 test('individual price conflicts only restrict that asset', () => {
   const b = live(); b.quality.quotes.BE.status = 'conflict';
   assert.equal(model.evaluate(b, 'BE', opts).locked, true);
-  for (const s of ['MARKET', 'LITE', 'CIEN', 'CRDO', 'MSTR']) assert.equal(model.evaluate(b, s, opts).locked, false);
+  for (const s of ['MARKET', 'LITE', 'DDOG', 'CRDO', 'MSTR']) assert.equal(model.evaluate(b, s, opts).locked, false);
 });
 test('market quote failure and stale market quote restrict execution throughout', () => {
   const b = live(); b.quality.quotes.SPY.price = null;
   for (const s of model.ACTIONS) assert.equal(model.evaluate(b, s, opts).locked, true);
   const stale = live(); stale.quality.quotes.SPY.asOf = '2026-09-04T11:00:00Z';
-  assert.equal(model.evaluate(stale, 'CIEN', opts).locked, true);
+  assert.equal(model.evaluate(stale, 'DDOG', opts).locked, true);
 });
 test('reference mode remains useful without presenting executable permission', () => {
   const g = model.evaluate(data.close, 'LITE', { ...opts, key: 'close', latestSession: 'close', now: Date.parse('2026-09-06T12:00:00Z') });
@@ -40,17 +40,17 @@ test('reference mode remains useful without presenting executable permission', (
   assert.equal(model.evaluate(b, 'LITE', opts).mode, 'reference');
 });
 test('close completeness rejects 15:52 data even with a fresh write timestamp', () => {
-  assert.equal(model.completion(data, 'close', '2026-09-04').complete, true);
-  const bad = structuredClone(data); bad.close.quality.quotes.CIEN.asOf = '2026-09-04T19:52:00Z';
+  assert.equal(model.completion(data, 'close', data.close.sessionDate).complete, true);
+  const bad = structuredClone(data); bad.close.quality.quotes.DDOG.asOf = '2026-09-04T19:52:00Z';
   bad.close.updatedAt = '2026-09-05T03:00:00Z';
   assert.equal(model.completion(bad, 'close', '2026-09-04').complete, false);
-  bad.close.quality.quotes.CIEN = structuredClone(data.close.quality.quotes.CIEN); bad.close.quality.quotes.CRDO.volume = null;
+  bad.close.quality.quotes.DDOG = structuredClone(data.close.quality.quotes.DDOG); bad.close.quality.quotes.CRDO.volume = null;
   assert.equal(model.completion(bad, 'close', '2026-09-04').complete, false);
 });
 test('missing new ticker and wrong trading date cannot pass idempotency', () => {
   const bad = structuredClone(data); bad.close.watchlist = bad.close.watchlist.filter(x => x.symbol !== 'CRDO');
   assert.equal(model.completion(bad, 'close', '2026-09-04').complete, false);
-  assert.equal(model.completion(data, 'close', '2026-09-08').complete, false);
+  assert.equal(model.completion(data, 'close', '1999-01-01').complete, false);
 });
 test('percentile uses ties correctly and rejects duplicate dates', () => {
   assert.equal(model.percentile([{ date: '2026-09-01', close: 2 }, { date: '2026-09-02', close: 2 }], 60).percentile, 50);
@@ -61,19 +61,19 @@ test('CRDU never inherits CRDO price, and unfinished daily research cannot be sk
   assert.equal(Number.isNaN(model.positionPrice('CRDO', '', 170.57, 7)), true);
   assert.equal(model.positionPrice('CRDO', 'CRDU', 170.57, 7), 7);
   assert.equal(model.positionPrice('CRDO', 'CRDO', 170.57, 7), 170.57);
-  const stale = structuredClone(data); stale.close.odds.find(x => x.asset === 'CIEN').asOf = '2026-09-03';
+  const stale = structuredClone(data); stale.close.odds.find(x => x.asset === 'DDOG').asOf = '2026-09-03';
   const result = model.completion(stale, 'close', '2026-09-04');
   assert.equal(result.complete, true); assert.equal(result.researchComplete, false);
 });
 test('writer rejects retrospective trigger edits and unbenchmarked volume confirmation', () => {
-  const dir = mkdtempSync(join(tmpdir(), 'market-v15-test-'));
+  const dir = mkdtempSync(join(tmpdir(), 'market-v16-test-'));
   try {
     const previous = join(dir, 'previous.json'), candidate = join(dir, 'candidate.json'); writeFileSync(previous, JSON.stringify(data));
     const altered = structuredClone(data); altered.decisionLedger[0].trigger = '事后改成命中'; altered.decisionLedger[0].originalPlan.trigger = '事后改成命中';
     writeFileSync(candidate, JSON.stringify(altered));
     let result = spawnSync(process.execPath, [new URL('./validate-data.mjs', import.meta.url).pathname, candidate, previous], { encoding: 'utf8' });
     assert.equal(result.status, 1); assert.match(result.stderr, /与写前原始判断不同|原始快照不可改写/);
-    const volume = structuredClone(data); volume.close.horizons.CIEN.short.confirmations.volume = { state: 'confirmed', note: '拿到成交量' };
+    const volume = structuredClone(data); volume.close.horizons.DDOG.short.confirmations.volume = { state: 'confirmed', note: '拿到成交量' };
     writeFileSync(candidate, JSON.stringify(volume));
     result = spawnSync(process.execPath, [new URL('./validate-data.mjs', import.meta.url).pathname, candidate], { encoding: 'utf8' });
     assert.equal(result.status, 1); assert.match(result.stderr, /比较基准/);
@@ -100,7 +100,7 @@ test('all session renderers run, eight cards retain five timeframes, ledger stay
     assert.equal((element('quick-dock').innerHTML.match(/data-quick=/g) || []).length, 8);
     assert.doesNotMatch(element('action-board').innerHTML, /数据锁权/);
   }
-  assert.equal(Number.isNaN(context.window.testQuoteFor({ symbol: 'CIEN', price: null }, data.premarket).price), true);
+  assert.equal(Number.isNaN(context.window.testQuoteFor({ symbol: 'DDOG', price: null }, data.premarket).price), true);
   const audit = model.auditLedger(data.decisionLedger);
   assert.ok(element('calibration-summary').innerHTML.includes('可统计模拟交易</span><b>' + audit.eligible));
   assert.ok(element('calibration-findings').innerHTML.includes(audit.chronologyFlags + ' 条触发不晚于参考时点'));

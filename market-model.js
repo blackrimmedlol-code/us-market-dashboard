@@ -4,8 +4,8 @@
   else root.MarketModel = factory();
 })(typeof window === 'object' ? window : this, function () {
   'use strict';
-  var SCHEMA = 15;
-  var TARGETS = ['DRAM', 'LITE', 'CIEN', 'CRDO', 'IREN', 'BE', 'SPCX', 'MSTR'];
+  var SCHEMA = 16;
+  var TARGETS = ['DRAM', 'LITE', 'CRDO', 'DDOG', 'IREN', 'BE', 'SPCX', 'MSTR'];
   var ACTIONS = ['MARKET'].concat(TARGETS);
   var QUOTES = ['SPY', 'QQQ', 'SOXX'].concat(TARGETS, ['BTC']);
   var REQUIRED_CLOSE = QUOTES.filter(function (s) { return s !== 'BTC'; });
@@ -67,7 +67,7 @@
   }
   function completion(data, key, expectedDate) {
     var b = data[key], errors = [];
-    if (Number(data.meta && data.meta.schemaVersion) !== SCHEMA) errors.push('schema 必须为 v15');
+    if (Number(data.meta && data.meta.schemaVersion) !== SCHEMA) errors.push('schema 必须为 v16');
     if (!b || b.available === false) return { complete: false, errors: errors.concat('时段未生成') };
     if (b.sessionDate !== expectedDate) errors.push('交易日不匹配');
     if (!validTime(b.updatedAt)) errors.push('写入时间无效');
