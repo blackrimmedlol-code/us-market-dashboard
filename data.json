@@ -9725,20 +9725,20 @@
         "short": {
           "bias": "中性偏谨慎",
           "posture": "AI软件独立突破",
-          "driver": "223.74（+6.43%），明显越过独立基线211.18；最新可核验时点仍早于有效窗口，且无15分钟序列，保持待证。 PANW约-0.26%、MDB约+1.87%，软件同行一弱一强；DDOG自身显著更强，但同行只作温度计。",
+          "driver": "221.91（+5.56%），明显越过独立基线211.18；23:05历史分钟价已补齐有效窗口，但没有方案形成后的15分钟收线，保持待证。 PANW约-0.26%、MDB约+1.87%，软件同行一弱一强；DDOG自身显著更强，但同行只作温度计。",
           "trigger": "15分钟收线 DDOG≥211.18 AND（PANW≥336.98 OR MDB≥356.00）。",
           "invalidation": "15分钟收线 DDOG<203.24；同行强势不能抵消自身失守。",
           "planStatus": "等待触发",
           "tradeType": "趋势交易",
           "confidence": "低",
           "setupLabel": "AI软件独立突破",
-          "stateNote": "223.74（+6.43%），明显越过独立基线211.18；最新可核验时点仍早于有效窗口，且无15分钟序列，保持待证。",
+          "stateNote": "221.91（+5.56%），明显越过独立基线211.18；23:05历史分钟价已补齐有效窗口，但没有方案形成后的15分钟收线，保持待证。",
           "holdingPlan": "已有仓位以203.24为正式日线防守，不因同行盘前上行加码。",
           "entryPlan": "只在DDOG自身站上211.18且PANW/MDB至少一项同步后，等下一根可交易开盘。",
           "confirmations": {
             "price": {
               "state": "mixed",
-              "note": "223.74（+6.43%），明显越过独立基线211.18；最新可核验时点仍早于有效窗口，且无15分钟序列，保持待证。"
+              "note": "221.91（+5.56%），明显越过独立基线211.18；23:05历史分钟价已补齐有效窗口，但没有方案形成后的15分钟收线，保持待证。"
             },
             "volume": {
               "state": "unknown",
@@ -9751,9 +9751,9 @@
           },
           "reviewOfPrior": {
             "originalTrigger": "15分钟收线 DDOG≥211.18 AND（PANW≥336.98 OR MDB≥356.00）。",
-            "assessment": "223.74（+6.43%），明显越过独立基线211.18；最新可核验时点仍早于有效窗口，且无15分钟序列，保持待证。",
+            "assessment": "221.91（+5.56%），明显越过独立基线211.18；23:05历史分钟价已补齐有效窗口，但没有方案形成后的15分钟收线，保持待证。",
             "assessedAt": "2026-09-09T23:14:00+08:00",
-            "evidenceAsOf": "2026-09-09T22:40:00+08:00",
+            "evidenceAsOf": "2026-09-09T23:05:00+08:00",
             "result": "pending"
           }
         },
@@ -9771,7 +9771,7 @@
         }
       }
     },
-    "largestChange": "DDOG约+6.43%、LITE约+3.98%，但无形成后15分钟收线证据，不登记触发。",
+    "largestChange": "DDOG约+5.56%、LITE约+3.98%，但无形成后15分钟收线证据，不登记触发。",
     "macroFramework": {
       "pillars": [
         {
@@ -10191,7 +10191,7 @@
     "reviewNote": "只使用盘前方案形成后的开盘数据；无15分钟原始序列时不登记触发或失效，日内最高价与累计量均不倒签成命中。",
     "reviewStatus": "盘前先验已复核，分钟证据待补",
     "riskAppetite": "低风险预算下的选择性观察；强势链不追高",
-    "riskNote": "LITE、CRDO、DRAM与DDOG价格偏强，但SPY偏弱、IREN/SPCX/MSTR转弱；三项基准与DDOG时点未全部达标，仍非全面RISK_ON。",
+    "riskNote": "LITE、CRDO、DRAM与DDOG价格偏强，但SPY、QQQ偏弱，IREN/SPCX/MSTR转弱；有效窗口已补齐，结构仍非全面RISK_ON。",
     "scenarios": [
       {
         "label": "基准",
@@ -10203,7 +10203,7 @@
       },
       {
         "label": "软件分支",
-        "text": "DDOG必须补齐有效窗口并自身站稳211.18；PANW或MDB只提供同行温度，不替代DDOG确认。"
+        "text": "DDOG有效窗口已补齐，但仍须以方案形成后的收线站稳211.18；PANW或MDB只提供同行温度，不替代DDOG确认。"
       },
       {
         "label": "验证边界",
@@ -10215,26 +10215,26 @@
       {
         "symbol": "SPY",
         "name": "State Street SPDR S&P 500 ETF",
-        "price": 763.6,
-        "changePct": -0.31,
+        "price": 762.68,
+        "changePct": -0.43,
         "tone": "down",
-        "priceStatus": "盘中待刷新 · 09-09 22:48 中国时间"
+        "priceStatus": "盘中历史分钟价 · 09-09 23:05 中国时间"
       },
       {
         "symbol": "QQQ",
         "name": "Invesco QQQ",
-        "price": 718.32,
-        "changePct": -0.01,
+        "price": 716.99,
+        "changePct": -0.2,
         "tone": "down",
-        "priceStatus": "盘中待刷新 · 09-09 22:45 中国时间"
+        "priceStatus": "盘中历史分钟价 · 09-09 23:05 中国时间"
       },
       {
         "symbol": "SOXX",
         "name": "iShares Semiconductor ETF",
-        "price": 532.56,
-        "changePct": 0.79,
+        "price": 532.75,
+        "changePct": 0.83,
         "tone": "up",
-        "priceStatus": "盘中待刷新 · 09-09 22:48 中国时间"
+        "priceStatus": "盘中历史分钟价 · 09-09 23:05 中国时间"
       },
       {
         "symbol": "DRAM",
@@ -10263,10 +10263,10 @@
       {
         "symbol": "DDOG",
         "name": "Datadog · AI软件 / Observability",
-        "price": 223.74,
-        "changePct": 6.43,
+        "price": 221.91,
+        "changePct": 5.56,
         "tone": "up",
-        "priceStatus": "盘中待刷新 · 09-09 22:40 中国时间"
+        "priceStatus": "盘中历史分钟价 · 09-09 23:05 中国时间"
       },
       {
         "symbol": "IREN",
@@ -10342,9 +10342,9 @@
       }
     ],
     "thesis": "盘前RISK_OFF先验出现行业级反转但未扩散：芯片、AI网络和DDOG走强，大盘与加密高Beta未跟随。弱市修复不提前升为趋势，行业强势不替代个股确认，碰到关键位不等于15分钟收线突破。",
-    "updateStatus": "盘中已写暂存；三项基准与DDOG时点待补",
+    "updateStatus": "盘中历史分钟数据已自愈",
     "updatedAt": "2026-09-09T23:14:00+08:00",
-    "watchVariable": "补齐SPY/QQQ/SOXX与DDOG有效窗口，并取得形成后15分钟序列；验证AI网络/软件强势能否扩散，或SPCX、IREN、MSTR弱势是否加深。",
+    "watchVariable": "等待方案形成后的15分钟序列；验证AI网络/软件强势能否扩散，或SPCX、IREN、MSTR弱势是否加深。",
     "watchlist": [
       {
         "changePct": 1.19,
@@ -10574,19 +10574,19 @@
       {
         "symbol": "DDOG",
         "name": "Datadog · AI软件 / Observability",
-        "price": 223.74,
-        "changePct": 6.43,
+        "price": 221.91,
+        "changePct": 5.56,
         "tone": "up",
-        "priceStatus": "盘中待刷新 · 09-09 22:40 中国时间",
+        "priceStatus": "盘中历史分钟价 · 09-09 23:05 中国时间",
         "support": "203.24",
         "resistance": "211.18",
         "supportValue": 203.24,
         "resistanceValue": 211.1775,
         "invalidation": "15分钟收线跌破203.24；PANW/MDB强势不能抵消DDOG自身失守",
-        "priceAction": "223.74（+6.43%），明显越过独立基线211.18；最新可核验时点仍早于有效窗口，且无15分钟序列，保持待证。",
+        "priceAction": "221.91（+5.56%），明显越过独立基线211.18；23:05历史分钟价已补齐有效窗口，但没有方案形成后的15分钟收线，保持待证。",
         "relativeStrength": "PANW约-0.26%、MDB约+1.87%，软件同行一弱一强；DDOG自身显著更强，但同行只作温度计。",
         "fundamental": "沿用中期基线：验证AI/云工作负载、Observability + Security平台扩张、消费型收入、大客户与AI产品采用，以及FCF/利润率/SBC质量；本轮无新增结构证据。",
-        "verdict": "223.74（+6.43%），明显越过独立基线211.18；最新可核验时点仍早于有效窗口，且无15分钟序列，保持待证。",
+        "verdict": "221.91（+5.56%），明显越过独立基线211.18；23:05历史分钟价已补齐有效窗口，但没有方案形成后的15分钟收线，保持待证。",
         "timeframes": {
           "15m": "unknown",
           "30m": "unknown",
@@ -10883,47 +10883,47 @@
       "quotes": {
         "SPY": {
           "open": 764.08,
-          "high": 764.38,
+          "high": 764.47,
           "low": 762.49,
-          "volume": 5915285,
-          "price": 763.6,
-          "status": "unverified",
-          "asOf": "2026-09-09T22:48:00+08:00",
+          "volume": 6316097,
+          "price": 762.68,
+          "status": "verified",
+          "asOf": "2026-09-09T23:05:00+08:00",
           "marketDate": "2026-09-09",
           "session": "regular",
           "isFinal": false,
-          "source": "StockAnalysis real-time quote",
-          "sourceUrl": "https://stockanalysis.com/etf/spy/",
+          "source": "Yahoo Finance 1-minute historical chart",
+          "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/SPY?period1=1788960600&period2=1788966900&interval=1m&includePrePost=false",
           "maxAgeMinutes": 150
         },
         "QQQ": {
-          "open": 716.4,
+          "open": 716.29,
           "high": 719.7,
-          "low": 715.48,
-          "volume": 6939391,
-          "price": 718.32,
-          "status": "unverified",
-          "asOf": "2026-09-09T22:45:00+08:00",
+          "low": 715.49,
+          "volume": 7819327,
+          "price": 716.99,
+          "status": "verified",
+          "asOf": "2026-09-09T23:05:00+08:00",
           "marketDate": "2026-09-09",
           "session": "regular",
           "isFinal": false,
-          "source": "StockAnalysis real-time quote",
-          "sourceUrl": "https://stockanalysis.com/etf/qqq/",
+          "source": "Yahoo Finance 1-minute historical chart",
+          "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/QQQ?period1=1788960600&period2=1788966900&interval=1m&includePrePost=false",
           "maxAgeMinutes": 150
         },
         "SOXX": {
-          "open": 524.85,
+          "open": 525.85,
           "high": 535.48,
-          "low": 524.85,
-          "volume": 1987796,
-          "price": 532.56,
-          "status": "unverified",
-          "asOf": "2026-09-09T22:48:00+08:00",
+          "low": 525.27,
+          "volume": 2128318,
+          "price": 532.75,
+          "status": "verified",
+          "asOf": "2026-09-09T23:05:00+08:00",
           "marketDate": "2026-09-09",
           "session": "regular",
           "isFinal": false,
-          "source": "StockAnalysis real-time quote",
-          "sourceUrl": "https://stockanalysis.com/etf/soxx/",
+          "source": "Yahoo Finance 1-minute historical chart",
+          "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/SOXX?period1=1788960600&period2=1788966900&interval=1m&includePrePost=false",
           "maxAgeMinutes": 150
         },
         "DRAM": {
@@ -10972,18 +10972,18 @@
           "maxAgeMinutes": 150
         },
         "DDOG": {
-          "open": null,
-          "high": null,
-          "low": null,
-          "volume": 1625047,
-          "price": 223.74,
-          "status": "unverified",
-          "asOf": "2026-09-09T22:40:00+08:00",
+          "open": 209.04,
+          "high": 224.08,
+          "low": 209.04,
+          "volume": 1759073,
+          "price": 221.91,
+          "status": "verified",
+          "asOf": "2026-09-09T23:05:00+08:00",
           "marketDate": "2026-09-09",
           "session": "regular",
           "isFinal": false,
-          "source": "StockAnalysis real-time quote",
-          "sourceUrl": "https://stockanalysis.com/stocks/ddog/",
+          "source": "Yahoo Finance 1-minute historical chart",
+          "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/DDOG?period1=1788960600&period2=1788966900&interval=1m&includePrePost=false",
           "maxAgeMinutes": 150
         },
         "IREN": {
@@ -11064,24 +11064,6 @@
       },
       "issues": [
         {
-          "code": "BENCHMARK_QUOTES_STALE",
-          "message": "SPY/QQQ/SOXX最近时点为22:45–22:48，早于名义时点前15分钟门槛；市场风险预算待刷新",
-          "scope": "global",
-          "assets": [],
-          "effect": "execution",
-          "level": "critical"
-        },
-        {
-          "code": "DDOG_QUOTE_STALE",
-          "message": "DDOG主源最新可核验时点22:40，备用源更早；仅限制DDOG自身执行判断",
-          "scope": "asset",
-          "assets": [
-            "DDOG"
-          ],
-          "effect": "execution",
-          "level": "critical"
-        },
-        {
           "code": "PATH_OHLC_ASYNC",
           "message": "IREN与SPCX主源当前价和累计日内区间异步刷新；价格可作本轮参考，路径与周期确认保持unknown",
           "scope": "metric",
@@ -11123,19 +11105,18 @@
       ]
     },
     "completion": {
-      "status": "partial",
-      "checkedAt": "2026-09-09T23:14:00+08:00",
-      "note": "八标的当前结构、独立DDOG基线和16项正式收盘分位均保留；SPY/QQQ/SOXX与DDOG行情时点仍待刷新。",
-      "pendingAssets": [
+      "status": "snapshot",
+      "checkedAt": "2026-09-10T11:46:00+08:00",
+      "note": "SPY/QQQ/SOXX与DDOG已用23:05历史分钟数据补齐有效窗口；八标的结构和16项正式收盘分位均保留。",
+      "pendingAssets": [],
+      "finalAssets": [
         "SPY",
         "QQQ",
         "SOXX",
-        "DDOG"
-      ],
-      "finalAssets": [
         "DRAM",
         "LITE",
         "CRDO",
+        "DDOG",
         "IREN",
         "BE",
         "SPCX",
