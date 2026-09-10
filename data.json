@@ -37,15 +37,16 @@
           "tone": "flat"
         },
         {
-          "evidence": "正式收盘：SPY -0.46%、QQQ -0.28%、SOXX +0.68%；半导体相对抗跌，但市场广度仍偏弱。 DDOG +7.10%独强；LITE/DRAM上涨，IREN/BE/SPCX/MSTR收弱。",
-          "invalidation": "SOXX失507.25且SPY/QQQ同步走弱",
+          "evidence": "SPY -0.53%、QQQ -1.24%、SOXX -2.90%；八股盘前均回撤。数据完整不等于新增仓位获准。 PANW 329.57（-1.65%）、MDB 355.475（-0.81%），时点21:07/21:05。DDOG强于PANW、与MDB接近，但没有全组上涨；两者仅作温度计，不占核心席位。",
+          "invalidation": "正式盘同一根15分钟收盘 SPY≥762.40 AND QQQ≥716.31 AND SOXX≥532.00。",
           "key": "price",
           "label": "价格确认",
-          "state": "选择性价格确认",
-          "tone": "flat"
+          "state": "盘前同步回撤",
+          "tone": "down",
+          "asOf": "2026-09-10T21:18:29.000+08:00"
         }
       ],
-      "note": "基本面保留原披露日期；本轮仅用正式收盘更新价格验证，不以日内上涨替代订单与现金流兑现。",
+      "note": "经营/产能/融资基线保留原时点，本轮仅刷新price节点；盘前下跌不据此确认AI过建。",
       "overbuild": {
         "nextTrigger": "只有可用产能增速持续高于已确认收入和利用率，并伴随租金/价格、项目交付、毛利现金流、融资压力或供应链订单中的多项连续恶化时，才升级预警。",
         "offsettingEvidence": [
@@ -62,73 +63,61 @@
       }
     },
     "available": true,
-    "breadthState": "selective",
+    "breadthState": "weak",
     "changes": [
       {
         "asset": "市场",
-        "from": "02:05午后复核",
-        "to": "正式收盘：SPY -0.46%、QQQ -0.28%、SOXX +0.68%；半导体相对抗跌，但市场广度仍偏弱。",
-        "reason": "正式收盘：SPY -0.46%、QQQ -0.28%、SOXX +0.68%；半导体相对抗跌，但市场广度仍偏弱。",
+        "from": "午后RISK_OFF",
+        "to": "正式收盘确认",
+        "reason": "正式收盘SPY -0.59%、QQQ -1.06%、SOXX -2.74%；三项均收跌，SOXX最弱，午后RISK_OFF判断得到确认。",
         "material": true,
         "impactFields": [
-          "confidence",
-          "permissions"
+          "regimeCode",
+          "permissions",
+          "confidence"
         ],
         "tone": "down"
       },
       {
         "asset": "DRAM",
-        "from": "02:05午后复核",
-        "to": "正式收于61.48（+0.62%），盘中触及62.58后回落；守住61.10，但未以收盘完成62.00上方突破。",
-        "reason": "SOXX +0.68%，存储ETF自身温和上涨。",
-        "material": true,
-        "impactFields": [
-          "confidence",
-          "permissions"
-        ],
-        "tone": "up"
+        "from": "02:05午后状态",
+        "to": "正式收58.56（-4.9%），收近低位；30m/1h/4h均偏空，盘前观察失效后没有尾盘修复。",
+        "reason": "MU -4.9%、SOXX -2.74%，存储/芯片同步走弱。",
+        "material": false,
+        "impactFields": [],
+        "tone": "down"
       },
       {
         "asset": "LITE",
-        "from": "02:05午后复核",
-        "to": "正式收于988.98（+1.07%），盘中触及1026.76后回落；仍高于978.54，但急涨后的持续性尚待下一交易日确认。",
-        "reason": "LITE保持上涨，但CRDO仅+0.10%，AI网络链内部强弱分化。",
+        "from": "02:05午后状态",
+        "to": "正式收935.7（-5.39%），盘初高见994.5后收近低位；原趋势方案确认前取消，无模拟入场。",
+        "reason": "COHR -3.4%、CRDO -4.53%，光通信链同步降温。",
         "material": true,
         "impactFields": [
-          "confidence",
-          "permissions"
+          "planStatus",
+          "permissions",
+          "confidence"
         ],
-        "tone": "up"
+        "tone": "down"
       },
       {
         "asset": "CRDO",
-        "from": "02:05午后复核",
-        "to": "正式收于167.92（+0.10%），冲高173.24后几乎平收；明显弱于LITE，行业强势没有替代个股确认。",
-        "reason": "LITE +1.07%，CRDO仅+0.10%；同行强势不替代CRDO自身确认。",
+        "from": "02:05午后状态",
+        "to": "正式收160.31（-4.53%），最后15分钟收160.35并低于160.75取消线；原方案未触发。",
+        "reason": "LITE -5.39%、SOXX -2.74%，行业强势未保持。",
         "material": true,
         "impactFields": [
-          "confidence",
-          "permissions"
+          "planStatus",
+          "permissions",
+          "confidence"
         ],
-        "tone": "up"
+        "tone": "down"
       },
       {
         "asset": "DDOG",
-        "from": "02:05午后复核",
-        "to": "正式收于225.16（+7.10%），接近日高225.71；MDB上涨而PANW下跌，DDOG为独立软件强势，未用同行替代自身确认。",
-        "reason": "PANW -0.56%、MDB +0.64%，同行温度分化；DDOG +7.10%显著独立走强。",
-        "material": true,
-        "impactFields": [
-          "confidence",
-          "permissions"
-        ],
-        "tone": "up"
-      },
-      {
-        "asset": "IREN",
-        "from": "02:05午后复核",
-        "to": "正式收于45.36（-3.36%），低于46.93且接近日低；BTC未能带动正Beta修复，AI云与加密链继续分化。",
-        "reason": "IREN -3.36%，未跟随盘中偏稳的BTC；双链分化延续。",
+        "from": "02:05午后状态",
+        "to": "正式收221.72（-1.58%），日高227.58后回落；15m/30m/1h均偏空，未站上225.96。",
+        "reason": "PANW +1.01%、MDB +4.32%，软件同行收涨而DDOG下跌；同行只作温度计，显示DDOG自身相对落后。",
         "material": true,
         "impactFields": [
           "confidence",
@@ -137,149 +126,133 @@
         "tone": "down"
       },
       {
+        "asset": "IREN",
+        "from": "02:05午后状态",
+        "to": "正式收43.64（-3.81%），收近43.45日低；盘中确认前取消后弱势保持。",
+        "reason": "BTC收盘附近约77211，IREN显著回落；AI云与加密两条证据均未确认。",
+        "material": false,
+        "impactFields": [],
+        "tone": "down"
+      },
+      {
         "asset": "BE",
-        "from": "02:05午后复核",
-        "to": "正式收于269.16（-2.91%），跌破277.22并接近日低；指数纳入事件后的承接继续降温。",
-        "reason": "BE -2.91%，事件驱动后的价格承接转弱。",
+        "from": "02:05午后状态",
+        "to": "正式收258.49（-4.01%），最后15分钟收258.43并低于259.78取消线；原事件方案未触发。",
+        "reason": "VST -2.68%，电力同行与BE同步偏弱。",
         "material": true,
         "impactFields": [
-          "confidence",
-          "permissions"
+          "planStatus",
+          "permissions",
+          "confidence"
         ],
         "tone": "down"
       },
       {
         "asset": "SPCX",
-        "from": "02:05午后复核",
-        "to": "正式收于147.58（-3.84%），跌回152.30供给区下方；日线确认前一日突破未能保持。",
-        "reason": "SPCX -3.84%，在大盘偏弱日表现更差。",
+        "from": "02:05午后状态",
+        "to": "正式收148.18（+0.43%），为唯一上涨核心股且成交量为前20日均量1.37倍，但从154.70高点明显回落。",
+        "reason": "SPY -0.59%，SPCX逆势收涨并放量，但尾盘结构不强。",
         "material": true,
         "impactFields": [
           "confidence",
           "permissions"
         ],
-        "tone": "down"
+        "tone": "up"
       },
       {
         "asset": "MSTR",
-        "from": "02:05午后复核",
-        "to": "正式收于132.70（-2.80%），未收回139.31并接近日低；加密正Beta仍未恢复。",
-        "reason": "MSTR -2.80%，未形成相对BTC的正Beta修复。",
-        "material": true,
-        "impactFields": [
-          "confidence",
-          "permissions"
-        ],
+        "from": "02:05午后状态",
+        "to": "正式收128.56（-3.12%），仍低于132.59；BTC约77211，币股正Beta未恢复。",
+        "reason": "BTC约77211，MSTR收跌3.12%，未恢复相对BTC的正Beta。",
+        "material": false,
+        "impactFields": [],
         "tone": "down"
       }
     ],
-    "confidence": "低",
+    "confidence": "中高",
     "decisionGate": {
-      "quoteAsOf": "2026-09-10T04:00:00+08:00",
-      "validUntil": "2026-09-10T21:05:00+08:00",
+      "quoteAsOf": "2026-09-11T04:00:00+08:00",
+      "validUntil": "2026-09-11T21:05:00+08:00",
       "sourceConflict": false,
       "volumeComplete": true,
       "closeFinal": true,
-      "status": "caution",
-      "note": "十一项股票/ETF正式OHLCV完整；研究分位已复算。数据完成不自动放宽原策略权限。"
+      "status": "locked",
+      "note": "十一项股票/ETF正式OHLCV与16项分位均完成；风险预算因三基准同步收弱保持锁定，数据完成不自动放宽权限。"
     },
-    "deltaLabel": "相对午后：正式日线收口，软件/AI网络与高Beta链继续分化",
+    "deltaLabel": "02:05午后 → 04:00正式收盘",
     "eventCalendar": [
       {
+        "id": "us-cpi-2026-09-11",
+        "label": "美国8月CPI",
+        "eventDate": "2026-09-11",
+        "startsAt": "2026-09-11T20:30:00+08:00",
         "affectedAssets": [
           "MARKET",
           "DRAM",
           "LITE",
+          "CRDO",
+          "DDOG",
           "IREN",
           "BE",
           "SPCX",
           "MSTR"
         ],
-        "eventDate": "2026-09-02",
-        "startsAt": "2026-09-03T05:00:00+08:00",
-        "id": "avgo-q3-fy26-2026-09-02",
-        "label": "Broadcom Q3 FY2026财报与电话会",
-        "note": "验证AI芯片、网络与客户CapEx扩散；结果公布前不提前扩大beta。",
-        "permissionOverride": {
-          "beta": "低",
-          "chase": "关闭",
-          "overnight": "谨慎"
-        },
-        "riskLevel": "high",
         "riskWindowHours": 24,
-        "sourceUrl": "https://investors.broadcom.com/company-information/events-presentations",
-        "timing": "中国时间9月3日05:00电话会"
-      },
-      {
-        "affectedAssets": [
-          "MARKET",
-          "DRAM",
-          "LITE",
-          "IREN",
-          "BE",
-          "SPCX",
-          "MSTR"
-        ],
-        "eventDate": "2026-09-04",
-        "startsAt": "2026-09-04T20:30:00+08:00",
-        "id": "us-jobs-2026-09-04",
-        "label": "美国8月就业报告",
-        "note": "就业与薪资可能改变利率、美元和风险预算。",
-        "permissionOverride": {
-          "beta": "低",
-          "chase": "关闭",
-          "overnight": "谨慎"
-        },
         "riskLevel": "high",
-        "riskWindowHours": 24,
-        "sourceUrl": "https://www.bls.gov/schedule/news_release/empsit.htm",
-        "timing": "中国时间9月4日20:30"
+        "permissionOverride": {
+          "chase": "关闭",
+          "overnight": "关闭",
+          "beta": "低"
+        },
+        "timing": "中国时间9月11日20:30",
+        "note": "PPI后的下一通胀验证；不提前写入结果。",
+        "sourceUrl": "https://www.bls.gov/schedule/news_release/cpi.htm"
       }
     ],
     "expectationGaps": [
       {
-        "event": "迁移前标的 / CRDO 财报后价格检验",
-        "kind": "事实与推断分开",
-        "expected": "强增长是否足以支持原有预期：目前没有完整一致预期数据，不虚构“超预期”。",
-        "actual": "两家公司披露收入增长及下一季度指引；财报后的价格先下跌，随后出现反弹。",
-        "reaction": "09/04 迁移前标的 +1.12%、CRDO +3.90%，均未收复财报后主要压力区。",
-        "implication": "解释为预期重估仍待完成的研究假设；持仓防守与新仓确认分别列示。"
+        "event": "PPI后风险定价",
+        "kind": "事实与价格",
+        "expected": "Reuters调查月增0.4%、同比5.3%",
+        "actual": "BLS月增0.4%、同比5.4%",
+        "reaction": "盘前三项基准均跌",
+        "implication": "月度符合预期不机械等于利好；等待三基准恢复。"
       },
       {
-        "event": "行业强势是否扩散",
+        "event": "半导体相对强势延续检验",
         "kind": "价格/联动",
-        "expected": "SOXX强势向市场与更多持仓扩散",
-        "actual": "正式收盘：SPY -0.39% / QQQ +0.18% / SOXX +3.52%。",
-        "reaction": "行业强于大盘，尚非全面扩散",
-        "implication": "保留选择性判断；各标的按自己的原触发条件复核。"
+        "expected": "09/09相对抗跌能否延续",
+        "actual": "SOXX -2.90%、MU -3.09%、DRAM -3.38%",
+        "reaction": "盘前未延续相对强势",
+        "implication": "只说明盘前定价，不把正式盘未来走势当事实。"
       },
       {
-        "event": "MSTR修复",
-        "kind": "价格/联动",
-        "expected": "原条件为突破144.39并强于BTC/IBIT",
-        "actual": "正式收盘142.80、未突破144.39；IBIT收跌约2.42%，MSTR相对抗跌。",
-        "reaction": "相对强弱与绝对突破分开",
-        "implication": "下一正式时段重新验证144.92，旧剧本不追认命中。"
+        "event": "DDOG软件共振",
+        "kind": "独立价格与同行",
+        "expected": "DDOG强势是否扩散至PANW/MDB",
+        "actual": "PANW 329.57（-1.65%）、MDB 355.475（-0.81%），时点21:07/21:05。DDOG强于PANW、与MDB接近，但没有全组上涨；两者仅作温度计，不占核心席位。",
+        "reaction": "仅相对抗跌，未见全组上涨",
+        "implication": "同行不代替DDOG自身突破，新方案仅验证形成后收线。"
       }
     ],
-    "extendedAsOf": "2026-09-10T04:25:00+08:00",
+    "extendedAsOf": "2026-09-11 04:00 中国时间",
     "extendedHours": false,
     "freshness": {
       "quotes": {
-        "asOf": "2026-09-10 04:00 中国时间",
-        "status": "十一项股票/ETF正式收盘OHLCV完整"
+        "asOf": "2026-09-11 04:00 中国时间",
+        "status": "三基准及八股均为16:00 ET正式OHLCV"
       },
       "timeframes": {
-        "asOf": "2026-09-09",
-        "status": "正式日线完整；缺少形成后分钟序列，15m/30m/1h/4h保持unknown"
+        "asOf": "2026-09-11 04:00 中国时间",
+        "status": "15m/30m/1h由收盘前完整1分钟序列聚合；4h同法，DDOG因分钟缺口使用结构推断"
       },
       "daily": {
-        "asOf": "2026-09-09",
-        "status": "八股60D/252D共16项由可审计日线复算"
+        "asOf": "2026-09-10",
+        "status": "八股60D/252D共16项已由Yahoo完整备用历史序列复算并可复现"
       },
       "macro": {
-        "asOf": "2026-09-09",
-        "status": "SPY/QQQ收跌、SOXX收涨；软件与行业轮动未扩散为全面风险偏好"
+        "asOf": "2026-09-10",
+        "status": "正式收盘价格传导已验证盘前PPI后的风险偏好收缩；无新增结构性宏观研究"
       }
     },
     "horizons": {
@@ -297,38 +270,46 @@
           "overnight": "关闭"
         },
         "short": {
-          "bias": "中性偏谨慎",
+          "bias": "谨慎",
           "confidence": "低",
           "confirmations": {
             "price": {
-              "state": "mixed",
-              "note": "正式收盘：SPY -0.46%、QQQ -0.28%、SOXX +0.68%；半导体相对抗跌，但市场广度仍偏弱。"
+              "state": "failed",
+              "note": "正式收盘SPY -0.59%、QQQ -1.06%、SOXX -2.74%；三项均收跌，SOXX最弱，午后RISK_OFF判断得到确认。"
             },
             "volume": {
-              "state": "unknown",
-              "note": "正式累计成交量完整，但缺少形成后分钟序列与同进度基准；不倒签盘中放量确认。"
+              "state": "mixed",
+              "note": "SPY 1.14倍、QQQ 0.99倍、SOXX 0.91倍，均对比此前20日均量。",
+              "benchmark": {
+                "basis": "prior-20d-average",
+                "value": 36401390,
+                "current": 41498244,
+                "asOf": "2026-09-11T04:00:00+08:00",
+                "sourceUrl": "https://finance.yahoo.com/quote/SPY/history/"
+              }
             },
             "linkage": {
-              "state": "mixed",
-              "note": "SOXX +0.68%强于SPY/QQQ，但行业强势不替代市场广度确认。"
+              "state": "failed",
+              "note": "三基准同跌，科技与半导体均未形成收盘扩散。"
             }
           },
-          "driver": "正式收盘：SPY -0.46%、QQQ -0.28%、SOXX +0.68%；半导体相对抗跌，但市场广度仍偏弱。 SOXX +0.68%强于SPY/QQQ，但行业强势不替代市场广度确认。",
-          "invalidation": "15分钟收线 SPY<760 AND QQQ<710；单一行业反弹不抵消市场失效。",
-          "planStatus": "等待触发",
-          "posture": "弱市修复确认",
-          "setupLabel": "弱市修复确认",
-          "stateNote": "正式收盘：SPY -0.46%、QQQ -0.28%、SOXX +0.68%；半导体相对抗跌，但市场广度仍偏弱。",
+          "driver": "正式收盘SPY -0.59%、QQQ -1.06%、SOXX -2.74%；三项均收跌，SOXX最弱，午后RISK_OFF判断得到确认。 三基准同跌，科技与半导体均未形成收盘扩散。",
+          "invalidation": "确认前正式盘一根15分钟收盘 SPY<760 AND QQQ<710，则本轮观察/入场方案取消。不据此推断历史成交或盈亏。",
+          "planStatus": "剧本失效",
+          "posture": "先等正式盘收线，不追价",
+          "setupLabel": "弱市修复与趋势分开",
+          "stateNote": "正式收盘SPY -0.59%、QQQ -1.06%、SOXX -2.74%；三项均收跌，SOXX最弱，午后RISK_OFF判断得到确认。",
           "tradeType": "风险预算",
-          "trigger": "15分钟收线同时满足 SPY≥765.96 AND QQQ≥718.36 AND SOXX≥528.40，才将弱市修复视为扩散。",
-          "holdingPlan": "已有风险仓位维持低Beta；基准未同时收回前不加总仓。",
-          "entryPlan": "仅在三项基准同一15分钟收线全部满足后分批恢复风险预算。",
+          "trigger": "正式盘同一根15分钟收盘 SPY≥762.40 AND QQQ≥716.31 AND SOXX≥532.00。",
+          "holdingPlan": "已有风险敞口保持低beta，CPI前不凭盘前反弹放宽隔夜。",
+          "entryPlan": "仅观察价格修复；不是买入指令，建立交易须另行冻结方案。",
           "reviewOfPrior": {
-            "originalTrigger": "15分钟收线同时满足 SPY≥765.96 AND QQQ≥718.36 AND SOXX≥528.40，才将弱市修复视为扩散。",
-            "assessment": "正式收盘：SPY -0.46%、QQQ -0.28%、SOXX +0.68%；半导体相对抗跌，但市场广度仍偏弱。",
-            "assessedAt": "2026-09-10T04:25:00+08:00",
-            "evidenceAsOf": "2026-09-10T04:00:00+08:00",
-            "result": "pending"
+            "originalTrigger": "正式盘同一根15分钟收盘 SPY≥762.40 AND QQQ≥716.31 AND SOXX≥532.00。",
+            "originalInvalidation": "确认前正式盘一根15分钟收盘 SPY<760 AND QQQ<710，则本轮观察/入场方案取消。不据此推断历史成交或盈亏。",
+            "assessment": "正式收盘SPY -0.59%、QQQ -1.06%、SOXX -2.74%；三项均收跌，SOXX最弱，午后RISK_OFF判断得到确认。",
+            "assessedAt": "2026-09-11T04:34:00+08:00",
+            "evidenceAsOf": "2026-09-11T04:00:00+08:00",
+            "result": "invalidated"
           }
         }
       },
@@ -346,38 +327,46 @@
           "overnight": "关闭"
         },
         "short": {
-          "bias": "中性偏谨慎",
+          "bias": "谨慎",
           "confidence": "低",
           "confirmations": {
             "price": {
-              "state": "mixed",
-              "note": "正式收于61.48（+0.62%），盘中触及62.58后回落；守住61.10，但未以收盘完成62.00上方突破。"
+              "state": "failed",
+              "note": "正式收58.56（-4.9%），收近低位；30m/1h/4h均偏空，盘前观察失效后没有尾盘修复。"
             },
             "volume": {
-              "state": "unknown",
-              "note": "正式累计成交量完整，但缺少形成后分钟序列与同进度基准；不倒签盘中放量确认。"
+              "state": "mixed",
+              "note": "正式量32,423,847，为此前20日均量38,658,970的0.84倍。",
+              "benchmark": {
+                "basis": "prior-20d-average",
+                "value": 38658970,
+                "current": 32423847,
+                "asOf": "2026-09-11T04:00:00+08:00",
+                "sourceUrl": "https://finance.yahoo.com/quote/DRAM/history/"
+              }
             },
             "linkage": {
-              "state": "mixed",
-              "note": "SOXX +0.68%，存储ETF自身温和上涨。"
+              "state": "failed",
+              "note": "MU -4.9%、SOXX -2.74%，存储/芯片同步走弱。"
             }
           },
-          "driver": "正式收于61.48（+0.62%），盘中触及62.58后回落；守住61.10，但未以收盘完成62.00上方突破。 SOXX +0.68%，存储ETF自身温和上涨。",
-          "invalidation": "15分钟收线 DRAM<60.00；若SOXX同步转弱则降为仅观察。",
-          "planStatus": "等待触发",
-          "posture": "存储链收盘锚修复",
-          "setupLabel": "存储链收盘锚修复",
-          "stateNote": "正式收于61.48（+0.62%），盘中触及62.58后回落；守住61.10，但未以收盘完成62.00上方突破。",
-          "tradeType": "趋势交易",
-          "trigger": "15分钟收线 DRAM≥61.10 AND SOXX≥528.40。",
-          "holdingPlan": "已有仓位以60.00为盘中防守，未收回61.10前不加仓。",
-          "entryPlan": "等DRAM与SOXX同一15分钟收线同时达标后，再评估小仓回踩。",
+          "driver": "正式收58.56（-4.9%），收近低位；30m/1h/4h均偏空，盘前观察失效后没有尾盘修复。 MU -4.9%、SOXX -2.74%，存储/芯片同步走弱。",
+          "invalidation": "确认前正式盘一根15分钟收盘 DRAM<60.00，则本轮观察/入场方案取消。不据此推断历史成交或盈亏。",
+          "planStatus": "剧本失效",
+          "posture": "先等正式盘收线，不追价",
+          "setupLabel": "弱市修复与趋势分开",
+          "stateNote": "正式收58.56（-4.9%），收近低位；30m/1h/4h均偏空，盘前观察失效后没有尾盘修复。",
+          "tradeType": "仅观察",
+          "trigger": "正式盘同一根15分钟收盘 DRAM≥61.58 AND SOXX≥532.00。仅完成修复观察，不自动生成交易。",
+          "holdingPlan": "59.50（-3.38%），低于前日低点60.71及旧观察线60.00；盘前下穿不直接记为原15分钟剧本失效。 已有仓位先核对既定防守与缺口风险，不因长期基线自动补仓。",
+          "entryPlan": "仅观察价格修复；不是买入指令，建立交易须另行冻结方案。",
           "reviewOfPrior": {
-            "originalTrigger": "15分钟收线 DRAM≥61.10 AND SOXX≥528.40。",
-            "assessment": "正式收于61.48（+0.62%），盘中触及62.58后回落；守住61.10，但未以收盘完成62.00上方突破。",
-            "assessedAt": "2026-09-10T04:25:00+08:00",
-            "evidenceAsOf": "2026-09-10T04:00:00+08:00",
-            "result": "pending"
+            "originalTrigger": "正式盘同一根15分钟收盘 DRAM≥61.58 AND SOXX≥532.00。仅完成修复观察，不自动生成交易。",
+            "originalInvalidation": "确认前正式盘一根15分钟收盘 DRAM<60.00，则本轮观察/入场方案取消。不据此推断历史成交或盈亏。",
+            "assessment": "正式收58.56（-4.9%），收近低位；30m/1h/4h均偏空，盘前观察失效后没有尾盘修复。",
+            "assessedAt": "2026-09-11T04:34:00+08:00",
+            "evidenceAsOf": "2026-09-11T04:00:00+08:00",
+            "result": "invalidated"
           }
         }
       },
@@ -395,75 +384,91 @@
           "overnight": "关闭"
         },
         "short": {
-          "bias": "中性偏谨慎",
+          "bias": "谨慎",
           "confidence": "低",
           "confirmations": {
             "price": {
-              "state": "mixed",
-              "note": "正式收于988.98（+1.07%），盘中触及1026.76后回落；仍高于978.54，但急涨后的持续性尚待下一交易日确认。"
+              "state": "failed",
+              "note": "正式收935.7（-5.39%），盘初高见994.5后收近低位；原趋势方案确认前取消，无模拟入场。"
             },
             "volume": {
-              "state": "unknown",
-              "note": "正式累计成交量完整，但缺少形成后分钟序列与同进度基准；不倒签盘中放量确认。"
+              "state": "mixed",
+              "note": "正式量3,941,091，为此前20日均量4,612,955的0.85倍。",
+              "benchmark": {
+                "basis": "prior-20d-average",
+                "value": 4612955,
+                "current": 3941091,
+                "asOf": "2026-09-11T04:00:00+08:00",
+                "sourceUrl": "https://finance.yahoo.com/quote/LITE/history/"
+              }
             },
             "linkage": {
-              "state": "mixed",
-              "note": "LITE保持上涨，但CRDO仅+0.10%，AI网络链内部强弱分化。"
+              "state": "failed",
+              "note": "COHR -3.4%、CRDO -4.53%，光通信链同步降温。"
             }
           },
-          "driver": "正式收于988.98（+1.07%），盘中触及1026.76后回落；仍高于978.54，但急涨后的持续性尚待下一交易日确认。 LITE保持上涨，但CRDO仅+0.10%，AI网络链内部强弱分化。",
-          "invalidation": "15分钟收线 LITE<940；同链反弹不能替代自身防守。",
-          "planStatus": "等待触发",
-          "posture": "AI网络高位保持",
-          "setupLabel": "AI网络高位保持",
-          "stateNote": "正式收于988.98（+1.07%），盘中触及1026.76后回落；仍高于978.54，但急涨后的持续性尚待下一交易日确认。",
+          "driver": "正式收935.7（-5.39%），盘初高见994.5后收近低位；原趋势方案确认前取消，无模拟入场。 COHR -3.4%、CRDO -4.53%，光通信链同步降温。",
+          "invalidation": "确认前正式盘一根15分钟收盘 LITE<940，则本轮观察/入场方案取消。入场后首次15分钟收盘低于940，在下一可交易开盘模拟退出；不能假设成交于止损价。",
+          "planStatus": "剧本失效",
+          "posture": "先等正式盘收线，不追价",
+          "setupLabel": "弱市修复与趋势分开",
+          "stateNote": "正式收935.7（-5.39%），盘初高见994.5后收近低位；原趋势方案确认前取消，无模拟入场。",
           "tradeType": "趋势交易",
-          "trigger": "15分钟收线 LITE≥978.54 AND CRDO≥167.75；缺一项只算部分确认。",
-          "holdingPlan": "已有仓位保留核心但收紧至940防守，不追盘前反弹。",
-          "entryPlan": "等待978.54上方收线并有CRDO同步后，只考虑回踩承接。",
+          "trigger": "正式盘同一根15分钟收盘 LITE≥988.98 AND CRDO≥167.92。",
+          "holdingPlan": "960.00（-2.93%），跌回前日低点978.11下方；高位回吐，等待自身修复。 已有仓位先核对既定防守与缺口风险，不因长期基线自动补仓。",
+          "entryPlan": "全部形成后正式盘条件满足后，在下一根可交易开盘评估；开盘已越过初始止损则跳过。当前未获新增或追价确认。",
           "reviewOfPrior": {
-            "originalTrigger": "15分钟收线 LITE≥978.54 AND CRDO≥167.75；缺一项只算部分确认。",
-            "assessment": "正式收于988.98（+1.07%），盘中触及1026.76后回落；仍高于978.54，但急涨后的持续性尚待下一交易日确认。",
-            "assessedAt": "2026-09-10T04:25:00+08:00",
-            "evidenceAsOf": "2026-09-10T04:00:00+08:00",
-            "result": "pending"
+            "originalTrigger": "正式盘同一根15分钟收盘 LITE≥988.98 AND CRDO≥167.92。",
+            "originalInvalidation": "确认前正式盘一根15分钟收盘 LITE<940，则本轮观察/入场方案取消。入场后首次15分钟收盘低于940，在下一可交易开盘模拟退出；不能假设成交于止损价。",
+            "assessment": "正式收935.7（-5.39%），盘初高见994.5后收近低位；原趋势方案确认前取消，无模拟入场。",
+            "assessedAt": "2026-09-11T04:34:00+08:00",
+            "evidenceAsOf": "2026-09-11T04:00:00+08:00",
+            "result": "invalidated"
           }
         }
       },
       "CRDO": {
         "short": {
-          "bias": "中性偏谨慎",
-          "posture": "高速互连修复",
-          "driver": "正式收于167.92（+0.10%），冲高173.24后几乎平收；明显弱于LITE，行业强势没有替代个股确认。 LITE +1.07%，CRDO仅+0.10%；同行强势不替代CRDO自身确认。",
-          "trigger": "15分钟收线 CRDO≥167.75 AND（LITE≥978.54 OR SOXX≥528.40）。",
-          "invalidation": "15分钟收线 CRDO<160.75；LITE强势不能覆盖CRDO失守。",
-          "planStatus": "等待触发",
+          "bias": "谨慎",
+          "posture": "先等正式盘收线，不追价",
+          "driver": "正式收160.31（-4.53%），最后15分钟收160.35并低于160.75取消线；原方案未触发。 LITE -5.39%、SOXX -2.74%，行业强势未保持。",
+          "trigger": "正式盘同一根15分钟收盘 CRDO≥167.92 AND（LITE≥988.98 OR SOXX≥532.00）。",
+          "invalidation": "确认前正式盘一根15分钟收盘 CRDO<160.75，则本轮观察/入场方案取消。入场后首次15分钟收盘低于160.75，在下一可交易开盘模拟退出；不能假设成交于止损价。",
+          "planStatus": "剧本失效",
           "tradeType": "趋势交易",
           "confidence": "低",
-          "setupLabel": "高速互连修复",
-          "stateNote": "正式收于167.92（+0.10%），冲高173.24后几乎平收；明显弱于LITE，行业强势没有替代个股确认。",
-          "holdingPlan": "已有仓位以160.75为防守；报价刷新前不据旧盘前价行动。",
-          "entryPlan": "先等自身报价刷新，再等167.75上方收线及至少一项同行条件。",
+          "setupLabel": "弱市修复与趋势分开",
+          "stateNote": "正式收160.31（-4.53%），最后15分钟收160.35并低于160.75取消线；原方案未触发。",
+          "holdingPlan": "162.00（-3.53%），低于前日低点164.1881；未收回167.92前仍为弱市修复观察。不得用CRDO报价计算CRDU盈亏。 已有仓位先核对既定防守与缺口风险，不因长期基线自动补仓。",
+          "entryPlan": "全部形成后正式盘条件满足后，在下一根可交易开盘评估；开盘已越过初始止损则跳过。当前未获新增或追价确认。",
           "confirmations": {
             "price": {
-              "state": "mixed",
-              "note": "正式收于167.92（+0.10%），冲高173.24后几乎平收；明显弱于LITE，行业强势没有替代个股确认。"
+              "state": "failed",
+              "note": "正式收160.31（-4.53%），最后15分钟收160.35并低于160.75取消线；原方案未触发。"
             },
             "volume": {
-              "state": "unknown",
-              "note": "正式累计成交量完整，但缺少形成后分钟序列与同进度基准；不倒签盘中放量确认。"
+              "state": "mixed",
+              "note": "正式量6,770,268，为此前20日均量7,003,250的0.97倍。",
+              "benchmark": {
+                "basis": "prior-20d-average",
+                "value": 7003250,
+                "current": 6770268,
+                "asOf": "2026-09-11T04:00:00+08:00",
+                "sourceUrl": "https://finance.yahoo.com/quote/CRDO/history/"
+              }
             },
             "linkage": {
-              "state": "mixed",
-              "note": "LITE +1.07%，CRDO仅+0.10%；同行强势不替代CRDO自身确认。"
+              "state": "failed",
+              "note": "LITE -5.39%、SOXX -2.74%，行业强势未保持。"
             }
           },
           "reviewOfPrior": {
-            "originalTrigger": "15分钟收线 CRDO≥167.75 AND（LITE≥978.54 OR SOXX≥528.40）。",
-            "assessment": "正式收于167.92（+0.10%），冲高173.24后几乎平收；明显弱于LITE，行业强势没有替代个股确认。",
-            "assessedAt": "2026-09-10T04:25:00+08:00",
-            "evidenceAsOf": "2026-09-10T04:00:00+08:00",
-            "result": "pending"
+            "originalTrigger": "正式盘同一根15分钟收盘 CRDO≥167.92 AND（LITE≥988.98 OR SOXX≥532.00）。",
+            "originalInvalidation": "确认前正式盘一根15分钟收盘 CRDO<160.75，则本轮观察/入场方案取消。入场后首次15分钟收盘低于160.75，在下一可交易开盘模拟退出；不能假设成交于止损价。",
+            "assessment": "正式收160.31（-4.53%），最后15分钟收160.35并低于160.75取消线；原方案未触发。",
+            "assessedAt": "2026-09-11T04:34:00+08:00",
+            "evidenceAsOf": "2026-09-11T04:00:00+08:00",
+            "result": "invalidated"
           }
         },
         "medium": {
@@ -472,6 +477,63 @@
           "driver": "FY2027 Q1收入4.790亿美元、同比+114.7%、环比+9.6%；非GAAP毛利率68.0%。Q2收入指引5.25–5.35亿美元、非GAAP毛利率67%–69%；GAAP净利润环比下降，不能只看调整后增长。",
           "trigger": "订单/交付兑现且后续指引不下修，价格结构独立修复",
           "invalidation": "客户部署延期、收入/毛利指引下修，或结构失效持续"
+        },
+        "permissions": {
+          "chase": "关闭",
+          "overnight": "关闭",
+          "beta": "低"
+        }
+      },
+      "DDOG": {
+        "short": {
+          "bias": "谨慎",
+          "posture": "先等正式盘收线，不追价",
+          "driver": "正式收221.72（-1.58%），日高227.58后回落；15m/30m/1h均偏空，未站上225.96。 PANW +1.01%、MDB +4.32%，软件同行收涨而DDOG下跌；同行只作温度计，显示DDOG自身相对落后。",
+          "trigger": "正式盘同一根15分钟收盘 DDOG≥225.96 AND（PANW≥335.10 OR MDB≥358.38）。",
+          "invalidation": "确认前正式盘一根15分钟收盘 DDOG<209.04，则本轮观察/入场方案取消。入场后首次15分钟收盘低于209.04，在下一可交易开盘模拟退出；不能假设成交于止损价。",
+          "planStatus": "等待触发",
+          "tradeType": "趋势交易",
+          "confidence": "低",
+          "setupLabel": "AI软件独立突破",
+          "stateNote": "正式收221.72（-1.58%），日高227.58后回落；15m/30m/1h均偏空，未站上225.96。",
+          "holdingPlan": "223.376（-0.84%），回吐前日部分涨幅但强于SOXX；须自身突破225.96并有同行确认，不把昨日触价当新信号。 已有仓位先核对既定防守与缺口风险，不因长期基线自动补仓。",
+          "entryPlan": "全部形成后正式盘条件满足后，在下一根可交易开盘评估；开盘已越过初始止损则跳过。当前未获新增或追价确认。",
+          "confirmations": {
+            "price": {
+              "state": "mixed",
+              "note": "正式收221.72（-1.58%），日高227.58后回落；15m/30m/1h均偏空，未站上225.96。"
+            },
+            "volume": {
+              "state": "failed",
+              "note": "正式量2,497,349，为此前20日均量4,034,505的0.62倍。",
+              "benchmark": {
+                "basis": "prior-20d-average",
+                "value": 4034505,
+                "current": 2497349,
+                "asOf": "2026-09-11T04:00:00+08:00",
+                "sourceUrl": "https://finance.yahoo.com/quote/DDOG/history/"
+              }
+            },
+            "linkage": {
+              "state": "failed",
+              "note": "PANW +1.01%、MDB +4.32%，软件同行收涨而DDOG下跌；同行只作温度计，显示DDOG自身相对落后。"
+            }
+          },
+          "reviewOfPrior": {
+            "originalTrigger": "正式盘同一根15分钟收盘 DDOG≥225.96 AND（PANW≥335.10 OR MDB≥358.38）。",
+            "originalInvalidation": "确认前正式盘一根15分钟收盘 DDOG<209.04，则本轮观察/入场方案取消。入场后首次15分钟收盘低于209.04，在下一可交易开盘模拟退出；不能假设成交于止损价。",
+            "assessment": "正式收221.72（-1.58%），日高227.58后回落；15m/30m/1h均偏空，未站上225.96。",
+            "assessedAt": "2026-09-11T04:34:00+08:00",
+            "evidenceAsOf": "2026-09-11T04:00:00+08:00",
+            "result": "expired"
+          }
+        },
+        "medium": {
+          "bias": "中性",
+          "posture": "验证 AI/云工作负载向平台使用量与现金流的兑现",
+          "driver": "重点跟踪 AI 与非 AI 云工作负载、Observability + Security 平台扩张、消费型收入、$100k+ ARR 大客户扩张及 FCF/利润率质量；PANW / MDB 只作同行温度计。",
+          "trigger": "收入与大客户扩张维持强势，平台 attach 与 AI 产品采用继续兑现，同时利润/FCF 不恶化。",
+          "invalidation": "云优化或消费增速持续降档、平台扩张失速，或高估值与盈利兑现明显背离。"
         },
         "permissions": {
           "chase": "关闭",
@@ -493,38 +555,46 @@
           "overnight": "关闭"
         },
         "short": {
-          "bias": "中性偏谨慎",
+          "bias": "谨慎",
           "confidence": "低",
           "confirmations": {
             "price": {
-              "state": "mixed",
-              "note": "正式收于45.36（-3.36%），低于46.93且接近日低；BTC未能带动正Beta修复，AI云与加密链继续分化。"
+              "state": "failed",
+              "note": "正式收43.64（-3.81%），收近43.45日低；盘中确认前取消后弱势保持。"
             },
             "volume": {
-              "state": "unknown",
-              "note": "正式累计成交量完整，但缺少形成后分钟序列与同进度基准；不倒签盘中放量确认。"
+              "state": "failed",
+              "note": "正式量33,499,045，为此前20日均量46,116,375的0.73倍。",
+              "benchmark": {
+                "basis": "prior-20d-average",
+                "value": 46116375,
+                "current": 33499045,
+                "asOf": "2026-09-11T04:00:00+08:00",
+                "sourceUrl": "https://finance.yahoo.com/quote/IREN/history/"
+              }
             },
             "linkage": {
-              "state": "mixed",
-              "note": "IREN -3.36%，未跟随盘中偏稳的BTC；双链分化延续。"
+              "state": "failed",
+              "note": "BTC收盘附近约77211，IREN显著回落；AI云与加密两条证据均未确认。"
             }
           },
-          "driver": "正式收于45.36（-3.36%），低于46.93且接近日低；BTC未能带动正Beta修复，AI云与加密链继续分化。 IREN -3.36%，未跟随盘中偏稳的BTC；双链分化延续。",
-          "invalidation": "15分钟收线 IREN<45.00；BTC量能缺失不扩大为全市场限制。",
-          "planStatus": "等待触发",
-          "posture": "AI云与加密双链",
-          "setupLabel": "AI云与加密双链",
-          "stateNote": "正式收于45.36（-3.36%），低于46.93且接近日低；BTC未能带动正Beta修复，AI云与加密链继续分化。",
-          "tradeType": "趋势交易",
-          "trigger": "15分钟收线 IREN≥46.93 AND BTC≥79700。",
-          "holdingPlan": "已有仓位以45.00为防守；BTC反弹而IREN回落时不加仓。",
-          "entryPlan": "等IREN收回46.93且BTC价格条件同时满足，再观察下一根开盘。",
+          "driver": "正式收43.64（-3.81%），收近43.45日低；盘中确认前取消后弱势保持。 BTC收盘附近约77211，IREN显著回落；AI云与加密两条证据均未确认。",
+          "invalidation": "确认前正式盘一根15分钟收盘 IREN<45.00，则本轮观察/入场方案取消。不据此推断历史成交或盈亏。",
+          "planStatus": "剧本失效",
+          "posture": "先等正式盘收线，不追价",
+          "setupLabel": "弱市修复与趋势分开",
+          "stateNote": "正式收43.64（-3.81%），收近43.45日低；盘中确认前取消后弱势保持。",
+          "tradeType": "仅观察",
+          "trigger": "正式盘同一根15分钟收盘 IREN≥45.37 AND QQQ≥716.31。仅完成修复观察，不自动生成交易。",
+          "holdingPlan": "43.41（-4.32%），低于45.09前日低点与旧45.00观察线；AI云长期基线不抵消短线破位风险。 已有仓位先核对既定防守与缺口风险，不因长期基线自动补仓。",
+          "entryPlan": "仅观察价格修复；不是买入指令，建立交易须另行冻结方案。",
           "reviewOfPrior": {
-            "originalTrigger": "15分钟收线 IREN≥46.93 AND BTC≥79700。",
-            "assessment": "正式收于45.36（-3.36%），低于46.93且接近日低；BTC未能带动正Beta修复，AI云与加密链继续分化。",
-            "assessedAt": "2026-09-10T04:25:00+08:00",
-            "evidenceAsOf": "2026-09-10T04:00:00+08:00",
-            "result": "pending"
+            "originalTrigger": "正式盘同一根15分钟收盘 IREN≥45.37 AND QQQ≥716.31。仅完成修复观察，不自动生成交易。",
+            "originalInvalidation": "确认前正式盘一根15分钟收盘 IREN<45.00，则本轮观察/入场方案取消。不据此推断历史成交或盈亏。",
+            "assessment": "正式收43.64（-3.81%），收近43.45日低；盘中确认前取消后弱势保持。",
+            "assessedAt": "2026-09-11T04:34:00+08:00",
+            "evidenceAsOf": "2026-09-11T04:00:00+08:00",
+            "result": "invalidated"
           }
         }
       },
@@ -542,38 +612,46 @@
           "overnight": "关闭"
         },
         "short": {
-          "bias": "中性偏谨慎",
+          "bias": "谨慎",
           "confidence": "低",
           "confirmations": {
             "price": {
-              "state": "mixed",
-              "note": "正式收于269.16（-2.91%），跌破277.22并接近日低；指数纳入事件后的承接继续降温。"
+              "state": "failed",
+              "note": "正式收258.49（-4.01%），最后15分钟收258.43并低于259.78取消线；原事件方案未触发。"
             },
             "volume": {
-              "state": "unknown",
-              "note": "正式累计成交量完整，但缺少形成后分钟序列与同进度基准；不倒签盘中放量确认。"
+              "state": "mixed",
+              "note": "正式量11,270,116，为此前20日均量13,088,430的0.86倍。",
+              "benchmark": {
+                "basis": "prior-20d-average",
+                "value": 13088430,
+                "current": 11270116,
+                "asOf": "2026-09-11T04:00:00+08:00",
+                "sourceUrl": "https://finance.yahoo.com/quote/BE/history/"
+              }
             },
             "linkage": {
-              "state": "mixed",
-              "note": "BE -2.91%，事件驱动后的价格承接转弱。"
+              "state": "failed",
+              "note": "VST -2.68%，电力同行与BE同步偏弱。"
             }
           },
-          "driver": "正式收于269.16（-2.91%），跌破277.22并接近日低；指数纳入事件后的承接继续降温。 BE -2.91%，事件驱动后的价格承接转弱。",
-          "invalidation": "15分钟收线 BE<259.78；指数纳入叙事不覆盖价格失守。",
-          "planStatus": "等待触发",
-          "posture": "指数纳入承接",
-          "setupLabel": "指数纳入承接",
-          "stateNote": "正式收于269.16（-2.91%），跌破277.22并接近日低；指数纳入事件后的承接继续降温。",
-          "tradeType": "短线事件交易",
-          "trigger": "15分钟收线 BE≥277.22 AND 对应周期低点≥270。",
-          "holdingPlan": "已有仓位可保留事件核心，以259.78为失效线并防范高波动。",
-          "entryPlan": "不追盘前缺口；只在277.22上方收线且周期内守住270后等回踩。",
+          "driver": "正式收258.49（-4.01%），最后15分钟收258.43并低于259.78取消线；原事件方案未触发。 VST -2.68%，电力同行与BE同步偏弱。",
+          "invalidation": "确认前正式盘一根15分钟收盘 BE<259.78，则本轮观察/入场方案取消。不据此推断历史成交或盈亏。",
+          "planStatus": "剧本失效",
+          "posture": "先等正式盘收线，不追价",
+          "setupLabel": "弱市修复与趋势分开",
+          "stateNote": "正式收258.49（-4.01%），最后15分钟收258.43并低于259.78取消线；原事件方案未触发。",
+          "tradeType": "仅观察",
+          "trigger": "正式盘同一根15分钟收盘 BE≥269.28 AND VST≥151.10。仅完成修复观察，不自动生成交易。",
+          "holdingPlan": "258.9208（-3.85%），低于旧259.78观察线及前日低点268.5801；事件后承接转弱，供电需求不直接等于买点。 已有仓位先核对既定防守与缺口风险，不因长期基线自动补仓。",
+          "entryPlan": "仅观察价格修复；不是买入指令，建立交易须另行冻结方案。",
           "reviewOfPrior": {
-            "originalTrigger": "15分钟收线 BE≥277.22 AND 对应周期低点≥270。",
-            "assessment": "正式收于269.16（-2.91%），跌破277.22并接近日低；指数纳入事件后的承接继续降温。",
-            "assessedAt": "2026-09-10T04:25:00+08:00",
-            "evidenceAsOf": "2026-09-10T04:00:00+08:00",
-            "result": "pending"
+            "originalTrigger": "正式盘同一根15分钟收盘 BE≥269.28 AND VST≥151.10。仅完成修复观察，不自动生成交易。",
+            "originalInvalidation": "确认前正式盘一根15分钟收盘 BE<259.78，则本轮观察/入场方案取消。不据此推断历史成交或盈亏。",
+            "assessment": "正式收258.49（-4.01%），最后15分钟收258.43并低于259.78取消线；原事件方案未触发。",
+            "assessedAt": "2026-09-11T04:34:00+08:00",
+            "evidenceAsOf": "2026-09-11T04:00:00+08:00",
+            "result": "invalidated"
           }
         }
       },
@@ -591,38 +669,46 @@
           "overnight": "关闭"
         },
         "short": {
-          "bias": "中性偏谨慎",
+          "bias": "谨慎",
           "confidence": "低",
           "confirmations": {
             "price": {
               "state": "mixed",
-              "note": "正式收于147.58（-3.84%），跌回152.30供给区下方；日线确认前一日突破未能保持。"
+              "note": "正式收148.18（+0.43%），为唯一上涨核心股且成交量为前20日均量1.37倍，但从154.70高点明显回落。"
             },
             "volume": {
-              "state": "unknown",
-              "note": "正式累计成交量完整，但缺少形成后分钟序列与同进度基准；不倒签盘中放量确认。"
+              "state": "confirmed",
+              "note": "正式量116,048,106，为此前20日均量84,455,875的1.37倍。",
+              "benchmark": {
+                "basis": "prior-20d-average",
+                "value": 84455875,
+                "current": 116048106,
+                "asOf": "2026-09-11T04:00:00+08:00",
+                "sourceUrl": "https://finance.yahoo.com/quote/SPCX/history/"
+              }
             },
             "linkage": {
               "state": "mixed",
-              "note": "SPCX -3.84%，在大盘偏弱日表现更差。"
+              "note": "SPY -0.59%，SPCX逆势收涨并放量，但尾盘结构不强。"
             }
           },
-          "driver": "正式收于147.58（-3.84%），跌回152.30供给区下方；日线确认前一日突破未能保持。 SPCX -3.84%，在大盘偏弱日表现更差。",
-          "invalidation": "15分钟收线 SPCX<147.32；基准问题不替代SPCX自身防守。",
+          "driver": "正式收148.18（+0.43%），为唯一上涨核心股且成交量为前20日均量1.37倍，但从154.70高点明显回落。 SPY -0.59%，SPCX逆势收涨并放量，但尾盘结构不强。",
+          "invalidation": "确认前正式盘一根15分钟收盘 SPCX<145.55，则本轮观察/入场方案取消。不据此推断历史成交或盈亏。",
           "planStatus": "等待触发",
-          "posture": "供给区保持",
-          "setupLabel": "供给区保持",
-          "stateNote": "正式收于147.58（-3.84%），跌回152.30供给区下方；日线确认前一日突破未能保持。",
-          "tradeType": "短线事件交易",
-          "trigger": "15分钟收线 SPCX≥153.47 AND SPY≥765.96。",
-          "holdingPlan": "已有仓位以147.32为防守；报价刷新前不据20:48快照调整。",
-          "entryPlan": "先补齐自身与SPY有效报价，再等两者同一15分钟收线达标。",
+          "posture": "先等正式盘收线，不追价",
+          "setupLabel": "弱市修复与趋势分开",
+          "stateNote": "正式收148.18（+0.43%），为唯一上涨核心股且成交量为前20日均量1.37倍，但从154.70高点明显回落。",
+          "tradeType": "仅观察",
+          "trigger": "正式盘同一根15分钟收盘 SPCX≥147.55 AND SPY≥762.40。仅完成修复观察，不自动生成交易。",
+          "holdingPlan": "145.24（-1.57%），低于前日低点145.55；先看收回147.55，上市后历史与旧同代码基金隔离。 已有仓位先核对既定防守与缺口风险，不因长期基线自动补仓。",
+          "entryPlan": "仅观察价格修复；不是买入指令，建立交易须另行冻结方案。",
           "reviewOfPrior": {
-            "originalTrigger": "15分钟收线 SPCX≥153.47 AND SPY≥765.96。",
-            "assessment": "正式收于147.58（-3.84%），跌回152.30供给区下方；日线确认前一日突破未能保持。",
-            "assessedAt": "2026-09-10T04:25:00+08:00",
-            "evidenceAsOf": "2026-09-10T04:00:00+08:00",
-            "result": "pending"
+            "originalTrigger": "正式盘同一根15分钟收盘 SPCX≥147.55 AND SPY≥762.40。仅完成修复观察，不自动生成交易。",
+            "originalInvalidation": "确认前正式盘一根15分钟收盘 SPCX<145.55，则本轮观察/入场方案取消。不据此推断历史成交或盈亏。",
+            "assessment": "正式收148.18（+0.43%），为唯一上涨核心股且成交量为前20日均量1.37倍，但从154.70高点明显回落。",
+            "assessedAt": "2026-09-11T04:34:00+08:00",
+            "evidenceAsOf": "2026-09-11T04:00:00+08:00",
+            "result": "expired"
           }
         }
       },
@@ -640,152 +726,111 @@
           "overnight": "关闭"
         },
         "short": {
-          "bias": "中性偏谨慎",
+          "bias": "谨慎",
           "confidence": "低",
           "confirmations": {
             "price": {
-              "state": "mixed",
-              "note": "正式收于132.70（-2.80%），未收回139.31并接近日低；加密正Beta仍未恢复。"
+              "state": "failed",
+              "note": "正式收128.56（-3.12%），仍低于132.59；BTC约77211，币股正Beta未恢复。"
             },
             "volume": {
-              "state": "unknown",
-              "note": "正式累计成交量完整，但缺少形成后分钟序列与同进度基准；不倒签盘中放量确认。"
+              "state": "failed",
+              "note": "正式量14,204,876，为此前20日均量28,364,695的0.50倍。",
+              "benchmark": {
+                "basis": "prior-20d-average",
+                "value": 28364695,
+                "current": 14204876,
+                "asOf": "2026-09-11T04:00:00+08:00",
+                "sourceUrl": "https://finance.yahoo.com/quote/MSTR/history/"
+              }
             },
             "linkage": {
-              "state": "mixed",
-              "note": "MSTR -2.80%，未形成相对BTC的正Beta修复。"
+              "state": "failed",
+              "note": "BTC约77211，MSTR收跌3.12%，未恢复相对BTC的正Beta。"
             }
           },
-          "driver": "正式收于132.70（-2.80%），未收回139.31并接近日低；加密正Beta仍未恢复。 MSTR -2.80%，未形成相对BTC的正Beta修复。",
-          "invalidation": "15分钟收线 MSTR<135.38且BTC同步转弱。",
-          "planStatus": "等待触发",
-          "posture": "加密正Beta修复",
-          "setupLabel": "加密正Beta修复",
-          "stateNote": "正式收于132.70（-2.80%），未收回139.31并接近日低；加密正Beta仍未恢复。",
-          "tradeType": "趋势交易",
-          "trigger": "15分钟收线 MSTR≥140.40 AND BTC≥79700。",
-          "holdingPlan": "已有仓位以135.38为防守；盘前触及140.40不追。",
-          "entryPlan": "等MSTR与BTC条件在形成后同时确认，再按下一根开盘评估。",
+          "driver": "正式收128.56（-3.12%），仍低于132.59；BTC约77211，币股正Beta未恢复。 BTC约77211，MSTR收跌3.12%，未恢复相对BTC的正Beta。",
+          "invalidation": "确认前正式盘一根15分钟收盘 MSTR<132.59，则本轮观察/入场方案取消。不据此推断历史成交或盈亏。",
+          "planStatus": "剧本失效",
+          "posture": "先等正式盘收线，不追价",
+          "setupLabel": "弱市修复与趋势分开",
+          "stateNote": "正式收128.56（-3.12%），仍低于132.59；BTC约77211，币股正Beta未恢复。",
+          "tradeType": "仅观察",
+          "trigger": "正式盘同一根15分钟收盘 MSTR≥132.70 AND QQQ≥716.31。仅完成修复观察，不自动生成交易。",
+          "holdingPlan": "128.59（-3.10%），低于前日低点132.59；BTC参考偏弱但时点与比较期不同，不据此确认正Beta。 已有仓位先核对既定防守与缺口风险，不因长期基线自动补仓。",
+          "entryPlan": "仅观察价格修复；不是买入指令，建立交易须另行冻结方案。",
           "reviewOfPrior": {
-            "originalTrigger": "15分钟收线 MSTR≥140.40 AND BTC≥79700。",
-            "assessment": "正式收于132.70（-2.80%），未收回139.31并接近日低；加密正Beta仍未恢复。",
-            "assessedAt": "2026-09-10T04:25:00+08:00",
-            "evidenceAsOf": "2026-09-10T04:00:00+08:00",
-            "result": "pending"
+            "originalTrigger": "正式盘同一根15分钟收盘 MSTR≥132.70 AND QQQ≥716.31。仅完成修复观察，不自动生成交易。",
+            "originalInvalidation": "确认前正式盘一根15分钟收盘 MSTR<132.59，则本轮观察/入场方案取消。不据此推断历史成交或盈亏。",
+            "assessment": "正式收128.56（-3.12%），仍低于132.59；BTC约77211，币股正Beta未恢复。",
+            "assessedAt": "2026-09-11T04:34:00+08:00",
+            "evidenceAsOf": "2026-09-11T04:00:00+08:00",
+            "result": "invalidated"
           }
-        }
-      },
-      "DDOG": {
-        "short": {
-          "bias": "中性偏谨慎",
-          "posture": "AI软件独立突破",
-          "driver": "正式收于225.16（+7.10%），接近日高225.71；MDB上涨而PANW下跌，DDOG为独立软件强势，未用同行替代自身确认。 PANW -0.56%、MDB +0.64%，同行温度分化；DDOG +7.10%显著独立走强。",
-          "trigger": "15分钟收线 DDOG≥211.18 AND（PANW≥336.98 OR MDB≥356.00）。",
-          "invalidation": "15分钟收线 DDOG<203.24；同行强势不能抵消自身失守。",
-          "planStatus": "等待触发",
-          "tradeType": "趋势交易",
-          "confidence": "低",
-          "setupLabel": "AI软件独立突破",
-          "stateNote": "正式收于225.16（+7.10%），接近日高225.71；MDB上涨而PANW下跌，DDOG为独立软件强势，未用同行替代自身确认。",
-          "holdingPlan": "已有仓位以203.24为正式日线防守，不因同行盘前上行加码。",
-          "entryPlan": "只在DDOG自身站上211.18且PANW/MDB至少一项同步后，等下一根可交易开盘。",
-          "confirmations": {
-            "price": {
-              "state": "confirmed",
-              "note": "正式收于225.16（+7.10%），接近日高225.71；MDB上涨而PANW下跌，DDOG为独立软件强势，未用同行替代自身确认。"
-            },
-            "volume": {
-              "state": "unknown",
-              "note": "正式累计成交量完整，但缺少形成后分钟序列与同进度基准；不倒签盘中放量确认。"
-            },
-            "linkage": {
-              "state": "mixed",
-              "note": "PANW -0.56%、MDB +0.64%，同行温度分化；DDOG +7.10%显著独立走强。"
-            }
-          },
-          "reviewOfPrior": {
-            "originalTrigger": "15分钟收线 DDOG≥211.18 AND（PANW≥336.98 OR MDB≥356.00）。",
-            "assessment": "正式收于225.16（+7.10%），接近日高225.71；MDB上涨而PANW下跌，DDOG为独立软件强势，未用同行替代自身确认。",
-            "assessedAt": "2026-09-10T04:25:00+08:00",
-            "evidenceAsOf": "2026-09-10T04:00:00+08:00",
-            "result": "pending"
-          }
-        },
-        "medium": {
-          "bias": "中性",
-          "posture": "验证 AI/云工作负载向平台使用量与现金流的兑现",
-          "driver": "重点跟踪 AI 与非 AI 云工作负载、Observability + Security 平台扩张、消费型收入、$100k+ ARR 大客户扩张及 FCF/利润率质量；PANW / MDB 只作同行温度计。",
-          "trigger": "收入与大客户扩张维持强势，平台 attach 与 AI 产品采用继续兑现，同时利润/FCF 不恶化。",
-          "invalidation": "云优化或消费增速持续降档、平台扩张失速，或高估值与盈利兑现明显背离。"
-        },
-        "permissions": {
-          "chase": "关闭",
-          "overnight": "关闭",
-          "beta": "0"
         }
       }
     },
-    "largestChange": "CRDO由盘中约+2.90%回落至近乎平盘，SPCX扩大至约-4.85%；DDOG维持约+6.85%的独立强势。",
+    "largestChange": "LITE正式收跌约5.39%，DRAM跌约4.90%；SPCX逆势收涨0.43%且量能为20日均值1.37倍。",
     "macroFramework": {
       "pillars": [
         {
           "key": "growth",
           "label": "增长",
-          "state": "就业韧性显著高于预期",
-          "direction": "negative",
-          "evidence": "8月非农增加16.2万、失业率4.1%，6月和7月合计上修5.5万。",
-          "transmission": "压低近期宽松预期并提高长端利率压力。",
-          "invalidation": "后续工资、失业或高频就业显著转弱。"
+          "state": "增长先验未新增上修",
+          "direction": "neutral",
+          "evidence": "沿用既有增长基线；新增PPI为价格数据，不直接证明实际需求增强。",
+          "transmission": "盈利推断需经营证据，不能仅用名义价格变化。",
+          "invalidation": "后续订单/实际收入显著背离。"
         },
         {
           "key": "inflation",
           "label": "通胀",
-          "state": "工资与需求韧性待重新定价",
+          "state": "能源成本压力延续",
           "direction": "negative",
-          "evidence": "强于预期的就业增长强化通胀黏性风险。",
-          "transmission": "压制久期与高估值资产。",
-          "invalidation": "收益率与美元未随数据保持上行。"
+          "evidence": "BLS八月PPI月增0.4%、同比5.4%，能源月增4.2%。",
+          "transmission": "成本和政策不确定性压制高估值风险预算。",
+          "invalidation": "后续CPI与利率未维持压力。"
         },
         {
           "key": "liquidity",
           "label": "流动性/信用",
-          "state": "美元走强、宽松预期降温",
-          "direction": "negative",
-          "evidence": "就业数据后美元指数走强。",
-          "transmission": "对高Beta和融资敏感资产不利。",
-          "invalidation": "美元与长端快速回吐数据后的涨幅。"
+          "state": "本轮未取得新信用序列",
+          "direction": "neutral",
+          "evidence": "融资敏感性基线保留，不把PPI直接写成已发生的加息/信用收缩。",
+          "transmission": "高Beta对折现率敏感，隔夜保守。",
+          "invalidation": "利率回落、信用改善及市场广度共同扩张。"
         },
         {
           "key": "risk-pricing",
           "label": "风险定价",
-          "state": "行业修复强于大盘",
-          "direction": "neutral",
-          "evidence": "正式收盘：SPY -0.39% / QQQ +0.18% / SOXX +3.52%。",
-          "transmission": "宏观只约束风险预算；行业强势仍需各标的价格确认。",
-          "invalidation": "SOXX失507.25且SPY/QQQ同步走弱"
+          "state": "半导体由相对强转弱",
+          "direction": "negative",
+          "evidence": "SPY -0.53%、QQQ -1.24%、SOXX -2.90%；八股盘前均回撤。数据完整不等于新增仓位获准。",
+          "transmission": "本轮价格优先于旧行业强势先验。",
+          "invalidation": "正式盘同一根15分钟收盘 SPY≥762.40 AND QQQ≥716.31 AND SOXX≥532.00。"
         }
       ],
       "chain": [
         {
-          "from": "就业韧性与利率压力（沿用当日宏观披露）",
-          "through": "折现率和风险预算",
-          "to": "不据此机械否定半导体的已发生上涨",
-          "tone": "flat",
-          "verdict": "事实与价格分开"
+          "from": "PPI与能源成本压力",
+          "through": "政策预期与估值折现",
+          "to": "高Beta/半导体盘前承压",
+          "verdict": "降低风险预算，非确定性因果或涨跌预测",
+          "tone": "down"
         },
         {
-          "from": "SOXX显著强于SPY/QQQ",
-          "through": "选择性行业扩散",
-          "to": "原价格条件逐标的复核",
-          "tone": "up",
-          "verdict": "选择性确认"
+          "from": "SOXX/MU/光网络同行回落",
+          "through": "行业价格广度变弱",
+          "to": "个股重新等待自身和同行收线",
+          "verdict": "不以长期行业逻辑替代短线确认",
+          "tone": "down"
         },
         {
-          "from": "LITE/迁移前标的/CRDO共同AI网络需求",
-          "through": "公司兑现不同、共同资本开支风险",
-          "to": "合并审视敞口，分别定义失效",
-          "tone": "flat",
-          "verdict": "业务覆盖不等于独立分散"
+          "from": "DDOG相对抗跌而PANW/MDB均跌",
+          "through": "软件温度尚未共振",
+          "to": "DDOG独立条件继续待证",
+          "verdict": "相对强不等于突破确认",
+          "tone": "flat"
         }
       ]
     },
@@ -794,502 +839,513 @@
         "asset": "市场",
         "fundamental": "0",
         "macro": "-",
-        "positioning": "0",
+        "positioning": "-",
         "price": "-",
-        "verdict": "正式收盘：SPY -0.46%、QQQ -0.28%、SOXX +0.68%；半导体相对抗跌，但市场广度仍偏弱。"
+        "verdict": "正式收盘SPY -0.59%、QQQ -1.06%、SOXX -2.74%；三项均收跌，SOXX最弱，午后RISK_OFF判断得到确认。"
       },
       {
         "asset": "DRAM",
         "fundamental": "+",
-        "macro": "0",
+        "macro": "-",
         "positioning": "0",
-        "price": "0",
-        "verdict": "正式收于61.48（+0.62%），盘中触及62.58后回落；守住61.10，但未以收盘完成62.00上方突破。"
+        "price": "-",
+        "verdict": "正式收58.56（-4.9%），收近低位；30m/1h/4h均偏空，盘前观察失效后没有尾盘修复。"
       },
       {
         "asset": "LITE",
         "fundamental": "+",
-        "macro": "0",
+        "macro": "-",
         "positioning": "0",
-        "price": "0",
-        "verdict": "正式收于988.98（+1.07%），盘中触及1026.76后回落；仍高于978.54，但急涨后的持续性尚待下一交易日确认。"
+        "price": "-",
+        "verdict": "正式收935.7（-5.39%），盘初高见994.5后收近低位；原趋势方案确认前取消，无模拟入场。"
       },
       {
         "asset": "CRDO",
         "fundamental": "+",
-        "macro": "0",
+        "macro": "-",
         "positioning": "0",
-        "price": "0",
-        "verdict": "正式收于167.92（+0.10%），冲高173.24后几乎平收；明显弱于LITE，行业强势没有替代个股确认。"
+        "price": "-",
+        "verdict": "正式收160.31（-4.53%），最后15分钟收160.35并低于160.75取消线；原方案未触发。"
       },
       {
         "asset": "DDOG",
         "fundamental": "0",
-        "macro": "0",
+        "macro": "-",
         "positioning": "0",
-        "price": "+",
-        "verdict": "正式收于225.16（+7.10%），接近日高225.71；MDB上涨而PANW下跌，DDOG为独立软件强势，未用同行替代自身确认。"
+        "price": "-",
+        "verdict": "正式收221.72（-1.58%），日高227.58后回落；15m/30m/1h均偏空，未站上225.96。"
       },
       {
         "asset": "IREN",
         "fundamental": "+",
-        "macro": "0",
+        "macro": "-",
         "positioning": "0",
         "price": "-",
-        "verdict": "正式收于45.36（-3.36%），低于46.93且接近日低；BTC未能带动正Beta修复，AI云与加密链继续分化。"
+        "verdict": "正式收43.64（-3.81%），收近43.45日低；盘中确认前取消后弱势保持。"
       },
       {
         "asset": "BE",
         "fundamental": "+",
-        "macro": "0",
+        "macro": "-",
         "positioning": "0",
         "price": "-",
-        "verdict": "正式收于269.16（-2.91%），跌破277.22并接近日低；指数纳入事件后的承接继续降温。"
+        "verdict": "正式收258.49（-4.01%），最后15分钟收258.43并低于259.78取消线；原事件方案未触发。"
       },
       {
         "asset": "SPCX",
         "fundamental": "0",
-        "macro": "0",
-        "positioning": "0",
-        "price": "-",
-        "verdict": "正式收于147.58（-3.84%），跌回152.30供给区下方；日线确认前一日突破未能保持。"
+        "macro": "-",
+        "positioning": "+",
+        "price": "+",
+        "verdict": "正式收148.18（+0.43%），为唯一上涨核心股且成交量为前20日均量1.37倍，但从154.70高点明显回落。"
       },
       {
         "asset": "MSTR",
         "fundamental": "0",
-        "macro": "0",
+        "macro": "-",
         "positioning": "0",
         "price": "-",
-        "verdict": "正式收于132.70（-2.80%），未收回139.31并接近日低；加密正Beta仍未恢复。"
+        "verdict": "正式收128.56（-3.12%），仍低于132.59；BTC约77211，币股正Beta未恢复。"
       }
     ],
     "news": [
       {
-        "title": "油价突破100美元附近，美股期指承压",
-        "summary": "能源冲击与利率担忧压制风险偏好；盘前弱势尚不能等同正式盘趋势。",
-        "time": "2026-09-09 20:55 中国时间",
-        "source": "Reuters",
-        "url": "https://www.reuters.com/commentary/reuters-open-interest/global-markets-view-usa-2026-09-09/",
+        "title": "八月PPI月增0.4%、同比5.4%",
+        "summary": "BLS正式公布，能源成本压力延续；三基准及半导体盘前回撤，正式盘价格传导仍待验证。",
+        "time": "2026-09-10 20:30 中国时间",
+        "source": "BLS",
+        "url": "https://www.bls.gov/news.release/ppi.nr0.htm",
         "tone": "down",
         "material": true,
+        "directness": "行动级",
         "impactFields": [
           "regimeCode",
-          "confidence",
           "permissions"
         ],
-        "directness": "行动级",
-        "impact": "维持低风险预算，等待SPY/QQQ/SOXX正式盘同步确认。"
+        "impact": "维持低风险预算，关闭追价。"
       }
     ],
     "odds": [
       {
         "asset": "DRAM",
         "window": "60D",
-        "percentile": 72.5,
+        "percentile": 60.8,
         "sampleSize": 60,
-        "asOf": "2026-09-09",
-        "referencePrice": 61.48,
-        "rangeLow": 44.85,
-        "rangeHigh": 80.72,
-        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
-        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
-        "sourceUrl": "https://www.nasdaq.com/market-activity/etf/dram/historical",
+        "asOf": "2026-09-10",
+        "referencePrice": 58.560001373291016,
+        "rangeLow": 44.849998474121094,
+        "rangeHigh": 80.72000122070312,
+        "basis": "Yahoo Finance unadjusted Close；非复权价格回报；整段窗口不拼接Nasdaq或旧代码历史",
+        "source": "Yahoo Finance historical daily OHLCV (Nasdaq收盘日线未发布后的备用源)",
+        "sourceUrl": "https://finance.yahoo.com/quote/DRAM/history/",
         "sampleOrigin": "rolling",
         "sampleNote": "",
-        "historyFile": "history/2026-09-09.json"
+        "historyFile": "history/2026-09-10.json"
       },
       {
         "asset": "DRAM",
         "window": "252D",
-        "percentile": 77.7,
-        "sampleSize": 110,
-        "asOf": "2026-09-09",
-        "referencePrice": 61.48,
-        "rangeLow": 27.76,
-        "rangeHigh": 80.72,
-        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
-        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
-        "sourceUrl": "https://www.nasdaq.com/market-activity/etf/dram/historical",
+        "percentile": 67.1,
+        "sampleSize": 111,
+        "asOf": "2026-09-10",
+        "referencePrice": 58.560001373291016,
+        "rangeLow": 27.760000228881836,
+        "rangeHigh": 80.72000122070312,
+        "basis": "Yahoo Finance unadjusted Close；非复权价格回报；整段窗口不拼接Nasdaq或旧代码历史",
+        "source": "Yahoo Finance historical daily OHLCV (Nasdaq收盘日线未发布后的备用源)",
+        "sourceUrl": "https://finance.yahoo.com/quote/DRAM/history/",
         "sampleOrigin": "rolling",
-        "sampleNote": "上市后109日正式收盘样本",
-        "historyFile": "history/2026-09-09.json"
+        "sampleNote": "上市后111日正式收盘样本",
+        "historyFile": "history/2026-09-10.json"
       },
       {
         "asset": "LITE",
         "window": "60D",
-        "percentile": 99.2,
+        "percentile": 90.8,
         "sampleSize": 60,
-        "asOf": "2026-09-09",
-        "referencePrice": 988.98,
-        "rangeLow": 602.35,
-        "rangeHigh": 988.98,
-        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
-        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
-        "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/lite/historical",
+        "asOf": "2026-09-10",
+        "referencePrice": 935.7000122070312,
+        "rangeLow": 602.3499755859375,
+        "rangeHigh": 988.97998046875,
+        "basis": "Yahoo Finance unadjusted Close；非复权价格回报；整段窗口不拼接Nasdaq或旧代码历史",
+        "source": "Yahoo Finance historical daily OHLCV (Nasdaq收盘日线未发布后的备用源)",
+        "sourceUrl": "https://finance.yahoo.com/quote/LITE/history/",
         "sampleOrigin": "rolling",
         "sampleNote": "",
-        "historyFile": "history/2026-09-09.json"
+        "historyFile": "history/2026-09-10.json"
       },
       {
         "asset": "LITE",
         "window": "252D",
-        "percentile": 97.4,
+        "percentile": 91.9,
         "sampleSize": 252,
-        "asOf": "2026-09-09",
-        "referencePrice": 988.98,
-        "rangeLow": 149.61,
-        "rangeHigh": 1053.09,
-        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
-        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
-        "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/lite/historical",
+        "asOf": "2026-09-10",
+        "referencePrice": 935.7000122070312,
+        "rangeLow": 149.61000061035156,
+        "rangeHigh": 1053.0899658203125,
+        "basis": "Yahoo Finance unadjusted Close；非复权价格回报；整段窗口不拼接Nasdaq或旧代码历史",
+        "source": "Yahoo Finance historical daily OHLCV (Nasdaq收盘日线未发布后的备用源)",
+        "sourceUrl": "https://finance.yahoo.com/quote/LITE/history/",
         "sampleOrigin": "rolling",
         "sampleNote": "",
-        "historyFile": "history/2026-09-09.json"
+        "historyFile": "history/2026-09-10.json"
       },
       {
         "asset": "CRDO",
         "window": "60D",
-        "percentile": 5.8,
+        "percentile": 0.8,
         "sampleSize": 60,
-        "asOf": "2026-09-09",
-        "referencePrice": 167.92,
-        "rangeLow": 164.17,
-        "rangeHigh": 302.52,
-        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
-        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
-        "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/crdo/historical",
+        "asOf": "2026-09-10",
+        "referencePrice": 160.30999755859375,
+        "rangeLow": 160.30999755859375,
+        "rangeHigh": 302.5199890136719,
+        "basis": "Yahoo Finance unadjusted Close；非复权价格回报；整段窗口不拼接Nasdaq或旧代码历史",
+        "source": "Yahoo Finance historical daily OHLCV (Nasdaq收盘日线未发布后的备用源)",
+        "sourceUrl": "https://finance.yahoo.com/quote/CRDO/history/",
         "sampleOrigin": "rolling",
         "sampleNote": "",
-        "historyFile": "history/2026-09-09.json"
+        "historyFile": "history/2026-09-10.json"
       },
       {
         "asset": "CRDO",
         "window": "252D",
-        "percentile": 56.5,
+        "percentile": 48.2,
         "sampleSize": 252,
-        "asOf": "2026-09-09",
-        "referencePrice": 167.92,
-        "rangeLow": 87.81,
-        "rangeHigh": 302.52,
-        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
-        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
-        "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/crdo/historical",
+        "asOf": "2026-09-10",
+        "referencePrice": 160.30999755859375,
+        "rangeLow": 87.80999755859375,
+        "rangeHigh": 302.5199890136719,
+        "basis": "Yahoo Finance unadjusted Close；非复权价格回报；整段窗口不拼接Nasdaq或旧代码历史",
+        "source": "Yahoo Finance historical daily OHLCV (Nasdaq收盘日线未发布后的备用源)",
+        "sourceUrl": "https://finance.yahoo.com/quote/CRDO/history/",
         "sampleOrigin": "rolling",
         "sampleNote": "",
-        "historyFile": "history/2026-09-09.json"
+        "historyFile": "history/2026-09-10.json"
       },
       {
         "asset": "DDOG",
         "window": "60D",
-        "percentile": 19.2,
+        "percentile": 12.5,
         "sampleSize": 60,
-        "asOf": "2026-09-09",
-        "referencePrice": 225.16,
-        "rangeLow": 209.23,
-        "rangeHigh": 288.15,
-        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
-        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
-        "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/ddog/historical",
+        "asOf": "2026-09-10",
+        "referencePrice": 221.72000122070312,
+        "rangeLow": 209.22999572753906,
+        "rangeHigh": 288.1499938964844,
+        "basis": "Yahoo Finance unadjusted Close；非复权价格回报；整段窗口不拼接Nasdaq或旧代码历史",
+        "source": "Yahoo Finance historical daily OHLCV (Nasdaq收盘日线未发布后的备用源)",
+        "sourceUrl": "https://finance.yahoo.com/quote/DDOG/history/",
         "sampleOrigin": "rolling",
         "sampleNote": "",
-        "historyFile": "history/2026-09-09.json"
+        "historyFile": "history/2026-09-10.json"
       },
       {
         "asset": "DDOG",
         "window": "252D",
-        "percentile": 76,
+        "percentile": 72.8,
         "sampleSize": 252,
-        "asOf": "2026-09-09",
-        "referencePrice": 225.16,
-        "rangeLow": 102.615,
-        "rangeHigh": 288.15,
-        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
-        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
-        "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/ddog/historical",
+        "asOf": "2026-09-10",
+        "referencePrice": 221.72000122070312,
+        "rangeLow": 102.61499786376953,
+        "rangeHigh": 288.1499938964844,
+        "basis": "Yahoo Finance unadjusted Close；非复权价格回报；整段窗口不拼接Nasdaq或旧代码历史",
+        "source": "Yahoo Finance historical daily OHLCV (Nasdaq收盘日线未发布后的备用源)",
+        "sourceUrl": "https://finance.yahoo.com/quote/DDOG/history/",
         "sampleOrigin": "rolling",
         "sampleNote": "",
-        "historyFile": "history/2026-09-09.json"
+        "historyFile": "history/2026-09-10.json"
       },
       {
         "asset": "IREN",
         "window": "60D",
-        "percentile": 79.2,
+        "percentile": 69.2,
         "sampleSize": 60,
-        "asOf": "2026-09-09",
-        "referencePrice": 45.36,
-        "rangeLow": 29.31,
-        "rangeHigh": 60.85,
-        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
-        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
-        "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/iren/historical",
+        "asOf": "2026-09-10",
+        "referencePrice": 43.63999938964844,
+        "rangeLow": 29.309999465942383,
+        "rangeHigh": 59.959999084472656,
+        "basis": "Yahoo Finance unadjusted Close；非复权价格回报；整段窗口不拼接Nasdaq或旧代码历史",
+        "source": "Yahoo Finance historical daily OHLCV (Nasdaq收盘日线未发布后的备用源)",
+        "sourceUrl": "https://finance.yahoo.com/quote/IREN/history/",
         "sampleOrigin": "rolling",
         "sampleNote": "",
-        "historyFile": "history/2026-09-09.json"
+        "historyFile": "history/2026-09-10.json"
       },
       {
         "asset": "IREN",
         "window": "252D",
-        "percentile": 51.4,
+        "percentile": 44.2,
         "sampleSize": 252,
-        "asOf": "2026-09-09",
-        "referencePrice": 45.36,
-        "rangeLow": 29.31,
-        "rangeHigh": 76.41,
-        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
-        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
-        "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/iren/historical",
+        "asOf": "2026-09-10",
+        "referencePrice": 43.63999938964844,
+        "rangeLow": 29.309999465942383,
+        "rangeHigh": 76.41000366210938,
+        "basis": "Yahoo Finance unadjusted Close；非复权价格回报；整段窗口不拼接Nasdaq或旧代码历史",
+        "source": "Yahoo Finance historical daily OHLCV (Nasdaq收盘日线未发布后的备用源)",
+        "sourceUrl": "https://finance.yahoo.com/quote/IREN/history/",
         "sampleOrigin": "rolling",
         "sampleNote": "",
-        "historyFile": "history/2026-09-09.json"
+        "historyFile": "history/2026-09-10.json"
       },
       {
         "asset": "BE",
         "window": "60D",
         "percentile": 74.2,
         "sampleSize": 60,
-        "asOf": "2026-09-09",
-        "referencePrice": 269.16,
+        "asOf": "2026-09-10",
+        "referencePrice": 258.489990234375,
         "rangeLow": 163.75,
-        "rangeHigh": 345.85,
-        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
-        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
-        "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/be/historical",
+        "rangeHigh": 345.8500061035156,
+        "basis": "Yahoo Finance unadjusted Close；非复权价格回报；整段窗口不拼接Nasdaq或旧代码历史",
+        "source": "Yahoo Finance historical daily OHLCV (Nasdaq收盘日线未发布后的备用源)",
+        "sourceUrl": "https://finance.yahoo.com/quote/BE/history/",
         "sampleOrigin": "rolling",
         "sampleNote": "",
-        "historyFile": "history/2026-09-09.json"
+        "historyFile": "history/2026-09-10.json"
       },
       {
         "asset": "BE",
         "window": "252D",
-        "percentile": 85.1,
+        "percentile": 81.9,
         "sampleSize": 252,
-        "asOf": "2026-09-09",
-        "referencePrice": 269.16,
-        "rangeLow": 55,
-        "rangeHigh": 345.85,
-        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
-        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
-        "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/be/historical",
+        "asOf": "2026-09-10",
+        "referencePrice": 258.489990234375,
+        "rangeLow": 62.959999084472656,
+        "rangeHigh": 345.8500061035156,
+        "basis": "Yahoo Finance unadjusted Close；非复权价格回报；整段窗口不拼接Nasdaq或旧代码历史",
+        "source": "Yahoo Finance historical daily OHLCV (Nasdaq收盘日线未发布后的备用源)",
+        "sourceUrl": "https://finance.yahoo.com/quote/BE/history/",
         "sampleOrigin": "rolling",
         "sampleNote": "",
-        "historyFile": "history/2026-09-09.json"
+        "historyFile": "history/2026-09-10.json"
       },
       {
         "asset": "SPCX",
         "window": "60D",
-        "percentile": 65.8,
+        "percentile": 69.2,
         "sampleSize": 60,
-        "asOf": "2026-09-09",
-        "referencePrice": 147.58,
-        "rangeLow": 108.27,
-        "rangeHigh": 201.8,
-        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
-        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
-        "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/spcx/historical",
+        "asOf": "2026-09-10",
+        "referencePrice": 148.17999267578125,
+        "rangeLow": 108.2699966430664,
+        "rangeHigh": 211.38999938964844,
+        "basis": "Yahoo Finance unadjusted Close；非复权价格回报；整段窗口不拼接Nasdaq或旧代码历史",
+        "source": "Yahoo Finance historical daily OHLCV (Nasdaq收盘日线未发布后的备用源)",
+        "sourceUrl": "https://finance.yahoo.com/quote/SPCX/history/",
         "sampleOrigin": "rolling",
         "sampleNote": "",
-        "historyFile": "history/2026-09-09.json"
+        "historyFile": "history/2026-09-10.json"
       },
       {
         "asset": "SPCX",
         "window": "252D",
-        "percentile": 64.8,
-        "sampleSize": 61,
-        "asOf": "2026-09-09",
-        "referencePrice": 147.58,
-        "rangeLow": 108.27,
-        "rangeHigh": 201.8,
-        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
-        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
-        "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/spcx/historical",
+        "percentile": 66.9,
+        "sampleSize": 62,
+        "asOf": "2026-09-10",
+        "referencePrice": 148.17999267578125,
+        "rangeLow": 108.2699966430664,
+        "rangeHigh": 211.38999938964844,
+        "basis": "Yahoo Finance unadjusted Close；非复权价格回报；整段窗口不拼接Nasdaq或旧代码历史",
+        "source": "Yahoo Finance historical daily OHLCV (Nasdaq收盘日线未发布后的备用源)",
+        "sourceUrl": "https://finance.yahoo.com/quote/SPCX/history/",
         "sampleOrigin": "rolling",
-        "sampleNote": "上市后60日正式收盘样本",
-        "historyFile": "history/2026-09-09.json"
+        "sampleNote": "上市后62日正式收盘样本",
+        "historyFile": "history/2026-09-10.json"
       },
       {
         "asset": "MSTR",
         "window": "60D",
-        "percentile": 90.8,
+        "percentile": 89.2,
         "sampleSize": 60,
-        "asOf": "2026-09-09",
-        "referencePrice": 132.7,
-        "rangeLow": 82.31,
-        "rangeHigh": 144.82,
-        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
-        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
-        "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/mstr/historical",
+        "asOf": "2026-09-10",
+        "referencePrice": 128.55999755859375,
+        "rangeLow": 82.30999755859375,
+        "rangeHigh": 144.82000732421875,
+        "basis": "Yahoo Finance unadjusted Close；非复权价格回报；整段窗口不拼接Nasdaq或旧代码历史",
+        "source": "Yahoo Finance historical daily OHLCV (Nasdaq收盘日线未发布后的备用源)",
+        "sourceUrl": "https://finance.yahoo.com/quote/MSTR/history/",
         "sampleOrigin": "rolling",
         "sampleNote": "",
-        "historyFile": "history/2026-09-09.json"
+        "historyFile": "history/2026-09-10.json"
       },
       {
         "asset": "MSTR",
         "window": "252D",
-        "percentile": 33.9,
+        "percentile": 29.6,
         "sampleSize": 252,
-        "asOf": "2026-09-09",
-        "referencePrice": 132.7,
-        "rangeLow": 82.31,
-        "rangeHigh": 359.69,
-        "basis": "正式收盘价在可审计日线窗口中的同价中位秩；不是胜率或估值",
-        "source": "Nasdaq历史窗口 + 2026-09-09逐项披露正式收盘备用源",
-        "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/mstr/historical",
+        "asOf": "2026-09-10",
+        "referencePrice": 128.55999755859375,
+        "rangeLow": 82.30999755859375,
+        "rangeHigh": 359.69000244140625,
+        "basis": "Yahoo Finance unadjusted Close；非复权价格回报；整段窗口不拼接Nasdaq或旧代码历史",
+        "source": "Yahoo Finance historical daily OHLCV (Nasdaq收盘日线未发布后的备用源)",
+        "sourceUrl": "https://finance.yahoo.com/quote/MSTR/history/",
         "sampleOrigin": "rolling",
         "sampleNote": "",
-        "historyFile": "history/2026-09-09.json"
+        "historyFile": "history/2026-09-10.json"
       }
     ],
-    "oddsMethod": "截至2026-09-09的可审计真实日线复算：(#低于参考收盘 + 0.5×#等于参考收盘) / 样本数。60D与252D分别滚动，同价中位秩；分位不是胜率或估值。DRAM仅上市后110日，SPCX仅上市后61日；DDOG使用自身269日日线。原始样本见history/2026-09-09.json；Nasdaq当日行未及时释出，9月9日正式OHLCV按逐项披露备用源追加。",
-    "regime": "选择性轮动",
-    "regimeCode": "ROTATION_NEUTRAL",
-    "reviewNote": "所有盘前/盘中判断按原条件复核；缺少形成后分钟序列的15分钟条件仍不倒签触发或失效。",
-    "reviewStatus": "正式收盘已复核",
-    "riskAppetite": "低",
-    "riskNote": "SPY、QQQ收跌而SOXX收涨；DDOG独强，LITE/DRAM温和上涨，IREN/BE/SPCX/MSTR收弱。行业强势未扩散为全面风险偏好。",
+    "oddsMethod": "截至2026-09-10的Yahoo完整正式日线备用序列；Nasdaq首轮未发布当日日线。分位=(低于参考收盘样本+0.5×等于参考收盘样本)/样本数×100。60D/252D同价中位秩，区间为窗口收盘最低/最高；DRAM可用111日、SPCX新主体可用62日，未拼接旧代码或其他供应商。",
+    "regime": "三基准同步收跌 / 半导体与光通信领弱 / SPCX独立抗跌",
+    "regimeCode": "RISK_OFF",
+    "reviewNote": "使用16:00 ET正式OHLCV与形成后完整分钟K线复核。未触发方案的确认前取消不生成模拟进出场或收益；60D/252D由同一备用历史源整段复算。",
+    "reviewStatus": "正式收盘已收口",
+    "riskAppetite": "风险预算保持锁定；不以单一逆势标的上调总Beta",
+    "riskNote": "DRAM、LITE、CRDO、IREN、BE、MSTR均明显收跌；DDOG弱于上涨的软件同行，SPCX虽逆势放量但尾盘回吐。",
     "scenarios": [
       {
-        "label": "基准",
-        "text": "SPY/QQQ收跌、SOXX收涨；DDOG独强，维持选择性轮动和低风险预算。"
+        "label": "收盘结论",
+        "text": "RISK_OFF正式确认；三基准与多数核心股同步走弱。"
+      },
+      {
+        "label": "唯一例外",
+        "text": "SPCX逆势且成交量1.37倍20日均量，但4h偏空与尾盘回吐限制追价权限。"
       },
       {
         "label": "软件分支",
-        "text": "DDOG日线强势成立，但PANW/MDB分化；下一交易日仍以DDOG自身价格和使用量兑现为核心。"
+        "text": "PANW/MDB收涨而DDOG收跌，软件温度正向但DDOG自身未确认。"
       },
       {
-        "label": "高Beta分支",
-        "text": "IREN、BE、SPCX、MSTR正式收弱；数据完成不等于策略解锁，等待各自原条件重新确认。"
-      },
-      {
-        "label": "验证边界",
-        "text": "正式日线只确认日线收口；缺少分钟序列，不倒签任何15分钟触发、失效或交易执行。"
+        "label": "下一步",
+        "text": "本日未触发或已取消方案均不计交易结果；下一盘前基于09/10正式日线建立新前瞻方案。"
       }
     ],
-    "sessionContext": "2026-09-09 正式收盘；中国时间09-10 04:25复核",
+    "sessionContext": "正式收盘复盘 · 9月10日美股交易日",
     "snapshot": [
       {
         "symbol": "SPY",
         "name": "State Street SPDR S&P 500 ETF",
-        "price": 762.4,
-        "changePct": -0.46,
+        "price": 757.89,
+        "changePct": -0.59,
         "tone": "down",
-        "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
+        "priceStatus": "正式收盘 · 09-11 04:00 中国时间"
       },
       {
         "symbol": "QQQ",
         "name": "Invesco QQQ",
-        "price": 716.35,
-        "changePct": -0.28,
+        "price": 708.69,
+        "changePct": -1.06,
         "tone": "down",
-        "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
+        "priceStatus": "正式收盘 · 09-11 04:00 中国时间"
       },
       {
         "symbol": "SOXX",
         "name": "iShares Semiconductor ETF",
-        "price": 532,
-        "changePct": 0.68,
-        "tone": "up",
-        "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
+        "price": 517.43,
+        "changePct": -2.74,
+        "tone": "down",
+        "priceStatus": "正式收盘 · 09-11 04:00 中国时间"
       },
       {
         "symbol": "DRAM",
         "name": "Roundhill Memory ETF",
-        "price": 61.48,
-        "changePct": 0.62,
-        "tone": "up",
-        "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
+        "price": 58.56,
+        "changePct": -4.9,
+        "tone": "down",
+        "priceStatus": "正式收盘 · 09-11 04:00 中国时间"
       },
       {
         "symbol": "LITE",
         "name": "Lumentum Holdings",
-        "price": 988.98,
-        "changePct": 1.07,
-        "tone": "up",
-        "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
+        "price": 935.7,
+        "changePct": -5.39,
+        "tone": "down",
+        "priceStatus": "正式收盘 · 09-11 04:00 中国时间"
       },
       {
         "symbol": "CRDO",
         "name": "Credo · 高速互连",
-        "price": 167.92,
-        "changePct": 0.1,
-        "tone": "up",
-        "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
+        "price": 160.31,
+        "changePct": -4.53,
+        "tone": "down",
+        "priceStatus": "正式收盘 · 09-11 04:00 中国时间"
       },
       {
         "symbol": "DDOG",
         "name": "Datadog · AI软件 / Observability",
-        "price": 225.16,
-        "changePct": 7.1,
-        "tone": "up",
-        "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
+        "price": 221.72,
+        "changePct": -1.58,
+        "tone": "down",
+        "priceStatus": "正式收盘 · 09-11 04:00 中国时间"
       },
       {
         "symbol": "IREN",
         "name": "IREN",
-        "price": 45.36,
-        "changePct": -3.36,
+        "price": 43.64,
+        "changePct": -3.81,
         "tone": "down",
-        "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
+        "priceStatus": "正式收盘 · 09-11 04:00 中国时间"
       },
       {
         "symbol": "BE",
         "name": "Bloom Energy",
-        "price": 269.16,
-        "changePct": -2.91,
+        "price": 258.49,
+        "changePct": -4.01,
         "tone": "down",
-        "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
+        "priceStatus": "正式收盘 · 09-11 04:00 中国时间"
       },
       {
         "symbol": "SPCX",
         "name": "Space Exploration Technologies",
-        "price": 147.58,
-        "changePct": -3.84,
-        "tone": "down",
-        "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
+        "price": 148.18,
+        "changePct": 0.43,
+        "tone": "up",
+        "priceStatus": "正式收盘 · 09-11 04:00 中国时间"
       },
       {
         "symbol": "MSTR",
         "name": "Strategy",
-        "price": 132.7,
-        "changePct": -2.8,
+        "price": 128.56,
+        "changePct": -3.12,
         "tone": "down",
-        "priceStatus": "正式收盘 · 09-10 04:00 中国时间"
+        "priceStatus": "正式收盘 · 09-11 04:00 中国时间"
       },
       {
         "symbol": "BTC",
         "name": "Bitcoin",
-        "price": 78758,
-        "changePct": 0.3,
+        "price": 77211.45,
+        "changePct": 0.07,
         "tone": "up",
-        "priceStatus": "实时现货 · 09-10 02:03 中国时间"
+        "priceStatus": "现货参考 · 09-11 04:32 中国时间"
       }
     ],
     "sources": [
       {
-        "label": "正式收盘主源",
-        "name": "StockAnalysis",
-        "note": "QQQ、SOXX及八股中除MSTR外的正式OHLCV；DDOG使用自身日线。",
-        "url": "https://stockanalysis.com/markets/stocks/"
+        "name": "正式日线与分位备用历史",
+        "source": "Yahoo Finance",
+        "url": "https://finance.yahoo.com/markets/stocks/most-active/",
+        "asOf": "2026-09-10"
       },
       {
-        "label": "正式收盘备用",
-        "name": "MarketWatch / Google Finance",
-        "note": "补证MSTR与SPY正式收盘；未用15:55–15:56快照冒充final。",
-        "url": "https://www.marketwatch.com/investing/stock/mstr"
+        "name": "分钟周期聚合",
+        "source": "Yahoo Finance",
+        "url": "https://finance.yahoo.com/markets/stocks/most-active/",
+        "asOf": "2026-09-11 04:00 中国时间"
       },
       {
-        "label": "历史样本",
-        "name": "Nasdaq历史窗口 + 披露备用行",
-        "note": "截至9月8日完整Nasdaq窗口，追加9月9日逐项披露正式OHLCV。",
-        "url": "https://www.nasdaq.com/market-activity/quotes/historical"
+        "name": "Nasdaq历史首轮尝试",
+        "source": "Nasdaq",
+        "url": "https://www.nasdaq.com/market-activity/quotes/historical",
+        "asOf": "2026-09-11 04:28 中国时间；09/10日线尚未发布"
+      },
+      {
+        "name": "八月PPI",
+        "source": "BLS",
+        "url": "https://www.bls.gov/news.release/ppi.nr0.htm",
+        "asOf": "2026-09-10T20:30:00+08:00"
+      },
+      {
+        "name": "PPI预期与期指反应",
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/sp-500-dow-futures-attempt-recovery-ahead-inflation-report-2026-09-10/",
+        "asOf": "2026-09-10T20:34:00+08:00"
       }
     ],
-    "thesis": "油价与长端收益率压制大盘；半导体相对抗跌，DDOG形成独立软件强势，但高Beta与加密链弱。维持低风险预算，不追单日急涨。",
-    "updateStatus": "正式收盘与16项分位已完成",
-    "updatedAt": "2026-09-10T04:25:00+08:00",
-    "watchVariable": "收盘前补齐QQQ与六项核心股有效窗口；观察DDOG能否守住211.18、DRAM守61.10，以及SPCX是否继续低于147.32。",
+    "thesis": "弱开盘后的修复未能保持到正式收盘。半导体、存储、光通信、电力和加密高Beta普遍走弱；软件同行转强但DDOG自身回落，SPCX是唯一逆势核心股。风险预算继续关闭，下一交易日重新建立前瞻方案。",
+    "updateStatus": "按时更新",
+    "updatedAt": "2026-09-11T04:34:00+08:00",
+    "watchVariable": "下一盘前重新冻结触发条件；重点观察SOXX能否止跌、SPCX放量是否有后续承接，以及DDOG能否重新跟上PANW/MDB软件温度。",
     "watchlist": [
       {
-        "changePct": 0.62,
+        "changePct": -4.9,
         "demandLoop": [
           {
             "key": "industryDemand",
@@ -1328,43 +1384,43 @@
           }
         ],
         "fundamental": "无新增结构性基本面证据；沿用盘前基线。",
-        "invalidation": "回落56.74下方，并伴随存储同业转弱",
+        "invalidation": "确认前正式盘一根15分钟收盘 DRAM<60.00，则本轮观察/入场方案取消。不据此推断历史成交或盈亏。",
         "name": "Roundhill Memory ETF",
-        "price": 61.48,
-        "priceAction": "正式收于61.48（+0.62%），盘中触及62.58后回落；守住61.10，但未以收盘完成62.00上方突破。",
-        "priceStatus": "正式收盘 · 09-10 04:00 中国时间",
-        "relativeStrength": "SOXX +0.68%，存储ETF自身温和上涨。",
-        "resistance": "59.78",
-        "resistanceValue": 59.785,
-        "support": "59.57",
-        "supportValue": 59.57,
+        "price": 58.56,
+        "priceAction": "正式收58.56（-4.9%），收近低位；30m/1h/4h均偏空，盘前观察失效后没有尾盘修复。",
+        "priceStatus": "正式收盘 · 09-11 04:00 中国时间",
+        "relativeStrength": "MU -4.9%、SOXX -2.74%，存储/芯片同步走弱。",
+        "resistance": "前收盘修复锚 61.58",
+        "resistanceValue": 61.58,
+        "support": "近5个正式交易日日内低点 54.285",
+        "supportValue": 54.285,
         "symbol": "DRAM",
         "timeframeMethods": {
-          "15m": "structure",
-          "30m": "structure",
-          "1h": "structure",
-          "4h": "structure",
+          "15m": "aggregate",
+          "30m": "aggregate",
+          "1h": "aggregate",
+          "4h": "aggregate",
           "1d": "daily"
         },
         "timeframeNotes": {
-          "15m": "未取得形成后完整15m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "30m": "未取得形成后完整30m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "1h": "未取得形成后完整1h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "4h": "未取得形成后完整4h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "1d": "09/09正式日线：O 60.89 / H 62.58 / L 60.71 / C 61.48 / V 25244251。"
+          "15m": "Yahoo 1m聚合收盘前完整15m bar O/H/L/C=58.6/58.69/58.35/58.48。",
+          "30m": "Yahoo 1m聚合收盘前完整30m bar O/H/L/C=58.73/58.74/58.35/58.48。",
+          "1h": "Yahoo 1m聚合收盘前完整1h bar O/H/L/C=58.74/58.76/58.35/58.48。",
+          "4h": "Yahoo 1m聚合收盘前完整4h bar O/H/L/C=58.89/58.99/58.2/58.48。",
+          "1d": "09/10正式日线O/H/L/C=59.5/59.81/58.2/58.56，成交量32,423,847。"
         },
         "timeframes": {
-          "15m": "unknown",
-          "30m": "unknown",
-          "1h": "unknown",
-          "4h": "unknown",
-          "1d": "neutral"
+          "15m": "neutral",
+          "30m": "bear",
+          "1h": "bear",
+          "4h": "bear",
+          "1d": "bear"
         },
-        "tone": "up",
-        "verdict": "正式收于61.48（+0.62%），盘中触及62.58后回落；守住61.10，但未以收盘完成62.00上方突破。"
+        "tone": "down",
+        "verdict": "正式收58.56（-4.9%），收近低位；30m/1h/4h均偏空，盘前观察失效后没有尾盘修复。"
       },
       {
-        "changePct": 1.07,
+        "changePct": -5.39,
         "demandLoop": [
           {
             "key": "industryDemand",
@@ -1403,77 +1459,77 @@
           }
         ],
         "fundamental": "无新增结构性基本面证据；沿用盘前基线。",
-        "invalidation": "跌回841.04下方且COHR同步走弱",
+        "invalidation": "确认前正式盘一根15分钟收盘 LITE<940，则本轮观察/入场方案取消。入场后首次15分钟收盘低于940，在下一可交易开盘模拟退出；不能假设成交于止损价。",
         "name": "Lumentum Holdings",
-        "price": 988.98,
-        "priceAction": "正式收于988.98（+1.07%），盘中触及1026.76后回落；仍高于978.54，但急涨后的持续性尚待下一交易日确认。",
-        "priceStatus": "正式收盘 · 09-10 04:00 中国时间",
-        "relativeStrength": "LITE保持上涨，但CRDO仅+0.10%，AI网络链内部强弱分化。",
-        "resistance": "885.83",
-        "resistanceValue": 885.83,
-        "support": "870.58",
-        "supportValue": 870.58,
+        "price": 935.7,
+        "priceAction": "正式收935.7（-5.39%），盘初高见994.5后收近低位；原趋势方案确认前取消，无模拟入场。",
+        "priceStatus": "正式收盘 · 09-11 04:00 中国时间",
+        "relativeStrength": "COHR -3.4%、CRDO -4.53%，光通信链同步降温。",
+        "resistance": "前收盘修复锚 988.98",
+        "resistanceValue": 988.98,
+        "support": "近5个正式交易日日内低点 818.89",
+        "supportValue": 818.89,
         "symbol": "LITE",
         "timeframeMethods": {
-          "15m": "structure",
-          "30m": "structure",
-          "1h": "structure",
-          "4h": "structure",
+          "15m": "aggregate",
+          "30m": "aggregate",
+          "1h": "aggregate",
+          "4h": "aggregate",
           "1d": "daily"
         },
         "timeframeNotes": {
-          "15m": "未取得形成后完整15m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "30m": "未取得形成后完整30m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "1h": "未取得形成后完整1h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "4h": "未取得形成后完整4h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "1d": "09/09正式日线：O 980.06 / H 1026.76 / L 978.11 / C 988.98 / V 4235814。"
+          "15m": "Yahoo 1m聚合收盘前完整15m bar O/H/L/C=938.56/939.95/933.82/935.54。",
+          "30m": "Yahoo 1m聚合收盘前完整30m bar O/H/L/C=945.83/945.83/933.82/935.54。",
+          "1h": "Yahoo 1m聚合收盘前完整1h bar O/H/L/C=941.66/947.97/933.82/935.54。",
+          "4h": "Yahoo 1m聚合收盘前完整4h bar O/H/L/C=959.18/959.49/933.82/935.54。",
+          "1d": "09/10正式日线O/H/L/C=959.43/994.5/933.82/935.7，成交量3,941,091。"
         },
         "timeframes": {
-          "15m": "unknown",
-          "30m": "unknown",
-          "1h": "unknown",
-          "4h": "unknown",
-          "1d": "bull"
+          "15m": "bear",
+          "30m": "bear",
+          "1h": "bear",
+          "4h": "bear",
+          "1d": "bear"
         },
-        "tone": "up",
-        "verdict": "正式收于988.98（+1.07%），盘中触及1026.76后回落；仍高于978.54，但急涨后的持续性尚待下一交易日确认。"
+        "tone": "down",
+        "verdict": "正式收935.7（-5.39%），盘初高见994.5后收近低位；原趋势方案确认前取消，无模拟入场。"
       },
       {
         "symbol": "CRDO",
         "name": "Credo · 高速互连",
-        "price": 167.92,
-        "changePct": 0.1,
-        "tone": "up",
-        "priceStatus": "正式收盘 · 09-10 04:00 中国时间",
-        "support": "160.75",
-        "resistance": "172.05",
+        "price": 160.31,
+        "changePct": -4.53,
+        "tone": "down",
+        "priceStatus": "正式收盘 · 09-11 04:00 中国时间",
+        "support": "近5个正式交易日日内低点 160.75",
+        "resistance": "前收盘修复锚 167.92",
         "supportValue": 160.75,
-        "resistanceValue": 172.05,
-        "invalidation": "跌破160.75且无法收回，或交付/利润率指引持续走弱",
-        "priceAction": "正式收于167.92（+0.10%），冲高173.24后几乎平收；明显弱于LITE，行业强势没有替代个股确认。",
-        "relativeStrength": "LITE +1.07%，CRDO仅+0.10%；同行强势不替代CRDO自身确认。",
+        "resistanceValue": 167.92,
+        "invalidation": "确认前正式盘一根15分钟收盘 CRDO<160.75，则本轮观察/入场方案取消。入场后首次15分钟收盘低于160.75，在下一可交易开盘模拟退出；不能假设成交于止损价。",
+        "priceAction": "正式收160.31（-4.53%），最后15分钟收160.35并低于160.75取消线；原方案未触发。",
+        "relativeStrength": "LITE -5.39%、SOXX -2.74%，行业强势未保持。",
         "fundamental": "FY2027 Q1收入4.790亿美元、同比+114.7%、环比+9.6%；非GAAP毛利率68.0%。Q2收入指引5.25–5.35亿美元、非GAAP毛利率67%–69%；GAAP净利润环比下降，不能只看调整后增长。",
-        "verdict": "正式收于167.92（+0.10%），冲高173.24后几乎平收；明显弱于LITE，行业强势没有替代个股确认。",
+        "verdict": "正式收160.31（-4.53%），最后15分钟收160.35并低于160.75取消线；原方案未触发。",
         "timeframes": {
-          "15m": "unknown",
-          "30m": "unknown",
-          "1h": "unknown",
-          "4h": "unknown",
-          "1d": "neutral"
+          "15m": "bear",
+          "30m": "bear",
+          "1h": "bear",
+          "4h": "bear",
+          "1d": "bear"
         },
         "timeframeMethods": {
-          "15m": "structure",
-          "30m": "structure",
-          "1h": "structure",
-          "4h": "structure",
+          "15m": "aggregate",
+          "30m": "aggregate",
+          "1h": "aggregate",
+          "4h": "aggregate",
           "1d": "daily"
         },
         "timeframeNotes": {
-          "15m": "未取得形成后完整15m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "30m": "未取得形成后完整30m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "1h": "未取得形成后完整1h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "4h": "未取得形成后完整4h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "1d": "09/09正式日线：O 165.02 / H 173.24 / L 164.19 / C 167.92 / V 6618916。"
+          "15m": "Yahoo 1m聚合收盘前完整15m bar O/H/L/C=162.12/162.26/160.05/160.35。",
+          "30m": "Yahoo 1m聚合收盘前完整30m bar O/H/L/C=162.79/162.85/160.05/160.35。",
+          "1h": "Yahoo 1m聚合收盘前完整1h bar O/H/L/C=162.69/162.89/160.05/160.35。",
+          "4h": "Yahoo 1m聚合收盘前完整4h bar O/H/L/C=163.57/164.27/160.05/160.35。",
+          "1d": "09/10正式日线O/H/L/C=162.35/165.65/159.2/160.31，成交量6,770,268。"
         },
         "demandLoop": [
           {
@@ -1516,39 +1572,39 @@
       {
         "symbol": "DDOG",
         "name": "Datadog · AI软件 / Observability",
-        "price": 225.16,
-        "changePct": 7.1,
-        "tone": "up",
-        "priceStatus": "正式收盘 · 09-10 04:00 中国时间",
-        "support": "203.24",
-        "resistance": "211.18",
+        "price": 221.72,
+        "changePct": -1.58,
+        "tone": "down",
+        "priceStatus": "正式收盘 · 09-11 04:00 中国时间",
+        "support": "近5个正式交易日日内低点 203.24",
+        "resistance": "前日高点附近 225.96",
         "supportValue": 203.24,
-        "resistanceValue": 211.1775,
-        "invalidation": "15分钟收线跌破203.24；PANW/MDB强势不能抵消DDOG自身失守",
-        "priceAction": "正式收于225.16（+7.10%），接近日高225.71；MDB上涨而PANW下跌，DDOG为独立软件强势，未用同行替代自身确认。",
-        "relativeStrength": "PANW -0.56%、MDB +0.64%，同行温度分化；DDOG +7.10%显著独立走强。",
-        "fundamental": "沿用中期基线：验证AI/云工作负载、Observability + Security平台扩张、消费型收入、大客户与AI产品采用，以及FCF/利润率/SBC质量；本轮无新增结构证据。",
-        "verdict": "正式收于225.16（+7.10%），接近日高225.71；MDB上涨而PANW下跌，DDOG为独立软件强势，未用同行替代自身确认。",
+        "resistanceValue": 225.96,
+        "invalidation": "确认前正式盘一根15分钟收盘 DDOG<209.04，则本轮观察/入场方案取消。入场后首次15分钟收盘低于209.04，在下一可交易开盘模拟退出；不能假设成交于止损价。",
+        "priceAction": "正式收221.72（-1.58%），日高227.58后回落；15m/30m/1h均偏空，未站上225.96。",
+        "relativeStrength": "PANW +1.01%、MDB +4.32%，软件同行收涨而DDOG下跌；同行只作温度计，显示DDOG自身相对落后。",
+        "fundamental": "沿用中期基线：AI/云工作负载、Observability + Security、消费型收入、大客户及AI产品采用、FCF/利润率/SBC；无新经营结构证据，不因相对抗跌上修基本面。",
+        "verdict": "正式收221.72（-1.58%），日高227.58后回落；15m/30m/1h均偏空，未站上225.96。",
         "timeframes": {
-          "15m": "unknown",
-          "30m": "unknown",
-          "1h": "unknown",
-          "4h": "unknown",
-          "1d": "bull"
+          "15m": "bear",
+          "30m": "bear",
+          "1h": "bear",
+          "4h": "bear",
+          "1d": "bear"
         },
         "timeframeMethods": {
-          "15m": "structure",
-          "30m": "structure",
-          "1h": "structure",
+          "15m": "aggregate",
+          "30m": "aggregate",
+          "1h": "aggregate",
           "4h": "structure",
           "1d": "daily"
         },
         "timeframeNotes": {
-          "15m": "未取得形成后完整15m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "30m": "未取得形成后完整30m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "1h": "未取得形成后完整1h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "4h": "未取得形成后完整4h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "1d": "09/09正式日线：O 212.06 / H 225.71 / L 212.06 / C 225.16 / V 4959043。"
+          "15m": "Yahoo 1m聚合收盘前完整15m bar O/H/L/C=223.54/224.02/221.49/221.71。",
+          "30m": "Yahoo 1m聚合收盘前完整30m bar O/H/L/C=223.43/224.02/221.49/221.71。",
+          "1h": "Yahoo 1m聚合收盘前完整1h bar O/H/L/C=223.87/224.47/221.49/221.71。",
+          "4h": "DDOG 4h原始分钟仅227/240根；结合完整1h偏空、日线收低与当日OHLC作结构性bear判断，不冒充直接4h K线。",
+          "1d": "09/10正式日线O/H/L/C=221.34/227.58/219.31/221.72，成交量2,497,349。"
         },
         "demandLoop": [
           {
@@ -1586,10 +1642,11 @@
             "tone": "flat",
             "note": "跟踪 GAAP/Non-GAAP 利润、FCF、SBC 与经营杠杆，防止只看收入增速。"
           }
-        ]
+        ],
+        "industry": "AI Software / Observability"
       },
       {
-        "changePct": -3.36,
+        "changePct": -3.81,
         "demandLoop": [
           {
             "key": "industryDemand",
@@ -1628,43 +1685,43 @@
           }
         ],
         "fundamental": "财报后的合同、交付、收入与融资基线不变；本轮只更新价格。",
-        "invalidation": "跌回41.82下方且同业承接转弱",
+        "invalidation": "确认前正式盘一根15分钟收盘 IREN<45.00，则本轮观察/入场方案取消。不据此推断历史成交或盈亏。",
         "name": "IREN",
-        "price": 45.36,
-        "priceAction": "正式收于45.36（-3.36%），低于46.93且接近日低；BTC未能带动正Beta修复，AI云与加密链继续分化。",
-        "priceStatus": "正式收盘 · 09-10 04:00 中国时间",
-        "relativeStrength": "IREN -3.36%，未跟随盘中偏稳的BTC；双链分化延续。",
-        "resistance": "44.74",
-        "resistanceValue": 44.745,
-        "support": "41.82",
-        "supportValue": 41.82,
+        "price": 43.64,
+        "priceAction": "正式收43.64（-3.81%），收近43.45日低；盘中确认前取消后弱势保持。",
+        "priceStatus": "正式收盘 · 09-11 04:00 中国时间",
+        "relativeStrength": "BTC收盘附近约77211，IREN显著回落；AI云与加密两条证据均未确认。",
+        "resistance": "前收盘修复锚 45.37",
+        "resistanceValue": 45.37,
+        "support": "近5个正式交易日日内低点 35.76",
+        "supportValue": 35.76,
         "symbol": "IREN",
         "timeframeMethods": {
-          "15m": "structure",
-          "30m": "structure",
-          "1h": "structure",
-          "4h": "structure",
+          "15m": "aggregate",
+          "30m": "aggregate",
+          "1h": "aggregate",
+          "4h": "aggregate",
           "1d": "daily"
         },
         "timeframeNotes": {
-          "15m": "未取得形成后完整15m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "30m": "未取得形成后完整30m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "1h": "未取得形成后完整1h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "4h": "未取得形成后完整4h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "1d": "09/09正式日线：O 46.89 / H 47.27 / L 45.09 / C 45.36 / V 28063651。"
+          "15m": "Yahoo 1m聚合收盘前完整15m bar O/H/L/C=43.88/43.99/43.6/43.63。",
+          "30m": "Yahoo 1m聚合收盘前完整30m bar O/H/L/C=44.03/44.04/43.6/43.63。",
+          "1h": "Yahoo 1m聚合收盘前完整1h bar O/H/L/C=44.06/44.22/43.6/43.63。",
+          "4h": "Yahoo 1m聚合收盘前完整4h bar O/H/L/C=44.81/44.85/43.6/43.63。",
+          "1d": "09/10正式日线O/H/L/C=44.01/45.85/43.45/43.64，成交量33,499,045。"
         },
         "timeframes": {
-          "15m": "unknown",
-          "30m": "unknown",
-          "1h": "unknown",
-          "4h": "unknown",
+          "15m": "bear",
+          "30m": "bear",
+          "1h": "bear",
+          "4h": "bear",
           "1d": "bear"
         },
         "tone": "down",
-        "verdict": "正式收于45.36（-3.36%），低于46.93且接近日低；BTC未能带动正Beta修复，AI云与加密链继续分化。"
+        "verdict": "正式收43.64（-3.81%），收近43.45日低；盘中确认前取消后弱势保持。"
       },
       {
-        "changePct": -2.91,
+        "changePct": -4.01,
         "demandLoop": [
           {
             "key": "industryDemand",
@@ -1703,311 +1760,358 @@
           }
         ],
         "fundamental": "BE五步兑现链无新增结构证据；本轮只更新价格。",
-        "invalidation": "跌回235.55下方并伴随电力同业转弱",
+        "invalidation": "确认前正式盘一根15分钟收盘 BE<259.78，则本轮观察/入场方案取消。不据此推断历史成交或盈亏。",
         "name": "Bloom Energy",
-        "price": 269.16,
-        "priceAction": "正式收于269.16（-2.91%），跌破277.22并接近日低；指数纳入事件后的承接继续降温。",
-        "priceStatus": "正式收盘 · 09-10 04:00 中国时间",
-        "relativeStrength": "BE -2.91%，事件驱动后的价格承接转弱。",
-        "resistance": "253.30",
-        "resistanceValue": 253.2999,
-        "support": "238.41",
-        "supportValue": 238.41,
+        "price": 258.49,
+        "priceAction": "正式收258.49（-4.01%），最后15分钟收258.43并低于259.78取消线；原事件方案未触发。",
+        "priceStatus": "正式收盘 · 09-11 04:00 中国时间",
+        "relativeStrength": "VST -2.68%，电力同行与BE同步偏弱。",
+        "resistance": "前收盘修复锚 269.28",
+        "resistanceValue": 269.28,
+        "support": "近5个正式交易日日内低点 204.3",
+        "supportValue": 204.3,
         "symbol": "BE",
         "timeframeMethods": {
-          "15m": "structure",
-          "30m": "structure",
-          "1h": "structure",
-          "4h": "structure",
+          "15m": "aggregate",
+          "30m": "aggregate",
+          "1h": "aggregate",
+          "4h": "aggregate",
           "1d": "daily"
         },
         "timeframeNotes": {
-          "15m": "未取得形成后完整15m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "30m": "未取得形成后完整30m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "1h": "未取得形成后完整1h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "4h": "未取得形成后完整4h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "1d": "09/09正式日线：O 272.5 / H 280.3 / L 268.66 / C 269.16 / V 11564173。"
+          "15m": "Yahoo 1m聚合收盘前完整15m bar O/H/L/C=259.59/260.63/257.6/258.43。",
+          "30m": "Yahoo 1m聚合收盘前完整30m bar O/H/L/C=259.6/260.63/257.6/258.43。",
+          "1h": "Yahoo 1m聚合收盘前完整1h bar O/H/L/C=261.15/261.37/257.6/258.43。",
+          "4h": "Yahoo 1m聚合收盘前完整4h bar O/H/L/C=266.39/266.68/257.6/258.43。",
+          "1d": "09/10正式日线O/H/L/C=260.71/271.5/257.01/258.49，成交量11,270,116。"
         },
         "timeframes": {
-          "15m": "unknown",
-          "30m": "unknown",
-          "1h": "unknown",
-          "4h": "unknown",
+          "15m": "bear",
+          "30m": "bear",
+          "1h": "bear",
+          "4h": "bear",
           "1d": "bear"
         },
         "tone": "down",
-        "verdict": "正式收于269.16（-2.91%），跌破277.22并接近日低；指数纳入事件后的承接继续降温。"
+        "verdict": "正式收258.49（-4.01%），最后15分钟收258.43并低于259.78取消线；原事件方案未触发。"
       },
       {
-        "changePct": -3.84,
+        "changePct": 0.43,
         "demandLoop": null,
         "fundamental": "无新增结构性基本面证据；沿用盘前基线。",
-        "invalidation": "跌回147.32并继续跌破141.05",
+        "invalidation": "确认前正式盘一根15分钟收盘 SPCX<145.55，则本轮观察/入场方案取消。不据此推断历史成交或盈亏。",
         "name": "Space Exploration Technologies",
-        "price": 147.58,
-        "priceAction": "正式收于147.58（-3.84%），跌回152.30供给区下方；日线确认前一日突破未能保持。",
-        "priceStatus": "正式收盘 · 09-10 04:00 中国时间",
-        "relativeStrength": "SPCX -3.84%，在大盘偏弱日表现更差。",
-        "resistance": "152.30",
-        "resistanceValue": 152.3,
-        "support": "147.32",
-        "supportValue": 147.32,
+        "price": 148.18,
+        "priceAction": "正式收148.18（+0.43%），为唯一上涨核心股且成交量为前20日均量1.37倍，但从154.70高点明显回落。",
+        "priceStatus": "正式收盘 · 09-11 04:00 中国时间",
+        "relativeStrength": "SPY -0.59%，SPCX逆势收涨并放量，但尾盘结构不强。",
+        "resistance": "前收盘修复锚 147.55",
+        "resistanceValue": 147.55,
+        "support": "近5个正式交易日日内低点 138.17",
+        "supportValue": 138.17,
         "symbol": "SPCX",
         "timeframeMethods": {
-          "15m": "structure",
-          "30m": "structure",
-          "1h": "structure",
-          "4h": "structure",
+          "15m": "aggregate",
+          "30m": "aggregate",
+          "1h": "aggregate",
+          "4h": "aggregate",
           "1d": "daily"
         },
         "timeframeNotes": {
-          "15m": "未取得形成后完整15m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "30m": "未取得形成后完整30m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "1h": "未取得形成后完整1h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "4h": "未取得形成后完整4h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "1d": "09/09正式日线：O 152.04 / H 153 / L 145.56 / C 147.58 / V 114428220。"
+          "15m": "Yahoo 1m聚合收盘前完整15m bar O/H/L/C=147.9/148.46/147.48/148.18。",
+          "30m": "Yahoo 1m聚合收盘前完整30m bar O/H/L/C=148.22/148.88/147.22/148.18。",
+          "1h": "Yahoo 1m聚合收盘前完整1h bar O/H/L/C=148.67/148.88/147.01/148.18。",
+          "4h": "Yahoo 1m聚合收盘前完整4h bar O/H/L/C=152.01/152.05/147.01/148.18。",
+          "1d": "09/10正式日线O/H/L/C=145/154.7/144.89/148.18，成交量116,048,106。"
         },
         "timeframes": {
-          "15m": "unknown",
-          "30m": "unknown",
-          "1h": "unknown",
-          "4h": "unknown",
-          "1d": "bear"
+          "15m": "neutral",
+          "30m": "neutral",
+          "1h": "neutral",
+          "4h": "bear",
+          "1d": "neutral"
         },
-        "tone": "down",
-        "verdict": "正式收于147.58（-3.84%），跌回152.30供给区下方；日线确认前一日突破未能保持。"
+        "tone": "up",
+        "verdict": "正式收148.18（+0.43%），为唯一上涨核心股且成交量为前20日均量1.37倍，但从154.70高点明显回落。"
       },
       {
-        "changePct": -2.8,
+        "changePct": -3.12,
         "demandLoop": null,
         "fundamental": "无新增结构性基本面证据；沿用盘前基线。",
-        "invalidation": "跌破137.07且BTC/IBIT继续走弱",
+        "invalidation": "确认前正式盘一根15分钟收盘 MSTR<132.59，则本轮观察/入场方案取消。不据此推断历史成交或盈亏。",
         "name": "Strategy",
-        "price": 132.7,
-        "priceAction": "正式收于132.70（-2.80%），未收回139.31并接近日低；加密正Beta仍未恢复。",
-        "priceStatus": "正式收盘 · 09-10 04:00 中国时间",
-        "relativeStrength": "MSTR -2.80%，未形成相对BTC的正Beta修复。",
-        "resistance": "144.92",
-        "resistanceValue": 144.92,
-        "support": "137.07",
-        "supportValue": 137.0675,
+        "price": 128.56,
+        "priceAction": "正式收128.56（-3.12%），仍低于132.59；BTC约77211，币股正Beta未恢复。",
+        "priceStatus": "正式收盘 · 09-11 04:00 中国时间",
+        "relativeStrength": "BTC约77211，MSTR收跌3.12%，未恢复相对BTC的正Beta。",
+        "resistance": "前收盘修复锚 132.7",
+        "resistanceValue": 132.7,
+        "support": "近5个正式交易日日内低点 121.38",
+        "supportValue": 121.38,
         "symbol": "MSTR",
         "timeframeMethods": {
-          "15m": "structure",
-          "30m": "structure",
-          "1h": "structure",
-          "4h": "structure",
+          "15m": "aggregate",
+          "30m": "aggregate",
+          "1h": "aggregate",
+          "4h": "aggregate",
           "1d": "daily"
         },
         "timeframeNotes": {
-          "15m": "未取得形成后完整15m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "30m": "未取得形成后完整30m原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "1h": "未取得形成后完整1h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "4h": "未取得形成后完整4h原始序列；累计OHLCV不冒充该周期收线或放量信号。",
-          "1d": "09/09正式日线：O 141.82 / H 141.98 / L 132.59 / C 132.7 / V 16880000。"
+          "15m": "Yahoo 1m聚合收盘前完整15m bar O/H/L/C=129.24/129.38/128.5/128.63。",
+          "30m": "Yahoo 1m聚合收盘前完整30m bar O/H/L/C=129.68/129.73/128.5/128.63。",
+          "1h": "Yahoo 1m聚合收盘前完整1h bar O/H/L/C=129.95/130.16/128.5/128.63。",
+          "4h": "Yahoo 1m聚合收盘前完整4h bar O/H/L/C=130.42/131.03/128.5/128.63。",
+          "1d": "09/10正式日线O/H/L/C=128.46/131.88/126.91/128.56，成交量14,204,876。"
         },
         "timeframes": {
-          "15m": "unknown",
-          "30m": "unknown",
-          "1h": "unknown",
-          "4h": "unknown",
+          "15m": "bear",
+          "30m": "bear",
+          "1h": "bear",
+          "4h": "bear",
           "1d": "bear"
         },
         "tone": "down",
-        "verdict": "正式收于132.70（-2.80%），未收回139.31并接近日低；加密正Beta仍未恢复。"
+        "verdict": "正式收128.56（-3.12%），仍低于132.59；BTC约77211，币股正Beta未恢复。"
       }
     ],
-    "sessionDate": "2026-09-09",
-    "nominalAt": "2026-09-10T04:25:00+08:00",
-    "marketCloseAt": "2026-09-10T04:00:00+08:00",
+    "sessionDate": "2026-09-10",
+    "nominalAt": "2026-09-11T04:00:00+08:00",
+    "marketCloseAt": "2026-09-11T04:00:00+08:00",
     "quality": {
-      "checkedAt": "2026-09-10T04:25:00+08:00",
+      "checkedAt": "2026-09-11T04:34:00+08:00",
       "quotes": {
         "SPY": {
-          "open": 764.08,
-          "high": 764.47,
-          "low": 760.94,
-          "volume": 31504311,
-          "price": 762.4,
+          "price": 757.89,
+          "changePct": -0.59,
+          "regularClose": 762.4,
+          "open": 758.030029296875,
+          "high": 760.0900268554688,
+          "low": 756.6400146484375,
+          "volume": 41498244,
           "status": "verified",
-          "asOf": "2026-09-10T04:00:00+08:00",
-          "marketDate": "2026-09-09",
+          "asOf": "2026-09-11T04:00:00+08:00",
+          "marketDate": "2026-09-10",
           "session": "regular",
           "isFinal": true,
-          "source": "Google Finance close / StockAnalysis OHLC range",
-          "sourceUrl": "https://www.google.com/finance/quote/SPY:NYSEARCA",
-          "maxAgeMinutes": 90
+          "source": "Yahoo Finance正式日线（Nasdaq历史接口未及时发布后的备用源）",
+          "sourceUrl": "https://finance.yahoo.com/quote/SPY/history/",
+          "maxAgeMinutes": 150
         },
         "QQQ": {
-          "open": 716.4,
-          "high": 719.7,
-          "low": 714.02,
-          "volume": 24726098,
-          "price": 716.35,
+          "price": 708.69,
+          "changePct": -1.06,
+          "regularClose": 716.31,
+          "open": 707.5650024414062,
+          "high": 712.0599975585938,
+          "low": 706.85498046875,
+          "volume": 30470019,
           "status": "verified",
-          "asOf": "2026-09-10T04:00:00+08:00",
-          "marketDate": "2026-09-09",
+          "asOf": "2026-09-11T04:00:00+08:00",
+          "marketDate": "2026-09-10",
           "session": "regular",
           "isFinal": true,
-          "source": "StockAnalysis official close",
-          "sourceUrl": "https://stockanalysis.com/etf/qqq/",
-          "maxAgeMinutes": 90
+          "source": "Yahoo Finance正式日线（Nasdaq历史接口未及时发布后的备用源）",
+          "sourceUrl": "https://finance.yahoo.com/quote/QQQ/history/",
+          "maxAgeMinutes": 150
         },
         "SOXX": {
-          "open": 524.85,
-          "high": 535.48,
-          "low": 524.85,
-          "volume": 6215415,
-          "price": 532,
+          "price": 517.43,
+          "changePct": -2.74,
+          "regularClose": 532,
+          "open": 518.3200073242188,
+          "high": 522.5,
+          "low": 514.3099975585938,
+          "volume": 6432420,
           "status": "verified",
-          "asOf": "2026-09-10T04:00:00+08:00",
-          "marketDate": "2026-09-09",
+          "asOf": "2026-09-11T04:00:00+08:00",
+          "marketDate": "2026-09-10",
           "session": "regular",
           "isFinal": true,
-          "source": "StockAnalysis official close",
-          "sourceUrl": "https://stockanalysis.com/etf/soxx/",
-          "maxAgeMinutes": 90
+          "source": "Yahoo Finance正式日线（Nasdaq历史接口未及时发布后的备用源）",
+          "sourceUrl": "https://finance.yahoo.com/quote/SOXX/history/",
+          "maxAgeMinutes": 150
         },
         "DRAM": {
-          "open": 60.89,
-          "high": 62.58,
-          "low": 60.71,
-          "volume": 25244251,
-          "price": 61.48,
+          "price": 58.56,
+          "changePct": -4.9,
+          "regularClose": 61.58,
+          "open": 59.5,
+          "high": 59.810001373291016,
+          "low": 58.20000076293945,
+          "volume": 32423847,
           "status": "verified",
-          "asOf": "2026-09-10T04:00:00+08:00",
-          "marketDate": "2026-09-09",
+          "asOf": "2026-09-11T04:00:00+08:00",
+          "marketDate": "2026-09-10",
           "session": "regular",
           "isFinal": true,
-          "source": "StockAnalysis official close",
-          "sourceUrl": "https://stockanalysis.com/etf/dram/",
-          "maxAgeMinutes": 90
+          "source": "Yahoo Finance正式日线（Nasdaq历史接口未及时发布后的备用源）",
+          "sourceUrl": "https://finance.yahoo.com/quote/DRAM/history/",
+          "maxAgeMinutes": 150
         },
         "LITE": {
-          "open": 980.06,
-          "high": 1026.76,
-          "low": 978.11,
-          "volume": 4235814,
-          "price": 988.98,
+          "price": 935.7,
+          "changePct": -5.39,
+          "regularClose": 988.98,
+          "open": 959.4349975585938,
+          "high": 994.5,
+          "low": 933.8200073242188,
+          "volume": 3941091,
           "status": "verified",
-          "asOf": "2026-09-10T04:00:00+08:00",
-          "marketDate": "2026-09-09",
+          "asOf": "2026-09-11T04:00:00+08:00",
+          "marketDate": "2026-09-10",
           "session": "regular",
           "isFinal": true,
-          "source": "StockAnalysis official close",
-          "sourceUrl": "https://stockanalysis.com/stocks/lite/",
-          "maxAgeMinutes": 90
+          "source": "Yahoo Finance正式日线（Nasdaq历史接口未及时发布后的备用源）",
+          "sourceUrl": "https://finance.yahoo.com/quote/LITE/history/",
+          "maxAgeMinutes": 150
         },
         "CRDO": {
-          "open": 165.02,
-          "high": 173.24,
-          "low": 164.19,
-          "volume": 6618916,
-          "price": 167.92,
+          "price": 160.31,
+          "changePct": -4.53,
+          "regularClose": 167.92,
+          "open": 162.35000610351562,
+          "high": 165.64999389648438,
+          "low": 159.1999969482422,
+          "volume": 6770268,
           "status": "verified",
-          "asOf": "2026-09-10T04:00:00+08:00",
-          "marketDate": "2026-09-09",
+          "asOf": "2026-09-11T04:00:00+08:00",
+          "marketDate": "2026-09-10",
           "session": "regular",
           "isFinal": true,
-          "source": "StockAnalysis official close",
-          "sourceUrl": "https://stockanalysis.com/stocks/crdo/",
-          "maxAgeMinutes": 90
+          "source": "Yahoo Finance正式日线（Nasdaq历史接口未及时发布后的备用源）",
+          "sourceUrl": "https://finance.yahoo.com/quote/CRDO/history/",
+          "maxAgeMinutes": 150
         },
         "DDOG": {
-          "open": 212.06,
-          "high": 225.71,
-          "low": 212.06,
-          "volume": 4959043,
-          "price": 225.16,
+          "price": 221.72,
+          "changePct": -1.58,
+          "regularClose": 225.27,
+          "open": 221.33999633789062,
+          "high": 227.5800018310547,
+          "low": 219.30999755859375,
+          "volume": 2497349,
           "status": "verified",
-          "asOf": "2026-09-10T04:00:00+08:00",
-          "marketDate": "2026-09-09",
+          "asOf": "2026-09-11T04:00:00+08:00",
+          "marketDate": "2026-09-10",
           "session": "regular",
           "isFinal": true,
-          "source": "StockAnalysis official close",
-          "sourceUrl": "https://stockanalysis.com/stocks/ddog/",
-          "maxAgeMinutes": 90
+          "source": "Yahoo Finance正式日线（Nasdaq历史接口未及时发布后的备用源）",
+          "sourceUrl": "https://finance.yahoo.com/quote/DDOG/history/",
+          "maxAgeMinutes": 150
         },
         "IREN": {
-          "open": 46.89,
-          "high": 47.27,
-          "low": 45.09,
-          "volume": 28063651,
-          "price": 45.36,
+          "price": 43.64,
+          "changePct": -3.81,
+          "regularClose": 45.37,
+          "open": 44.0099983215332,
+          "high": 45.84989929199219,
+          "low": 43.45000076293945,
+          "volume": 33499045,
           "status": "verified",
-          "asOf": "2026-09-10T04:00:00+08:00",
-          "marketDate": "2026-09-09",
+          "asOf": "2026-09-11T04:00:00+08:00",
+          "marketDate": "2026-09-10",
           "session": "regular",
           "isFinal": true,
-          "source": "StockAnalysis official close",
-          "sourceUrl": "https://stockanalysis.com/stocks/iren/",
-          "maxAgeMinutes": 90
+          "source": "Yahoo Finance正式日线（Nasdaq历史接口未及时发布后的备用源）",
+          "sourceUrl": "https://finance.yahoo.com/quote/IREN/history/",
+          "maxAgeMinutes": 150
         },
         "BE": {
-          "open": 272.5,
-          "high": 280.3,
-          "low": 268.66,
-          "volume": 11564173,
-          "price": 269.16,
+          "price": 258.49,
+          "changePct": -4.01,
+          "regularClose": 269.28,
+          "open": 260.7080078125,
+          "high": 271.5,
+          "low": 257.010009765625,
+          "volume": 11270116,
           "status": "verified",
-          "asOf": "2026-09-10T04:00:00+08:00",
-          "marketDate": "2026-09-09",
+          "asOf": "2026-09-11T04:00:00+08:00",
+          "marketDate": "2026-09-10",
           "session": "regular",
           "isFinal": true,
-          "source": "StockAnalysis official close",
-          "sourceUrl": "https://stockanalysis.com/stocks/be/",
-          "maxAgeMinutes": 90
+          "source": "Yahoo Finance正式日线（Nasdaq历史接口未及时发布后的备用源）",
+          "sourceUrl": "https://finance.yahoo.com/quote/BE/history/",
+          "maxAgeMinutes": 150
         },
         "SPCX": {
-          "open": 152.04,
-          "high": 153,
-          "low": 145.56,
-          "volume": 114428220,
-          "price": 147.58,
+          "price": 148.18,
+          "changePct": 0.43,
+          "regularClose": 147.55,
+          "open": 145,
+          "high": 154.6999969482422,
+          "low": 144.88999938964844,
+          "volume": 116048106,
           "status": "verified",
-          "asOf": "2026-09-10T04:00:00+08:00",
-          "marketDate": "2026-09-09",
+          "asOf": "2026-09-11T04:00:00+08:00",
+          "marketDate": "2026-09-10",
           "session": "regular",
           "isFinal": true,
-          "source": "StockAnalysis official close",
-          "sourceUrl": "https://stockanalysis.com/stocks/spcx/",
-          "maxAgeMinutes": 90
+          "source": "Yahoo Finance正式日线（Nasdaq历史接口未及时发布后的备用源）",
+          "sourceUrl": "https://finance.yahoo.com/quote/SPCX/history/",
+          "maxAgeMinutes": 150
         },
         "MSTR": {
-          "open": 141.82,
-          "high": 141.98,
-          "low": 132.59,
-          "volume": 16880000,
-          "price": 132.7,
+          "price": 128.56,
+          "changePct": -3.12,
+          "regularClose": 132.7,
+          "open": 128.4600067138672,
+          "high": 131.87989807128906,
+          "low": 126.91000366210938,
+          "volume": 14204876,
           "status": "verified",
-          "asOf": "2026-09-10T04:00:00+08:00",
-          "marketDate": "2026-09-09",
+          "asOf": "2026-09-11T04:00:00+08:00",
+          "marketDate": "2026-09-10",
           "session": "regular",
           "isFinal": true,
-          "source": "MarketWatch official close",
-          "sourceUrl": "https://www.marketwatch.com/investing/stock/mstr",
-          "maxAgeMinutes": 90
+          "source": "Yahoo Finance正式日线（Nasdaq历史接口未及时发布后的备用源）",
+          "sourceUrl": "https://finance.yahoo.com/quote/MSTR/history/",
+          "maxAgeMinutes": 150
         },
         "BTC": {
+          "price": 77211.45,
+          "changePct": null,
           "open": null,
-          "high": 79701,
-          "low": 78098,
+          "high": null,
+          "low": null,
           "volume": null,
-          "price": 78758,
           "status": "verified",
-          "asOf": "2026-09-10T02:03:00+08:00",
-          "marketDate": "2026-09-09",
+          "asOf": "2026-09-11T04:32:00+08:00",
+          "marketDate": "2026-09-10",
           "session": "crypto",
           "isFinal": false,
-          "source": "Google Finance live crypto quote",
-          "sourceUrl": "https://www.google.com/finance/quote/BTC-USD",
+          "source": "Yahoo Finance BTC现货参考",
+          "sourceUrl": "https://finance.yahoo.com/quote/BTC-USD/",
           "maxAgeMinutes": 150
+        }
+      },
+      "peerQuotes": {
+        "PANW": {
+          "price": 338.49,
+          "changePct": 1.01,
+          "status": "verified",
+          "asOf": "2026-09-11T04:00:00+08:00",
+          "marketDate": "2026-09-10",
+          "session": "regular",
+          "isFinal": true,
+          "source": "Yahoo Finance正式日线",
+          "sourceUrl": "https://finance.yahoo.com/quote/PANW/history/"
+        },
+        "MDB": {
+          "price": 373.87,
+          "changePct": 4.32,
+          "status": "verified",
+          "asOf": "2026-09-11T04:00:00+08:00",
+          "marketDate": "2026-09-10",
+          "session": "regular",
+          "isFinal": true,
+          "source": "Yahoo Finance正式日线",
+          "sourceUrl": "https://finance.yahoo.com/quote/MDB/history/"
         }
       },
       "issues": [
         {
-          "code": "MINUTE_SEQUENCE_MISSING",
-          "message": "正式日线与累计成交量完整，但缺少形成后分钟序列；15m/30m/1h/4h及盘中量能确认保持unknown",
+          "code": "NASDAQ_DAILY_STALE_FALLBACK_USED",
+          "message": "Nasdaq历史接口首轮未返回09/10日线；已切换Yahoo完整历史序列整段复算，未拼接供应商。",
           "scope": "metric",
           "assets": [
             "DRAM",
@@ -2020,31 +2124,14 @@
             "MSTR"
           ],
           "effect": "reference",
-          "level": "warning"
+          "level": "info"
         },
         {
-          "code": "DDOG_PEER_MIXED",
-          "message": "PANW -0.56%、MDB +0.64%；仅作DDOG软件同行温度计，不替代DDOG自身确认",
+          "code": "DDOG_4H_MINUTE_GAPS",
+          "message": "DDOG收盘前4h分钟序列仅227/240根；4h采用完整1h+日线OHLC结构判断，15m/30m/1h与正式日线完整。",
           "scope": "asset",
           "assets": [
             "DDOG"
-          ],
-          "effect": "linkage",
-          "level": "warning"
-        },
-        {
-          "code": "HISTORY_FALLBACK_DISCLOSED",
-          "message": "Nasdaq当日日线未及时释出；9月8日前完整窗口保留，9月9日正式OHLCV按逐项披露备用源追加",
-          "scope": "metric",
-          "assets": [
-            "DRAM",
-            "LITE",
-            "CRDO",
-            "DDOG",
-            "IREN",
-            "BE",
-            "SPCX",
-            "MSTR"
           ],
           "effect": "reference",
           "level": "warning"
@@ -2053,8 +2140,8 @@
     },
     "completion": {
       "status": "final",
-      "checkedAt": "2026-09-10T04:25:00+08:00",
-      "note": "八标的及SPY/QQQ/SOXX正式OHLCV完整，DDOG独立历史与16项分位已复算。",
+      "checkedAt": "2026-09-11T04:34:00+08:00",
+      "note": "正式OHLCV、八股结构及60D/252D共16/16项完成到2026-09-10；历史复算文件可验证。",
       "pendingAssets": [],
       "finalAssets": [
         "SPY",
@@ -2068,7 +2155,8 @@
         "BE",
         "SPCX",
         "MSTR"
-      ]
+      ],
+      "researchComplete": true
     }
   },
   "decisionLedger": [
@@ -9569,7 +9657,7 @@
       "referencePrice": 162,
       "trigger": "正式盘同一根15分钟收盘 CRDO≥167.92 AND（LITE≥988.98 OR SOXX≥532.00）。",
       "invalidation": "确认前正式盘一根15分钟收盘 CRDO<160.75，则本轮观察/入场方案取消。入场后首次15分钟收盘低于160.75，在下一可交易开盘模拟退出；不能假设成交于止损价。",
-      "planStatus": "等待触发",
+      "planStatus": "剧本失效",
       "permissionsAtCall": {
         "chase": "关闭",
         "overnight": "关闭",
@@ -9581,15 +9669,23 @@
         "linkage": "mixed"
       },
       "outcome": {
-        "status": "open",
+        "status": "invalidated",
         "triggeredAt": null,
-        "invalidatedAt": null,
-        "evaluatedAt": null,
+        "invalidatedAt": "2026-09-11T04:00:00+08:00",
+        "evaluatedAt": "2026-09-11T04:34:00+08:00",
         "return1D": null,
         "return3D": null,
         "mfe": null,
         "mae": null,
-        "falseBreakout": false
+        "falseBreakout": false,
+        "assessmentAttempt": {
+          "at": "2026-09-11T04:34:00+08:00",
+          "status": "verified",
+          "reason": "收盘前完整15分钟收线低于原确认前取消线；方案未触发，无模拟入场或收益。",
+          "sourcesTried": [
+            "https://query1.finance.yahoo.com/v8/finance/chart/CRDO?interval=1m&range=5d"
+          ]
+        }
       },
       "originalPlan": {
         "trigger": "正式盘同一根15分钟收盘 CRDO≥167.92 AND（LITE≥988.98 OR SOXX≥532.00）。",
@@ -9653,15 +9749,23 @@
         "linkage": "mixed"
       },
       "outcome": {
-        "status": "open",
+        "status": "expired",
         "triggeredAt": null,
         "invalidatedAt": null,
-        "evaluatedAt": null,
+        "evaluatedAt": "2026-09-11T04:34:00+08:00",
         "return1D": null,
         "return3D": null,
         "mfe": null,
         "mae": null,
-        "falseBreakout": false
+        "falseBreakout": false,
+        "assessmentAttempt": {
+          "at": "2026-09-11T04:34:00+08:00",
+          "status": "verified",
+          "reason": "有效期结束前未同时满足原冻结触发条件；无模拟入场或收益。",
+          "sourcesTried": [
+            "https://query1.finance.yahoo.com/v8/finance/chart/DDOG?interval=1m&range=5d"
+          ]
+        }
       },
       "originalPlan": {
         "trigger": "正式盘同一根15分钟收盘 DDOG≥225.96 AND（PANW≥335.10 OR MDB≥358.38）。",
@@ -9778,7 +9882,7 @@
       "referencePrice": 258.9208,
       "trigger": "正式盘同一根15分钟收盘 BE≥269.28 AND VST≥151.10。仅完成修复观察，不自动生成交易。",
       "invalidation": "确认前正式盘一根15分钟收盘 BE<259.78，则本轮观察/入场方案取消。不据此推断历史成交或盈亏。",
-      "planStatus": "等待触发",
+      "planStatus": "剧本失效",
       "permissionsAtCall": {
         "beta": "低",
         "chase": "关闭",
@@ -9790,15 +9894,23 @@
         "linkage": "mixed"
       },
       "outcome": {
-        "status": "open",
+        "status": "invalidated",
         "triggeredAt": null,
-        "invalidatedAt": null,
-        "evaluatedAt": null,
+        "invalidatedAt": "2026-09-11T04:00:00+08:00",
+        "evaluatedAt": "2026-09-11T04:34:00+08:00",
         "return1D": null,
         "return3D": null,
         "mfe": null,
         "mae": null,
-        "falseBreakout": false
+        "falseBreakout": false,
+        "assessmentAttempt": {
+          "at": "2026-09-11T04:34:00+08:00",
+          "status": "verified",
+          "reason": "收盘前完整15分钟收线低于原确认前取消线；方案未触发，无模拟入场或收益。",
+          "sourcesTried": [
+            "https://query1.finance.yahoo.com/v8/finance/chart/BE?interval=1m&range=5d"
+          ]
+        }
       },
       "originalPlan": {
         "trigger": "正式盘同一根15分钟收盘 BE≥269.28 AND VST≥151.10。仅完成修复观察，不自动生成交易。",
@@ -9855,15 +9967,23 @@
         "linkage": "mixed"
       },
       "outcome": {
-        "status": "open",
+        "status": "expired",
         "triggeredAt": null,
         "invalidatedAt": null,
-        "evaluatedAt": null,
+        "evaluatedAt": "2026-09-11T04:34:00+08:00",
         "return1D": null,
         "return3D": null,
         "mfe": null,
         "mae": null,
-        "falseBreakout": false
+        "falseBreakout": false,
+        "assessmentAttempt": {
+          "at": "2026-09-11T04:34:00+08:00",
+          "status": "verified",
+          "reason": "有效期结束前未同时满足原冻结触发条件；无模拟入场或收益。",
+          "sourcesTried": [
+            "https://query1.finance.yahoo.com/v8/finance/chart/SPCX?interval=1m&range=5d"
+          ]
+        }
       },
       "originalPlan": {
         "trigger": "正式盘同一根15分钟收盘 SPCX≥147.55 AND SPY≥762.40。仅完成修复观察，不自动生成交易。",
@@ -14667,12 +14787,12 @@
     }
   ],
   "meta": {
-    "latestSession": "late",
-    "nextUpdate": "2026-09-11T04:25:00+08:00",
+    "latestSession": "close",
+    "nextUpdate": "2026-09-11T21:05:00+08:00",
     "schemaVersion": 16,
     "sessionDate": "2026-09-10",
     "timezone": "Asia/Shanghai",
-    "updatedAt": "2026-09-11T02:09:00+08:00",
+    "updatedAt": "2026-09-11T04:34:00+08:00",
     "scheduledTimezone": "America/New_York",
     "maintenanceNote": "v16：核心八股切换 DDOG；CIEN 历史冻结；PANW/MDB 为软件同行温度计",
     "analysisProtocol": {
@@ -14680,7 +14800,7 @@
       "activatedAt": "2026-09-05T17:51:22+08:00",
       "baselineSHA": "7b03ecc0885d1ab441c549c42635b989a2242ae2"
     },
-    "nominalAt": "2026-09-11T02:05:00+08:00",
+    "nominalAt": "2026-09-11T04:00:00+08:00",
     "updateStatus": "按时更新",
     "coreMigration": {
       "date": "2026-09-09",
@@ -16930,6 +17050,73 @@
     }
   },
   "reviews": [
+    {
+      "date": "2026-09-10",
+      "stage": "04:25 正式收盘复盘",
+      "status": "已复核",
+      "title": "弱市正式收口，SPCX逆势但尾盘回吐",
+      "summary": "SPY、QQQ、SOXX同步收跌；DRAM/LITE/CRDO/IREN/BE/MSTR明显走弱，DDOG落后上涨的软件同行，SPCX为唯一上涨且放量核心股。",
+      "errorLayer": "收盘保持 / 行业联动 / 价格确认",
+      "failedAssumption": "开盘低点后的修复会扩散并保持至收盘。",
+      "validDriver": "完整15分钟收线与正式日线正确识别了午后失效；20日均量对比显示SPCX有独立承接，但4h回吐限制趋势升级。",
+      "modelChange": "不新增永久规则；下一轮继续冻结形成后条件，软件同行只作DDOG温度，单一逆势股不解锁市场风险预算。",
+      "assets": [
+        {
+          "asset": "市场",
+          "expected": "正式盘同一根15分钟收盘 SPY≥762.40 AND QQQ≥716.31 AND SOXX≥532.00。",
+          "actual": "正式收盘SPY -0.59%、QQQ -1.06%、SOXX -2.74%；三项均收跌，SOXX最弱，午后RISK_OFF判断得到确认。",
+          "result": "失效"
+        },
+        {
+          "asset": "DRAM",
+          "expected": "正式盘同一根15分钟收盘 DRAM≥61.58 AND SOXX≥532.00。仅完成修复观察，不自动生成交易。",
+          "actual": "正式收58.56（-4.9%），收近低位；30m/1h/4h均偏空，盘前观察失效后没有尾盘修复。",
+          "result": "失效"
+        },
+        {
+          "asset": "LITE",
+          "expected": "正式盘同一根15分钟收盘 LITE≥988.98 AND CRDO≥167.92。",
+          "actual": "正式收935.7（-5.39%），盘初高见994.5后收近低位；原趋势方案确认前取消，无模拟入场。",
+          "result": "失效"
+        },
+        {
+          "asset": "CRDO",
+          "expected": "正式盘同一根15分钟收盘 CRDO≥167.92 AND（LITE≥988.98 OR SOXX≥532.00）。",
+          "actual": "正式收160.31（-4.53%），最后15分钟收160.35并低于160.75取消线；原方案未触发。",
+          "result": "失效"
+        },
+        {
+          "asset": "DDOG",
+          "expected": "正式盘同一根15分钟收盘 DDOG≥225.96 AND（PANW≥335.10 OR MDB≥358.38）。",
+          "actual": "正式收221.72（-1.58%），日高227.58后回落；15m/30m/1h均偏空，未站上225.96。",
+          "result": "未确认"
+        },
+        {
+          "asset": "IREN",
+          "expected": "正式盘同一根15分钟收盘 IREN≥45.37 AND QQQ≥716.31。仅完成修复观察，不自动生成交易。",
+          "actual": "正式收43.64（-3.81%），收近43.45日低；盘中确认前取消后弱势保持。",
+          "result": "失效"
+        },
+        {
+          "asset": "BE",
+          "expected": "正式盘同一根15分钟收盘 BE≥269.28 AND VST≥151.10。仅完成修复观察，不自动生成交易。",
+          "actual": "正式收258.49（-4.01%），最后15分钟收258.43并低于259.78取消线；原事件方案未触发。",
+          "result": "失效"
+        },
+        {
+          "asset": "SPCX",
+          "expected": "正式盘同一根15分钟收盘 SPCX≥147.55 AND SPY≥762.40。仅完成修复观察，不自动生成交易。",
+          "actual": "正式收148.18（+0.43%），为唯一上涨核心股且成交量为前20日均量1.37倍，但从154.70高点明显回落。",
+          "result": "部分确认"
+        },
+        {
+          "asset": "MSTR",
+          "expected": "正式盘同一根15分钟收盘 MSTR≥132.70 AND QQQ≥716.31。仅完成修复观察，不自动生成交易。",
+          "actual": "正式收128.56（-3.12%），仍低于132.59；BTC约77211，币股正Beta未恢复。",
+          "result": "失效"
+        }
+      ]
+    },
     {
       "date": "2026-09-10",
       "stage": "02:05 午后再验证",
