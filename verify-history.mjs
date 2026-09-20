@@ -3,7 +3,7 @@ import { resolve, dirname } from 'node:path';
 import model from './market-model.js';
 const file = resolve(process.argv[2] || 'data.json'), session = process.argv[3] || 'close';
 const data = JSON.parse(readFileSync(file, 'utf8')), odds = data[session]?.odds;
-if (!odds || odds.length !== model.TARGETS.length * 2) throw Error('Expected 16 percentile rows');
+if (!odds || odds.length !== model.TARGETS.length * 2) throw Error('Expected 2 × TARGETS percentile rows');
 for (const item of odds) {
   if (!item.historyFile) throw Error(item.asset + ': missing auditable historyFile');
   const history = JSON.parse(readFileSync(resolve(dirname(file), item.historyFile), 'utf8'));
@@ -15,4 +15,4 @@ for (const item of odds) {
   if (item.asset === 'SPCX' && asset.rows.some(x => x.date < '2026-06-12')) throw Error('SPCX contains old instrument history');
   if (item.asset === 'DRAM' && asset.rows.some(x => x.date < '2026-04-02')) throw Error('DRAM contains pre-launch history');
 }
-console.log('VERIFIED: all 16 percentiles reproduce from dated source bars');
+console.log('VERIFIED: all current-target percentiles reproduce from dated source bars');

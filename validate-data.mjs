@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import model from './market-model.js';
+import sectors from './sector-model.js';
 
 const file = process.argv[2] || new URL('./data.json', import.meta.url).pathname;
 const data = JSON.parse(readFileSync(file, 'utf8'));
@@ -7,7 +8,7 @@ const sessions = ['premarket', 'intraday', 'late', 'close'];
 const targetOrder = model.TARGETS;
 const actionOrder = ['MARKET', ...targetOrder];
 const legacyReviewOrder = ['MARKET', 'DRAM', 'LITE', 'CIEN', 'CRDO', 'IREN', 'BE', 'SPCX', 'MSTR'];
-const legacyAssets = new Set(['CIEN']);
+const legacyAssets = new Set(['CIEN', 'CRDO', 'DDOG']);
 const historicalAssetAllowed = (asset) => actionOrder.includes(asset) || legacyAssets.has(asset);
 const changeOrder = ['市场', ...targetOrder];
 const snapshotOrder = ['SPY', 'QQQ', 'SOXX', ...targetOrder, 'BTC'];
@@ -24,13 +25,13 @@ const tones = new Set(['up', 'down', 'flat']);
 const timeframeMethods = new Set(['direct', 'aggregate', 'structure', 'daily']);
 const capitalKeys = ['endDemand', 'unitEconomics', 'capex', 'financing', 'price'];
 const demandLoopKeys = ['industryDemand', 'ordersCommitments', 'deliveryUtilization', 'revenueConversion', 'marginCashFlow'];
-const fundamentalLoopAssets = new Set(['DRAM', 'LITE', 'CRDO', 'DDOG', 'IREN', 'BE']);
+const fundamentalLoopAssets = new Set(['DRAM', 'LITE', 'IREN', 'BE']);
 const overbuildStates = new Set(['unknown', 'no_signal', 'early_warning', 'confirmed']);
 const errors = [];
 const warnings = [];
 const fail = (path, message) => errors.push(`${path}: ${message}`);
 
-if (Number(data?.meta?.schemaVersion) !== model.SCHEMA) fail('meta.schemaVersion', '必须为 16');
+if (Number(data?.meta?.schemaVersion) !== model.SCHEMA) fail('meta.schemaVersion', '必须为 17');
 if (!sessions.includes(data?.meta?.latestSession)) fail('meta.latestSession', '不是合法时段');
 
 for (const key of sessions) {
@@ -179,7 +180,7 @@ for (const key of sessions) {
   });
   const extendedOrder = (session.extendedHours || []).filter(Boolean).map((item) => item.symbol).filter((symbol) => targetOrder.includes(symbol));
   if (extendedOrder.length && JSON.stringify(extendedOrder) !== JSON.stringify(targetOrder)) fail(`${base}.extendedHours`, `存在时必须覆盖并按 ${targetOrder.join(' / ')} 排序`);
-  if (!Array.isArray(session.changes) || session.changes.length !== 9) fail(`${base}.changes`, '必须覆盖市场与八个标的');
+  if (!Array.isArray(session.changes) || session.changes.length !== actionOrder.length) fail(`${base}.changes`, '必须覆盖市场与全部当前标的');
   else {
     const actualChangeOrder = session.changes.map((change) => change.asset);
     if (JSON.stringify(actualChangeOrder) !== JSON.stringify(changeOrder)) fail(`${base}.changes`, `顺序必须为 ${changeOrder.join(' / ')}`);
@@ -195,7 +196,7 @@ for (const key of sessions) {
 
 const latestReviewAssets = (data.reviews?.[0]?.assets || []).map((item) => item.asset === '市场' ? 'MARKET' : item.asset);
 const latestReviewDate = data.reviews?.[0]?.date || '';
-const expectedReviewOrder = latestReviewDate && latestReviewDate < '2026-09-09' ? legacyReviewOrder : actionOrder;
+const expectedReviewOrder = latestReviewDate && latestReviewDate < '2026-09-09' ? legacyReviewOrder : latestReviewDate < '2026-09-20' ? ['MARKET','DRAM','LITE','CRDO','DDOG','IREN','BE','SPCX','MSTR'] : actionOrder;
 if (JSON.stringify(latestReviewAssets) !== JSON.stringify(expectedReviewOrder)) fail('reviews[0].assets', `顺序与该复盘日期的核心矩阵不一致`);
 const mediumOrder = (data.mediumLedger || []).map((item) => item.asset === '市场' ? 'MARKET' : item.asset);
 if (JSON.stringify(mediumOrder) !== JSON.stringify(actionOrder)) fail('mediumLedger', `顺序必须为 MARKET / ${targetOrder.join(' / ')}`);
@@ -228,7 +229,7 @@ else {
       if (outcome.falseBreakout === true && !outcome.triggeredAt) fail(`${path}.outcome.falseBreakout`, '没有触发证据不得判为失败突破');
       if (outcome.return1D != null || outcome.return3D != null) for (const error of model.resultErrors(call)) fail(`${path}.outcome`, error);
     }
-    if (!call.supersededBy && call.sessionDate === data.meta?.sessionDate && call.session === data.meta?.latestSession && ['open', 'triggered'].includes(outcome.status)) {
+    if (actionOrder.includes(call.asset) && !call.supersededBy && call.sessionDate === data.meta?.sessionDate && call.session === data.meta?.latestSession && ['open', 'triggered'].includes(outcome.status)) {
       const active = data[call.session]?.horizons?.[call.asset]?.short;
       if (!active) fail(`${path}.session`, '最新开放判断没有对应的 horizons 短线剧本');
       else {
@@ -245,6 +246,7 @@ if (process.argv[3]) {
   if (previous.meta?.analysisProtocol && JSON.stringify(data.meta?.analysisProtocol) !== JSON.stringify(previous.meta.analysisProtocol)) fail('meta.analysisProtocol', '前瞻评估启用基线不可移除或改写');
   const oldIds = new Set((previous.decisionLedger || []).map(c => c.callId));
   if (data.meta?.analysisProtocol?.version === 1) for (const call of data.decisionLedger || []) {
+    if (!oldIds.has(call.callId) && !actionOrder.includes(call.asset)) fail(`decisionLedger.${call.callId}`, '退休标的不得新增判断');
     if (!oldIds.has(call.callId) && (!call.evaluationPlan || call.evaluationPlan.version !== 1)) fail(`decisionLedger.${call.callId}.evaluationPlan`, '新判断必须事先冻结评估方案');
     if (!oldIds.has(call.callId) && call.evaluationPlan && !(Date.parse(call.evaluationPlan.recordedAt) >= Date.parse(data.meta.analysisProtocol.activatedAt))) fail(`decisionLedger.${call.callId}.evaluationPlan.recordedAt`, '新方案不得倒签至协议启用之前');
   }
@@ -257,9 +259,12 @@ if (process.argv[3]) {
   }
 }
 
+for (const error of sectors.errors(data.sectorPulse)) fail('sectorPulse', error);
+for (const key of sessions) if (data[key]?.sectorPulse) for (const error of sectors.errors(data[key].sectorPulse)) fail(key+'.sectorPulse', error);
+
 if (warnings.length) console.warn(`WARNINGS (${warnings.length})\n${warnings.join('\n')}`);
 if (errors.length) {
   console.error(`INVALID (${errors.length})\n${errors.join('\n')}`);
   process.exit(1);
 }
-console.log(`VALID schema v16 · ${sessions.filter((key) => data[key]?.available !== false).length} sessions · ${data.decisionLedger.length} calls`);
+console.log(`VALID schema v17 · ${sessions.filter((key) => data[key]?.available !== false).length} sessions · ${data.decisionLedger.length} calls`);

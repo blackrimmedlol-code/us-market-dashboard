@@ -1,4 +1,4 @@
-# 美股策略台数据维护指南 · v16
+# 美股策略台数据维护指南 · v17
 
 线上页面：`https://blackrimmedlol-code.github.io/us-market-dashboard/`
 
@@ -6,22 +6,34 @@
 
 > 页面、JSON时点和通知统一使用 `Asia/Shanghai`。后台保留目前随交易所夏冬令时运行的四个任务，避免冬令时在收盘前取数；名义时间落成中国时间ISO后比较。上表时刻为夏令时，冬令时全部顺延1小时。收盘任务从原收盘后5分钟调整为25分钟；不增设重复收盘任务。
 
-## v16 核心矩阵迁移（2026-09-09）
+## v17 核心矩阵精简（2026-09-20）
 
-- 当前核心八股：DRAM / LITE / CRDO / DDOG / IREN / BE / SPCX / MSTR。
-- DDOG 角色：AI Software / Observability；PANW + MDB 作为软件同行温度计，只用于判断 Security、数据库/AI Data Layer 与软件风险偏好是否共振，不占核心席位。
-- 历史边界：CIEN 的旧判断、复盘和审计记录不可改写；DDOG 从迁移后第一有效时段重新建立前瞻基线。
+- 当前核心六股：DRAM / LITE / IREN / BE / SPCX / MSTR。
+- CRDO、DDOG 退出当前全部取数、五周期、分位、联动与新增判断；不再专项查询 PANW/MDB。CIEN、CRDO、DDOG 已有 reviews/decisionLedger/originalPlan/evaluationPlan 原样冻结，只供历史审计，不再逐条追踪。中期旧记录移入 archivedMediumLedger。禁止为旧记录补造输赢。
+- 本轮只精简当前矩阵，不改变已有行情日期；旧完整版本可按 Git 提交复原。2026-09-20 之前的八标的复盘保留原顺序，之后的新复盘使用六标的。
+
+### 行业涨跌榜：批量取数、有限归因
+
+- 开头纵向阅读：市场判断 → 行业涨跌与驱动 → 单列市场总闸及六标的动作。五周期和默认展开的 1–6 周账本保持。
+- `sectorPulse` 根对象保存最新行业榜；每轮更新同时把当时的榜写入目标 `session.sectorPulse`，旧时段不回填。首版独立行业日期可能晚于核心报价，必须明确分别显示。
+- 统一使用 Finviz 全部细分行业日涨跌幅，不能用自选 ETF 冒充全市场排行。`python refresh-sectors.py YYYY-MM-DD /tmp/sector-candidate.json` 一次批量取得完整表并核对同源日期锚点，输出候选排名；脚本不生成解释、不自动写 data.json。来源故障只尝试一次备用，不能混拼不同口径排行。
+- 每份含 `marketDate/fetchedAt/asOf/status/universe/universeCount/sourceUrl/dateBasis/rows/gainers/losers/note`。`rows` 保存完整 `{name,changePct}` 样本以便复算；模型只需读前后五项。`asOf` 不可用抓取时间冒充，来源未给逐项行情时间就为 null，状态为 snapshot；final 必须取得实际来源收盘时点。盘前展示上一个已结束交易日并标注日期。
+- `gainers` 只取正涨幅降序前五，`losers` 只取负涨幅升序前五；同涨跌幅按英文名称排序。方向不足五项时展示真实数量，不能用上涨行业凑跌幅榜。
+- 十行各写 `name/label/changePct/reason/driverStatus/sources`。每行一句中文解释，最多两个直接来源：reported=当日报道线索，inference=证据支持的联动推断，unknown=检索后仍无可靠解释。未知须说明核查边界；不能把价格上涨本身写成原因，不能把报道中的个股事件说成行业全部涨跌的定量解释。
+- 每轮先批量排名，再合并检索入榜行业；同一宏观原因共用来源。同日排名未换且无新事件时复用已核实解释及其原来源，不重新做十份行业研报；新入榜/重要变化才补查。主行情优先，行业研究预算最多 5 分钟；超时保留完整排名并明确原因待核实，不拖延主提交。盘中/午后更新日内榜，收盘收口；自愈仅补缺项。
+- 新运行不能静默沿用昨天的行业榜：检查目标行业日期和本轮 fetchedAt，盘前目标为上一个交易日。未完成抓取写 unavailable + note + 真实 fetchedAt；保存失败信息只表示本轮已经尝试，不得称行业更新成功；不重复无限补跑，不因此锁六标的权限。归因 unknown 允许发布并显示真实状态。
+- 写前运行 `node validate-data.mjs data.json previous.json`（含行业排序与证据校验）；写后复读日期、10行数量或不足五项说明、来源和提交SHA。行业数据质量不进入个股执行锁权。
 
 ## 写入规则
 
-重点标的唯一排序常量：`TARGET_ORDER = ["DRAM", "LITE", "CRDO", "DDOG", "IREN", "BE", "SPCX", "MSTR"]`。动作板、快照、watchlist、分位、信号矩阵、复盘和中期账本只要同时出现这些标的，都必须按此顺序输出；市场基准可放在它们之前，BTC 等联动资产可放在之后。BE 不得被追加到末尾或因单源失败而整项省略。
+重点标的唯一排序常量：`TARGET_ORDER = ["DRAM", "LITE", "IREN", "BE", "SPCX", "MSTR"]`。动作板、快照、watchlist、分位、信号矩阵、复盘和中期账本只要同时出现这些标的，都必须按此顺序输出；市场基准可放在它们之前，BTC 等联动资产可放在之后。BE 不得被追加到末尾或因单源失败而整项省略。
 
 1. 更新前先读取 `data.json`，保留其他三个时段、`sourceGroups`、`reviews`、`mediumLedger` 和未知字段。
 2. 四个任务只替换各自对象：中国时间 21:05=`premarket`、23:05=`intraday`、02:05=`late`、04:25=`close`。每个时段都维护自己的 `horizons`、`macroFramework`、`expectationGaps` 与 `odds`。
 3. 同步更新 `meta.updatedAt`、`meta.latestSession`、`meta.sessionDate`、`meta.nextUpdate`。
-   `meta.schemaVersion` 固定为 `16`；后续契约升级必须同步提高版本号，页面遇到低于当前版本的可执行数据时只展示、不开放新增风险权限。
+   `meta.schemaVersion` 固定为 `17`；后续契约升级必须同步提高版本号，页面遇到低于当前版本的可执行数据时只展示、不开放新增风险权限。
 4. 不可靠的具体数字填 `null`，不得编造价格、指标或来源；周期方向可以依据真实 OHLC 聚合或结构推断，但必须在 `timeframeMethods` 和 `timeframeNotes` 说明方法与证据。
-5. `snapshot` 固定 12 项，顺序为 SPY、QQQ、SOXX、DRAM、LITE、CRDO、DDOG、IREN、BE、SPCX、MSTR、BTC；股票/ETF 默认写正式时段最新价，不能把盘后价伪装成正式收盘。延长交易统一写入 `extendedHours`。
+5. `snapshot` 固定 10 项，顺序为 SPY、QQQ、SOXX、DRAM、LITE、IREN、BE、SPCX、MSTR、BTC；股票/ETF 默认写正式时段最新价，不能把盘后价伪装成正式收盘。延长交易统一写入 `extendedHours`。
 6. `news` 只收录能解释当轮价格或行动变化的信息；外链必须指向实际来源。每条必须写 `material / impactFields / directness / impact / tone`：真正改变行动的证据写 `material:true / directness:"行动级"`，普通背景写 `material:false / directness:"背景" / impactFields:[]`，页面会自动折叠。不得为了凑满 3–5 条而重复旧闻。
 7. `reviews` 最新在前，最多保留 20 条；短线复盘样本不足 20 条时不得展示命中率。
 8. 根级 `mediumLedger` 是 1–6 周论点账本，保留历史状态，不随盘中噪音整表覆盖；只有因果证据变化时新增、降级、关闭或更新条目。
@@ -49,12 +61,12 @@
 
 - 每个时段必须写 `available:true / updatedAt / updateStatus / sessionContext`。未生成的时段写 `available:false`，页面会禁用，不能借用其他时段快照伪装成有效数据。
 - `updateStatus` 使用 `按时更新 / 延迟补跑 / 数据不完整`。实际执行时间偏离名义时点时必须写清楚，不能只保留名义标签。
-- 每个时段写 `deltaLabel` 和 `changes`，固定覆盖市场、DRAM、LITE、CRDO、DDOG、IREN、BE、SPCX、MSTR。字段：`asset / from / to / reason / tone / material / impactFields`。
+- 每个时段写 `deltaLabel` 和 `changes`，固定覆盖市场、DRAM、LITE、IREN、BE、SPCX、MSTR。字段：`asset / from / to / reason / tone / material / impactFields`。
   - `material:true` 仅限改变 `regimeCode / planStatus / tradeType / permissions / trigger / invalidation / confidence` 的行动级变化；页面只展开这些项目。
   - 未改变行动的量价延续仍可保存在 `changes` 中，但必须写 `material:false / impactFields:[]`，页面会合并为“已收起 N 项非行动级变化”。
   - 不得为了填满九项把普通新闻或微小价格波动标为行动级变化。
 
-## v16 决策有效性契约
+## v17 决策有效性契约
 
 ### 稳定状态与自由说明分离
 
@@ -73,17 +85,17 @@
 - `status`：`open | caution | locked`；
 - `note`：数据边界与锁权原因。
 
-v16不再把这些汇总字段直接传播为全局锁定。`updateStatus`、`decisionGate.status`和`note`仅概括状态；执行限制由共享 `market-model.js` 按结构化质量字段计算。旧记录仍保留汇总字段用于审计。
+v17不再把这些汇总字段直接传播为全局锁定。`updateStatus`、`decisionGate.status`和`note`仅概括状态；执行限制由共享 `market-model.js` 按结构化质量字段计算。旧记录仍保留汇总字段用于审计。
 
-### 分级质量与完成状态（v16）
+### 分级质量与完成状态（v17）
 
 - 每个时段必填 `sessionDate`（美东交易日）、`nominalAt`（该轮名义时间，中国时间ISO）、`marketCloseAt`（该日实际正式收盘时点，含提前收盘）、`quality.checkedAt`、`quality.quotes`、`quality.issues` 和 `completion`。
-- `quality.quotes`覆盖12个快照标的。每项含`price/status/asOf/marketDate/session/isFinal/source/sourceUrl`；正式日线另有`open/high/low/volume`。状态仅`verified/missing/conflict/unverified`；缺失值为null。股票日线`session=regular`，盘前`pre`，盘后`after`，BTC`crypto`。
+- `quality.quotes`覆盖10个快照标的。每项含`price/status/asOf/marketDate/session/isFinal/source/sourceUrl`；正式日线另有`open/high/low/volume`。状态仅`verified/missing/conflict/unverified`；缺失值为null。股票日线`session=regular`，盘前`pre`，盘后`after`，BTC`crypto`。
 - `quality.issues`每项含`code/message/scope/assets/level/effect`：scope为`global/asset/metric`，level为`info/warning/critical`，effect为`execution/volume/linkage/reference`。局部问题写明assets；全局问题assets为空。BTC成交量缺失只影响MSTR/IREN的加密量能说明，不关闭无关股票权限。
 - 个股关键价格缺失或冲突：只暂停该标的新增执行判断。SPY/QQQ/SOXX关键行情或数据契约失效：才影响市场层。量能没有比较基准：量能确认降为unknown/mixed，不能因为有累计量就写confirmed。
 - 历史时段、已过有效期的版本与收盘版显示中性的“参考记录”；它们不是实时可执行信号，模型不自动给出新交易权限。真实关键错误仍在统一数据说明和对应标的显示，不能隐藏或直接删掉保护。
 - 同一共同问题只解释一次；各卡只显示自身例外。分析权限与数据完整性分开，数据恢复也不能自动放宽原投资策略。
-- `completion.status`仅`pending/partial/final/snapshot`。文件写成功不等于收盘完成。只有八标的和SPY/QQQ/SOXX本日正式OHLCV齐全、时间不早于实际收盘且来源明确，才可`final`及`closeFinal=true`。BTC不参与美股正式收盘完成判定。
+- `completion.status`仅`pending/partial/final/snapshot`。文件写成功不等于收盘完成。只有六标的和SPY/QQQ/SOXX本日正式OHLCV齐全、时间不早于实际收盘且来源明确，才可`final`及`closeFinal=true`。BTC不参与美股正式收盘完成判定。
 - `node check-session.mjs data.json SESSION YYYY-MM-DD previous.json`先校验契约与原始判断，再判定完成：0=完成；1=非法数据；2=合法暂存但未完成。退出2必须继续一次备用获取或明确报告待补项，不能静默宣告收盘完成。禁止把15:52快照改标签为16:00。
 - 完成判断还检查`quote.asOf`和市场日，不允许通过刷新`updatedAt`伪装新行情。盘前/盘中必须取得本轮名义时点前15分钟之后的关键报价。
 
@@ -91,11 +103,9 @@ v16不再把这些汇总字段直接传播为全局锁定。`updateStatus`、`de
 
 - 每个`horizons.*.short`必填`holdingPlan`和`entryPlan`：前者说明已有持仓的观察/防守条件，后者说明新增仓位条件；不替用户挑选或排名。
 - `confirmations.volume.state=confirmed`必须带`benchmark:{basis,value,current,asOf,sourceUrl}`。盘中仅接受`basis=same-time`；正式收盘可用此前20日均量，明确样本、倍数和描述阈值。1.2倍是统一描述口径，不是经验证的收益模型，也不代表低于它就不能上涨。
-- DDOG分析 AI/云工作负载、Observability + Security 平台扩张、消费型收入、大客户扩张、AI 产品采用与 FCF/利润率质量；PANW（Security 平台/企业安全支出）和 MDB（数据库/AI Data Layer）仅作软件同行温度计，不进入核心八股。LITE/CRDO共同暴露于AI网络资本开支，DDOG代表更下游的软件使用/运维因子。
-- CRDO为研究标的，CRDU为独立的杠杆ETF。未经用户输入，不写持仓成本或股数；严禁用CRDO报价计算CRDU盈亏、止损或敞口。
+- 历史持仓工具兼容 CRDO/CRDU 的独立计价；不为退休标的新增行情研究。
 - 每条`decisionLedger`新增`originalPlan`，冻结`trigger/invalidation/referenceAt/referencePrice/setupType`及`capturedAt/provenance`。改条件必须新建callId，旧条目用`supersededBy`关联，结果未核实保持待评估；不能直接改原条件让其“命中”。
-- 写前必须保留previous.json并执行`node validate-data.mjs data.json previous.json`；拒绝历史判断删改。v16迁移仅冻结当时已有记录，不声称追溯修复此前的改写。新收盘剧本在形成时间后才开始验证，不可回算当日命中率。
-- 2026-09-09 起 DDOG 替代 CIEN 进入核心矩阵：CIEN 在此前形成的 reviews / decisionLedger / originalPlan 全部冻结保留；DDOG 不继承 CIEN 的价格、技术位、分位、触发或胜负。09/08 DDOG 正式收盘可作为迁移参考基线，但不得包装成事前判断。
+- 写前必须保留previous.json并执行`node validate-data.mjs data.json previous.json`；拒绝历史判断删改。v17迁移仅冻结当时已有记录，不声称追溯修复此前的改写。新收盘剧本在形成时间后才开始验证，不可回算当日命中率。
 
 
 ### 事件倒计时 `eventCalendar`
@@ -103,7 +113,7 @@ v16不再把这些汇总字段直接传播为全局锁定。`updateStatus`、`de
 每个 session 维护经过来源确认的未来事件数组；没有事件时允许空数组。字段：
 
 - `id / label / eventDate`，有可靠具体时点时再写 `startsAt`；
-- `affectedAssets`：可包含 `MARKET` 或八个固定标的；
+- `affectedAssets`：可包含 `MARKET` 或六个固定标的；
 - `riskWindowHours / riskLevel`；
 - `permissionOverride.chase / overnight / beta`；
 - `timing / note / sourceUrl`。
@@ -158,7 +168,7 @@ v16不再把这些汇总字段直接传播为全局锁定。`updateStatus`、`de
 - `daily`：日线与分位数据的截止交易日，不能和盘中现价混写；
 - `macro`：宏观信息的截止时点。
 
-每个可用时段应尽量维护 `extendedHours`，标的顺序固定为 DRAM、LITE、CRDO、DDOG、IREN、BE、SPCX、MSTR。每条包含：
+每个可用时段应尽量维护 `extendedHours`，标的顺序固定为 DRAM、LITE、IREN、BE、SPCX、MSTR。每条包含：
 
 - `symbol / session / price / regularClose / changePct / tone`；
 - `asOf / status / source / sourceUrl`；
@@ -172,7 +182,7 @@ v16不再把这些汇总字段直接传播为全局锁定。`updateStatus`、`de
 
 不得把已经结束的盘后报价继续标成“当前夜盘价”，也不得把单一经纪商的稀疏打印当成全市场统一价格。没有可审计夜盘价时，保留最近可验证盘后锚点并写清边界；价格地图可用 `status:"verified"` 的最新延长交易价，但标题必须显示对应 session。盘后/夜盘突破只能提高下一正式时段的确认优先级，不能单独升级为完整交易信号。
 
-DRAM、LITE、CRDO、DDOG、IREN、BE、SPCX、MSTR 的 watchlist 项必须额外写，并按 `TARGET_ORDER` 排序：
+DRAM、LITE、IREN、BE、SPCX、MSTR 的 watchlist 项必须额外写，并按 `TARGET_ORDER` 排序：
 
 - `priceStatus`：例如 `盘中价 · 中国时间 23:05`、`收盘价 · 中国时间 04:25`；
 - `supportValue / resistanceValue`：用于计算现价到一级支撑、阻力的距离；对应文字仍放在 `support / resistance`；
@@ -231,7 +241,7 @@ DRAM、LITE、IREN、BE 的 `demandLoop` 只负责基本面兑现，固定按五
 
 ## 双周期操作卡
 
-每个时段的 `horizons` 固定包含 `MARKET / DRAM / LITE / CRDO / DDOG / IREN / BE / SPCX / MSTR`，每个对象分别包含：
+每个时段的 `horizons` 固定包含 `MARKET / DRAM / LITE / IREN / BE / SPCX / MSTR`，每个对象分别包含：
 
 - `permissions`：`chase / overnight / beta`，把宏观框架压缩为追价权限、隔夜权限和 beta 预算；
 
@@ -267,16 +277,16 @@ DRAM、LITE、IREN、BE 的 `demandLoop` 只负责基本面兑现，固定按五
 - 每条必须写 `asOf / referencePrice / sampleSize / basis / source`；历史 K 线有延迟，不得称为盘中现价；
 - `percentile` 无法可靠计算时必须为 `null`；
 - `percentile:null` 在页面必须显示“待计算 / 样本不足”，不得标为 ACTUAL；样本不足窗口但数值真实时，页面必须显示“上市后 N 日”或“可用 N 日”，不得把不足 60/252 根包装成完整窗口；代理分位必须明确标为“代理”。
-- 收盘任务必须主动拉取八个标的的完整日线：优先使用交易所/基金官网，Nasdaq Historical Quotes 可作为统一可审计序列；单一来源失败时至少重试一次并切换备用源，不能仅因上轮字段为 `null` 就继续沿用。IREN 与 BE 在公开源已有完整 252 根日线时不得保持“待计算”。
+- 收盘任务必须主动拉取六个标的的完整日线：优先使用交易所/基金官网，Nasdaq Historical Quotes 可作为统一可审计序列；单一来源失败时至少重试一次并切换备用源，不能仅因上轮字段为 `null` 就继续沿用。IREN 与 BE 在公开源已有完整 252 根日线时不得保持“待计算”。
 - 重算只更新当前收盘版本的odds；已归档的盘前/盘中版本保留当时可得的分位，避免事后信息渗入历史。下一轮盘前、盘中、午后原样继承其形成时已可得的最近正式收盘分位。新标的历史占位不得回填。
-- `oddsMethod` 每轮整段覆盖，只保留当前计算公式、截止日和不足样本说明；禁止拼接历次“未取得序列”文字。写后必须断言八标的各有 60D/252D 两项、顺序正确、`asOf` 不早于最近可得正式收盘（确有源故障时除外，并明确写出失败源与重试结果）。
+- `oddsMethod` 每轮整段覆盖，只保留当前计算公式、截止日和不足样本说明；禁止拼接历次“未取得序列”文字。写后必须断言六标的各有 60D/252D 两项、顺序正确、`asOf` 不早于最近可得正式收盘（确有源故障时除外，并明确写出失败源与重试结果）。
 - 新基金不足 252 个交易日时，不得把上市以来样本冒充 252 日。只有能从发行文件确认核心持仓、且成份股有完整日线时，才允许输出显式标记 `proxy:true` 的核心持仓代理；同时保留基金自身上市以来的样本数与分位；
 - SPCX 存在代码换主：旧的 SPAC and New Issue ETF 已于 2026-04-07 改为 SPCK，SpaceX 自 2026-06-12 才以 SPCX 上市。SPCX 的历史序列必须从 2026-06-12 重启，剔除旧 ETF 以及 IPO 前无成交的占位记录。样本不足 60/252 时仍可展示“上市后位置”，但必须写 `sampleNote` 和真实 `sampleSize`，不得把 47 根样本包装成完整窗口；
 - 分位用于描述位置；高低分位本身不升级交易权限，也不是强制入场筛选条件。
 
 ## 五周期规则
 
-DRAM、LITE、CRDO、DDOG、IREN、BE、SPCX、MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，不得因为某个平台没有现成 4h 图而跳过。
+DRAM、LITE、IREN、BE、SPCX、MSTR 固定写入 `15m / 30m / 1h / 4h / 1d`，不得因为某个平台没有现成 4h 图而跳过。
 
 - 15m、30m、1h：优先直接读取对应 K 线。
 - 4h：优先直接 4h K 线；其次聚合连续四根 1h K 线；再其次结合小时结构、当日 OHLC 和前 3–5 个交易日日线判断。
@@ -313,7 +323,7 @@ DRAM、LITE、CRDO、DDOG、IREN、BE、SPCX、MSTR 固定写入 `15m / 30m / 1h
 - 收盘：用完整日线最终复核当天判断，写入有效驱动、失效假设和模型调整；相同交易日的盘中复盘可以保留，但阶段必须不同。
 - 下一个交易日中国时间 21:05：引用上一收盘复盘建立新先验，不重复造一份同义复盘。
 - 每个新时段生成前，必须读取最新一条相关 `reviews[].modelChange`，把其中的权重、确认条件或失效规则应用到本轮判断；若新证据推翻旧调整，应在本轮复盘中明确替换原因，不能只展示而不执行。
-- 复盘资产顺序固定为市场、DRAM、LITE、CRDO、DDOG、IREN、BE、SPCX、MSTR。首次加入而没有上期判断时标为“新基线”，不倒填胜负；从下一有效时段起必须正常复核。
+- 复盘资产顺序固定为市场、DRAM、LITE、IREN、BE、SPCX、MSTR。首次加入而没有上期判断时标为“新基线”，不倒填胜负；从下一有效时段起必须正常复核。
 - 判断错误要直接写“失效”，不能用模糊措辞回避。
 - 短线复盘回答“今天错在哪一环”；中期账本回答“1–6 周的因果论点是否仍成立”。
 - `reviews` 只做模型判断复盘，不记录个人交易执行。每条至少包含 `validDriver / errorLayer / failedAssumption / modelChange`；`errorLayer` 必须明确归入宏观驱动、传导机制、行业/跨资产联动、量能、价格确认或数据边界中的一层。
@@ -340,18 +350,18 @@ DRAM、LITE、CRDO、DDOG、IREN、BE、SPCX、MSTR 固定写入 `15m / 30m / 1h
 
 - JSON 可解析，且未覆盖另一时段内容或复盘历史。
 - 当前任务只改自己的时段对象；空时段保持 `available:false`，不能回退到其他时段的快照。
-- 市场、DRAM、LITE、CRDO、DDOG、IREN、BE、SPCX、MSTR 的 `changes` 完整，八个重点标的严格按 `TARGET_ORDER` 排序；每个数据模块都有实际时点和状态标签。
+- 市场、DRAM、LITE、IREN、BE、SPCX、MSTR 的 `changes` 完整，六个重点标的严格按 `TARGET_ORDER` 排序；每个数据模块都有实际时点和状态标签。
 - `regime` 首段是可独立阅读的短标题，`largestChange` 已填写；`MARKET.short.trigger / invalidation` 分别能作为下一确认与总体失效条件。
-- `meta.schemaVersion` 为 16；每个可用时段都有合法 `regimeCode / breadthState / decisionGate / eventCalendar`，所有枚举通过 `validate-data.mjs`。
+- `meta.schemaVersion` 为 17；每个可用时段都有合法 `regimeCode / breadthState / decisionGate / eventCalendar`，所有枚举通过 `validate-data.mjs`。
 - `changes` 九项均显式标明 `material / impactFields`；页面展开行动级变化、收起普通延续。
-- DRAM、LITE、CRDO、DDOG、IREN、BE、SPCX、MSTR 同时具有 `supportValue / resistanceValue / priceStatus`，距离计算方向正确。
+- DRAM、LITE、IREN、BE、SPCX、MSTR 同时具有 `supportValue / resistanceValue / priceStatus`，距离计算方向正确。
 - `extendedHours` 如存在，严格按 `TARGET_ORDER`，正式收盘与盘后/夜盘不混写；每条都有 session、时点、状态和来源，页面关键位距离采用的价格口径可见。
 - 四时段的 `nextUpdate` 按中国时间 21:05 → 23:05 → 02:05 → 04:25 连续衔接。
 - 盘中版必须复核中国时间 21:05 盘前判断，不得只是重复新闻。
-- DRAM/LITE/CRDO/DDOG/IREN/BE/SPCX/MSTR 五周期字段完整，4h 与 1d 有方法和证据说明。
+- DRAM/LITE/IREN/BE/SPCX/MSTR 五周期字段完整，4h 与 1d 有方法和证据说明。
 - 每个可用时段的 `aiCapitalCycle` 严格包含需求强度、单位经济、产能兑现、融资质量、价格确认五项及 `overbuild`；每项都有失效条件，过建状态不使用单一股价或无来源估算升级。
-- DRAM/LITE/CRDO/DDOG/IREN/BE 的 `demandLoop` 严格为五步基本面兑现链，不再混入同业与价格确认；SPCX/MSTR 不为完整性硬凑 AI 链条。
-- `MARKET / DRAM / LITE / CRDO / DDOG / IREN / BE / SPCX / MSTR` 的短线与中期字段完整，触发和失效不能互相矛盾。
+- DRAM/LITE/IREN/BE 的 `demandLoop` 严格为五步基本面兑现链，不再混入同业与价格确认；SPCX/MSTR 不为完整性硬凑 AI 链条。
+- `MARKET / DRAM / LITE / IREN / BE / SPCX / MSTR` 的短线与中期字段完整，触发和失效不能互相矛盾。
 - 九个操作对象都具有 `planStatus / tradeType / confirmations.price / confirmations.volume / confirmations.linkage`；剧本失败必须同步降权，交易类型不能因被套而漂移；确认灯没有证据时使用 `unknown`。
 - 四个宏观支柱、至少两条因果链与预期差板块有真实证据；没有事件时允许空数组，不能凑数。
 - 60/252 日价格位置分位必须能追溯到真实日线、日期和样本数；代理必须标明成份、权重口径和基金自身可用样本，不得与实际基金历史混写。
@@ -366,7 +376,7 @@ DRAM、LITE、CRDO、DDOG、IREN、BE、SPCX、MSTR 固定写入 `15m / 30m / 1h
 
 ## 自动任务执行与可复算文件
 
-四个主任务保持独立；现有中段自愈继续复用，不新建重叠任务。所有五条启用任务均使用v16八标的契约。先完成主行情与来源记录，20分钟内争取第一笔合法提交；收盘未齐可写partial，但必须列出未齐标的、已尝试来源和失败原因，不能当成幂等命中。一次备用尝试后仍未完成，应明确报告，不无限轮询。行情齐全后优先补分位，35分钟后停止扩展新闻研究。
+四个主任务保持独立；现有中段自愈继续复用，不新建重叠任务。所有五条启用任务均使用v17六标的契约。先完成主行情与来源记录，20分钟内争取第一笔合法提交；收盘未齐可写partial，但必须列出未齐标的、已尝试来源和失败原因，不能当成幂等命中。一次备用尝试后仍未完成，应明确报告，不无限轮询。行情齐全后优先补分位，35分钟后停止扩展新闻研究。
 
 收盘取数可运行`node refresh-history.mjs YYYY-MM-DD`，结果存`history/YYYY-MM-DD.json`，含完整原始样本与来源。`--peers`仅补同业最近数日，不计算同业60D/252D。接口日期使用ISO，必须核验分页总数、交易日、重复行、OHLC边界与有效成交量。接口异常需要一次备用来源，脚本报错不能当作完成。
 
