@@ -11,7 +11,7 @@
 | 太空 | SPCX / RKLB / ASTS |
 | 加密 | BTC / ETH币；COIN / MSTR股；HOOD仅辅助 |
 
-行情脚本不调用LLM；模型只读取node scripts/compact-summary.mjs输出与增量新闻。每板块最多一条有效事件、两来源；没新闻可为空。原始行情存history/v18，不作为每轮模型输入。优先GPT-5.6 SOL，Luna须满足同样核实门槛；不使用Astra。调度器模型独立于提示词，不能用文字冒充模型设置。
+行情脚本不调用LLM；模型只读取node scripts/compact-summary.mjs输出与增量新闻。每板块最多一条有效事件、两来源；没新闻可为空。原始行情存history/v18，不作为每轮模型输入。执行模型固定为GPT-5.6 SOL（gpt-5.6-sol），用于信息搜集、处理、摘要与提交；不得自动切换Astra、Luna或其他模型。若该模型不可用，报告阻塞，不以其他模型替代。调度器模型独立于提示词，不能用文字冒充模型设置。
 
 ## 数据
 data.json含meta/assets/breadth/news/cta/previous。
