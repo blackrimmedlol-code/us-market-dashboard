@@ -1,20 +1,16 @@
-# 美股策略台
+# 市场观察 · 四个战场
 
-独立的美股市场监控与策略页面。
+https://blackrimmedlol-code.github.io/us-market-dashboard/
 
-- 页面：https://blackrimmedlol-code.github.io/us-market-dashboard/
-- 数据契约：`DATA_GUIDE.md`
-- 数据文件：`data.json`
-- 校验命令：`node validate-data.mjs data.json`
+v18精简版：市场三态＋存储、新云、太空、加密货币。计算交给脚本，模型仅核实增量消息。
 
-本仓库已与卡路里追踪页面分离，市场更新不会再触发卡路里仓库的提交或部署。
+- 规范：DATA_GUIDE.md
+- 页面：index.html / dashboard.css / dashboard-app.mjs
+- 计算：dashboard-model.mjs
+- 行情：python scripts/refresh-dashboard.py --session close --market-date YYYY-MM-DD
+- 紧凑摘要：node scripts/compact-summary.mjs
+- 校验：node validate-data.mjs data.json
+- 回归：node --test dashboard-model.test.mjs
+- 旧版：legacy/（冻结）
 
-当前契约：v16，八标的（DRAM / LITE / CRDO / DDOG / IREN / BE / SPCX / MSTR）。共享规则：`market-model.js`；CIEN 只保留迁移前历史。
-
-- 回归：`node --test market-model.test.mjs`
-- 写前校验：`node validate-data.mjs data.json previous.json`
-- 完成检查：`node check-session.mjs data.json close YYYY-MM-DD previous.json`
-- 日线获取：`node refresh-history.mjs YYYY-MM-DD`
-- 分位复算：`node verify-history.mjs data.json close`
-
-完成检查退出2表示数据合法但本轮仍待补全，不能宣告正式收盘完成。
+任务启用状态与实际模型必须在调度器核实；提示词不能替代模型配置。沿用现有GitHub Pages。

@@ -1,11 +1,13 @@
-import { readFileSync } from 'node:fs';
-import { spawnSync } from 'node:child_process';
-import model from './market-model.js';
-
-const [file = 'data.json', session = 'close', expectedDate, previous] = process.argv.slice(2);
-if (!expectedDate || !/^\d{4}-\d{2}-\d{2}$/.test(expectedDate)) throw Error('Usage: node check-session.mjs data.json SESSION YYYY-MM-DD [previous.json]');
-const validated = spawnSync(process.execPath, [new URL('./validate-data.mjs', import.meta.url).pathname, file, ...(previous ? [previous] : [])], { encoding: 'utf8' });
-if (validated.status !== 0) { process.stderr.write(validated.stderr || validated.stdout); process.exit(1); }
-const result = model.completion(JSON.parse(readFileSync(file, 'utf8')), session, expectedDate);
-console.log(JSON.stringify({ session, expectedDate, ...result }, null, 2));
-process.exit(result.complete && result.researchComplete ? 0 : 2);
+import fs from 'node:fs';
+import {validate} from './validate-data.mjs';
+import {SYMBOLS,validQuote} from './dashboard-model.mjs';
+const [file='data.json',session,marketDate]=process.argv.slice(2);
+const d=JSON.parse(fs.readFileSync(file,'utf8')),errors=validate(d),m=d.meta;
+if(errors.length){console.log(JSON.stringify({valid:false,errors}));process.exit(1)}
+const missing=SYMBOLS.filter(s=>!validQuote(d.assets[s],m));
+if(m.session!==session)missing.push('target session');
+if(session==='premarket'?m.marketDate>=marketDate:m.marketDate!==marketDate)missing.push('target market date');
+if(session==='close'&&m.priceBasis!=='close')missing.push('formal close');
+if(d.breadth.status==='unavailable')missing.push('breadth');
+console.log(JSON.stringify({complete:!missing.length,missing,asOf:m.asOf,session:m.session}));
+process.exitCode=missing.length?2:0;
