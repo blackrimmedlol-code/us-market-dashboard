@@ -9,4 +9,4 @@
 - 写前 validate-data、check-session 和回归测试；退出2只算部分完成。
 - 写前 fetch 最新SHA，冲突重读合并一次、不强推；写后核实Pages部署及线上数据才通知成功。
 - legacy/ 冻结，不回填历史。所有展示时间为Asia/Shanghai；后台日程随美股DST。
-- 日常更新指定GPT-5.6 SOL（用户允许评估后用Luna），不能保证实际模型时不得声称已切换，不能无条件恢复Astra任务。
+- 日常更新指定GPT-5.6 SOL，不自动改用Luna或其他模型，不能保证实际模型时不得声称已切换，不能无条件恢复Astra任务。

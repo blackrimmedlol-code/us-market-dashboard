@@ -16,12 +16,12 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 NY = ZoneInfo('America/New_York')
 CN = ZoneInfo('Asia/Shanghai')
 UTC = dt.timezone.utc
-NAMES = {'SPY':'标普 500','QQQ':'纳斯达克 100','VIX':'波动率', 'DRAM':'存储整体',
+NAMES = {'SPY':'标普 500','QQQ':'纳斯达克 100','VIX':'波动率','RSP':'标普500等权','SPMO':'标普500动量','VIX3M':'三个月波动率', 'DRAM':'存储整体',
          'MU':'Micron','SKHY':'SK hynix','SNDK':'Sandisk','WDC':'Western Digital',
          'IREN':'IREN','NBIS':'Nebius','CRWV':'CoreWeave','SPCX':'SpaceX',
          'RKLB':'Rocket Lab','ASTS':'AST SpaceMobile','BTC':'Bitcoin','ETH':'Ethereum',
          'COIN':'Coinbase','MSTR':'Strategy','HOOD':'Robinhood'}
-PROVIDER = {'VIX':'^VIX','BTC':'BTC-USD','ETH':'ETH-USD'}
+PROVIDER = {'VIX':'^VIX','VIX3M':'^VIX3M','BTC':'BTC-USD','ETH':'ETH-USD'}
 FIRST_DATE = {'SPCX':'2026-06-12','SKHY':'2026-07-10','DRAM':'2026-04-02'}
 
 def fetch(url):
@@ -62,7 +62,7 @@ def bars(chart, symbol):
         # Source timestamps are bar STARTS. Terminal live/16:00 markers are not a full bar.
         if t % 1800 != 0:
             continue
-        if symbol not in ['BTC','ETH','VIX']:
+        if symbol not in ['BTC','ETH','VIX','VIX3M']:
             minute = local.hour*60+local.minute
             if not 570 <= minute < 960:
                 continue
@@ -100,12 +100,12 @@ def observation(symbol, chart, cutoff, market_date, previous_close_at):
     slope = (ema/ema_before-1)*100 if ema_before else 0
     trend = 'up' if enough and latest['close'] > ema and slope > 0 else 'down' if enough and latest['close'] < ema and slope < 0 else 'mixed' if enough else 'unknown'
     vol = sum(b['volume'] or 0 for b in today)
-    vwap = sum((b['high']+b['low']+b['close'])/3*(b['volume'] or 0) for b in today)/vol if vol > 0 and symbol not in ['VIX','BTC','ETH'] else None
+    vwap = sum((b['high']+b['low']+b['close'])/3*(b['volume'] or 0) for b in today)/vol if vol > 0 and symbol not in ['VIX','VIX3M','BTC','ETH'] else None
     price, baseline = latest['close'], base['close']
     meta = chart['result']['meta']
     terminal = meta.get('regularMarketTime',0)
     # Include the closing auction when Yahoo exposes a verified same-day final quote.
-    if symbol not in ['BTC','ETH','VIX'] and dt.datetime.fromtimestamp(terminal,NY).date().isoformat()==market_date:
+    if symbol not in ['BTC','ETH','VIX','VIX3M'] and dt.datetime.fromtimestamp(terminal,NY).date().isoformat()==market_date:
         if cutoff == terminal and meta.get('regularMarketPrice',0)>0:
             price = meta['regularMarketPrice']
         if meta.get('previousClose',0)>0:
@@ -118,7 +118,7 @@ def observation(symbol, chart, cutoff, market_date, previous_close_at):
             'vwapApprox':round(vwap,5) if vwap else None,'barCount':len(seq),
             'spark':[round(b['close'],4) for b in today],
             'sourceUrl':chart['sourceUrl'],'fetchedAt':chart['fetchedAt'],
-            'note':'已完成30分钟K线；涨跌统一较上一美股交易日16:00' if symbol in ['BTC','ETH','VIX'] else '已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似'}
+            'note':'已完成30分钟K线；涨跌统一较上一美股交易日16:00' if symbol in ['BTC','ETH','VIX','VIX3M'] else '已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似'}
 
 def get_breadth(market_date, now, cutoff):
     url = 'https://finviz.com/'
@@ -199,7 +199,7 @@ def main():
                    'updatedAt':now.astimezone(CN).isoformat(),'asOf':iso(cutoff) if cutoff==session['end'] else now.isoformat(),'marketDate':market_date,
                    'session':args.session,'priceBasis':'close' if cutoff==session['end'] else 'intraday',
                    'automationEnabled':old.get('meta',{}).get('automationEnabled',False),
-                   'nextUpdate':None,'rulesVersion':'18.1'},
+                   'nextUpdate':None,'rulesVersion':'18.2'},
            'assets':assets,'breadth':breadth,
            'news':old.get('news',{}) if old.get('meta',{}).get('schemaVersion')==18 else {},
            'cta':{'status':'unavailable','note':'有可追溯的新仓位估算才展示；不参与核心判断'},

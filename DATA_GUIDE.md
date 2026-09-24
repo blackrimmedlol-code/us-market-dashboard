@@ -1,11 +1,11 @@
-# 市场观察 · 数据契约 v18.1
+# 市场观察 · 数据契约 v18.2
 
 ## 范围
 只回答市场环境与四板块的自身走势、相对强弱、内部共振、新增事件。操作由用户决定。取消宏观、逐股操作建议、五周期、60/252分位、判断账本、全行业榜。legacy/冻结，正常更新不读取。
 
 | 模块 | 固定样本 |
 | --- | --- |
-| 市场 | SPY / QQQ / VIX |
+| 市场 | SPY / QQQ / VIX / RSP / SPMO / VIX3M |
 | 存储 | DRAM整体；MU / SKHY / SNDK / WDC内部验证 |
 | 新云 | IREN / NBIS / CRWV |
 | 太空 | SPCX / RKLB / ASTS |
@@ -15,8 +15,8 @@
 
 ## 数据
 data.json含meta/assets/breadth/news/cta/previous。
-meta：schemaVersion=18、rulesVersion=18.1、timezone=Asia/Shanghai；updatedAt抓取/研究时刻；asOf行情截止点；marketDate美股交易日；session=premarket/intraday/late/close；priceBasis=close/intraday；automationEnabled按实际任务启停填写。
-assets固定19项：symbol/name/status/price/changePct/asOf/marketDate/trend30m/spark/sourceUrl/note。verified才参与计算；失败unavailable且数字null，不沿用旧值冒充本轮。verified另含baselineAt/baselinePrice、ema20/emaSlopePct、vwapApprox、barCount/fetchedAt。
+meta：schemaVersion=18、rulesVersion=18.2、timezone=Asia/Shanghai；updatedAt抓取/研究时刻；asOf行情截止点；marketDate美股交易日；session=premarket/intraday/late/close；priceBasis=close/intraday；automationEnabled按实际任务启停填写。
+assets固定22项：symbol/name/status/price/changePct/asOf/marketDate/trend30m/spark/sourceUrl/note。verified才参与计算；失败unavailable且数字null，不沿用旧值冒充本轮。verified另含baselineAt/baselinePrice、ema20/emaSlopePct、vwapApprox、barCount/fetchedAt。
 breadth：verified/snapshot/unavailable；advancing/declining/upPct；marketDate/sourceUrl/asOf/fetchedAt。来源无精确行情时点，asOf必须null，不以抓取时刻替代。上涨占比=上涨/(上涨+下跌)。
 news按memory/cloud/space/crypto保存text/publishedAt/expiresAt/kind(reported|inference)/sources[{name,url}]，可加label/eventDate/priceRelation。日期精度未知可仅用日期；发布日期和未来事件日期分开。因果未证实须明示，不能从涨跌倒推原因。
 cta缺可追溯资料时unavailable，非必查、不参与分类。
@@ -24,7 +24,9 @@ previous只保留上次meta/assets/breadth，不嵌套历史。同asOf重跑不�
 
 ## 计算
 完整30分钟K线；股票正式盘，盘前盘后不拼入。EMA20至少25条有效K线：价格在EMA上且斜率正为up，反向down，其余mixed，不足unknown。日内均价为30分钟HLC3量加权近似，非逐笔VWAP。
-QQQ/SPY趋势与近似均价同时向上/下才是价格走强/走弱；广度≥55%/≤45%；VIX涨跌为波动压力。三项同向才Risk-on/Risk-off，分歧为分化，关键证据缺失为待确认。这是未做收益回测的描述规则，阈值附近可能切换，不是交易指令。
+QQQ/SPY完整30分钟EMA趋势同向决定风险倾向；均价仅补充确认。广度≥55%/≤45%支持向上/向下；VIX/VIX3M≥1或VIX上涨为压力增加，其余VIX不涨为缓和。广度和波动都反对价格才降为分化；单项反向或缺确认保留低置信度倾向；指数缺失才待确认。置信度是证据一致性，不是胜率：至少一项支持、无反向、广度和VIX/VIX3M完整为中；再有两项支持、均价同向、RSP同向、广度精确时点才高。
+RSP/SPY、SPMO/SPY须同一asOf/baselineAt，用(现比值/基准比值-1)*100。±0.2%内接近，只描述本轮窗口。RSP只补参与程度；SPMO只辅助，不决定方向或置信度。波动比值不是期货期限结构。全部规则未经收益回测。
+板块结构/相对上轮变化/改变判断条件由sectorInsights程序生成，不额外写四份LLM研报；消息按需展开。跨日相对差变化标明窗口重置，不称资金流。旧规则与新规则的市场标签不可直接比较，首次升级显示规则升级；不得回填旧历史。
 板块至少2/3样本趋势同向；缺失不缩小分母。存储以DRAM为整体并核对四股，不重复等权；新云/太空/加密股票固定等权。相对QQQ用同窗口涨幅差，±0.2个百分点内接近。币也比较上一美股收盘至同截止点，不用滚动24小时；HOOD不计分。
 
 ## 四时段流程

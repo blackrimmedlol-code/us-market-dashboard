@@ -2,7 +2,7 @@
 
 https://blackrimmedlol-code.github.io/us-market-dashboard/
 
-v18精简版：市场三态＋存储、新云、太空、加密货币。计算交给脚本，模型仅核实增量消息。
+v18.2精简版：市场风险倾向与证据置信度、RSP/SPY、SPMO/SPY、VIX/VIX3M＋存储、新云、太空、加密货币。计算交给脚本，模型仅核实增量消息。
 
 - 规范：DATA_GUIDE.md
 - 页面：index.html / dashboard.css / dashboard-app.mjs

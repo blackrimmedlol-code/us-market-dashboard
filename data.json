@@ -10,8 +10,9 @@
     "priceBasis": "intraday",
     "automationEnabled": true,
     "nextUpdate": null,
-    "rulesVersion": "18.1",
-    "evidencePath": "history/v18/2026-09-24-late.json"
+    "rulesVersion": "18.2",
+    "evidencePath": "history/v18/2026-09-24-late.json",
+    "indicatorEvidencePath": "history/v18/2026-09-24-late-indicators.json"
   },
   "assets": {
     "SPY": {
@@ -583,6 +584,96 @@
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/HOOD?interval=30m&range=5d&includePrePost=false",
       "fetchedAt": "2026-09-24T18:06:25.437305+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
+    },
+    "RSP": {
+      "symbol": "RSP",
+      "name": "标普500等权",
+      "status": "verified",
+      "price": 210.455,
+      "changePct": -0.4046,
+      "asOf": "2026-09-24T18:00:00+00:00",
+      "marketDate": "2026-09-24",
+      "baselineAt": "2026-09-23T20:00:00+00:00",
+      "baselinePrice": 211.31,
+      "trend30m": "down",
+      "ema20": 211.16353,
+      "emaSlopePct": -0.03531,
+      "vwapApprox": 210.6473,
+      "barCount": 61,
+      "spark": [
+        210.97,
+        210.8,
+        210.47,
+        210.085,
+        210.005,
+        210.92,
+        210.83,
+        210.455,
+        210.455
+      ],
+      "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/RSP?interval=30m&range=5d&includePrePost=false",
+      "fetchedAt": "2026-09-24T18:55:35.806065+00:00",
+      "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
+    },
+    "SPMO": {
+      "symbol": "SPMO",
+      "name": "标普500动量",
+      "status": "verified",
+      "price": 151.83,
+      "changePct": -0.0592,
+      "asOf": "2026-09-24T18:00:00+00:00",
+      "marketDate": "2026-09-24",
+      "baselineAt": "2026-09-23T20:00:00+00:00",
+      "baselinePrice": 151.92,
+      "trend30m": "up",
+      "ema20": 151.75322,
+      "emaSlopePct": 0.00533,
+      "vwapApprox": 151.46433,
+      "barCount": 61,
+      "spark": [
+        151.4201,
+        151.65,
+        151.16,
+        150.92,
+        151.095,
+        151.75,
+        152.31,
+        152.0301,
+        151.83
+      ],
+      "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/SPMO?interval=30m&range=5d&includePrePost=false",
+      "fetchedAt": "2026-09-24T18:55:35.774899+00:00",
+      "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
+    },
+    "VIX3M": {
+      "symbol": "VIX3M",
+      "name": "三个月波动率",
+      "status": "verified",
+      "price": 18.43,
+      "changePct": 1.4868,
+      "asOf": "2026-09-24T18:00:00+00:00",
+      "marketDate": "2026-09-24",
+      "baselineAt": "2026-09-23T20:00:00+00:00",
+      "baselinePrice": 18.16,
+      "trend30m": "up",
+      "ema20": 18.24908,
+      "emaSlopePct": 0.10447,
+      "vwapApprox": null,
+      "barCount": 61,
+      "spark": [
+        18.38,
+        18.35,
+        18.56,
+        18.67,
+        18.64,
+        18.36,
+        18.24,
+        18.41,
+        18.43
+      ],
+      "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/^VIX3M?interval=30m&range=5d&includePrePost=false",
+      "fetchedAt": "2026-09-24T18:55:35.689650+00:00",
+      "note": "已完成30分钟K线；涨跌统一较上一美股交易日16:00"
     }
   },
   "breadth": {
