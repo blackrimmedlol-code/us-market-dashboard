@@ -14,6 +14,7 @@ else {
   const p=d.sectorPulse;
   if(!p.researchAt||!Number.isFinite(Date.parse(p.researchAt))||Date.parse(p.researchAt)<Date.parse(p.fetchedAt))missing.push('industry news review');
   for(const r of [...p.gainers,...p.losers]){
+    if(p.coreTickers?.[r.name]?.status!=='verified'||!p.coreTickers[r.name].symbols?.length)missing.push('industry core tickers: '+r.name);
     const n=p.news?.[r.name];
     if(!n||Date.parse(n.checkedAt)<Date.parse(p.fetchedAt)||n.kind!=='unknown'&&Date.parse(n.expiresAt)<Date.parse(p.researchAt))missing.push('industry news: '+r.name);
   }

@@ -9,10 +9,51 @@ import subprocess
 from html import unescape
 from html.parser import HTMLParser
 from zoneinfo import ZoneInfo
+from concurrent.futures import ThreadPoolExecutor
 
 NY = ZoneInfo('America/New_York')
 URL = 'https://finviz.com/groups.ashx?g=industry&v=140&o=-change'
 ANCHOR_URL = 'https://finviz.com/quote.ashx?t=SPY'
+
+
+class Members(HTMLParser):
+    def __init__(self, industry):
+        super().__init__()
+        self.industry, self.symbols, self.optionable = industry, [], False
+
+    def handle_starttag(self, tag, attrs):
+        a = dict(attrs)
+        if tag == 'option' and a.get('value') == 'option' and 'selected' in a:
+            self.optionable = True
+        symbol = a.get('data-boxover-ticker', '')
+        if (a.get('data-boxover-industry') == self.industry
+                and re.fullmatch(r'[A-Z][A-Z0-9.-]{0,9}', symbol)
+                and symbol not in self.symbols):
+            self.symbols.append(symbol)
+
+
+def core_members(industry):
+    slug = re.sub('[^a-z0-9]', '', industry.lower())
+    url = f'https://finviz.com/screener.ashx?v=111&f=ind_{slug},sh_opt_option&o=-marketcap'
+    out = {'symbols': [], 'sourceUrl': url, 'selection': 'optionable-marketcap'}
+    try:
+        parser = Members(industry)
+        parser.feed(fetch(url))
+        if not parser.optionable or not parser.symbols:
+            raise ValueError('行业成员或期权筛选未核实')
+        out['symbols'] = parser.symbols[:4]
+        out['status'] = 'verified'
+    except Exception as error:
+        out.update(status='unavailable', note=str(error)[:140])
+    out['checkedAt'] = dt.datetime.now(dt.timezone.utc).isoformat()
+    return out
+
+
+def attach_core_members(pulse):
+    names = [r['name'] for r in pulse.get('gainers', []) + pulse.get('losers', [])]
+    with ThreadPoolExecutor(max_workers=6) as pool:
+        pulse['coreTickers'] = dict(zip(names, pool.map(core_members, names)))
+    return pulse
 
 
 def fetch(url):
@@ -101,6 +142,7 @@ def get_sector_pulse(market_date, now, cutoff, regular_close_at=None):
         out.update(status='snapshot', universeCount=len(rows), rows=rows,
                    dateBasis=basis, **rank(rows))
         out['note'] = '日累计涨跌幅；来源可能延迟，不代表两轮更新之间的涨跌。'
+        attach_core_members(out)
     except Exception as error:
         out['note'] = str(error)[:220]
     out['fetchedAt'] = dt.datetime.now(dt.timezone.utc).isoformat()

@@ -1,5 +1,6 @@
 // Rank logic adapted from legacy/sector-model.js; top three, no generated causes.
 const labels={
+  'Building Products & Equipment':'建筑产品与设备','Agricultural Inputs':'农业投入品',
   'Diagnostics & Research':'诊断与研究','Internet Content & Information':'互联网内容与信息',
   'Furnishings, Fixtures & Appliances':'家居与家电','Grocery Stores':'食品零售',
   'Health Information Services':'医疗信息服务','Solar':'太阳能','Paper & Paper Products':'纸与纸制品',
@@ -32,6 +33,11 @@ const labels={
   'Real Estate Services':'房地产服务','Marine Shipping':'海运','Railroads':'铁路','Trucking':'卡车运输'
 };
 export const industryLabel=name=>labels[name]||name;
+export function coreTickers(p,name){
+  const c=p?.coreTickers?.[name];
+  if(c?.status!=='verified'||c.selection!=='optionable-marketcap'||!Number.isFinite(Date.parse(c.checkedAt))||!c.sourceUrl?.startsWith('https://finviz.com/screener.ashx?')||!Array.isArray(c.symbols)||c.symbols.length>4||!c.symbols.length||new Set(c.symbols).size!==c.symbols.length||c.symbols.some(s=>! /^[A-Z][A-Z0-9.-]{0,9}$/.test(s)))return [];
+  return c.symbols;
+}
 export function rankIndustries(rows){
   if(!Array.isArray(rows)||!rows.length||new Set(rows.map(x=>x.name)).size!==rows.length||rows.some(x=>!x.name||!Number.isFinite(x.changePct)))throw Error('行业样本缺失、重复或涨跌幅无效');
   const tie=(a,b)=>a.name<b.name?-1:a.name>b.name?1:0;

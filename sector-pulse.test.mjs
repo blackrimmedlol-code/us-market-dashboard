@@ -1,7 +1,16 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {rankIndustries,pulseErrors,pulseNews} from './sector-pulse.mjs';
+import {rankIndustries,pulseErrors,pulseNews,coreTickers} from './sector-pulse.mjs';
+test('core tickers require verified provenance and at most four unique symbols',()=>{
+  const c={status:'verified',selection:'optionable-marketcap',checkedAt:'2026-09-25T18:00:00Z',sourceUrl:'https://finviz.com/screener.ashx?f=ind_solar',symbols:['FSLR','ENPH']};
+  const p={coreTickers:{Solar:c}};
+  assert.deepEqual(coreTickers(p,'Solar'),['FSLR','ENPH']);
+  assert.deepEqual(coreTickers(p,'Airlines'),[]);
+  c.symbols=['FSLR','FSLR'];assert.deepEqual(coreTickers(p,'Solar'),[]);
+  c.symbols=['A','B','C','D','E'];assert.deepEqual(coreTickers(p,'Solar'),[]);
+  c.symbols=['FSLR'];c.status='unavailable';assert.deepEqual(coreTickers(p,'Solar'),[]);
+});
 const p=JSON.parse(fs.readFileSync(new URL('./history/v18/2026-09-24-close-industries.json',import.meta.url)));
 const meta={marketDate:'2026-09-24',asOf:p.targetAsOf};
 test('recorded full universe reproduces top three independently of incoming order',()=>{

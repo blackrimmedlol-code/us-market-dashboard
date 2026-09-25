@@ -687,6 +687,7 @@
     "note": "Finviz NYSE/Nasdaq/AMEX 涨跌家数；比例不含平盘。正式盘窗口抓取；网页报价可能延迟；来源未提供该框精确行情时刻。"
   },
   "sectorPulse": {
+    "coreTickers": {"Electrical Equipment & Parts":{"symbols":["VRT","BE","NVT","HUBB"],"sourceUrl":"https://finviz.com/screener.ashx?v=111&f=ind_electricalequipmentparts,sh_opt_option&o=-marketcap","selection":"optionable-marketcap","status":"verified","checkedAt":"2026-09-25T18:48:56.522136+00:00"},"Airlines":{"symbols":["DAL","UAL","RYAAY","LUV"],"sourceUrl":"https://finviz.com/screener.ashx?v=111&f=ind_airlines,sh_opt_option&o=-marketcap","selection":"optionable-marketcap","status":"verified","checkedAt":"2026-09-25T18:48:56.463099+00:00"},"Building Products & Equipment":{"symbols":["TT","JCI","CARR","MAS"],"sourceUrl":"https://finviz.com/screener.ashx?v=111&f=ind_buildingproductsequipment,sh_opt_option&o=-marketcap","selection":"optionable-marketcap","status":"verified","checkedAt":"2026-09-25T18:48:56.397156+00:00"},"Oil & Gas Drilling":{"symbols":["NE","RIG","VAL","PTEN"],"sourceUrl":"https://finviz.com/screener.ashx?v=111&f=ind_oilgasdrilling,sh_opt_option&o=-marketcap","selection":"optionable-marketcap","status":"verified","checkedAt":"2026-09-25T18:48:56.473382+00:00"},"Agricultural Inputs":{"symbols":["CTVA","NTR","CF","MOS"],"sourceUrl":"https://finviz.com/screener.ashx?v=111&f=ind_agriculturalinputs,sh_opt_option&o=-marketcap","selection":"optionable-marketcap","status":"verified","checkedAt":"2026-09-25T18:48:56.429030+00:00"},"Chemicals":{"symbols":["DOW","CE","MEOH","OLN"],"sourceUrl":"https://finviz.com/screener.ashx?v=111&f=ind_chemicals,sh_opt_option&o=-marketcap","selection":"optionable-marketcap","status":"verified","checkedAt":"2026-09-25T18:48:56.366031+00:00"}},
     "status": "snapshot",
     "marketDate": "2026-09-25",
     "targetAsOf": "2026-09-25T18:00:00+00:00",
@@ -2162,4 +2163,3 @@
     }
   }
 }
-

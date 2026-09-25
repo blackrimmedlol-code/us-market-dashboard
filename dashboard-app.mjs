@@ -1,5 +1,5 @@
 import {SECTORS,LABELS,summarize,compare,validQuote,newsFor,sectorInsights} from './dashboard-model.mjs?v=18.2';
-import {pulseErrors,industryLabel,pulseNews} from './sector-pulse.mjs?v=18.3';
+import {pulseErrors,industryLabel,pulseNews,coreTickers} from './sector-pulse.mjs?v=18.4';
 const root=document.getElementById('dashboard');
 let DATA=null,SORT='fixed';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -40,15 +40,19 @@ function basketSpark(def,t){
   if(!qs.every(q=>q.spark.length===n))return '';
   return spark(Array.from({length:n},(_,i)=>qs.reduce((a,q)=>a+q.spark[i]/q.baselinePrice,0)/qs.length),t);
 }
+function industryTickers(p,name){
+  const symbols=coreTickers(p,name),c=p.coreTickers?.[name];
+  return '<div class="industry-tickers"><span>核心标的</span>'+ (symbols.length?symbols.map(s=>`<a href="https://finviz.com/quote.ashx?t=${encodeURIComponent(s)}" target="_blank" rel="noopener noreferrer" title="行业代表股；期权价差、成交量和到期日需另查">${esc(s)} ↗</a>`).join(''):'<span>待核实</span>')+(symbols.length?`<a href="${safeUrl(c.sourceUrl)}" target="_blank" rel="noopener noreferrer" title="核实于 ${fmt(c.checkedAt)} 中国时间">筛选来源 ↗</a>`:'')+'</div>';
+}
 function industryBoard(){
   const p=DATA.sectorPulse,errors=pulseErrors(p,DATA.meta);
   const heading='<div class="section-head"><div><h2 id="industry-heading">板块涨跌榜 <small>SECTOR MOVERS</small></h2></div></div>';
   if(errors.length||p.status==='unavailable')return `<section class="industry-section" aria-labelledby="industry-heading">${heading}<p class="industry-caption">${esc(p?.status==='unavailable'?p.note:errors.join('；'))}</p></section>`;
   const group=(side,isUp)=>`<div class="industry-group"><h3 class="tone-${isUp?'up':'down'}">${isUp?'涨幅前三 ↗':'跌幅前三 ↘'}</h3><ol>${p[side].map((r,i)=>{
     const n=pulseNews(p,r.name),pending=p.news?.[r.name]?.kind==='unknown';
-    return `<li><div class="industry-title"><span class="industry-rank">0${i+1}</span><b title="${esc(r.name)}">${esc(industryLabel(r.name))}</b><strong class="tone-${isUp?'up':'down'}">${pct(r.changePct)}</strong></div><p class="industry-news">${esc(n?.text||(pending?p.news[r.name].text:'新闻待核实，暂不解释本轮涨跌。'))}</p>${n?`<div class="industry-source">${n.publishedAt.slice(5,10)} · ${n.kind==='inference'?'联动推断':'新闻线索'}${n.afterSnapshot?' · 快照后消息，价格反应待确认':''} · ${n.sources.map(s=>`<a href="${safeUrl(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.name)} ↗</a>`).join(' / ')}</div>`:'<div class="industry-source">原因待核实</div>'}</li>`;
+    return `<li><div class="industry-title"><span class="industry-rank">0${i+1}</span><b title="${esc(r.name)}">${esc(industryLabel(r.name))}</b><strong class="tone-${isUp?'up':'down'}">${pct(r.changePct)}</strong></div>${industryTickers(p,r.name)}<p class="industry-news">${esc(n?.text||(pending?p.news[r.name].text:'新闻待核实，暂不解释本轮涨跌。'))}</p>${n?`<div class="industry-source">${n.publishedAt.slice(5,10)} · ${n.kind==='inference'?'联动推断':'新闻线索'}${n.afterSnapshot?' · 快照后消息，价格反应待确认':''} · ${n.sources.map(s=>`<a href="${safeUrl(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.name)} ↗</a>`).join(' / ')}</div>`:'<div class="industry-source">原因待核实</div>'}</li>`;
   }).join('')}</ol>${p[side].length<3?`<p class="industry-caption">该方向仅 ${p[side].length} 个行业，不足三项。</p>`:''}</div>`;
-  return `<section class="industry-section" aria-labelledby="industry-heading">${heading}<p class="industry-caption">${esc(p.marketDate)} · ${DATA.meta.priceBasis==='close'?'正式盘收盘日涨跌':'当日累计涨跌'} · ${p.universeCount} 个细分行业 <a href="${safeUrl(p.sourceUrl)}" target="_blank" rel="noopener noreferrer">排名来源 ↗</a></p><div class="industry-grid">${group('gainers',true)}${group('losers',false)}</div><p class="industry-caption industry-footnote">抓取 ${fmt(p.fetchedAt)} 中国时间 · 来源可能延迟，未提供精确行情时刻；非两轮更新间涨跌。${p.researchAt?' 新闻核实 '+fmt(p.researchAt):''}</p></section>`;
+  return `<section class="industry-section" aria-labelledby="industry-heading">${heading}<p class="industry-caption">${esc(p.marketDate)} · ${DATA.meta.priceBasis==='close'?'正式盘收盘日涨跌':'当日累计涨跌'} · ${p.universeCount} 个细分行业 <a href="${safeUrl(p.sourceUrl)}" target="_blank" rel="noopener noreferrer">排名来源 ↗</a></p><div class="industry-grid">${group('gainers',true)}${group('losers',false)}</div><p class="industry-caption industry-footnote">核心标的：同行业内有期权、按市值取最多 4 只；非期权活跃度排名。日内交易需另查到期日、买卖价差、成交量及持仓量，不代表有 0DTE。抓取 ${fmt(p.fetchedAt)} 中国时间 · 来源可能延迟，未提供精确行情时刻；非两轮更新间涨跌。${p.researchAt?' 新闻核实 '+fmt(p.researchAt):''}</p></section>`;
 }
 function render(){
   const m=DATA.meta,a=DATA.assets,b=DATA.breadth,result=summarize(DATA),market=result.market;
