@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import {pathToFileURL} from 'node:url';
 import {SYMBOLS,SECTORS,validQuote} from './dashboard-model.mjs';
+import {pulseErrors} from './sector-pulse.mjs';
 const date=s=>typeof s==='string'&&Number.isFinite(Date.parse(s));
 const num=n=>typeof n==='number'&&Number.isFinite(n);
 const https=s=>typeof s==='string'&&s.startsWith('https://');
@@ -41,6 +42,7 @@ export function validate(d,old=null){
     need(Array.isArray(n.sources)&&n.sources.length>=1&&n.sources.length<=2&&n.sources.every(s=>https(s.url)&&s.name),'news sources');
   }
   need(!d.previous?.previous,'no recursive history');
+  if(d.sectorPulse)errors.push(...pulseErrors(d.sectorPulse,m));
   if(d.previous)need(Date.parse(d.previous.meta?.asOf)<Date.parse(m.asOf),'previous must be earlier');
   if(old?.meta?.schemaVersion===18)need(Date.parse(m.asOf)>=Date.parse(old.meta.asOf),'must not rewind latest snapshot');
   return errors;

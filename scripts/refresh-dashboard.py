@@ -11,6 +11,7 @@ import pathlib
 import re
 import subprocess
 from zoneinfo import ZoneInfo
+from refresh_sectors import get_sector_pulse
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 NY = ZoneInfo('America/New_York')
@@ -191,6 +192,13 @@ def main():
     if any(assets[s]['status']!='verified' for s in ['QQQ','SPY']):
         raise SystemExit('Market benchmark stale or unavailable; previous snapshot preserved')
     breadth = get_breadth(market_date,now,cutoff)
+    sector_pulse = get_sector_pulse(market_date,now,cutoff,session['end'])
+    old_pulse = old.get('sectorPulse', {})
+    # Reuse news only for the same trading date and names still in the top six.
+    if old_pulse.get('marketDate') == market_date:
+        names = {r['name'] for side in ['gainers','losers'] for r in sector_pulse[side]}
+        sector_pulse['news'] = {k:v for k,v in old_pulse.get('news',{}).items() if k in names}
+        sector_pulse['researchAt'] = old_pulse.get('researchAt')
     old_breadth = old.get('breadth',{})
     if (breadth['status']=='unavailable' and cutoff==session['end'] and
         old_breadth.get('marketDate')==market_date and old_breadth.get('status') in ['verified','snapshot']):
@@ -200,7 +208,7 @@ def main():
                    'session':args.session,'priceBasis':'close' if cutoff==session['end'] else 'intraday',
                    'automationEnabled':old.get('meta',{}).get('automationEnabled',False),
                    'nextUpdate':None,'rulesVersion':'18.2'},
-           'assets':assets,'breadth':breadth,
+           'assets':assets,'breadth':breadth,'sectorPulse':sector_pulse,
            'news':old.get('news',{}) if old.get('meta',{}).get('schemaVersion')==18 else {},
            'cta':{'status':'unavailable','note':'有可追溯的新仓位估算才展示；不参与核心判断'},
            'previous':None}
@@ -211,11 +219,11 @@ def main():
         out['previous']=old.get('previous')
     evidence = ROOT/'history'/'v18'/f'{market_date}-{args.session}.json'
     evidence.parent.mkdir(parents=True,exist_ok=True)
-    evidence.write_text(json.dumps({'fetchedAt':now.isoformat(),'targetAsOf':iso(cutoff),'charts':raw,'breadth':out['breadth']},ensure_ascii=False,separators=(',',':'))+'\n')
+    evidence.write_text(json.dumps({'fetchedAt':now.isoformat(),'targetAsOf':iso(cutoff),'charts':raw,'breadth':out['breadth'],'sectorPulse':sector_pulse},ensure_ascii=False,separators=(',',':'))+'\n')
     out['meta']['evidencePath']=str(evidence.relative_to(ROOT))
     pathlib.Path(args.output).write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n')
     print(json.dumps({'asOf':out['meta']['asOf'],'marketDate':market_date,
         'quotes':{s:{'price':q['price'],'changePct':q['changePct'],'trend':q['trend30m'],'status':q['status']} for s,q in assets.items()},
-        'breadth':out['breadth']},ensure_ascii=False))
+        'breadth':out['breadth'],'sectorPulse':{k:v for k,v in sector_pulse.items() if k!='rows'}},ensure_ascii=False))
 
 if __name__=='__main__': main()
