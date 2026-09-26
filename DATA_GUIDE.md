@@ -1,4 +1,4 @@
-# 市场观察 · 数据契约 v18.4
+# 市场观察 · 数据契约 v18.5
 
 ## 范围
 回答市场环境、全市场涨跌前三与四板块的自身走势、相对强弱、内部共振、新增事件。操作由用户决定。取消宏观、逐股操作建议、五周期、60/252分位、判断账本。legacy/冻结，正常更新不读取。
@@ -11,7 +11,7 @@
 | 太空 | SPCX / RKLB / ASTS |
 | 加密 | BTC / ETH币；COIN / MSTR股；HOOD仅辅助 |
 
-行情脚本不调用LLM；模型只读取node scripts/compact-summary.mjs输出与增量新闻。每板块最多一条有效事件、两来源；没新闻可为空。原始行情存history/v18，不作为每轮模型输入。执行模型固定为GPT-5.6 SOL（gpt-5.6-sol），用于信息搜集、处理、摘要与提交；不得自动切换Astra、Luna或其他模型。若该模型不可用，报告阻塞，不以其他模型替代。调度器模型独立于提示词，不能用文字冒充模型设置。
+行情脚本不调用LLM；模型只读取node scripts/compact-summary.mjs输出与增量新闻。每板块最多一条有效事件、两来源；没新闻可为空。原始行情存history/v18，不作为每轮模型输入。四个定时任务采用 GPT-6 Sol 执行信息搜集、处理、摘要与提交。调度器或任务接口若不返回模型元数据，不因无法独立读取模型字段而中止行情更新；仍严格执行数据源、时间窗口和写入验证。若有明确证据显示执行模型不符，应如实报告，不将提示词当作已完成底层模型设置。
 
 ## 数据
 data.json含meta/assets/breadth/news/cta/previous/sectorPulse。
@@ -40,7 +40,7 @@ RSP/SPY、SPMO/SPY须同一asOf/baselineAt，用(现比值/基准比值-1)*100�
 - `compact-summary.mjs`只输出榜单6项及新闻，完整rows不进入模型上下文。主行情与榜单可以部分成功；来源失败/研究未完成写具体缺项，不称全量完成。不要重启旧版任务或恢复宏观长篇分析。
 
 ## 四时段流程
-榜单每个行业直接展示2–4个核心标的：`sectorPulse.coreTickers[英文行业名]` 保存 symbols、status、checkedAt、sourceUrl、selection=optionable-marketcap。脚本仅对当轮入榜行业并行读取 Finviz 同行业、Optionable 筛选，按市值选前4只；不足2只如实显示、不跨行业凑数。未核实显示待核实并计入partial，不妨碍有效榜单和新闻展示。每轮随主脚本更新，不另启模型研究，不调用期权链、不新增个股分析。当前来源标的核实时间与行情快照时间分开，不能冒充历史时点成分。核心标的不是期权活跃度排名；日内候选仍需用户检查到期日、买卖价差、成交量与持仓量，不能声称可做0DTE。四个任务保持GPT-5.6 SOL与原有时段。
+榜单每个行业直接展示2–4个核心标的：`sectorPulse.coreTickers[英文行业名]` 保存 symbols、status、checkedAt、sourceUrl、selection=optionable-marketcap。脚本仅对当轮入榜行业并行读取 Finviz 同行业、Optionable 筛选，按市值选前4只；不足2只如实显示、不跨行业凑数。未核实显示待核实并计入partial，不妨碍有效榜单和新闻展示。每轮随主脚本更新，不另启模型研究，不调用期权链、不新增个股分析。当前来源标的核实时间与行情快照时间分开，不能冒充历史时点成分。核心标的不是期权活跃度排名；日内候选仍需用户检查到期日、买卖价差、成交量与持仓量，不能声称可做0DTE。四个任务采用 GPT-6 Sol 与原有时段。
 
 沿用America/New_York周一至五09:05/11:05/14:05/16:25。夏令时中国时间21:05/23:05/次日02:05/次日04:25，冬令时顺延1小时。非有效交易日静默跳过；短日采用来源实际收盘，已闭市不称盘中。
 
@@ -51,5 +51,5 @@ RSP/SPY、SPMO/SPY须同一asOf/baselineAt，用(现比值/基准比值-1)*100�
 5. 运行node validate-data.mjs data.json previous.json、node --test dashboard-model.test.mjs sector-pulse.test.mjs、python -m unittest discover -s scripts -p 'test_*.py'、node check-session.mjs data.json SESSION YYYY-MM-DD。退出2为部分完成。幂等须同目标session/date，updatedAt晚于名义时点且完整同窗口，不能仅凭日期跳过。
 6. 写前fetch最新SHA；冲突重读合并一次，不强推。提交data与证据，核实Pages对应SHA成功及线上内容后才通知。通知只含市场状态、四板块变化、缺项、链接。
 
-恢复仅这四任务，旧任务与自愈继续关闭；模型未核实前保持暂停。启动时同步automationEnabled。
+仅启用这四项新版任务，旧任务与自愈继续关闭；缺少模型字段不作为暂停理由。启动时同步automationEnabled。
 legacy/data.json必须保持迁移前字节不变；回滚用正常新提交，不改写Git历史。
