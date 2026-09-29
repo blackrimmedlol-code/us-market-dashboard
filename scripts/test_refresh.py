@@ -55,3 +55,39 @@ class RefreshTests(unittest.TestCase):
 
 if __name__=='__main__':
     unittest.main()
+
+class PremarketTests(unittest.TestCase):
+    def setUp(self):
+        self.cutoff=dt.datetime.fromisoformat('2026-09-29T13:05:30+00:00').timestamp()
+        self.baseline=dt.datetime.fromisoformat('2026-09-28T20:00:00+00:00').timestamp()
+        self.chart={'sourceUrl':'https://example.com/chart','fetchedAt':r.iso(self.cutoff),
+                    'result':{'meta':{'regularMarketTime':self.baseline,'regularMarketPrice':100},
+                              'timestamp':[self.cutoff-150,self.cutoff-90,self.cutoff-30],
+                              'indicators':{'quote':[{'close':[101,102,999]}]}}}
+    def read(self):
+        return r.premarket_observation('QQQ',self.chart,self.cutoff,'2026-09-29',self.baseline)
+    def test_uses_latest_completed_premarket_minute_and_prior_close(self):
+        q=self.read()
+        self.assertEqual(q['price'],102)
+        self.assertEqual(q['changePct'],2)
+        self.assertEqual(q['trend30m'],'unknown')
+        self.assertEqual(q['premarketDirection'],'up')
+        self.assertEqual(q['marketDate'],'2026-09-29')
+    def test_previous_day_or_stale_price_is_unavailable(self):
+        for timestamps in [[self.baseline-60],[self.cutoff-630]]:
+            self.chart['result']['timestamp']=timestamps
+            q=self.read()
+            self.assertEqual(q['status'],'unavailable')
+            self.assertIsNone(q['price'])
+    def test_stale_regular_baseline_is_not_accepted(self):
+        self.chart['result']['meta']['regularMarketTime']-=86400
+        self.assertEqual(self.read()['status'],'unavailable')
+    def test_outside_premarket_is_rejected(self):
+        self.cutoff+=3600
+        self.assertEqual(self.read()['status'],'unavailable')
+    def test_crypto_uses_same_previous_equity_close_instead_of_24h(self):
+        self.chart['result']['timestamp'].insert(0,self.baseline-60)
+        self.chart['result']['indicators']['quote'][0]['close'].insert(0,50)
+        q=r.premarket_observation('BTC',self.chart,self.cutoff,'2026-09-29',self.baseline)
+        self.assertEqual(q['baselinePrice'],50)
+        self.assertEqual(q['changePct'],104)

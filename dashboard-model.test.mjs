@@ -29,3 +29,15 @@ test('unaligned or missing VIX3M suppresses term ratio and high confidence',()=>
 test('short term stress remains visible even when VIX falls',()=>{const d=fresh();d.assets.VIX.changePct=-1;d.assets.VIX3M={...d.assets.VIX,price:d.assets.VIX.price-1};assert.equal(marketState(d).volatility,'stress')});
 test('new schema requires all new slots; absent observations must be explicit',()=>{const d=fresh();d.meta.rulesVersion='18.2';assert.ok(validate(d).some(x=>x.includes('roster')))});
 test('sector explanations distinguish missing data and cross-day windows',()=>{const d=fresh();d.previous=fresh();d.previous.meta.marketDate='2026-09-22';for(const q of Object.values(d.previous.assets))q.marketDate='2026-09-22';const i=sectorInsights(SECTORS[0],d);assert.match(i.delta,/跨交易日/);assert.match(i.condition,/DRAM/);d.assets.MU.status='unavailable';assert.match(sectorInsights(SECTORS[0],d).structure,/不足/)});
+
+test('premarket uses current quote direction and caps confidence, never prior EMA',()=>{
+  const d=fresh();d.meta.priceBasis='premarket';d.breadth.status='unavailable';
+  for(const s of ['SPY','QQQ'])Object.assign(d.assets[s],{quoteSession:'premarket',premarketDirection:'up',trend30m:'down'});
+  assert.equal(marketState(d).state,'RISK_ON');assert.equal(marketState(d).confidence,'低');
+  d.assets.QQQ.asOf=new Date(Date.parse(d.meta.asOf)-301000).toISOString();
+  assert.equal(validQuote(d.assets.QQQ,d.meta),false);assert.equal(marketState(d).state,'UNKNOWN');
+});
+test('premarket validator requires quote session and direction provenance',()=>{
+  const d=fresh();d.meta.priceBasis='premarket';
+  assert.ok(validate(d).some(x=>x.includes('premarket basis')));
+});

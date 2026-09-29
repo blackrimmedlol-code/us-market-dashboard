@@ -11,13 +11,14 @@ const mean = list => list.length?list.reduce((a,b)=>a+b,0)/list.length:null;
 export function validQuote(q,meta) {
   return q?.status==='verified' && finite(q.price) && q.price>0 && finite(q.changePct) &&
     q.marketDate===meta.marketDate && Number.isFinite(Date.parse(q.asOf)) &&
-    Date.parse(q.asOf)<=Date.parse(meta.asOf) && Date.parse(meta.asOf)-Date.parse(q.asOf)<=30*60000;
+    Date.parse(q.asOf)<=Date.parse(meta.asOf) && Date.parse(meta.asOf)-Date.parse(q.asOf)<=(meta.priceBasis==='premarket'?5:30)*60000;
 }
 export function aligned(q,b) {return Boolean(q?.baselineAt && b?.baselineAt && q?.asOf && b?.asOf) && q.baselineAt===b.baselineAt && q.asOf===b.asOf;}
+const quoteDirection=q=>q?.quoteSession==='premarket'?q.premarketDirection:q?.trend30m;
 export function direction(list) {
-  if (!list.length || list.some(q=>!['up','down','mixed'].includes(q.trend30m))) return 'unknown';
-  const ups=list.filter(q=>q.trend30m==='up').length;
-  const downs=list.filter(q=>q.trend30m==='down').length;
+  if (!list.length || list.some(q=>!['up','down','mixed'].includes(quoteDirection(q)))) return 'unknown';
+  const ups=list.filter(q=>quoteDirection(q)==='up').length;
+  const downs=list.filter(q=>quoteDirection(q)==='down').length;
   return ups/list.length>=2/3?'up':downs/list.length>=2/3?'down':'mixed';
 }
 export function marketState(data) {
@@ -39,12 +40,13 @@ export function marketState(data) {
   if(directional&&support>=1&&opposition===0&&breadthOK&&vixOK&&termOK)confidence='中';
   if(support===2&&vwapConfirmed&&termOK&&participation.trend===price&&b.status==='verified')confidence='高';
   if(state==='MIXED'&&breadthOK&&vixOK)confidence='中';
+  if(m.priceBasis==='premarket')confidence='低';
   const priceText={up:'指数短线结构向上',down:'指数短线结构向下',mixed:'QQQ 与 SPY 结构尚未共振',unknown:'指数结构证据不足'}[price];
   const breadthText={up:'上涨参与度占优',down:'下跌参与度占优',mixed:'涨跌参与度接近',unknown:'广度待确认'}[breadth];
   const volatilityText={stress:'短期波动压力高于三个月',rising:'波动预期上升',easing:'波动预期缓和',unknown:'波动数据待确认'}[volatility];
   const caveat=opposition===2?'两项确认信号与价格相反，保留分化。':!termOK?'期限压力待确认，降低置信度。':!breadthOK?'广度缺失，倾向仅供观察。':opposition?'存在反向证据，倾向尚未确认。':!vwapConfirmed&&directional?'日内均价尚未确认同向。':'以完整30分钟结构描述当前倾向。';
   return {state,price,breadth,volatility,confidence,participation,momentum,termRatio,vwapConfirmed,support,opposition,
-    explanation:`${priceText}；${breadthText}；${volatilityText}。`,caveat};
+    explanation:`${m.priceBasis==='premarket'?'盘前相对昨收：'+({up:'指数同步上涨',down:'指数同步下跌',mixed:'指数涨跌分化',unknown:'指数报价待确认'}[price]):priceText}；${breadthText}；${volatilityText}。`,caveat:m.priceBasis==='premarket'?'盘前涨跌倾向，非正式盘30分钟趋势确认；流动性与广度证据有限。':caveat};
 }
 export function relativeRatio(q,benchmark,meta){
   if(!validQuote(q,meta)||!validQuote(benchmark,meta)||!aligned(q,benchmark)||!finite(q.baselinePrice)||q.baselinePrice<=0||!finite(benchmark.baselinePrice)||benchmark.baselinePrice<=0)return {level:null,changePct:null,trend:'unknown'};
@@ -54,7 +56,7 @@ export function relativeRatio(q,benchmark,meta){
 export function sectorInsights(def,data){
   const s=sectorState(def,data),old=data.previous?sectorState(def,data.previous):null;
   const a=data.assets,qs=def.members.map(x=>a[x]);
-  const trendCount=s.complete?qs.filter(q=>q.trend30m===s.trend).length:0;
+  const trendCount=s.complete?qs.filter(q=>quoteDirection(q)===s.trend).length:0;
   let structure=s.trend==='unknown'?'样本结构不足，暂不判断板块共振。':s.trend==='mixed'?'内部方向存在分歧，暂未形成板块共振。':`${trendCount}/${s.total} 只样本的30分钟结构${s.trend==='up'?'向上':'向下'}，${s.trend==='up'?'强势':'弱势'}具有一定共性。`;
   if(s.complete){const sorted=[...qs].sort((x,y)=>y.changePct-x.changePct);structure+=` ${sorted[0].symbol} 当轮相对领先，${sorted.at(-1).symbol} 落后。`}
   if(def.id==='memory'&&s.complete){const mem=direction([a.MU,a.SKHY]);structure+=` 内存端${LABELS[mem]}；WDC 的独立表现不代表 DRAM 整体。`}
@@ -64,6 +66,8 @@ export function sectorInsights(def,data){
     const diff=s.relative-old.relative;delta+=` 相对 QQQ 表现${diff>=0?'改善':'走弱'} ${Math.abs(diff).toFixed(2)} 个百分点${data.previous.meta.marketDate!==data.meta.marketDate?'（跨交易日窗口，不作连续资金流解读）':''}。`}}
   const thresholds=def.anchor?'DRAM 与至少3/4只代表股':def.coins?'BTC / ETH 与 COIN / MSTR':'至少'+Math.ceil(def.members.length*2/3)+'/'+def.members.length+'只样本';
   const condition=s.trend==='up'?`若${thresholds}不再保持向上结构，转为分化或下调；相对 QQQ 走弱另作提醒。`:s.trend==='unknown'?`先补齐同一时点行情，再看${thresholds}能否形成同向结构。`:`若${thresholds}形成向上结构，可上调自身走势；同时跑赢 QQQ 才上调相对强弱。`;
+  if(data.meta.priceBasis==='premarket')structure=structure.replaceAll('30分钟结构','盘前相对昨收方向').replaceAll('样本结构','盘前样本');
+  if(data.previous&&data.previous.meta.priceBasis!==data.meta.priceBasis)delta='价格口径切换，本轮不与上轮结构直接比较。';
   return {structure,delta,condition};
 }
 export function sectorState(def,data) {
@@ -76,7 +80,7 @@ export function sectorState(def,data) {
   const average=complete?mean(valid.map(q=>q.changePct)):null;
   const change=def.anchor?(anchorOK?anchor.changePct:null):average;
   const peers=complete?direction(valid):'unknown';
-  let trend=def.anchor?(anchorOK&&peers!=='unknown'?anchor.trend30m:'unknown'):peers;
+  let trend=def.anchor?(anchorOK&&peers!=='unknown'?quoteDirection(anchor):'unknown'):peers;
   if(def.anchor && peers!=='unknown' && trend!=='unknown' && trend!==peers) trend='mixed';
   const relativeOK=validQuote(a.QQQ,m)&&(def.anchor?anchorOK&&aligned(anchor,a.QQQ):complete&&valid.every(q=>aligned(q,a.QQQ)));
   const relative=relativeOK&&finite(change)?change-a.QQQ.changePct:null;

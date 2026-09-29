@@ -6,7 +6,8 @@ const d=JSON.parse(fs.readFileSync(file,'utf8')),errors=validate(d),m=d.meta;
 if(errors.length){console.log(JSON.stringify({valid:false,errors}));process.exit(1)}
 const missing=SYMBOLS.filter(s=>!validQuote(d.assets[s],m));
 if(m.session!==session)missing.push('target session');
-if(session==='premarket'?m.marketDate>=marketDate:m.marketDate!==marketDate)missing.push('target market date');
+if(m.marketDate!==marketDate)missing.push('target market date');
+if(session==='premarket'&&m.priceBasis!=='premarket')missing.push('live premarket prices');
 if(session==='close'&&m.priceBasis!=='close')missing.push('formal close');
 if(d.breadth.status==='unavailable')missing.push('breadth');
 if(!d.sectorPulse||d.sectorPulse.status==='unavailable')missing.push('industry leaderboard');

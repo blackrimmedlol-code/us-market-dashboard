@@ -1,4 +1,4 @@
-# 市场观察 · 数据契约 v18.5
+# 市场观察 · 数据契约 v18.6
 
 ## 范围
 回答市场环境、全市场涨跌前三与四板块的自身走势、相对强弱、内部共振、新增事件。操作由用户决定。取消宏观、逐股操作建议、五周期、60/252分位、判断账本。legacy/冻结，正常更新不读取。
@@ -15,7 +15,7 @@
 
 ## 数据
 data.json含meta/assets/breadth/news/cta/previous/sectorPulse。
-meta：schemaVersion=18、rulesVersion=18.2、timezone=Asia/Shanghai；updatedAt抓取/研究时刻；asOf行情截止点；marketDate美股交易日；session=premarket/intraday/late/close；priceBasis=close/intraday；automationEnabled按实际任务启停填写。
+meta：schemaVersion=18、rulesVersion=18.2、timezone=Asia/Shanghai；updatedAt抓取/研究时刻；asOf行情截止点；marketDate美股交易日；session=premarket/intraday/late/close；priceBasis=close/intraday/premarket；automationEnabled按实际任务启停填写。
 assets固定22项：symbol/name/status/price/changePct/asOf/marketDate/trend30m/spark/sourceUrl/note。verified才参与计算；失败unavailable且数字null，不沿用旧值冒充本轮。verified另含baselineAt/baselinePrice、ema20/emaSlopePct、vwapApprox、barCount/fetchedAt。
 breadth：verified/snapshot/unavailable；advancing/declining/upPct；marketDate/sourceUrl/asOf/fetchedAt。来源无精确行情时点，asOf必须null，不以抓取时刻替代。上涨占比=上涨/(上涨+下跌)。
 news按memory/cloud/space/crypto保存text/publishedAt/expiresAt/kind(reported|inference)/sources[{name,url}]，可加label/eventDate/priceRelation。日期精度未知可仅用日期；发布日期和未来事件日期分开。因果未证实须明示，不能从涨跌倒推原因。
@@ -33,7 +33,7 @@ RSP/SPY、SPMO/SPY须同一asOf/baselineAt，用(现比值/基准比值-1)*100�
 2026-09-25 用户要求恢复旧版全行业榜的精简形式，并加入简短新闻分析。复用旧版 Finviz 细分行业表和排名算法；榜单位于市场状态与四个战场之间，每侧最多3项。不是只对四个战场排序，也不是11个大类ETF排名。
 - `scripts/refresh_sectors.py` 随主行情脚本批量抓一次完整行业表；抓取失败备用一次，失败显示 unavailable，不拿旧榜冒充新榜。无需模型逐个研究全部行业。
 - `sectorPulse`：status=snapshot/unavailable、marketDate、targetAsOf（对应主行情完成K线窗口）、asOf=null（来源无行业精确时刻）、fetchedAt、returnBasis=daily、universe/universeCount/sourceUrl/dateBasis、rows完整数值、gainers/losers前三。只正涨幅进入上涨榜，只负涨幅进入下跌榜，不足不凑；重复、非数值、不足100个行业均拒收。
-- 统计是当日截至本轮抓取的日累计涨跌，非两次更新间涨跌。盘前为上一正式盘；盘中来源可能延迟。必须核对同源SPY日期及实时/闭市窗口；禁止历史盘中时段回填之后的全日榜。显示榜单日期与独立抓取时间。
+- 统计是当日截至本轮抓取的日累计涨跌，非两次更新间涨跌。盘前不将上一正式盘榜单展示为当前榜单；若来源无可核实的盘前全行业口径则unavailable。盘中来源可能延迟。必须核对同源SPY日期及实时/闭市窗口；禁止历史盘中时段回填之后的全日榜。显示榜单日期与独立抓取时间。
 - `sectorPulse.news` 按榜单行业英文原名存一条简短解读（text≤240字，建议60–100字），kind=reported/inference/unknown；checkedAt实际核实时刻；有消息必须有publishedAt、expiresAt、sources[{name,url}]（1–2个）。reported只表示消息事实核实，不能自动代表涨跌因果已证实。unknown可无来源，明确原因待核实。
 - 每轮只研究入榜6行业；同日仍入榜、未过期的新闻可复用，复核有无新增变化并更新checkedAt；换榜或跨日重新检查。研究完成写researchAt且不早于fetchedAt，6项都需有新闻或unknown记录。新闻晚于行情时点则标“快照后消息”；发布日期精度未知仅填日期，不能假造具体时刻。
 - 四个战场新闻直接展示，不折叠；继续每板块最多1条有效新闻，不凑数。榜单新闻优先原公告，再使用可靠媒体，不能用一家公司事件解释整个行业而不说明局限。
@@ -47,7 +47,7 @@ RSP/SPY、SPMO/SPY须同一asOf/baselineAt，用(现比值/基准比值-1)*100�
 1. 读远端最新指南，工具内解析data并保存previous.json；核对交易日历和目标日期。
 2. python scripts/refresh-dashboard.py --session SESSION --market-date YYYY-MM-DD。基准缺失则保留旧快照并报错；来源失败备用一次，板块缺项允许真实partial。
 3. node scripts/compact-summary.mjs。只搜上次研究后新增公告，优先一手来源；四战场各最多一条，加涨跌榜6行业各一条简短解读（无可靠原因标unknown）；复用同日仍有效新闻，合并相同事件检索，最多5分钟新闻核实，10分钟全流程，不新建自愈任务、不无限重试。
-4. 盘前试用版显示上一正式盘收盘、重点补隔夜消息，不把旧价说成盘前实时报价。盘中/午后只写变化，收盘核实完整正式盘。新闻截止updatedAt，晚于行情asOf的事件必须标记“快照后消息，价格反应待确认”。
+4. 盘前必须使用当日最新盘前报价，禁止沿用上一正式盘收盘充当本轮报价。运行当日 --session premarket --market-date YYYY-MM-DD；meta.marketDate 为当日，priceBasis=premarket。抓取 includePrePost=true 的1分钟数据，以最新已完成1分钟行情作为报价快照，保留来源时点和抓取时点，页面提示来源可能延迟，不声称逐笔无延迟。报价须在当日美东04:00至09:30窗口且距本轮截止点不超过5分钟；超时、无成交或来源失败明确unavailable，数字null，不用旧价兜底。涨跌幅统一较最近一个正式交易日实际收盘，股票基准必须核实来源regularMarketTime与前收盘时间对齐；BTC/ETH也使用该收盘时刻基准，不用24小时涨跌。只取得部分报价则发布partial，SPY/QQQ缺项时状态待确认；来源日历无法核实时明确报错，不冒称刷新成功。盘前trend30m=unknown，premarketDirection由当前价相对昨收的正/负/零决定；市场与板块的盘前方向使用此字段，明确是盘前涨跌倾向而非正式盘EMA趋势，置信度为低。报价时点未对齐则不计算相对比值/强弱，不绘制未对齐等权曲线。盘前不使用昨日广度/行业榜确认当日状态；无可核实盘前口径则显示缺失，不影响有效报价展示。切换盘前与正式盘口径时不声称结构改善或恶化。盘中/午后只写变化，收盘核实完整正式盘。新闻截止updatedAt，晚于行情asOf的事件必须标记“快照后消息，价格反应待确认”。
 5. 运行node validate-data.mjs data.json previous.json、node --test dashboard-model.test.mjs sector-pulse.test.mjs、python -m unittest discover -s scripts -p 'test_*.py'、node check-session.mjs data.json SESSION YYYY-MM-DD。退出2为部分完成。幂等须同目标session/date，updatedAt晚于名义时点且完整同窗口，不能仅凭日期跳过。
 6. 写前fetch最新SHA；冲突重读合并一次，不强推。提交data与证据，核实Pages对应SHA成功及线上内容后才通知。通知只含市场状态、四板块变化、缺项、链接。
 

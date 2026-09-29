@@ -11,7 +11,7 @@ export function validate(d,old=null){
   need(m.timezone==='Asia/Shanghai','timezone');need(date(m.asOf)&&date(m.updatedAt),'meta timestamps');
   need(Date.parse(m.asOf)<=Date.parse(m.updatedAt),'asOf cannot exceed update time');
   need(['premarket','intraday','late','close'].includes(m.session),'session');
-  need(['close','intraday'].includes(m.priceBasis),'priceBasis');need(typeof m.automationEnabled==='boolean','automationEnabled');
+  need(['close','intraday','premarket'].includes(m.priceBasis),'priceBasis');need(typeof m.automationEnabled==='boolean','automationEnabled');
   need(/^\d{4}-\d{2}-\d{2}$/.test(m.marketDate||''),'marketDate');
   const required=m.rulesVersion==='18.2'?SYMBOLS:SYMBOLS.filter(s=>!['RSP','SPMO','VIX3M'].includes(s));
   need(JSON.stringify(Object.keys(d.assets||{}).sort())===JSON.stringify([...required].sort()),'fixed symbol roster');
@@ -19,6 +19,7 @@ export function validate(d,old=null){
     need(q.symbol===s,`${s} identity`);need(['verified','unavailable'].includes(q.status),`${s} status`);
     need(['up','down','mixed','unknown'].includes(q.trend30m),`${s} trend`);
     if(q.status==='verified'){
+      if(m.priceBasis==='premarket'){need(q.quoteSession==='premarket'&&q.trend30m==='unknown'&&['up','down','mixed'].includes(q.premarketDirection),`${s} premarket basis`);need(q.premarketDirection===(q.changePct>0?'up':q.changePct<0?'down':'mixed')||Math.abs(q.changePct)<.0001,`${s} premarket direction mismatch`);need(new Date(q.asOf).toLocaleDateString('en-CA',{timeZone:'America/New_York'})===m.marketDate,`${s} premarket date`)}
       need(validQuote(q,m),`${s} stale, future, or invalid price`);need(date(q.baselineAt)&&Date.parse(q.baselineAt)<Date.parse(q.asOf),`${s} baseline time`);
       need(num(q.baselinePrice)&&q.baselinePrice>0,`${s} baseline price`);
       need(Math.abs((q.price/q.baselinePrice-1)*100-q.changePct)<.02,`${s} return mismatch`);

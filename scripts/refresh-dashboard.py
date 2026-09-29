@@ -29,9 +29,11 @@ def fetch(url):
     return subprocess.check_output(['curl','--fail','-L','-sS','--max-time','25',
         '-H','User-Agent: Mozilla/5.0','-H','Accept: application/json,text/html',url], text=True)
 
-def get_chart(symbol):
+def get_chart(symbol, premarket=False):
     provider = PROVIDER.get(symbol, symbol)
-    url = f'https://query1.finance.yahoo.com/v8/finance/chart/{provider}?interval=30m&range=5d&includePrePost=false'
+    interval = '1m' if premarket else '30m'
+    extended = 'true' if premarket else 'false'
+    url = f'https://query1.finance.yahoo.com/v8/finance/chart/{provider}?interval={interval}&range=5d&includePrePost={extended}'
     attempts = []
     for host in ['query1','query2']:
         endpoint = url.replace('query1', host)
@@ -121,6 +123,48 @@ def observation(symbol, chart, cutoff, market_date, previous_close_at):
             'sourceUrl':chart['sourceUrl'],'fetchedAt':chart['fetchedAt'],
             'note':'已完成30分钟K线；涨跌统一较上一美股交易日16:00' if symbol in ['BTC','ETH','VIX','VIX3M'] else '已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似'}
 
+def premarket_observation(symbol, chart, cutoff, market_date, previous_close_at):
+    """Use only source-timestamped, completed current-day minute bars; never carry close."""
+    empty = {'symbol':symbol,'name':NAMES[symbol],'status':'unavailable','price':None,
+             'changePct':None,'asOf':None,'marketDate':market_date,'trend30m':'unknown',
+             'spark':[],'sourceUrl':chart.get('sourceUrl'),
+             'note':chart.get('error','未取得有效盘前报价；不以昨收替代')}
+    if 'result' not in chart: return empty
+    result = chart['result']; quote = result['indicators']['quote'][0]
+    start = dt.datetime.fromisoformat(market_date+'T04:00:00').replace(tzinfo=NY).timestamp()
+    opening = dt.datetime.fromisoformat(market_date+'T09:30:00').replace(tzinfo=NY).timestamp()
+    if not start <= cutoff < opening: return empty
+    seq = []
+    for i,t in enumerate(result.get('timestamp',[])):
+        values = quote.get('close',[])
+        price = values[i] if i < len(values) else None
+        if t % 60 == 0 and start <= t and t+60 <= cutoff and isinstance(price,(int,float)) and math.isfinite(price) and price > 0:
+            seq.append((t+60,price))
+    if not seq or cutoff-seq[-1][0] > 300:
+        empty['note'] = '盘前报价缺失或超过5分钟；不以昨收替代'
+        return empty
+    meta = result['meta']
+    if symbol in ['BTC','ETH']:
+        bases = [(t+60,quote['close'][i]) for i,t in enumerate(result.get('timestamp',[]))
+                 if t % 60 == 0 and t+60 == previous_close_at and i < len(quote.get('close',[]))
+                 and isinstance(quote['close'][i],(int,float)) and quote['close'][i] > 0]
+        baseline = bases[-1][1] if bases else None
+    else:
+        # regularMarketPrice must be the immediately preceding regular close, not
+        # chartPreviousClose (the start of the multi-day range) or a stale quote.
+        terminal = meta.get('regularMarketTime',0)
+        baseline = meta.get('regularMarketPrice') if previous_close_at-60 <= terminal <= previous_close_at+60 else None
+    if not isinstance(baseline,(int,float)) or not math.isfinite(baseline) or baseline <= 0:
+        empty['note'] = '上一正式盘收盘基准未核实'
+        return empty
+    timestamp,price = seq[-1]; change = (price/baseline-1)*100
+    return {**empty,'status':'verified','price':round(price,4),'changePct':round(change,4),
+            'asOf':iso(timestamp),'baselineAt':iso(previous_close_at),'baselinePrice':round(baseline,4),
+            'premarketDirection':'up' if change>0 else 'down' if change<0 else 'mixed',
+            'quoteSession':'premarket','barCount':len(seq),'spark':[round(x[1],4) for x in seq],
+            'fetchedAt':chart['fetchedAt'],
+            'note':'当日盘前最新已完成1分钟报价，较上一正式盘收盘；来源可能延迟，非逐笔实时流'}
+
 def get_breadth(market_date, now, cutoff):
     url = 'https://finviz.com/'
     obj = {'status':'unavailable','sourceUrl':url,'fetchedAt':now.isoformat(),'asOf':None,
@@ -161,10 +205,11 @@ def main():
     market_date = dt.date.fromisoformat(args.market_date).isoformat()
     old = json.loads((ROOT/'data.json').read_text())
     with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
-        raw = dict(zip(NAMES,pool.map(get_chart,NAMES)))
+        raw = dict(zip(NAMES,pool.map(lambda symbol:get_chart(symbol,args.session=='premarket'),NAMES)))
     if 'result' not in raw['QQQ']:
         raise SystemExit('QQQ unavailable: refusing to replace snapshot')
     periods = raw['QQQ']['result']['meta'].get('tradingPeriods',[])
+    if isinstance(periods,dict): periods = periods.get('regular',[])
     sessions = sorted([p for group in periods for p in group],key=lambda p:p['start'])
     current = raw['QQQ']['result']['meta']['currentTradingPeriod']['regular']
     if not any(p['start']==current['start'] for p in sessions):
@@ -177,19 +222,20 @@ def main():
     if not preceding:
         raise SystemExit('Previous session missing')
     prev = max(preceding,key=lambda p:p['end'])
-    if args.session == 'premarket':
-        # A premarket run displays last regular close, with explicit basis, not stale intraday data.
-        prior = [p for p in sessions if p['end'] < prev['start']]
-        if not prior: raise SystemExit('Prior baseline missing')
-        session,prev = prev,max(prior,key=lambda p:p['end'])
-        market_date = dt.datetime.fromtimestamp(session['start'],NY).date().isoformat()
     if args.session == 'close' and now.timestamp() < session['end']:
         raise SystemExit('Regular session has not closed')
-    cutoff = min(now.timestamp()//1800*1800,session['end'])
-    if cutoff < session['start']+1800:
-        raise SystemExit('No completed regular 30-minute bar yet')
-    assets = {s:observation(s,c,cutoff,market_date,prev['end']) for s,c in raw.items()}
-    if any(assets[s]['status']!='verified' for s in ['QQQ','SPY']):
+    if args.session == 'premarket':
+        cutoff = now.timestamp()
+        opening = dt.datetime.fromisoformat(market_date+'T04:00:00').replace(tzinfo=NY).timestamp()
+        if not opening <= cutoff < session['start']:
+            raise SystemExit('Requested date is not in its live premarket window')
+        assets = {s:premarket_observation(s,c,cutoff,market_date,prev['end']) for s,c in raw.items()}
+    else:
+        cutoff = min(now.timestamp()//1800*1800,session['end'])
+        if cutoff < session['start']+1800:
+            raise SystemExit('No completed regular 30-minute bar yet')
+        assets = {s:observation(s,c,cutoff,market_date,prev['end']) for s,c in raw.items()}
+    if args.session != 'premarket' and any(assets[s]['status']!='verified' for s in ['QQQ','SPY']):
         raise SystemExit('Market benchmark stale or unavailable; previous snapshot preserved')
     breadth = get_breadth(market_date,now,cutoff)
     sector_pulse = get_sector_pulse(market_date,now,cutoff,session['end'])
@@ -205,7 +251,7 @@ def main():
         breadth = old_breadth  # Same historical observation, retain original fetchedAt and note.
     out = {'meta':{'schemaVersion':18,'timezone':'Asia/Shanghai','edition':'trial',
                    'updatedAt':now.astimezone(CN).isoformat(),'asOf':iso(cutoff) if cutoff==session['end'] else now.isoformat(),'marketDate':market_date,
-                   'session':args.session,'priceBasis':'close' if cutoff==session['end'] else 'intraday',
+                   'session':args.session,'priceBasis':'premarket' if args.session=='premarket' else 'close' if cutoff==session['end'] else 'intraday',
                    'automationEnabled':old.get('meta',{}).get('automationEnabled',False),
                    'nextUpdate':None,'rulesVersion':'18.2'},
            'assets':assets,'breadth':breadth,'sectorPulse':sector_pulse,
