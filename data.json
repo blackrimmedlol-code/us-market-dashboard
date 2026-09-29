@@ -3,33 +3,33 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "trial",
-    "updatedAt": "2026-09-30T02:06:46.558724+08:00",
-    "asOf": "2026-09-30T02:00:00+08:00",
+    "updatedAt": "2026-09-30T04:24:44+08:00",
+    "asOf": "2026-09-29T20:00:00+00:00",
     "marketDate": "2026-09-29",
-    "session": "late",
-    "priceBasis": "intraday",
+    "session": "close",
+    "priceBasis": "close",
     "automationEnabled": true,
     "nextUpdate": null,
     "rulesVersion": "18.2",
-    "evidencePath": "history/v18/2026-09-29-late.json",
-    "newsCheckedAt": "2026-09-30T02:06:46.558724+08:00"
+    "evidencePath": "history/v18/2026-09-29-close.json",
+    "newsCheckedAt": "2026-09-30T04:24:44+08:00"
   },
   "assets": {
     "SPY": {
       "symbol": "SPY",
       "name": "标普 500",
       "status": "verified",
-      "price": 762.62,
-      "changePct": -0.3905,
-      "asOf": "2026-09-29T18:00:00+00:00",
+      "price": 764.2,
+      "changePct": -0.1842,
+      "asOf": "2026-09-29T20:00:00+00:00",
       "marketDate": "2026-09-29",
       "baselineAt": "2026-09-28T20:00:00+00:00",
       "baselinePrice": 765.61,
       "trend30m": "down",
-      "ema20": 765.08199,
-      "emaSlopePct": -0.03386,
-      "vwapApprox": 764.26804,
-      "barCount": 61,
+      "ema20": 764.86748,
+      "emaSlopePct": -0.00795,
+      "vwapApprox": 764.26493,
+      "barCount": 65,
       "spark": [
         764.72,
         765.31,
@@ -39,27 +39,31 @@
         763.395,
         762.9948,
         763.08,
-        762.62
+        762.62,
+        763.97,
+        764.87,
+        764.57,
+        764.29
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/SPY?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-09-29T18:04:51.580767+00:00",
+      "fetchedAt": "2026-09-29T20:23:05.557760+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "QQQ": {
       "symbol": "QQQ",
       "name": "纳斯达克 100",
       "status": "verified",
-      "price": 735.74,
-      "changePct": -0.1073,
-      "asOf": "2026-09-29T18:00:00+00:00",
+      "price": 737.93,
+      "changePct": 0.1901,
+      "asOf": "2026-09-29T20:00:00+00:00",
       "marketDate": "2026-09-29",
       "baselineAt": "2026-09-28T20:00:00+00:00",
       "baselinePrice": 736.53,
-      "trend30m": "down",
-      "ema20": 737.79007,
-      "emaSlopePct": -0.02924,
-      "vwapApprox": 737.75258,
-      "barCount": 61,
+      "trend30m": "up",
+      "ema20": 737.89778,
+      "emaSlopePct": 0.00089,
+      "vwapApprox": 737.80328,
+      "barCount": 65,
       "spark": [
         737.7875,
         739.29,
@@ -69,27 +73,31 @@
         737.24,
         736.131,
         736.83,
-        735.74
+        735.74,
+        737.63,
+        738.7,
+        738.16,
+        737.96
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/QQQ?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-09-29T18:04:51.527384+00:00",
+      "fetchedAt": "2026-09-29T20:23:05.554795+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "VIX": {
       "symbol": "VIX",
       "name": "波动率",
       "status": "verified",
-      "price": 16.27,
-      "changePct": 1.0559,
-      "asOf": "2026-09-29T18:00:00+00:00",
+      "price": 16.09,
+      "changePct": -0.0621,
+      "asOf": "2026-09-29T20:00:00+00:00",
       "marketDate": "2026-09-29",
       "baselineAt": "2026-09-28T20:00:00+00:00",
       "baselinePrice": 16.1,
-      "trend30m": "up",
-      "ema20": 16.1031,
-      "emaSlopePct": 0.10922,
+      "trend30m": "down",
+      "ema20": 16.09472,
+      "emaSlopePct": -0.00309,
       "vwapApprox": null,
-      "barCount": 130,
+      "barCount": 134,
       "spark": [
         15.94,
         15.9,
@@ -99,27 +107,31 @@
         16.17,
         16.33,
         16.31,
-        16.27
+        16.38,
+        16.14,
+        15.98,
+        16.02,
+        16.09
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/^VIX?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-09-29T18:04:51.566738+00:00",
+      "fetchedAt": "2026-09-29T20:23:05.687498+00:00",
       "note": "已完成30分钟K线；涨跌统一较上一美股交易日16:00"
     },
     "RSP": {
       "symbol": "RSP",
       "name": "标普500等权",
       "status": "verified",
-      "price": 208.758,
-      "changePct": -0.4682,
-      "asOf": "2026-09-29T18:00:00+00:00",
+      "price": 209.5,
+      "changePct": -0.1144,
+      "asOf": "2026-09-29T20:00:00+00:00",
       "marketDate": "2026-09-29",
       "baselineAt": "2026-09-28T20:00:00+00:00",
       "baselinePrice": 209.74,
-      "trend30m": "down",
-      "ema20": 209.37299,
-      "emaSlopePct": -0.03091,
-      "vwapApprox": 209.14072,
-      "barCount": 61,
+      "trend30m": "up",
+      "ema20": 209.33401,
+      "emaSlopePct": 0.00784,
+      "vwapApprox": 209.17472,
+      "barCount": 65,
       "spark": [
         209.715,
         209.42,
@@ -129,27 +141,31 @@
         208.77,
         208.615,
         208.645,
-        208.758
+        208.735,
+        208.965,
+        209.16,
+        209.335,
+        209.49
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/RSP?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-09-29T18:04:51.594281+00:00",
+      "fetchedAt": "2026-09-29T20:23:05.641655+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "SPMO": {
       "symbol": "SPMO",
       "name": "标普500动量",
       "status": "verified",
-      "price": 150.845,
-      "changePct": -0.2216,
-      "asOf": "2026-09-29T18:00:00+00:00",
+      "price": 151.25,
+      "changePct": 0.0463,
+      "asOf": "2026-09-29T20:00:00+00:00",
       "marketDate": "2026-09-29",
       "baselineAt": "2026-09-28T20:00:00+00:00",
       "baselinePrice": 151.18,
-      "trend30m": "down",
-      "ema20": 151.23023,
-      "emaSlopePct": -0.02681,
-      "vwapApprox": 151.21139,
-      "barCount": 61,
+      "trend30m": "up",
+      "ema20": 151.24541,
+      "emaSlopePct": 0.00032,
+      "vwapApprox": 151.21871,
+      "barCount": 65,
       "spark": [
         151.68,
         151.605,
@@ -159,27 +175,31 @@
         150.98,
         150.8356,
         151.0574,
-        150.845
+        150.845,
+        151.25,
+        151.35,
+        151.26,
+        151.25
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/SPMO?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-09-29T18:04:51.590165+00:00",
+      "fetchedAt": "2026-09-29T20:23:05.542394+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "VIX3M": {
       "symbol": "VIX3M",
       "name": "三个月波动率",
       "status": "verified",
-      "price": 18.21,
-      "changePct": -0.2738,
-      "asOf": "2026-09-29T18:00:00+00:00",
+      "price": 18.1,
+      "changePct": -0.8762,
+      "asOf": "2026-09-29T20:00:00+00:00",
       "marketDate": "2026-09-29",
       "baselineAt": "2026-09-28T20:00:00+00:00",
       "baselinePrice": 18.26,
-      "trend30m": "up",
-      "ema20": 18.16003,
-      "emaSlopePct": 0.02897,
+      "trend30m": "down",
+      "ema20": 18.14376,
+      "emaSlopePct": -0.02538,
       "vwapApprox": null,
-      "barCount": 61,
+      "barCount": 65,
       "spark": [
         18.05,
         18.0,
@@ -189,27 +209,31 @@
         18.1,
         18.23,
         18.22,
-        18.21
+        18.27,
+        18.14,
+        18.06,
+        18.1,
+        18.1
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/^VIX3M?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-09-29T18:04:51.640859+00:00",
+      "fetchedAt": "2026-09-29T20:23:05.552486+00:00",
       "note": "已完成30分钟K线；涨跌统一较上一美股交易日16:00"
     },
     "DRAM": {
       "symbol": "DRAM",
       "name": "存储整体",
       "status": "verified",
-      "price": 60.9206,
-      "changePct": 2.0446,
-      "asOf": "2026-09-29T18:00:00+00:00",
+      "price": 61.34,
+      "changePct": 2.7471,
+      "asOf": "2026-09-29T20:00:00+00:00",
       "marketDate": "2026-09-29",
       "baselineAt": "2026-09-28T20:00:00+00:00",
       "baselinePrice": 59.7,
       "trend30m": "up",
-      "ema20": 60.71419,
-      "emaSlopePct": 0.0358,
-      "vwapApprox": 61.11111,
-      "barCount": 61,
+      "ema20": 60.91563,
+      "emaSlopePct": 0.07339,
+      "vwapApprox": 61.14808,
+      "barCount": 65,
       "spark": [
         60.95,
         61.535,
@@ -219,27 +243,31 @@
         61.17,
         60.96,
         61.05,
-        60.9206
+        60.93,
+        61.155,
+        61.38,
+        61.39,
+        61.34
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/DRAM?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-09-29T18:05:00.129649+00:00",
+      "fetchedAt": "2026-09-29T20:23:14.290243+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "MU": {
       "symbol": "MU",
       "name": "Micron",
       "status": "verified",
-      "price": 1069.0898,
-      "changePct": 1.4336,
-      "asOf": "2026-09-29T18:00:00+00:00",
+      "price": 1065.08,
+      "changePct": 1.0532,
+      "asOf": "2026-09-29T20:00:00+00:00",
       "marketDate": "2026-09-29",
       "baselineAt": "2026-09-28T20:00:00+00:00",
       "baselinePrice": 1053.98,
-      "trend30m": "up",
-      "ema20": 1066.69172,
-      "emaSlopePct": 0.02367,
-      "vwapApprox": 1071.56671,
-      "barCount": 61,
+      "trend30m": "down",
+      "ema20": 1067.65488,
+      "emaSlopePct": -0.02223,
+      "vwapApprox": 1071.03237,
+      "barCount": 65,
       "spark": [
         1072.5,
         1079.66,
@@ -249,27 +277,31 @@
         1070.9,
         1068.4056,
         1072.09,
-        1069.0898
+        1069.0898,
+        1072.165,
+        1071.985,
+        1070.0276,
+        1065.4
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/MU?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-09-29T18:05:00.214103+00:00",
+      "fetchedAt": "2026-09-29T20:23:14.235361+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "SKHY": {
       "symbol": "SKHY",
       "name": "SK hynix",
       "status": "verified",
-      "price": 186.6024,
-      "changePct": 2.5739,
-      "asOf": "2026-09-29T18:00:00+00:00",
+      "price": 186.68,
+      "changePct": 2.6165,
+      "asOf": "2026-09-29T20:00:00+00:00",
       "marketDate": "2026-09-29",
       "baselineAt": "2026-09-28T20:00:00+00:00",
       "baselinePrice": 181.92,
       "trend30m": "up",
-      "ema20": 185.95009,
-      "emaSlopePct": 0.03694,
-      "vwapApprox": 186.47352,
-      "barCount": 61,
+      "ema20": 186.30848,
+      "emaSlopePct": 0.02156,
+      "vwapApprox": 186.57804,
+      "barCount": 65,
       "spark": [
         185.58,
         187.47,
@@ -279,27 +311,31 @@
         187.025,
         186.78,
         187.22,
-        186.6024
+        186.6024,
+        186.915,
+        187.455,
+        187.14,
+        186.69
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/SKHY?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-09-29T18:05:00.203163+00:00",
+      "fetchedAt": "2026-09-29T20:23:14.375536+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "SNDK": {
       "symbol": "SNDK",
       "name": "Sandisk",
       "status": "verified",
-      "price": 1710.7238,
-      "changePct": -0.1265,
-      "asOf": "2026-09-29T18:00:00+00:00",
+      "price": 1729.76,
+      "changePct": 0.9849,
+      "asOf": "2026-09-29T20:00:00+00:00",
       "marketDate": "2026-09-29",
       "baselineAt": "2026-09-28T20:00:00+00:00",
       "baselinePrice": 1712.89,
-      "trend30m": "down",
-      "ema20": 1720.31856,
-      "emaSlopePct": -0.05867,
-      "vwapApprox": 1721.71038,
-      "barCount": 61,
+      "trend30m": "up",
+      "ema20": 1721.28665,
+      "emaSlopePct": 0.05178,
+      "vwapApprox": 1721.86531,
+      "barCount": 65,
       "spark": [
         1717.5582,
         1738.595,
@@ -309,27 +345,31 @@
         1713.7,
         1709.625,
         1711.21,
-        1710.7238
+        1710.7238,
+        1714.545,
+        1723.26,
+        1723.1952,
+        1729.749
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/SNDK?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-09-29T18:05:00.144216+00:00",
+      "fetchedAt": "2026-09-29T20:23:14.285208+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "WDC": {
       "symbol": "WDC",
       "name": "Western Digital",
       "status": "verified",
-      "price": 450.43,
-      "changePct": -0.6178,
-      "asOf": "2026-09-29T18:00:00+00:00",
+      "price": 453.66,
+      "changePct": 0.0949,
+      "asOf": "2026-09-29T20:00:00+00:00",
       "marketDate": "2026-09-29",
       "baselineAt": "2026-09-28T20:00:00+00:00",
       "baselinePrice": 453.23,
-      "trend30m": "down",
-      "ema20": 451.78001,
-      "emaSlopePct": -0.03145,
-      "vwapApprox": 453.10773,
-      "barCount": 61,
+      "trend30m": "up",
+      "ema20": 452.07237,
+      "emaSlopePct": 0.03698,
+      "vwapApprox": 452.93515,
+      "barCount": 65,
       "spark": [
         455.03,
         457.8746,
@@ -339,27 +379,31 @@
         451.005,
         450.21,
         450.41,
-        450.43
+        450.43,
+        452.1773,
+        452.9514,
+        451.71,
+        453.66
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/WDC?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-09-29T18:05:00.196394+00:00",
+      "fetchedAt": "2026-09-29T20:23:14.277397+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "IREN": {
       "symbol": "IREN",
       "name": "IREN",
       "status": "verified",
-      "price": 41.2701,
-      "changePct": -1.0784,
-      "asOf": "2026-09-29T18:00:00+00:00",
+      "price": 41.39,
+      "changePct": -0.791,
+      "asOf": "2026-09-29T20:00:00+00:00",
       "marketDate": "2026-09-29",
       "baselineAt": "2026-09-28T20:00:00+00:00",
       "baselinePrice": 41.72,
       "trend30m": "down",
-      "ema20": 42.13651,
-      "emaSlopePct": -0.21597,
-      "vwapApprox": 41.78856,
-      "barCount": 61,
+      "ema20": 41.88269,
+      "emaSlopePct": -0.12367,
+      "vwapApprox": 41.68473,
+      "barCount": 65,
       "spark": [
         41.81,
         42.415,
@@ -369,27 +413,31 @@
         41.41,
         41.136,
         41.3688,
-        41.2701
+        41.2701,
+        41.24,
+        41.44,
+        41.38,
+        41.39
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/IREN?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-09-29T18:05:00.180691+00:00",
+      "fetchedAt": "2026-09-29T20:23:14.272054+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "NBIS": {
       "symbol": "NBIS",
       "name": "Nebius",
       "status": "verified",
-      "price": 239.47,
-      "changePct": 3.2732,
-      "asOf": "2026-09-29T18:00:00+00:00",
+      "price": 237.355,
+      "changePct": 2.3611,
+      "asOf": "2026-09-29T20:00:00+00:00",
       "marketDate": "2026-09-29",
       "baselineAt": "2026-09-28T20:00:00+00:00",
       "baselinePrice": 231.88,
-      "trend30m": "up",
-      "ema20": 238.98367,
-      "emaSlopePct": 0.02143,
-      "vwapApprox": 241.37914,
-      "barCount": 61,
+      "trend30m": "down",
+      "ema20": 238.74868,
+      "emaSlopePct": -0.06515,
+      "vwapApprox": 240.85382,
+      "barCount": 65,
       "spark": [
         241.48,
         245.72,
@@ -399,27 +447,31 @@
         241.465,
         241.02,
         241.49,
-        239.47
+        239.47,
+        238.955,
+        238.535,
+        238.58,
+        237.27
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/NBIS?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-09-29T18:05:06.139371+00:00",
+      "fetchedAt": "2026-09-29T20:23:21.855663+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "CRWV": {
       "symbol": "CRWV",
       "name": "CoreWeave",
       "status": "verified",
-      "price": 86.155,
-      "changePct": 1.2754,
-      "asOf": "2026-09-29T18:00:00+00:00",
+      "price": 85.91,
+      "changePct": 0.9874,
+      "asOf": "2026-09-29T20:00:00+00:00",
       "marketDate": "2026-09-29",
       "baselineAt": "2026-09-28T20:00:00+00:00",
       "baselinePrice": 85.07,
       "trend30m": "down",
-      "ema20": 86.51136,
-      "emaSlopePct": -0.04334,
-      "vwapApprox": 87.68025,
-      "barCount": 61,
+      "ema20": 86.31655,
+      "emaSlopePct": -0.04955,
+      "vwapApprox": 87.38017,
+      "barCount": 65,
       "spark": [
         87.21,
         89.8,
@@ -429,27 +481,31 @@
         86.562,
         85.74,
         85.88,
-        86.155
+        86.155,
+        86.05,
+        85.995,
+        85.76,
+        85.91
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/CRWV?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-09-29T18:05:06.196893+00:00",
+      "fetchedAt": "2026-09-29T20:23:21.976749+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "SPCX": {
       "symbol": "SPCX",
       "name": "SpaceX",
       "status": "verified",
-      "price": 147.7201,
-      "changePct": 1.5468,
-      "asOf": "2026-09-29T18:00:00+00:00",
+      "price": 149.24,
+      "changePct": 2.5916,
+      "asOf": "2026-09-29T20:00:00+00:00",
       "marketDate": "2026-09-29",
       "baselineAt": "2026-09-28T20:00:00+00:00",
       "baselinePrice": 145.47,
-      "trend30m": "down",
-      "ema20": 147.86138,
-      "emaSlopePct": -0.01006,
-      "vwapApprox": 147.90884,
-      "barCount": 61,
+      "trend30m": "up",
+      "ema20": 148.07318,
+      "emaSlopePct": 0.08017,
+      "vwapApprox": 148.1037,
+      "barCount": 65,
       "spark": [
         145.53,
         146.92,
@@ -459,27 +515,31 @@
         149.07,
         148.675,
         149.12,
-        147.7201
+        147.7201,
+        147.77,
+        148.165,
+        148.64,
+        149.2
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/SPCX?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-09-29T18:05:06.168982+00:00",
+      "fetchedAt": "2026-09-29T20:23:21.891967+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "RKLB": {
       "symbol": "RKLB",
       "name": "Rocket Lab",
       "status": "verified",
-      "price": 70.27,
-      "changePct": -2.6597,
-      "asOf": "2026-09-29T18:00:00+00:00",
+      "price": 69.72,
+      "changePct": -3.4215,
+      "asOf": "2026-09-29T20:00:00+00:00",
       "marketDate": "2026-09-29",
       "baselineAt": "2026-09-28T20:00:00+00:00",
       "baselinePrice": 72.19,
       "trend30m": "down",
-      "ema20": 71.58816,
-      "emaSlopePct": -0.19345,
-      "vwapApprox": 71.33658,
-      "barCount": 61,
+      "ema20": 71.00277,
+      "emaSlopePct": -0.18981,
+      "vwapApprox": 70.89651,
+      "barCount": 65,
       "spark": [
         71.98,
         71.57,
@@ -489,27 +549,31 @@
         70.345,
         70.22,
         70.11,
-        70.27
+        70.27,
+        70.02,
+        70.0,
+        69.58,
+        69.72
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/RKLB?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-09-29T18:05:06.132899+00:00",
+      "fetchedAt": "2026-09-29T20:23:21.849106+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "ASTS": {
       "symbol": "ASTS",
       "name": "AST SpaceMobile",
       "status": "verified",
-      "price": 59.355,
-      "changePct": -2.6967,
-      "asOf": "2026-09-29T18:00:00+00:00",
+      "price": 59.42,
+      "changePct": -2.5902,
+      "asOf": "2026-09-29T20:00:00+00:00",
       "marketDate": "2026-09-29",
       "baselineAt": "2026-09-28T20:00:00+00:00",
       "baselinePrice": 61.0,
       "trend30m": "down",
-      "ema20": 60.57958,
-      "emaSlopePct": -0.21233,
-      "vwapApprox": 61.16673,
-      "barCount": 61,
+      "ema20": 60.13166,
+      "emaSlopePct": -0.12442,
+      "vwapApprox": 60.72228,
+      "barCount": 65,
       "spark": [
         61.93,
         61.33,
@@ -519,27 +583,31 @@
         59.47,
         59.225,
         58.66,
-        59.355
+        59.355,
+        59.09,
+        59.09,
+        59.23,
+        59.42
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/ASTS?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-09-29T18:05:06.136859+00:00",
+      "fetchedAt": "2026-09-29T20:23:21.876285+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "BTC": {
       "symbol": "BTC",
       "name": "Bitcoin",
       "status": "verified",
-      "price": 83055.4219,
-      "changePct": -0.3712,
-      "asOf": "2026-09-29T18:00:00+00:00",
+      "price": 83549.0078,
+      "changePct": 0.2209,
+      "asOf": "2026-09-29T20:00:00+00:00",
       "marketDate": "2026-09-29",
       "baselineAt": "2026-09-28T20:00:00+00:00",
       "baselinePrice": 83364.8438,
-      "trend30m": "down",
-      "ema20": 83547.78315,
-      "emaSlopePct": -0.06199,
+      "trend30m": "up",
+      "ema20": 83540.323,
+      "emaSlopePct": 0.00109,
       "vwapApprox": null,
-      "barCount": 228,
+      "barCount": 232,
       "spark": [
         84186.2188,
         83907.7031,
@@ -549,27 +617,31 @@
         83236.5312,
         83034.9297,
         83157.7188,
-        83055.4219
+        83055.4219,
+        83403.4766,
+        83609.9766,
+        83521.7109,
+        83549.0078
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/BTC-USD?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-09-29T18:05:06.112230+00:00",
+      "fetchedAt": "2026-09-29T20:23:21.901046+00:00",
       "note": "已完成30分钟K线；涨跌统一较上一美股交易日16:00"
     },
     "ETH": {
       "symbol": "ETH",
       "name": "Ethereum",
       "status": "verified",
-      "price": 2672.8301,
-      "changePct": 0.0157,
-      "asOf": "2026-09-29T18:00:00+00:00",
+      "price": 2688.3101,
+      "changePct": 0.595,
+      "asOf": "2026-09-29T20:00:00+00:00",
       "marketDate": "2026-09-29",
       "baselineAt": "2026-09-28T20:00:00+00:00",
       "baselinePrice": 2672.4099,
       "trend30m": "down",
-      "ema20": 2695.77147,
-      "emaSlopePct": -0.0895,
+      "ema20": 2694.08868,
+      "emaSlopePct": -0.02257,
       "vwapApprox": null,
-      "barCount": 228,
+      "barCount": 232,
       "spark": [
         2726.9399,
         2715.1299,
@@ -579,27 +651,31 @@
         2681.6699,
         2674.98,
         2676.8601,
-        2672.8301
+        2672.8301,
+        2684.6699,
+        2694.74,
+        2694.51,
+        2688.3101
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/ETH-USD?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-09-29T18:05:12.143826+00:00",
+      "fetchedAt": "2026-09-29T20:23:29.392372+00:00",
       "note": "已完成30分钟K线；涨跌统一较上一美股交易日16:00"
     },
     "COIN": {
       "symbol": "COIN",
       "name": "Coinbase",
       "status": "verified",
-      "price": 188.45,
-      "changePct": -1.7415,
-      "asOf": "2026-09-29T18:00:00+00:00",
+      "price": 190.07,
+      "changePct": -0.8968,
+      "asOf": "2026-09-29T20:00:00+00:00",
       "marketDate": "2026-09-29",
       "baselineAt": "2026-09-28T20:00:00+00:00",
       "baselinePrice": 191.79,
       "trend30m": "down",
-      "ema20": 192.06317,
-      "emaSlopePct": -0.19763,
-      "vwapApprox": 192.21034,
-      "barCount": 61,
+      "ema20": 191.22889,
+      "emaSlopePct": -0.06375,
+      "vwapApprox": 191.35625,
+      "barCount": 65,
       "spark": [
         192.5497,
         193.54,
@@ -609,27 +685,31 @@
         190.4,
         190.545,
         189.73,
-        188.45
+        188.45,
+        189.369,
+        189.83,
+        188.81,
+        190.07
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/COIN?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-09-29T18:05:12.158422+00:00",
+      "fetchedAt": "2026-09-29T20:23:29.271493+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "MSTR": {
       "symbol": "MSTR",
       "name": "Strategy",
       "status": "verified",
-      "price": 152.9,
-      "changePct": -2.6982,
-      "asOf": "2026-09-29T18:00:00+00:00",
+      "price": 154.72,
+      "changePct": -1.54,
+      "asOf": "2026-09-29T20:00:00+00:00",
       "marketDate": "2026-09-29",
       "baselineAt": "2026-09-28T20:00:00+00:00",
       "baselinePrice": 157.14,
       "trend30m": "down",
-      "ema20": 155.9845,
-      "emaSlopePct": -0.20772,
-      "vwapApprox": 155.63431,
-      "barCount": 61,
+      "ema20": 155.36333,
+      "emaSlopePct": -0.04357,
+      "vwapApprox": 155.21291,
+      "barCount": 65,
       "spark": [
         157.205,
         156.07,
@@ -639,27 +719,31 @@
         153.6401,
         153.5001,
         153.76,
-        152.9
+        152.9,
+        153.4601,
+        154.26,
+        153.8,
+        154.72
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/MSTR?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-09-29T18:05:12.190355+00:00",
+      "fetchedAt": "2026-09-29T20:23:29.267558+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "HOOD": {
       "symbol": "HOOD",
       "name": "Robinhood",
       "status": "verified",
-      "price": 115.08,
-      "changePct": -1.185,
-      "asOf": "2026-09-29T18:00:00+00:00",
+      "price": 116.24,
+      "changePct": -0.1889,
+      "asOf": "2026-09-29T20:00:00+00:00",
       "marketDate": "2026-09-29",
       "baselineAt": "2026-09-28T20:00:00+00:00",
       "baselinePrice": 116.46,
       "trend30m": "down",
-      "ema20": 116.5678,
-      "emaSlopePct": -0.13417,
-      "vwapApprox": 116.42903,
-      "barCount": 61,
+      "ema20": 116.44235,
+      "emaSlopePct": -0.01829,
+      "vwapApprox": 116.29804,
+      "barCount": 65,
       "spark": [
         116.975,
         116.87,
@@ -669,639 +753,643 @@
         115.42,
         115.655,
         115.45,
-        115.08
+        115.08,
+        115.96,
+        116.73,
+        115.825,
+        116.24
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/HOOD?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-09-29T18:05:12.165688+00:00",
+      "fetchedAt": "2026-09-29T20:23:29.322602+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     }
   },
   "breadth": {
     "status": "snapshot",
     "sourceUrl": "https://finviz.com/",
-    "fetchedAt": "2026-09-29T18:04:43.649083+00:00",
+    "fetchedAt": "2026-09-29T20:22:53.099978+00:00",
     "asOf": null,
     "marketDate": "2026-09-29",
-    "advancing": 1978,
-    "declining": 3477,
-    "upPct": 36.26,
-    "note": "Finviz NYSE/Nasdaq/AMEX 涨跌家数；比例不含平盘。正式盘窗口抓取；网页报价可能延迟；来源未提供该框精确行情时刻。"
+    "advancing": 2204,
+    "declining": 3168,
+    "upPct": 41.03,
+    "note": "Finviz NYSE/Nasdaq/AMEX 涨跌家数；比例不含平盘。闭市窗口抓取并以该日市场摘要交叉核对；来源未提供该框精确行情时刻。"
   },
   "sectorPulse": {
     "status": "snapshot",
     "marketDate": "2026-09-29",
-    "targetAsOf": "2026-09-29T18:00:00+00:00",
+    "targetAsOf": "2026-09-29T20:00:00+00:00",
     "asOf": null,
-    "fetchedAt": "2026-09-29T18:05:40.223742+00:00",
+    "fetchedAt": "2026-09-29T20:24:01.555428+00:00",
     "returnBasis": "daily",
     "universe": "Finviz 全部细分行业（提供方口径）",
     "universeCount": 144,
     "sourceUrl": "https://finviz.com/groups.ashx?g=industry&v=140&o=-change",
-    "dateBasis": "同源 SPY 日期锚点：Last Close 763.61 Sep 29 • 2:05 PM ET Dollar change -2.00 Percentage change (-0.26%) Overview Compare Short Interest Financials Options Filings Latest Filings Financial Exchange Traded Fund ；行业表未披露逐项行情时点。",
+    "dateBasis": "同源 SPY 日期锚点：Last Close 764.20 Sep 29 • 3:59 PM ET Dollar change -1.41 Percentage change (-0.18%) Aftermarket Close 764.70 Aftermarket • 4:23 PM ET Dollar change +0.50 Percentage change (0.07%) Overview ；行业表未披露逐项行情时点。",
     "rows": [
       {
         "name": "Electrical Equipment & Parts",
-        "changePct": 3.83
+        "changePct": 3.74
       },
       {
         "name": "Semiconductor Equipment & Materials",
-        "changePct": 2.85
+        "changePct": 3.66
       },
       {
         "name": "Travel Services",
-        "changePct": 2.1
-      },
-      {
-        "name": "Utilities - Independent Power Producers",
-        "changePct": 1.59
-      },
-      {
-        "name": "Auto & Truck Dealerships",
-        "changePct": 1.53
-      },
-      {
-        "name": "Mortgage Finance",
-        "changePct": 1.35
-      },
-      {
-        "name": "Marine Shipping",
-        "changePct": 1.21
-      },
-      {
-        "name": "Grocery Stores",
-        "changePct": 1.16
-      },
-      {
-        "name": "Utilities - Diversified",
-        "changePct": 0.97
-      },
-      {
-        "name": "Metal Fabrication",
-        "changePct": 0.86
-      },
-      {
-        "name": "Semiconductors",
-        "changePct": 0.84
-      },
-      {
-        "name": "Apparel Retail",
-        "changePct": 0.84
-      },
-      {
-        "name": "Electronic Components",
-        "changePct": 0.82
-      },
-      {
-        "name": "Gold",
-        "changePct": 0.74
-      },
-      {
-        "name": "Trucking",
-        "changePct": 0.72
-      },
-      {
-        "name": "Aerospace & Defense",
-        "changePct": 0.7
-      },
-      {
-        "name": "Utilities - Regulated Electric",
-        "changePct": 0.66
-      },
-      {
-        "name": "Agricultural Inputs",
-        "changePct": 0.6
+        "changePct": 1.9
       },
       {
         "name": "Solar",
-        "changePct": 0.57
+        "changePct": 1.88
       },
       {
-        "name": "Textile Manufacturing",
-        "changePct": 0.46
+        "name": "Utilities - Independent Power Producers",
+        "changePct": 1.62
       },
       {
-        "name": "Restaurants",
-        "changePct": 0.45
+        "name": "Auto & Truck Dealerships",
+        "changePct": 1.6
       },
       {
-        "name": "Department Stores",
-        "changePct": 0.4
+        "name": "Grocery Stores",
+        "changePct": 1.4
       },
       {
-        "name": "Lodging",
-        "changePct": 0.38
+        "name": "Utilities - Diversified",
+        "changePct": 1.39
       },
       {
-        "name": "Utilities - Regulated Gas",
-        "changePct": 0.33
+        "name": "Metal Fabrication",
+        "changePct": 1.35
       },
       {
-        "name": "Internet Retail",
-        "changePct": 0.31
-      },
-      {
-        "name": "Communication Equipment",
-        "changePct": 0.26
-      },
-      {
-        "name": "Entertainment",
-        "changePct": 0.21
-      },
-      {
-        "name": "Utilities - Regulated Water",
-        "changePct": 0.21
-      },
-      {
-        "name": "Electronics & Computer Distribution",
-        "changePct": 0.13
-      },
-      {
-        "name": "Engineering & Construction",
-        "changePct": 0.11
-      },
-      {
-        "name": "Silver",
-        "changePct": 0.1
-      },
-      {
-        "name": "Shell Companies",
-        "changePct": 0.09
-      },
-      {
-        "name": "Other Precious Metals & Mining",
-        "changePct": 0.09
-      },
-      {
-        "name": "Home Improvement Retail",
-        "changePct": 0.07
+        "name": "Electronic Components",
+        "changePct": 1.17
       },
       {
         "name": "Medical Distribution",
-        "changePct": 0.05
+        "changePct": 1.12
       },
       {
-        "name": "REIT - Industrial",
-        "changePct": 0.04
+        "name": "Apparel Retail",
+        "changePct": 1.1
       },
       {
-        "name": "Utilities - Renewable",
-        "changePct": 0.04
+        "name": "Marine Shipping",
+        "changePct": 1.06
       },
       {
-        "name": "Airlines",
-        "changePct": 0.04
+        "name": "Aerospace & Defense",
+        "changePct": 0.96
+      },
+      {
+        "name": "Utilities - Regulated Electric",
+        "changePct": 0.96
+      },
+      {
+        "name": "Lodging",
+        "changePct": 0.9
+      },
+      {
+        "name": "Gold",
+        "changePct": 0.88
+      },
+      {
+        "name": "Silver",
+        "changePct": 0.79
+      },
+      {
+        "name": "Utilities - Regulated Water",
+        "changePct": 0.7
+      },
+      {
+        "name": "Trucking",
+        "changePct": 0.67
+      },
+      {
+        "name": "Communication Equipment",
+        "changePct": 0.61
+      },
+      {
+        "name": "Luxury Goods",
+        "changePct": 0.6
+      },
+      {
+        "name": "Semiconductors",
+        "changePct": 0.57
       },
       {
         "name": "Internet Content & Information",
-        "changePct": 0.03
-      },
-      {
-        "name": "Uranium",
-        "changePct": 0.03
-      },
-      {
-        "name": "Insurance Brokers",
-        "changePct": 0.03
-      },
-      {
-        "name": "Residential Construction",
-        "changePct": 0.02
-      },
-      {
-        "name": "Building Products & Equipment",
-        "changePct": -0.03
-      },
-      {
-        "name": "Specialty Industrial Machinery",
-        "changePct": -0.04
-      },
-      {
-        "name": "Security & Protection Services",
-        "changePct": -0.05
+        "changePct": 0.55
       },
       {
         "name": "Scientific & Technical Instruments",
-        "changePct": -0.05
+        "changePct": 0.55
       },
       {
-        "name": "Farm & Heavy Construction Machinery",
-        "changePct": -0.07
+        "name": "Utilities - Regulated Gas",
+        "changePct": 0.55
       },
       {
-        "name": "Pharmaceutical Retailers",
-        "changePct": -0.08
+        "name": "Utilities - Renewable",
+        "changePct": 0.54
       },
       {
-        "name": "Electronic Gaming & Multimedia",
-        "changePct": -0.1
+        "name": "Airlines",
+        "changePct": 0.54
       },
       {
-        "name": "Pollution & Treatment Controls",
-        "changePct": -0.12
+        "name": "Engineering & Construction",
+        "changePct": 0.4
       },
       {
-        "name": "Integrated Freight & Logistics",
-        "changePct": -0.15
+        "name": "Electronics & Computer Distribution",
+        "changePct": 0.36
       },
       {
-        "name": "Oil & Gas Refining & Marketing",
-        "changePct": -0.2
+        "name": "Other Precious Metals & Mining",
+        "changePct": 0.3
       },
       {
-        "name": "Insurance - Diversified",
-        "changePct": -0.21
+        "name": "Insurance Brokers",
+        "changePct": 0.29
       },
       {
-        "name": "Railroads",
-        "changePct": -0.21
+        "name": "Mortgage Finance",
+        "changePct": 0.28
       },
       {
-        "name": "Furnishings, Fixtures & Appliances",
-        "changePct": -0.21
+        "name": "REIT - Industrial",
+        "changePct": 0.26
       },
       {
-        "name": "Beverages - Non-Alcoholic",
-        "changePct": -0.22
+        "name": "Software - Infrastructure",
+        "changePct": 0.25
+      },
+      {
+        "name": "Real Estate - Diversified",
+        "changePct": 0.22
+      },
+      {
+        "name": "Entertainment",
+        "changePct": 0.22
+      },
+      {
+        "name": "Department Stores",
+        "changePct": 0.21
+      },
+      {
+        "name": "Shell Companies",
+        "changePct": 0.19
+      },
+      {
+        "name": "Restaurants",
+        "changePct": 0.16
+      },
+      {
+        "name": "Security & Protection Services",
+        "changePct": 0.16
+      },
+      {
+        "name": "Insurance - Property & Casualty",
+        "changePct": 0.16
+      },
+      {
+        "name": "Internet Retail",
+        "changePct": 0.16
       },
       {
         "name": "Biotechnology",
-        "changePct": -0.26
+        "changePct": 0.1
+      },
+      {
+        "name": "Electronic Gaming & Multimedia",
+        "changePct": 0.09
+      },
+      {
+        "name": "Personal Services",
+        "changePct": 0.05
+      },
+      {
+        "name": "Specialty Industrial Machinery",
+        "changePct": 0.04
+      },
+      {
+        "name": "REIT - Mortgage",
+        "changePct": 0.03
+      },
+      {
+        "name": "Agricultural Inputs",
+        "changePct": 0.02
+      },
+      {
+        "name": "REIT - Residential",
+        "changePct": 0.02
+      },
+      {
+        "name": "Apparel Manufacturing",
+        "changePct": 0.01
+      },
+      {
+        "name": "Farm & Heavy Construction Machinery",
+        "changePct": -0.0
+      },
+      {
+        "name": "Waste Management",
+        "changePct": -0.0
+      },
+      {
+        "name": "REIT - Diversified",
+        "changePct": -0.01
+      },
+      {
+        "name": "Insurance - Diversified",
+        "changePct": -0.05
+      },
+      {
+        "name": "REIT - Healthcare Facilities",
+        "changePct": -0.06
+      },
+      {
+        "name": "Uranium",
+        "changePct": -0.06
+      },
+      {
+        "name": "Railroads",
+        "changePct": -0.06
+      },
+      {
+        "name": "Pollution & Treatment Controls",
+        "changePct": -0.07
+      },
+      {
+        "name": "REIT - Specialty",
+        "changePct": -0.07
+      },
+      {
+        "name": "Oil & Gas Refining & Marketing",
+        "changePct": -0.08
+      },
+      {
+        "name": "Software - Application",
+        "changePct": -0.09
+      },
+      {
+        "name": "Food Distribution",
+        "changePct": -0.09
+      },
+      {
+        "name": "Insurance - Reinsurance",
+        "changePct": -0.1
+      },
+      {
+        "name": "Furnishings, Fixtures & Appliances",
+        "changePct": -0.1
+      },
+      {
+        "name": "Information Technology Services",
+        "changePct": -0.12
+      },
+      {
+        "name": "Building Products & Equipment",
+        "changePct": -0.13
+      },
+      {
+        "name": "Integrated Freight & Logistics",
+        "changePct": -0.13
+      },
+      {
+        "name": "Diagnostics & Research",
+        "changePct": -0.15
+      },
+      {
+        "name": "Asset Management",
+        "changePct": -0.16
+      },
+      {
+        "name": "Staffing & Employment Services",
+        "changePct": -0.17
+      },
+      {
+        "name": "Medical Devices",
+        "changePct": -0.21
+      },
+      {
+        "name": "Tools & Accessories",
+        "changePct": -0.22
+      },
+      {
+        "name": "REIT - Retail",
+        "changePct": -0.22
+      },
+      {
+        "name": "Residential Construction",
+        "changePct": -0.23
+      },
+      {
+        "name": "Auto Parts",
+        "changePct": -0.27
+      },
+      {
+        "name": "Recreational Vehicles",
+        "changePct": -0.27
       },
       {
         "name": "Specialty Chemicals",
         "changePct": -0.28
       },
       {
-        "name": "REIT - Specialty",
-        "changePct": -0.28
+        "name": "Capital Markets",
+        "changePct": -0.29
       },
       {
-        "name": "Information Technology Services",
+        "name": "Insurance - Specialty",
+        "changePct": -0.29
+      },
+      {
+        "name": "Medical Instruments & Supplies",
         "changePct": -0.3
       },
       {
-        "name": "Food Distribution",
+        "name": "Other Industrial Metals & Mining",
         "changePct": -0.32
       },
       {
-        "name": "REIT - Diversified",
-        "changePct": -0.33
-      },
-      {
-        "name": "Software - Infrastructure",
+        "name": "Beverages - Non-Alcoholic",
         "changePct": -0.34
       },
       {
-        "name": "Tools & Accessories",
-        "changePct": -0.34
+        "name": "Computer Hardware",
+        "changePct": -0.35
       },
       {
-        "name": "Asset Management",
+        "name": "Pharmaceutical Retailers",
         "changePct": -0.36
-      },
-      {
-        "name": "Luxury Goods",
-        "changePct": -0.36
-      },
-      {
-        "name": "Waste Management",
-        "changePct": -0.36
-      },
-      {
-        "name": "REIT - Residential",
-        "changePct": -0.37
-      },
-      {
-        "name": "REIT - Healthcare Facilities",
-        "changePct": -0.38
-      },
-      {
-        "name": "Insurance - Property & Casualty",
-        "changePct": -0.39
-      },
-      {
-        "name": "Credit Services",
-        "changePct": -0.41
-      },
-      {
-        "name": "REIT - Mortgage",
-        "changePct": -0.42
-      },
-      {
-        "name": "Other Industrial Metals & Mining",
-        "changePct": -0.45
-      },
-      {
-        "name": "Broadcasting",
-        "changePct": -0.47
-      },
-      {
-        "name": "Specialty Retail",
-        "changePct": -0.48
-      },
-      {
-        "name": "Capital Markets",
-        "changePct": -0.5
-      },
-      {
-        "name": "Advertising Agencies",
-        "changePct": -0.5
-      },
-      {
-        "name": "REIT - Retail",
-        "changePct": -0.51
       },
       {
         "name": "Education & Training Services",
-        "changePct": -0.52
+        "changePct": -0.37
       },
       {
-        "name": "Insurance - Reinsurance",
-        "changePct": -0.53
+        "name": "Insurance - Life",
+        "changePct": -0.42
+      },
+      {
+        "name": "Textile Manufacturing",
+        "changePct": -0.45
+      },
+      {
+        "name": "Real Estate Services",
+        "changePct": -0.46
+      },
+      {
+        "name": "Packaged Foods",
+        "changePct": -0.5
+      },
+      {
+        "name": "Home Improvement Retail",
+        "changePct": -0.5
+      },
+      {
+        "name": "Medical Care Facilities",
+        "changePct": -0.5
+      },
+      {
+        "name": "Healthcare Plans",
+        "changePct": -0.51
+      },
+      {
+        "name": "Credit Services",
+        "changePct": -0.51
+      },
+      {
+        "name": "Banks - Regional",
+        "changePct": -0.51
+      },
+      {
+        "name": "Building Materials",
+        "changePct": -0.51
+      },
+      {
+        "name": "Drug Manufacturers - General",
+        "changePct": -0.55
+      },
+      {
+        "name": "Tobacco",
+        "changePct": -0.55
+      },
+      {
+        "name": "Broadcasting",
+        "changePct": -0.56
+      },
+      {
+        "name": "REIT - Hotel & Motel",
+        "changePct": -0.56
       },
       {
         "name": "Copper",
         "changePct": -0.56
       },
       {
-        "name": "Lumber & Wood Production",
-        "changePct": -0.56
-      },
-      {
-        "name": "Personal Services",
-        "changePct": -0.56
-      },
-      {
-        "name": "Conglomerates",
-        "changePct": -0.57
-      },
-      {
-        "name": "Farm Products",
-        "changePct": -0.57
-      },
-      {
-        "name": "Healthcare Plans",
-        "changePct": -0.59
-      },
-      {
-        "name": "Recreational Vehicles",
-        "changePct": -0.59
-      },
-      {
-        "name": "Auto Parts",
-        "changePct": -0.6
-      },
-      {
-        "name": "Staffing & Employment Services",
-        "changePct": -0.62
-      },
-      {
-        "name": "Financial Data & Stock Exchanges",
-        "changePct": -0.63
-      },
-      {
-        "name": "Apparel Manufacturing",
-        "changePct": -0.63
-      },
-      {
-        "name": "REIT - Office",
-        "changePct": -0.64
-      },
-      {
-        "name": "Real Estate Services",
-        "changePct": -0.64
-      },
-      {
-        "name": "Diagnostics & Research",
-        "changePct": -0.66
-      },
-      {
-        "name": "Household & Personal Products",
-        "changePct": -0.67
-      },
-      {
-        "name": "Real Estate - Diversified",
-        "changePct": -0.68
-      },
-      {
-        "name": "Medical Devices",
-        "changePct": -0.69
-      },
-      {
-        "name": "Computer Hardware",
-        "changePct": -0.7
-      },
-      {
-        "name": "Drug Manufacturers - General",
-        "changePct": -0.72
-      },
-      {
-        "name": "Banks - Diversified",
-        "changePct": -0.73
-      },
-      {
-        "name": "Insurance - Life",
-        "changePct": -0.79
-      },
-      {
-        "name": "Telecom Services",
-        "changePct": -0.79
-      },
-      {
-        "name": "Banks - Regional",
-        "changePct": -0.8
-      },
-      {
         "name": "Drug Manufacturers - Specialty & Generic",
-        "changePct": -0.82
-      },
-      {
-        "name": "Leisure",
-        "changePct": -0.84
-      },
-      {
-        "name": "Medical Instruments & Supplies",
-        "changePct": -0.86
-      },
-      {
-        "name": "Real Estate - Development",
-        "changePct": -0.88
-      },
-      {
-        "name": "Resorts & Casinos",
-        "changePct": -0.89
-      },
-      {
-        "name": "Software - Application",
-        "changePct": -0.9
-      },
-      {
-        "name": "Tobacco",
-        "changePct": -0.9
-      },
-      {
-        "name": "Business Equipment & Supplies",
-        "changePct": -0.91
-      },
-      {
-        "name": "Auto Manufacturers",
-        "changePct": -0.95
-      },
-      {
-        "name": "Industrial Distribution",
-        "changePct": -0.95
+        "changePct": -0.57
       },
       {
         "name": "Beverages - Wineries & Distilleries",
-        "changePct": -0.96
+        "changePct": -0.58
       },
       {
-        "name": "Oil & Gas E&P",
-        "changePct": -0.96
+        "name": "Leisure",
+        "changePct": -0.59
       },
       {
-        "name": "Chemicals",
-        "changePct": -0.98
+        "name": "Financial Data & Stock Exchanges",
+        "changePct": -0.59
       },
       {
-        "name": "Packaged Foods",
-        "changePct": -1.0
+        "name": "Advertising Agencies",
+        "changePct": -0.59
+      },
+      {
+        "name": "Conglomerates",
+        "changePct": -0.59
+      },
+      {
+        "name": "Banks - Diversified",
+        "changePct": -0.62
+      },
+      {
+        "name": "Specialty Business Services",
+        "changePct": -0.68
+      },
+      {
+        "name": "Lumber & Wood Production",
+        "changePct": -0.7
+      },
+      {
+        "name": "Household & Personal Products",
+        "changePct": -0.73
+      },
+      {
+        "name": "REIT - Office",
+        "changePct": -0.73
+      },
+      {
+        "name": "Health Information Services",
+        "changePct": -0.75
+      },
+      {
+        "name": "Farm Products",
+        "changePct": -0.75
       },
       {
         "name": "Paper & Paper Products",
-        "changePct": -1.02
+        "changePct": -0.88
       },
       {
-        "name": "Building Materials",
-        "changePct": -1.04
+        "name": "Specialty Retail",
+        "changePct": -0.88
       },
       {
-        "name": "REIT - Hotel & Motel",
-        "changePct": -1.1
+        "name": "Business Equipment & Supplies",
+        "changePct": -0.96
+      },
+      {
+        "name": "Aluminum",
+        "changePct": -0.99
+      },
+      {
+        "name": "Footwear & Accessories",
+        "changePct": -0.99
+      },
+      {
+        "name": "Oil & Gas E&P",
+        "changePct": -1.01
       },
       {
         "name": "Oil & Gas Midstream",
-        "changePct": -1.12
-      },
-      {
-        "name": "Insurance - Specialty",
-        "changePct": -1.17
+        "changePct": -1.04
       },
       {
         "name": "Packaging & Containers",
-        "changePct": -1.19
+        "changePct": -1.05
+      },
+      {
+        "name": "Telecom Services",
+        "changePct": -1.09
+      },
+      {
+        "name": "Industrial Distribution",
+        "changePct": -1.09
+      },
+      {
+        "name": "Auto Manufacturers",
+        "changePct": -1.1
+      },
+      {
+        "name": "Publishing",
+        "changePct": -1.1
+      },
+      {
+        "name": "Discount Stores",
+        "changePct": -1.15
       },
       {
         "name": "Oil & Gas Integrated",
         "changePct": -1.2
       },
       {
-        "name": "Medical Care Facilities",
+        "name": "Real Estate - Development",
         "changePct": -1.22
       },
       {
-        "name": "Footwear & Accessories",
-        "changePct": -1.27
+        "name": "Resorts & Casinos",
+        "changePct": -1.23
       },
       {
-        "name": "Publishing",
-        "changePct": -1.32
-      },
-      {
-        "name": "Oil & Gas Drilling",
-        "changePct": -1.38
-      },
-      {
-        "name": "Discount Stores",
-        "changePct": -1.42
-      },
-      {
-        "name": "Specialty Business Services",
-        "changePct": -1.51
-      },
-      {
-        "name": "Health Information Services",
-        "changePct": -1.57
-      },
-      {
-        "name": "Aluminum",
-        "changePct": -1.57
+        "name": "Chemicals",
+        "changePct": -1.24
       },
       {
         "name": "Confectioners",
-        "changePct": -1.58
-      },
-      {
-        "name": "Gambling",
-        "changePct": -1.67
-      },
-      {
-        "name": "Airports & Air Services",
-        "changePct": -1.86
-      },
-      {
-        "name": "Consumer Electronics",
-        "changePct": -1.94
+        "changePct": -1.49
       },
       {
         "name": "Consulting Services",
-        "changePct": -1.99
+        "changePct": -1.58
       },
       {
-        "name": "Thermal Coal",
-        "changePct": -2.01
-      },
-      {
-        "name": "Financial Conglomerates",
-        "changePct": -2.15
-      },
-      {
-        "name": "Oil & Gas Equipment & Services",
-        "changePct": -2.16
-      },
-      {
-        "name": "Beverages - Brewers",
-        "changePct": -2.35
+        "name": "Airports & Air Services",
+        "changePct": -1.59
       },
       {
         "name": "Rental & Leasing Services",
-        "changePct": -2.54
+        "changePct": -1.79
+      },
+      {
+        "name": "Oil & Gas Drilling",
+        "changePct": -1.93
+      },
+      {
+        "name": "Financial Conglomerates",
+        "changePct": -1.96
+      },
+      {
+        "name": "Thermal Coal",
+        "changePct": -1.98
+      },
+      {
+        "name": "Beverages - Brewers",
+        "changePct": -2.04
+      },
+      {
+        "name": "Consumer Electronics",
+        "changePct": -2.53
+      },
+      {
+        "name": "Oil & Gas Equipment & Services",
+        "changePct": -2.66
       },
       {
         "name": "Steel",
         "changePct": -2.78
       },
       {
+        "name": "Gambling",
+        "changePct": -2.95
+      },
+      {
         "name": "Coking Coal",
-        "changePct": -4.98
+        "changePct": -4.49
       }
     ],
     "gainers": [
       {
         "name": "Electrical Equipment & Parts",
-        "changePct": 3.83
+        "changePct": 3.74
       },
       {
         "name": "Semiconductor Equipment & Materials",
-        "changePct": 2.85
+        "changePct": 3.66
       },
       {
         "name": "Travel Services",
-        "changePct": 2.1
+        "changePct": 1.9
       }
     ],
     "losers": [
       {
         "name": "Coking Coal",
-        "changePct": -4.98
+        "changePct": -4.49
+      },
+      {
+        "name": "Gambling",
+        "changePct": -2.95
       },
       {
         "name": "Steel",
         "changePct": -2.78
-      },
-      {
-        "name": "Rental & Leasing Services",
-        "changePct": -2.54
       }
     ],
     "note": "日累计涨跌幅；来源可能延迟，不代表两轮更新之间的涨跌。",
@@ -1316,19 +1404,19 @@
         "sourceUrl": "https://finviz.com/screener.ashx?v=111&f=ind_electricalequipmentparts,sh_opt_option&o=-marketcap",
         "selection": "optionable-marketcap",
         "status": "verified",
-        "checkedAt": "2026-09-29T18:05:40.115981+00:00"
+        "checkedAt": "2026-09-29T20:24:01.525573+00:00"
       },
       "Semiconductor Equipment & Materials": {
         "symbols": [
           "ASML",
-          "LRCX",
           "AMAT",
+          "LRCX",
           "KLAC"
         ],
         "sourceUrl": "https://finviz.com/screener.ashx?v=111&f=ind_semiconductorequipmentmaterials,sh_opt_option&o=-marketcap",
         "selection": "optionable-marketcap",
         "status": "verified",
-        "checkedAt": "2026-09-29T18:05:40.152612+00:00"
+        "checkedAt": "2026-09-29T20:24:01.505817+00:00"
       },
       "Travel Services": {
         "symbols": [
@@ -1340,7 +1428,7 @@
         "sourceUrl": "https://finviz.com/screener.ashx?v=111&f=ind_travelservices,sh_opt_option&o=-marketcap",
         "selection": "optionable-marketcap",
         "status": "verified",
-        "checkedAt": "2026-09-29T18:05:40.184609+00:00"
+        "checkedAt": "2026-09-29T20:24:01.416812+00:00"
       },
       "Coking Coal": {
         "symbols": [
@@ -1352,7 +1440,19 @@
         "sourceUrl": "https://finviz.com/screener.ashx?v=111&f=ind_cokingcoal,sh_opt_option&o=-marketcap",
         "selection": "optionable-marketcap",
         "status": "verified",
-        "checkedAt": "2026-09-29T18:05:40.178013+00:00"
+        "checkedAt": "2026-09-29T20:24:01.554608+00:00"
+      },
+      "Gambling": {
+        "symbols": [
+          "DKNG",
+          "FLUT",
+          "SGHC",
+          "CHDN"
+        ],
+        "sourceUrl": "https://finviz.com/screener.ashx?v=111&f=ind_gambling,sh_opt_option&o=-marketcap",
+        "selection": "optionable-marketcap",
+        "status": "verified",
+        "checkedAt": "2026-09-29T20:24:01.461909+00:00"
       },
       "Steel": {
         "symbols": [
@@ -1364,26 +1464,14 @@
         "sourceUrl": "https://finviz.com/screener.ashx?v=111&f=ind_steel,sh_opt_option&o=-marketcap",
         "selection": "optionable-marketcap",
         "status": "verified",
-        "checkedAt": "2026-09-29T18:05:40.133568+00:00"
-      },
-      "Rental & Leasing Services": {
-        "symbols": [
-          "URI",
-          "SUNB",
-          "AER",
-          "UHAL-B"
-        ],
-        "sourceUrl": "https://finviz.com/screener.ashx?v=111&f=ind_rentalleasingservices,sh_opt_option&o=-marketcap",
-        "selection": "optionable-marketcap",
-        "status": "verified",
-        "checkedAt": "2026-09-29T18:05:40.222874+00:00"
+        "checkedAt": "2026-09-29T20:24:01.503752+00:00"
       }
     },
     "news": {
       "Electrical Equipment & Parts": {
         "text": "Bloom Energy新增Fremont厂房、扩大产能的消息获得关注，媒体同时提及AI供电需求。该公司事件可提供行业背景，但不能据此确认全部电气设备股上涨的原因。",
         "kind": "reported",
-        "checkedAt": "2026-09-30T02:06:46.558724+08:00",
+        "checkedAt": "2026-09-30T04:24:44+08:00",
         "publishedAt": "2026-09-29",
         "expiresAt": "2026-09-30T16:00:00+08:00",
         "sources": [
@@ -1396,7 +1484,7 @@
       "Semiconductor Equipment & Materials": {
         "text": "三星预计明年HBM将占近30%的DRAM晶圆产能，显示存储制造需求仍受关注。其对设备需求的支持属于推断，尚无证据确认这是本轮全行业上涨的直接原因。",
         "kind": "inference",
-        "checkedAt": "2026-09-30T02:06:46.558724+08:00",
+        "checkedAt": "2026-09-30T04:24:44+08:00",
         "publishedAt": "2026-09-29",
         "expiresAt": "2026-09-30T16:00:00+08:00",
         "sources": [
@@ -1409,7 +1497,7 @@
       "Coking Coal": {
         "text": "本轮未核实到能够解释焦煤行业整体下跌的新增可靠消息；原因待核实，不将动力煤或其他国家政策直接套用为美股焦煤下跌原因。",
         "kind": "unknown",
-        "checkedAt": "2026-09-30T02:06:46.558724+08:00"
+        "checkedAt": "2026-09-30T04:24:44+08:00"
       },
       "Steel": {
         "text": "Mesabi宣布180亿美元美国矿山与钢厂投资。媒体将钢铁股承压与未来供给增加、竞争和价格压力担忧联系起来；项目尚未形成当期产量，不能把全部行业跌幅归因于此。",
@@ -1417,7 +1505,7 @@
         "publishedAt": "2026-09-29",
         "eventDate": "2026-09-28",
         "expiresAt": "2026-09-30T16:00:00+08:00",
-        "checkedAt": "2026-09-30T02:06:46.558724+08:00",
+        "checkedAt": "2026-09-30T04:24:44+08:00",
         "sources": [
           {
             "name": "Mesabi Metallics",
@@ -1434,7 +1522,7 @@
         "kind": "reported",
         "publishedAt": "2026-09-29T15:30:00+00:00",
         "expiresAt": "2026-09-30T16:00:00+08:00",
-        "checkedAt": "2026-09-30T02:06:46.558724+08:00",
+        "checkedAt": "2026-09-30T04:24:44+08:00",
         "sources": [
           {
             "name": "Barron’s",
@@ -1442,13 +1530,13 @@
           }
         ]
       },
-      "Rental & Leasing Services": {
-        "text": "本轮未核实到可以解释租赁服务行业整体下跌的新增可靠消息；行业涵盖设备、航空等不同租赁业务，不能将单一公司的变动或大盘走弱直接认定为行业原因。",
+      "Gambling": {
+        "text": "本轮未核实到能够解释博彩行业整体下跌的新增可靠消息；DraftKings前一交易日下跌属于旧价格信息，不能用来解释本轮全行业收盘表现。",
         "kind": "unknown",
-        "checkedAt": "2026-09-30T02:06:46.558724+08:00"
+        "checkedAt": "2026-09-30T04:24:44+08:00"
       }
     },
-    "researchAt": "2026-09-30T02:06:46.558724+08:00"
+    "researchAt": "2026-09-30T04:24:44+08:00"
   },
   "news": {
     "memory": {
@@ -1510,556 +1598,688 @@
       "schemaVersion": 18,
       "timezone": "Asia/Shanghai",
       "edition": "trial",
-      "updatedAt": "2026-09-29T23:10:06.409601+08:00",
-      "asOf": "2026-09-29T23:00:00+08:00",
+      "updatedAt": "2026-09-30T02:06:46.558724+08:00",
+      "asOf": "2026-09-30T02:00:00+08:00",
       "marketDate": "2026-09-29",
-      "session": "intraday",
+      "session": "late",
       "priceBasis": "intraday",
       "automationEnabled": true,
       "nextUpdate": null,
       "rulesVersion": "18.2",
-      "evidencePath": "history/v18/2026-09-29-intraday.json",
-      "newsCheckedAt": "2026-09-29T23:10:06.409601+08:00"
+      "evidencePath": "history/v18/2026-09-29-late.json",
+      "newsCheckedAt": "2026-09-30T02:06:46.558724+08:00"
     },
     "assets": {
       "SPY": {
         "symbol": "SPY",
         "name": "标普 500",
         "status": "verified",
-        "price": 764.86,
-        "changePct": -0.098,
-        "asOf": "2026-09-29T15:00:00+00:00",
+        "price": 762.62,
+        "changePct": -0.3905,
+        "asOf": "2026-09-29T18:00:00+00:00",
         "marketDate": "2026-09-29",
         "baselineAt": "2026-09-28T20:00:00+00:00",
         "baselinePrice": 765.61,
         "trend30m": "down",
-        "ema20": 766.77032,
-        "emaSlopePct": -0.02622,
-        "vwapApprox": 765.29282,
-        "barCount": 55,
+        "ema20": 765.08199,
+        "emaSlopePct": -0.03386,
+        "vwapApprox": 764.26804,
+        "barCount": 61,
         "spark": [
           764.72,
           765.31,
-          764.86
+          764.86,
+          762.9398,
+          763.3,
+          763.395,
+          762.9948,
+          763.08,
+          762.62
         ],
         "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/SPY?interval=30m&range=5d&includePrePost=false",
-        "fetchedAt": "2026-09-29T15:07:40.390723+00:00",
+        "fetchedAt": "2026-09-29T18:04:51.580767+00:00",
         "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
       },
       "QQQ": {
         "symbol": "QQQ",
         "name": "纳斯达克 100",
         "status": "verified",
-        "price": 739.07,
-        "changePct": 0.3449,
-        "asOf": "2026-09-29T15:00:00+00:00",
+        "price": 735.74,
+        "changePct": -0.1073,
+        "asOf": "2026-09-29T18:00:00+00:00",
         "marketDate": "2026-09-29",
         "baselineAt": "2026-09-28T20:00:00+00:00",
         "baselinePrice": 736.53,
-        "trend30m": "up",
-        "ema20": 738.79395,
-        "emaSlopePct": 0.00393,
-        "vwapApprox": 738.60679,
-        "barCount": 55,
+        "trend30m": "down",
+        "ema20": 737.79007,
+        "emaSlopePct": -0.02924,
+        "vwapApprox": 737.75258,
+        "barCount": 61,
         "spark": [
           737.7875,
           739.29,
-          739.07
+          739.07,
+          736.51,
+          737.31,
+          737.24,
+          736.131,
+          736.83,
+          735.74
         ],
         "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/QQQ?interval=30m&range=5d&includePrePost=false",
-        "fetchedAt": "2026-09-29T15:07:40.426001+00:00",
+        "fetchedAt": "2026-09-29T18:04:51.527384+00:00",
         "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
       },
       "VIX": {
         "symbol": "VIX",
         "name": "波动率",
         "status": "verified",
-        "price": 15.9,
-        "changePct": -1.2422,
-        "asOf": "2026-09-29T15:00:00+00:00",
+        "price": 16.27,
+        "changePct": 1.0559,
+        "asOf": "2026-09-29T18:00:00+00:00",
         "marketDate": "2026-09-29",
         "baselineAt": "2026-09-28T20:00:00+00:00",
         "baselinePrice": 16.1,
-        "trend30m": "down",
-        "ema20": 15.94491,
-        "emaSlopePct": -0.02964,
+        "trend30m": "up",
+        "ema20": 16.1031,
+        "emaSlopePct": 0.10922,
         "vwapApprox": null,
-        "barCount": 124,
+        "barCount": 130,
         "spark": [
           15.94,
           15.9,
-          15.9
+          15.94,
+          16.38,
+          16.3,
+          16.17,
+          16.33,
+          16.31,
+          16.27
         ],
         "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/^VIX?interval=30m&range=5d&includePrePost=false",
-        "fetchedAt": "2026-09-29T15:07:40.466047+00:00",
+        "fetchedAt": "2026-09-29T18:04:51.566738+00:00",
         "note": "已完成30分钟K线；涨跌统一较上一美股交易日16:00"
       },
       "RSP": {
         "symbol": "RSP",
         "name": "标普500等权",
         "status": "verified",
-        "price": 208.985,
-        "changePct": -0.36,
-        "asOf": "2026-09-29T15:00:00+00:00",
+        "price": 208.758,
+        "changePct": -0.4682,
+        "asOf": "2026-09-29T18:00:00+00:00",
         "marketDate": "2026-09-29",
         "baselineAt": "2026-09-28T20:00:00+00:00",
         "baselinePrice": 209.74,
         "trend30m": "down",
-        "ema20": 209.92502,
-        "emaSlopePct": -0.04711,
-        "vwapApprox": 209.45819,
-        "barCount": 55,
+        "ema20": 209.37299,
+        "emaSlopePct": -0.03091,
+        "vwapApprox": 209.14072,
+        "barCount": 61,
         "spark": [
-          209.47,
+          209.715,
           209.42,
-          208.985
+          208.985,
+          208.585,
+          208.67,
+          208.77,
+          208.615,
+          208.645,
+          208.758
         ],
         "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/RSP?interval=30m&range=5d&includePrePost=false",
-        "fetchedAt": "2026-09-29T15:07:40.514200+00:00",
+        "fetchedAt": "2026-09-29T18:04:51.594281+00:00",
         "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
       },
       "SPMO": {
         "symbol": "SPMO",
         "name": "标普500动量",
         "status": "verified",
-        "price": 151.505,
-        "changePct": 0.215,
-        "asOf": "2026-09-29T15:00:00+00:00",
+        "price": 150.845,
+        "changePct": -0.2216,
+        "asOf": "2026-09-29T18:00:00+00:00",
         "marketDate": "2026-09-29",
         "baselineAt": "2026-09-28T20:00:00+00:00",
         "baselinePrice": 151.18,
-        "trend30m": "up",
-        "ema20": 151.48616,
-        "emaSlopePct": 0.00131,
-        "vwapApprox": 151.62331,
-        "barCount": 55,
+        "trend30m": "down",
+        "ema20": 151.23023,
+        "emaSlopePct": -0.02681,
+        "vwapApprox": 151.21139,
+        "barCount": 61,
         "spark": [
           151.68,
           151.605,
-          151.505
+          151.51,
+          150.88,
+          150.91,
+          150.98,
+          150.8356,
+          151.0574,
+          150.845
         ],
         "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/SPMO?interval=30m&range=5d&includePrePost=false",
-        "fetchedAt": "2026-09-29T15:07:40.411725+00:00",
+        "fetchedAt": "2026-09-29T18:04:51.590165+00:00",
         "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
       },
       "VIX3M": {
         "symbol": "VIX3M",
         "name": "三个月波动率",
         "status": "verified",
-        "price": 17.99,
-        "changePct": -1.4786,
-        "asOf": "2026-09-29T15:00:00+00:00",
+        "price": 18.21,
+        "changePct": -0.2738,
+        "asOf": "2026-09-29T18:00:00+00:00",
         "marketDate": "2026-09-29",
         "baselineAt": "2026-09-28T20:00:00+00:00",
         "baselinePrice": 18.26,
-        "trend30m": "down",
-        "ema20": 18.12379,
-        "emaSlopePct": -0.07764,
+        "trend30m": "up",
+        "ema20": 18.16003,
+        "emaSlopePct": 0.02897,
         "vwapApprox": null,
-        "barCount": 55,
+        "barCount": 61,
         "spark": [
           18.05,
           18.0,
-          17.99
+          18.01,
+          18.26,
+          18.19,
+          18.1,
+          18.23,
+          18.22,
+          18.21
         ],
         "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/^VIX3M?interval=30m&range=5d&includePrePost=false",
-        "fetchedAt": "2026-09-29T15:07:40.458311+00:00",
+        "fetchedAt": "2026-09-29T18:04:51.640859+00:00",
         "note": "已完成30分钟K线；涨跌统一较上一美股交易日16:00"
       },
       "DRAM": {
         "symbol": "DRAM",
         "name": "存储整体",
         "status": "verified",
-        "price": 61.4759,
-        "changePct": 2.9747,
-        "asOf": "2026-09-29T15:00:00+00:00",
+        "price": 60.9206,
+        "changePct": 2.0446,
+        "asOf": "2026-09-29T18:00:00+00:00",
         "marketDate": "2026-09-29",
         "baselineAt": "2026-09-28T20:00:00+00:00",
         "baselinePrice": 59.7,
         "trend30m": "up",
-        "ema20": 60.46,
-        "emaSlopePct": 0.17719,
-        "vwapApprox": 61.13941,
-        "barCount": 55,
+        "ema20": 60.71419,
+        "emaSlopePct": 0.0358,
+        "vwapApprox": 61.11111,
+        "barCount": 61,
         "spark": [
           60.95,
           61.535,
-          61.4759
+          61.4759,
+          60.895,
+          61.17,
+          61.17,
+          60.96,
+          61.05,
+          60.9206
         ],
         "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/DRAM?interval=30m&range=5d&includePrePost=false",
-        "fetchedAt": "2026-09-29T15:07:45.794764+00:00",
+        "fetchedAt": "2026-09-29T18:05:00.129649+00:00",
         "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
       },
       "MU": {
         "symbol": "MU",
         "name": "Micron",
         "status": "verified",
-        "price": 1078.8,
-        "changePct": 2.3549,
-        "asOf": "2026-09-29T15:00:00+00:00",
+        "price": 1069.0898,
+        "changePct": 1.4336,
+        "asOf": "2026-09-29T18:00:00+00:00",
         "marketDate": "2026-09-29",
         "baselineAt": "2026-09-28T20:00:00+00:00",
         "baselinePrice": 1053.98,
         "trend30m": "up",
-        "ema20": 1064.64707,
-        "emaSlopePct": 0.14013,
-        "vwapApprox": 1073.53263,
-        "barCount": 55,
+        "ema20": 1066.69172,
+        "emaSlopePct": 0.02367,
+        "vwapApprox": 1071.56671,
+        "barCount": 61,
         "spark": [
           1072.5,
           1079.66,
-          1078.8
+          1078.8,
+          1064.0981,
+          1069.0,
+          1070.9,
+          1068.4056,
+          1072.09,
+          1069.0898
         ],
         "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/MU?interval=30m&range=5d&includePrePost=false",
-        "fetchedAt": "2026-09-29T15:07:45.851617+00:00",
+        "fetchedAt": "2026-09-29T18:05:00.214103+00:00",
         "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
       },
       "SKHY": {
         "symbol": "SKHY",
         "name": "SK hynix",
         "status": "verified",
-        "price": 187.96,
-        "changePct": 3.3201,
-        "asOf": "2026-09-29T15:00:00+00:00",
+        "price": 186.6024,
+        "changePct": 2.5739,
+        "asOf": "2026-09-29T18:00:00+00:00",
         "marketDate": "2026-09-29",
         "baselineAt": "2026-09-28T20:00:00+00:00",
         "baselinePrice": 181.92,
         "trend30m": "up",
-        "ema20": 185.14316,
-        "emaSlopePct": 0.16041,
-        "vwapApprox": 186.17074,
-        "barCount": 55,
+        "ema20": 185.95009,
+        "emaSlopePct": 0.03694,
+        "vwapApprox": 186.47352,
+        "barCount": 61,
         "spark": [
           185.58,
           187.47,
-          187.96
+          187.96,
+          186.675,
+          187.34,
+          187.025,
+          186.78,
+          187.22,
+          186.6024
         ],
         "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/SKHY?interval=30m&range=5d&includePrePost=false",
-        "fetchedAt": "2026-09-29T15:07:45.787636+00:00",
+        "fetchedAt": "2026-09-29T18:05:00.203163+00:00",
         "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
       },
       "SNDK": {
         "symbol": "SNDK",
         "name": "Sandisk",
         "status": "verified",
-        "price": 1733.085,
-        "changePct": 1.179,
-        "asOf": "2026-09-29T15:00:00+00:00",
+        "price": 1710.7238,
+        "changePct": -0.1265,
+        "asOf": "2026-09-29T18:00:00+00:00",
         "marketDate": "2026-09-29",
         "baselineAt": "2026-09-28T20:00:00+00:00",
         "baselinePrice": 1712.89,
-        "trend30m": "up",
-        "ema20": 1727.45581,
-        "emaSlopePct": 0.03431,
-        "vwapApprox": 1727.72585,
-        "barCount": 55,
+        "trend30m": "down",
+        "ema20": 1720.31856,
+        "emaSlopePct": -0.05867,
+        "vwapApprox": 1721.71038,
+        "barCount": 61,
         "spark": [
           1717.5582,
           1738.595,
-          1733.085
+          1733.085,
+          1713.132,
+          1712.47,
+          1713.7,
+          1709.625,
+          1711.21,
+          1710.7238
         ],
         "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/SNDK?interval=30m&range=5d&includePrePost=false",
-        "fetchedAt": "2026-09-29T15:07:45.868290+00:00",
+        "fetchedAt": "2026-09-29T18:05:00.144216+00:00",
         "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
       },
       "WDC": {
         "symbol": "WDC",
         "name": "Western Digital",
         "status": "verified",
-        "price": 452.55,
-        "changePct": -0.15,
-        "asOf": "2026-09-29T15:00:00+00:00",
+        "price": 450.43,
+        "changePct": -0.6178,
+        "asOf": "2026-09-29T18:00:00+00:00",
         "marketDate": "2026-09-29",
         "baselineAt": "2026-09-28T20:00:00+00:00",
         "baselinePrice": 453.23,
         "trend30m": "down",
-        "ema20": 452.72378,
-        "emaSlopePct": -0.00404,
-        "vwapApprox": 455.96338,
-        "barCount": 55,
+        "ema20": 451.78001,
+        "emaSlopePct": -0.03145,
+        "vwapApprox": 453.10773,
+        "barCount": 61,
         "spark": [
           455.03,
           457.8746,
-          452.55
+          452.55,
+          449.5,
+          452.37,
+          451.005,
+          450.21,
+          450.41,
+          450.43
         ],
         "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/WDC?interval=30m&range=5d&includePrePost=false",
-        "fetchedAt": "2026-09-29T15:07:45.861725+00:00",
+        "fetchedAt": "2026-09-29T18:05:00.196394+00:00",
         "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
       },
       "IREN": {
         "symbol": "IREN",
         "name": "IREN",
         "status": "verified",
-        "price": 42.1324,
-        "changePct": 0.9885,
-        "asOf": "2026-09-29T15:00:00+00:00",
+        "price": 41.2701,
+        "changePct": -1.0784,
+        "asOf": "2026-09-29T18:00:00+00:00",
         "marketDate": "2026-09-29",
         "baselineAt": "2026-09-28T20:00:00+00:00",
         "baselinePrice": 41.72,
         "trend30m": "down",
-        "ema20": 42.789,
-        "emaSlopePct": -0.16127,
-        "vwapApprox": 42.14124,
-        "barCount": 55,
+        "ema20": 42.13651,
+        "emaSlopePct": -0.21597,
+        "vwapApprox": 41.78856,
+        "barCount": 61,
         "spark": [
           41.81,
           42.415,
-          42.1324
+          42.1324,
+          41.56,
+          41.4045,
+          41.41,
+          41.136,
+          41.3688,
+          41.2701
         ],
         "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/IREN?interval=30m&range=5d&includePrePost=false",
-        "fetchedAt": "2026-09-29T15:07:45.811966+00:00",
+        "fetchedAt": "2026-09-29T18:05:00.180691+00:00",
         "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
       },
       "NBIS": {
         "symbol": "NBIS",
         "name": "Nebius",
         "status": "verified",
-        "price": 244.07,
-        "changePct": 5.257,
-        "asOf": "2026-09-29T15:00:00+00:00",
+        "price": 239.47,
+        "changePct": 3.2732,
+        "asOf": "2026-09-29T18:00:00+00:00",
         "marketDate": "2026-09-29",
         "baselineAt": "2026-09-28T20:00:00+00:00",
         "baselinePrice": 231.88,
         "trend30m": "up",
-        "ema20": 237.45363,
-        "emaSlopePct": 0.29417,
-        "vwapApprox": 241.50059,
-        "barCount": 55,
+        "ema20": 238.98367,
+        "emaSlopePct": 0.02143,
+        "vwapApprox": 241.37914,
+        "barCount": 61,
         "spark": [
           241.48,
           245.72,
-          244.07
+          244.07,
+          241.1,
+          240.88,
+          241.465,
+          241.02,
+          241.49,
+          239.47
         ],
         "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/NBIS?interval=30m&range=5d&includePrePost=false",
-        "fetchedAt": "2026-09-29T15:07:52.349630+00:00",
+        "fetchedAt": "2026-09-29T18:05:06.139371+00:00",
         "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
       },
       "CRWV": {
         "symbol": "CRWV",
         "name": "CoreWeave",
         "status": "verified",
-        "price": 88.9209,
-        "changePct": 4.5267,
-        "asOf": "2026-09-29T15:00:00+00:00",
+        "price": 86.155,
+        "changePct": 1.2754,
+        "asOf": "2026-09-29T18:00:00+00:00",
         "marketDate": "2026-09-29",
         "baselineAt": "2026-09-28T20:00:00+00:00",
         "baselinePrice": 85.07,
-        "trend30m": "up",
-        "ema20": 86.75542,
-        "emaSlopePct": 0.26344,
-        "vwapApprox": 88.42169,
-        "barCount": 55,
+        "trend30m": "down",
+        "ema20": 86.51136,
+        "emaSlopePct": -0.04334,
+        "vwapApprox": 87.68025,
+        "barCount": 61,
         "spark": [
           87.21,
           89.8,
-          88.9209
+          88.9209,
+          86.505,
+          86.69,
+          86.562,
+          85.74,
+          85.88,
+          86.155
         ],
         "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/CRWV?interval=30m&range=5d&includePrePost=false",
-        "fetchedAt": "2026-09-29T15:07:52.299741+00:00",
+        "fetchedAt": "2026-09-29T18:05:06.196893+00:00",
         "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
       },
       "SPCX": {
         "symbol": "SPCX",
         "name": "SpaceX",
         "status": "verified",
-        "price": 147.68,
-        "changePct": 1.5192,
-        "asOf": "2026-09-29T15:00:00+00:00",
+        "price": 147.7201,
+        "changePct": 1.5468,
+        "asOf": "2026-09-29T18:00:00+00:00",
         "marketDate": "2026-09-29",
         "baselineAt": "2026-09-28T20:00:00+00:00",
         "baselinePrice": 145.47,
-        "trend30m": "up",
-        "ema20": 147.24838,
-        "emaSlopePct": 0.03086,
-        "vwapApprox": 147.04744,
-        "barCount": 55,
+        "trend30m": "down",
+        "ema20": 147.86138,
+        "emaSlopePct": -0.01006,
+        "vwapApprox": 147.90884,
+        "barCount": 61,
         "spark": [
           145.53,
           146.92,
-          147.68
+          147.68,
+          148.405,
+          148.82,
+          149.07,
+          148.675,
+          149.12,
+          147.7201
         ],
         "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/SPCX?interval=30m&range=5d&includePrePost=false",
-        "fetchedAt": "2026-09-29T15:07:52.284544+00:00",
+        "fetchedAt": "2026-09-29T18:05:06.168982+00:00",
         "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
       },
       "RKLB": {
         "symbol": "RKLB",
         "name": "Rocket Lab",
         "status": "verified",
-        "price": 70.9501,
-        "changePct": -1.7175,
-        "asOf": "2026-09-29T15:00:00+00:00",
+        "price": 70.27,
+        "changePct": -2.6597,
+        "asOf": "2026-09-29T18:00:00+00:00",
         "marketDate": "2026-09-29",
         "baselineAt": "2026-09-28T20:00:00+00:00",
         "baselinePrice": 72.19,
         "trend30m": "down",
-        "ema20": 72.64525,
-        "emaSlopePct": -0.24503,
-        "vwapApprox": 72.04281,
-        "barCount": 55,
+        "ema20": 71.58816,
+        "emaSlopePct": -0.19345,
+        "vwapApprox": 71.33658,
+        "barCount": 61,
         "spark": [
           71.98,
           71.57,
-          70.9501
+          70.9501,
+          70.29,
+          70.685,
+          70.345,
+          70.22,
+          70.11,
+          70.27
         ],
         "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/RKLB?interval=30m&range=5d&includePrePost=false",
-        "fetchedAt": "2026-09-29T15:07:52.270151+00:00",
+        "fetchedAt": "2026-09-29T18:05:06.132899+00:00",
         "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
       },
       "ASTS": {
         "symbol": "ASTS",
         "name": "AST SpaceMobile",
         "status": "verified",
-        "price": 60.9071,
-        "changePct": -0.1523,
-        "asOf": "2026-09-29T15:00:00+00:00",
+        "price": 59.355,
+        "changePct": -2.6967,
+        "asOf": "2026-09-29T18:00:00+00:00",
         "marketDate": "2026-09-29",
         "baselineAt": "2026-09-28T20:00:00+00:00",
         "baselinePrice": 61.0,
         "trend30m": "down",
-        "ema20": 61.50057,
-        "emaSlopePct": -0.10147,
-        "vwapApprox": 62.25787,
-        "barCount": 55,
+        "ema20": 60.57958,
+        "emaSlopePct": -0.21233,
+        "vwapApprox": 61.16673,
+        "barCount": 61,
         "spark": [
           61.93,
           61.33,
-          60.9071
+          60.9071,
+          60.175,
+          60.33,
+          59.47,
+          59.225,
+          58.66,
+          59.355
         ],
         "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/ASTS?interval=30m&range=5d&includePrePost=false",
-        "fetchedAt": "2026-09-29T15:07:52.286146+00:00",
+        "fetchedAt": "2026-09-29T18:05:06.136859+00:00",
         "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
       },
       "BTC": {
         "symbol": "BTC",
         "name": "Bitcoin",
         "status": "verified",
-        "price": 83717.4219,
-        "changePct": 0.4229,
-        "asOf": "2026-09-29T15:00:00+00:00",
+        "price": 83055.4219,
+        "changePct": -0.3712,
+        "asOf": "2026-09-29T18:00:00+00:00",
         "marketDate": "2026-09-29",
         "baselineAt": "2026-09-28T20:00:00+00:00",
         "baselinePrice": 83364.8438,
         "trend30m": "down",
-        "ema20": 83927.89425,
-        "emaSlopePct": -0.02639,
+        "ema20": 83547.78315,
+        "emaSlopePct": -0.06199,
         "vwapApprox": null,
-        "barCount": 222,
+        "barCount": 228,
         "spark": [
           84186.2188,
           83907.7031,
-          83717.4219
+          83717.4219,
+          82963.3125,
+          83041.3906,
+          83236.5312,
+          83034.9297,
+          83157.7188,
+          83055.4219
         ],
         "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/BTC-USD?interval=30m&range=5d&includePrePost=false",
-        "fetchedAt": "2026-09-29T15:07:52.289772+00:00",
+        "fetchedAt": "2026-09-29T18:05:06.112230+00:00",
         "note": "已完成30分钟K线；涨跌统一较上一美股交易日16:00"
       },
       "ETH": {
         "symbol": "ETH",
         "name": "Ethereum",
         "status": "verified",
-        "price": 2709.9399,
-        "changePct": 1.4044,
-        "asOf": "2026-09-29T15:00:00+00:00",
+        "price": 2672.8301,
+        "changePct": 0.0157,
+        "asOf": "2026-09-29T18:00:00+00:00",
         "marketDate": "2026-09-29",
         "baselineAt": "2026-09-28T20:00:00+00:00",
         "baselinePrice": 2672.4099,
         "trend30m": "down",
-        "ema20": 2712.17542,
-        "emaSlopePct": -0.00868,
+        "ema20": 2695.77147,
+        "emaSlopePct": -0.0895,
         "vwapApprox": null,
-        "barCount": 222,
+        "barCount": 228,
         "spark": [
           2726.9399,
           2715.1299,
-          2709.9399
+          2709.9399,
+          2676.22,
+          2673.22,
+          2681.6699,
+          2674.98,
+          2676.8601,
+          2672.8301
         ],
         "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/ETH-USD?interval=30m&range=5d&includePrePost=false",
-        "fetchedAt": "2026-09-29T15:07:57.809627+00:00",
+        "fetchedAt": "2026-09-29T18:05:12.143826+00:00",
         "note": "已完成30分钟K线；涨跌统一较上一美股交易日16:00"
       },
       "COIN": {
         "symbol": "COIN",
         "name": "Coinbase",
         "status": "verified",
-        "price": 192.38,
-        "changePct": 0.3076,
-        "asOf": "2026-09-29T15:00:00+00:00",
+        "price": 188.45,
+        "changePct": -1.7415,
+        "asOf": "2026-09-29T18:00:00+00:00",
         "marketDate": "2026-09-29",
         "baselineAt": "2026-09-28T20:00:00+00:00",
         "baselinePrice": 191.79,
         "trend30m": "down",
-        "ema20": 193.78544,
-        "emaSlopePct": -0.07628,
-        "vwapApprox": 193.6638,
-        "barCount": 55,
+        "ema20": 192.06317,
+        "emaSlopePct": -0.19763,
+        "vwapApprox": 192.21034,
+        "barCount": 61,
         "spark": [
           192.5497,
           193.54,
-          192.38
+          192.38,
+          190.98,
+          190.475,
+          190.4,
+          190.545,
+          189.73,
+          188.45
         ],
         "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/COIN?interval=30m&range=5d&includePrePost=false",
-        "fetchedAt": "2026-09-29T15:07:57.702867+00:00",
+        "fetchedAt": "2026-09-29T18:05:12.158422+00:00",
         "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
       },
       "MSTR": {
         "symbol": "MSTR",
         "name": "Strategy",
         "status": "verified",
-        "price": 154.6484,
-        "changePct": -1.5856,
-        "asOf": "2026-09-29T15:00:00+00:00",
+        "price": 152.9,
+        "changePct": -2.6982,
+        "asOf": "2026-09-29T18:00:00+00:00",
         "marketDate": "2026-09-29",
         "baselineAt": "2026-09-28T20:00:00+00:00",
         "baselinePrice": 157.14,
         "trend30m": "down",
-        "ema20": 158.23496,
-        "emaSlopePct": -0.23802,
-        "vwapApprox": 157.23495,
-        "barCount": 55,
+        "ema20": 155.9845,
+        "emaSlopePct": -0.20772,
+        "vwapApprox": 155.63431,
+        "barCount": 61,
         "spark": [
           157.205,
           156.07,
-          154.6484
+          154.6484,
+          152.64,
+          152.9,
+          153.6401,
+          153.5001,
+          153.76,
+          152.9
         ],
         "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/MSTR?interval=30m&range=5d&includePrePost=false",
-        "fetchedAt": "2026-09-29T15:07:57.688461+00:00",
+        "fetchedAt": "2026-09-29T18:05:12.190355+00:00",
         "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
       },
       "HOOD": {
         "symbol": "HOOD",
         "name": "Robinhood",
         "status": "verified",
-        "price": 116.7899,
-        "changePct": 0.2833,
-        "asOf": "2026-09-29T15:00:00+00:00",
+        "price": 115.08,
+        "changePct": -1.185,
+        "asOf": "2026-09-29T18:00:00+00:00",
         "marketDate": "2026-09-29",
         "baselineAt": "2026-09-28T20:00:00+00:00",
         "baselinePrice": 116.46,
         "trend30m": "down",
-        "ema20": 117.57331,
-        "emaSlopePct": -0.07009,
-        "vwapApprox": 117.31621,
-        "barCount": 55,
+        "ema20": 116.5678,
+        "emaSlopePct": -0.13417,
+        "vwapApprox": 116.42903,
+        "barCount": 61,
         "spark": [
           116.975,
           116.87,
-          116.7899
+          116.7899,
+          115.085,
+          115.38,
+          115.42,
+          115.655,
+          115.45,
+          115.08
         ],
         "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/HOOD?interval=30m&range=5d&includePrePost=false",
-        "fetchedAt": "2026-09-29T15:07:57.738308+00:00",
+        "fetchedAt": "2026-09-29T18:05:12.165688+00:00",
         "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
       }
     },
     "breadth": {
       "status": "snapshot",
       "sourceUrl": "https://finviz.com/",
-      "fetchedAt": "2026-09-29T15:07:26.194685+00:00",
+      "fetchedAt": "2026-09-29T18:04:43.649083+00:00",
       "asOf": null,
       "marketDate": "2026-09-29",
-      "advancing": 2027,
-      "declining": 3413,
-      "upPct": 37.26,
+      "advancing": 1978,
+      "declining": 3477,
+      "upPct": 36.26,
       "note": "Finviz NYSE/Nasdaq/AMEX 涨跌家数；比例不含平盘。正式盘窗口抓取；网页报价可能延迟；来源未提供该框精确行情时刻。"
     }
   }
