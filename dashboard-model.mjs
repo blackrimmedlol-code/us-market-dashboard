@@ -22,7 +22,7 @@ export function validQuote(q,meta) {
     q.marketDate===meta.marketDate && Number.isFinite(Date.parse(q.asOf)) &&
     Date.parse(q.asOf)<=Date.parse(meta.asOf) && Date.parse(meta.asOf)-Date.parse(q.asOf)<=(meta.priceBasis==='premarket'?5:30)*60000;
 }
-export function aligned(q,b) {return Boolean(q?.baselineAt && b?.baselineAt && q?.asOf && b?.asOf) && q.baselineAt===b.baselineAt && q.asOf===b.asOf;}
+export function aligned(q,b) {if(q?.quoteTimeType||b?.quoteTimeType)return false;return Boolean(q?.baselineAt && b?.baselineAt && q?.asOf && b?.asOf) && q.baselineAt===b.baselineAt && q.asOf===b.asOf;}
 const quoteDirection=q=>q?.quoteSession==='premarket'?q.premarketDirection:q?.trend30m;
 export function direction(list) {
   if (!list.length || list.some(q=>!['up','down','mixed'].includes(quoteDirection(q)))) return 'unknown';

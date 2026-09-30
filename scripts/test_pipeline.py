@@ -19,7 +19,7 @@ from market_calendar import nominal, next_update, trading_day
 
 class PipelineTests(unittest.TestCase):
     def setUp(self):
-        self.data = json.loads((ROOT / 'data.json').read_text())
+        self.data = json.loads((ROOT / 'fixtures/pipeline-data.json').read_text())
 
     def test_calendar_holidays_and_dst(self):
         self.assertFalse(trading_day('2026-11-26'))

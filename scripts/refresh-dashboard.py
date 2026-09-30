@@ -12,7 +12,8 @@ import re
 import subprocess
 from zoneinfo import ZoneInfo
 from refresh_sectors import get_sector_pulse
-from market_calendar import next_update
+from market_calendar import next_update, trading_day, CONFIG
+from tradingview_premarket import batch as alternative_premarket
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 NY = ZoneInfo('America/New_York')
@@ -200,6 +201,21 @@ def get_breadth(market_date, now, cutoff):
         obj['note'] = str(error)
     return obj
 
+def compact_evidence(raw,cutoff,baseline):
+    import copy
+    compact=copy.deepcopy(raw)
+    for key in ['BTC','ETH']:
+        record=compact.get(key,{})
+        if 'result' not in record: continue
+        result=record['result']; times=result.get('timestamp',[])
+        indices=[i for i,t in enumerate(times) if abs(t+60-baseline)<=60 or abs(t+60-cutoff)<=600]
+        result['timestamp']=[times[i] for i in indices]
+        for quote in result.get('indicators',{}).get('quote',[]):
+            for column,values in list(quote.items()):
+                quote[column]=[values[i] if i<len(values) else None for i in indices]
+        record['omittedIrrelevantBars']=len(times)-len(indices)
+    return compact
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--market-date',required=True)
@@ -208,8 +224,35 @@ def main():
     args = parser.parse_args(); now = dt.datetime.now(UTC)
     market_date = dt.date.fromisoformat(args.market_date).isoformat()
     old = json.loads((ROOT/'data.json').read_text())
-    with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
-        raw = dict(zip(NAMES,pool.map(lambda symbol:get_chart(symbol,args.session=='premarket'),NAMES)))
+    if args.session == 'premarket':
+        # Use the independent batch source first while Yahoo is unreachable.
+        prior_day=dt.date.fromisoformat(market_date)-dt.timedelta(days=1)
+        while not trading_day(prior_day.isoformat()): prior_day-=dt.timedelta(days=1)
+        prior_end=dt.datetime.fromisoformat(prior_day.isoformat()+'T'+CONFIG['earlyCloses'].get(prior_day.isoformat(),'16:00')).replace(tzinfo=NY).timestamp()
+        prior=old['assets'] if old['meta'].get('session')=='close' else (old.get('previous') or {}).get('assets',{})
+        symbols=[s for s in NAMES if s not in ['BTC','ETH','VIX','VIX3M']]
+        try:
+            alternative,alternative_raw=alternative_premarket(symbols,prior,market_date,iso(prior_end),NAMES)
+        except Exception as error:
+            alternative={}; alternative_raw={'error':str(error)}
+        with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
+            raw=dict(zip(['BTC','ETH'],pool.map(lambda symbol:get_chart(symbol,True),['BTC','ETH'])))
+        for symbol in NAMES:
+            raw.setdefault(symbol,{'error':'无有效盘前来源'})
+        raw['alternativePremarket']=alternative_raw
+    else:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
+            raw = dict(zip(NAMES,pool.map(lambda symbol:get_chart(symbol,False),NAMES)))
+    if args.session=='premarket' and alternative:
+        # Independently published NYSE calendar plus source session date and
+        # last verified close replace the unavailable Yahoo calendar metadata.
+        previous_day=prior_day.isoformat()
+        def period(day):
+            start=dt.datetime.fromisoformat(day+'T09:30').replace(tzinfo=NY).timestamp()
+            end=dt.datetime.fromisoformat(day+'T'+CONFIG['earlyCloses'].get(day,'16:00')).replace(tzinfo=NY).timestamp()
+            return {'start':start,'end':end}
+        raw['QQQ']['calendarSource']='https://www.nyse.com/trade/hours-calendars'
+        raw['QQQ']['result']={'meta':{'tradingPeriods':[[period(previous_day),period(market_date)]],'currentTradingPeriod':{'regular':period(market_date)}},'timestamp':[],'indicators':{'quote':[{}]}}
     if 'result' not in raw['QQQ']:
         raise SystemExit('QQQ unavailable: refusing to replace snapshot')
     periods = raw['QQQ']['result']['meta'].get('tradingPeriods',[])
@@ -231,9 +274,12 @@ def main():
     if args.session == 'premarket':
         cutoff = now.timestamp()
         opening = dt.datetime.fromisoformat(market_date+'T04:00:00').replace(tzinfo=NY).timestamp()
-        if not opening <= cutoff < session['start']:
+        if not opening <= cutoff < session['start']+300:
             raise SystemExit('Requested date is not in its live premarket window')
-        assets = {s:premarket_observation(s,c,cutoff,market_date,prev['end']) for s,c in raw.items()}
+        cutoff=min(dt.datetime.now(UTC).timestamp(),session['start'])
+        assets = {s:alternative.get(s) or premarket_observation(s,raw[s],cutoff,market_date,prev['end']) for s in NAMES}
+        if not any(assets[s]['status']=='verified' for s in ['SPY','QQQ']):
+            raise SystemExit('All benchmark premarket sources unavailable')
     else:
         cutoff = min(now.timestamp()//1800*1800,session['end'])
         if cutoff < session['start']+1800:
@@ -242,9 +288,10 @@ def main():
     if args.session != 'premarket' and any(assets[s]['status']!='verified' for s in ['QQQ','SPY']):
         raise SystemExit('Market benchmark stale or unavailable; previous snapshot preserved')
     old_pulse = old.get('sectorPulse', {})
-    breadth = get_breadth(market_date,now,cutoff)
+    now=dt.datetime.now(UTC)
+    breadth = {'status':'unavailable','marketDate':market_date,'sourceUrl':'https://finviz.com/','fetchedAt':now.isoformat(),'asOf':None,'advancing':None,'declining':None,'upPct':None,'note':'无可核实的全市场盘前广度'} if args.session=='premarket' else get_breadth(market_date,now,cutoff)
     core_cache = old_pulse.get('coreTickerCache', old_pulse.get('coreTickers', {}))
-    sector_pulse = get_sector_pulse(market_date,now,cutoff,session['end'],core_cache)
+    sector_pulse = {'status':'unavailable','marketDate':market_date,'targetAsOf':iso(cutoff),'asOf':None,'fetchedAt':now.isoformat(),'returnBasis':'daily','universe':'Finviz 全部细分行业（提供方口径）','universeCount':0,'sourceUrl':'https://finviz.com/groups.ashx?g=industry&v=140&o=-change','dateBasis':None,'rows':[],'gainers':[],'losers':[],'note':'盘前无可核实的全市场细分行业口径'} if args.session=='premarket' else get_sector_pulse(market_date,now,cutoff,session['end'],core_cache)
     # Reuse news only for the same trading date and names still in the top six.
     if old_pulse.get('marketDate') == market_date:
         names = {r['name'] for side in ['gainers','losers'] for r in sector_pulse[side]}
@@ -270,7 +317,7 @@ def main():
         out['previous']=old.get('previous')
     evidence = ROOT/'history'/'v18'/f'{market_date}-{args.session}.json'
     evidence.parent.mkdir(parents=True,exist_ok=True)
-    evidence.write_text(json.dumps({'fetchedAt':now.isoformat(),'targetAsOf':iso(cutoff),'charts':raw,'breadth':out['breadth'],'sectorPulse':sector_pulse},ensure_ascii=False,separators=(',',':'))+'\n')
+    evidence.write_text(json.dumps({'fetchedAt':now.isoformat(),'targetAsOf':iso(cutoff),'charts':compact_evidence(raw,cutoff,prev['end']) if args.session=='premarket' else raw,'breadth':out['breadth'],'sectorPulse':sector_pulse},ensure_ascii=False,separators=(',',':'))+'\n')
     out['meta']['evidencePath']=str(evidence.relative_to(ROOT))
     pathlib.Path(args.output).write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n')
     print(json.dumps({'asOf':out['meta']['asOf'],'marketDate':market_date,

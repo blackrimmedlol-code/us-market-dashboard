@@ -205,6 +205,8 @@ def finalize(args):
         raise TimeoutError('仅保留已发布的数值快照；本轮10分钟预算已用尽')
     original = read(ROOT / 'data.json')
     data = copy.deepcopy(original)
+    if data['meta'].get('priceBasis')=='premarket':
+        data['sectorPulse']={'status':'unavailable','marketDate':data['meta']['marketDate'],'targetAsOf':data['meta']['asOf'],'asOf':None,'fetchedAt':now().isoformat(),'returnBasis':'daily','universe':'Finviz 全部细分行业（提供方口径）','universeCount':0,'sourceUrl':'https://finviz.com/groups.ashx?g=industry&v=140&o=-change','dateBasis':None,'rows':[],'gainers':[],'losers':[],'note':'盘前无可核实的全市场细分行业口径'}
     finished = now()
     patch = read(args.news_file) if args.news_file else None
     try:
