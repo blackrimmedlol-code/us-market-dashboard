@@ -237,13 +237,17 @@ def main():
             alternative={}; alternative_raw={'error':str(error)}
         with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
             raw=dict(zip(['BTC','ETH'],pool.map(lambda symbol:get_chart(symbol,True),['BTC','ETH'])))
+        missing_symbols=[s for s in symbols if alternative.get(s,{}).get('status')!='verified']
+        if missing_symbols:
+            with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
+                raw.update(zip(missing_symbols,pool.map(lambda symbol:get_chart(symbol,True),missing_symbols)))
         for symbol in NAMES:
             raw.setdefault(symbol,{'error':'无有效盘前来源'})
         raw['alternativePremarket']=alternative_raw
     else:
         with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
             raw = dict(zip(NAMES,pool.map(lambda symbol:get_chart(symbol,False),NAMES)))
-    if args.session=='premarket' and alternative:
+    if args.session=='premarket' and alternative.get('QQQ',{}).get('status')=='verified':
         # Independently published NYSE calendar plus source session date and
         # last verified close replace the unavailable Yahoo calendar metadata.
         previous_day=prior_day.isoformat()
@@ -277,7 +281,7 @@ def main():
         if not opening <= cutoff < session['start']+300:
             raise SystemExit('Requested date is not in its live premarket window')
         cutoff=min(dt.datetime.now(UTC).timestamp(),session['start'])
-        assets = {s:alternative.get(s) or premarket_observation(s,raw[s],cutoff,market_date,prev['end']) for s in NAMES}
+        assets = {s:alternative[s] if alternative.get(s,{}).get('status')=='verified' else premarket_observation(s,raw[s],cutoff,market_date,prev['end']) for s in NAMES}
         if not any(assets[s]['status']=='verified' for s in ['SPY','QQQ']):
             raise SystemExit('All benchmark premarket sources unavailable')
     else:
