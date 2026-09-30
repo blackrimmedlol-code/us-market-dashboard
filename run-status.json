@@ -1,10 +1,9 @@
 {
-  "schemaVersion": 1,
-  "session": "close",
-  "marketDate": "2026-09-29",
-  "status": "complete",
-  "completedAt": "2026-09-29T20:26:27Z",
-  "sourceCommit": "3213e498fcf30f83b4978e7d1fc33eaa0441c28d",
-  "missing": [],
-  "note": "已核对原收盘提交、Pages部署与有效行情；本次仅升级页面和执行规则。"
+  "session": "premarket",
+  "marketDate": "2026-09-30",
+  "startedAt": "2026-09-30T13:12:45.941002+00:00",
+  "deadlineAt": "2026-09-30T13:22:45.941002+00:00",
+  "status": "failed",
+  "completedAt": "2026-09-30T13:13:33.296281+00:00",
+  "error": "l 2\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 330.98404\n\n✖ failing tests:\n\ntest at pipeline.test.mjs:7:1\n✖ formal intraday-to-close transition preserves the genuine regime and sector comparison (3.984098ms)\n  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /改善/. Input:\n  \n  '较上轮结构待确认。'\n  \n      at TestContext.<anonymous> (file:///workspace/scratch/de6943b0e466/run-premarket-20260930-v187/pipeline.test.mjs:12:10)\n      at Test.runInAsyncScope (node:async_hooks:227:14)\n      at Test.run (node:internal/test_runner/test:1382:25)\n      at Test.start (node:inter"
 }
