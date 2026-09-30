@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-01T02:10:32.028316+08:00",
+    "updatedAt": "2026-09-30T18:15:18.298789+00:00",
     "asOf": "2026-09-30T18:00:00+00:00",
     "marketDate": "2026-09-30",
     "session": "late",
@@ -16,18 +16,13 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-09-30-late.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
-      "battlefield news review",
-      "industry news: Oil & Gas Refining & Marketing",
-      "industry news: Education & Training Services",
-      "industry news: Consumer Electronics",
-      "industry news: Insurance - Specialty",
-      "industry news: REIT - Mortgage",
-      "industry news: Utilities - Independent Power Producers"
+      "industry news: REIT - Mortgage"
     ],
-    "publishedAt": "2026-09-30T18:10:57.251830+00:00"
+    "publishedAt": "2026-09-30T18:15:18.298789+00:00",
+    "newsCheckedAt": "2026-09-30T18:15:15+00:00"
   },
   "assets": {
     "SPY": {
@@ -1513,14 +1508,14 @@
     },
     "news": {
       "Consumer Electronics": {
-        "text": "已检索当日消费电子及苹果相关消息，尚未核实解释整个行业上涨的新增催化；科技股普涨不能自动作为该行业的确定原因。",
+        "text": "已复核消费电子、苹果及专利续约相关报道，未确认23:12以来解释行业上涨的新增催化；旧协议消息与科技股普涨不作为确定因果。",
         "kind": "unknown",
-        "checkedAt": "2026-09-30T15:11:58+00:00"
+        "checkedAt": "2026-09-30T18:15:15+00:00"
       },
       "Utilities - Independent Power Producers": {
-        "text": "已检索独立发电商及CEG、VST、TLN消息；TLN昨日高管变动与回购公告属于个股事件，尚无证据解释本轮行业下跌，原因待核实。",
+        "text": "已检索独立发电商及CEG、VST相关消息；未确认解释行业下跌的新增催化。云客户对数据中心需求的观点不等于电力公司订单变化，原因待核实。",
         "kind": "unknown",
-        "checkedAt": "2026-09-30T15:11:58+00:00"
+        "checkedAt": "2026-09-30T18:15:15+00:00"
       },
       "REIT - Mortgage": {
         "text": "AGNC官方股息表确认9月30日除息，每股0.12美元。除息会影响该股未复权价格，但无法据此解释整个抵押贷款REIT行业跌幅；其他驱动仍待核实。",
@@ -1535,9 +1530,38 @@
             "url": "https://investors.agnc.com/stock-information/dividend-history"
           }
         ]
+      },
+      "Education & Training Services": {
+        "text": "已检索教育培训行业及EDU、LAUR相关消息。LAUR此前仅公布未来财报日期，尚无可靠新增消息解释本轮行业上涨；原因待核实。",
+        "kind": "unknown",
+        "checkedAt": "2026-09-30T18:15:15+00:00"
+      },
+      "Insurance - Specialty": {
+        "text": "已检索专业保险及FNF、AXS、FAF相关消息，并查阅FNF公告。尚未找到解释本轮行业下跌的可靠新增事件；股息支付日不等于除息日，原因待核实。",
+        "kind": "unknown",
+        "checkedAt": "2026-09-30T18:15:15+00:00"
+      },
+      "Oil & Gas Refining & Marketing": {
+        "text": "EIA本轮周报确认汽油库存减少170万桶、馏分油减少230万桶，炼厂利用率降至92.5%；成品油供应偏紧是炼油板块的相关背景，尚不能据此确定全部代表股当轮上涨原因。",
+        "kind": "reported",
+        "publishedAt": "2026-09-30",
+        "eventDate": "2026-09-25",
+        "expiresAt": "2026-10-02",
+        "checkedAt": "2026-09-30T18:15:15+00:00",
+        "sources": [
+          {
+            "name": "EIA",
+            "url": "https://ir.eia.gov/wpsr/summary.txt"
+          },
+          {
+            "name": "Reuters",
+            "url": "https://www.reuters.com/business/energy/oil-climbs-after-trump-denies-he-is-willing-ease-sanctions-iran-2026-09-30/"
+          }
+        ]
       }
     },
-    "researchAt": "2026-09-30T15:11:58+00:00"
+    "researchAt": "2026-09-30T18:15:15+00:00",
+    "reviewStatus": "partial"
   },
   "news": {
     "memory": {
@@ -1574,21 +1598,18 @@
       "priceRelation": "核实的是媒体对市场猜测的报道，并非已达成收购；未把同涨归因于单个ASTS事件。"
     },
     "cloud": {
-      "text": "CoreWeave今日宣布Forge平台，连接并加速AI开发迭代各阶段，继续拓展企业软件服务。该消息只直接涉及CRWV，不能视为IREN、NBIS同步获得订单或整个新云板块的涨跌原因。",
-      "publishedAt": "2026-09-30",
-      "expiresAt": "2026-10-02",
+      "text": "CoreWeave CEO在CNBC采访中称公司订单未减少，并认为数据中心监管限制将改变设施选址，而非降低需求。这是管理层观点，尚不等于新增订单或监管风险已经解除。",
       "kind": "reported",
+      "publishedAt": "2026-09-30T23:58:04.407+08:00",
+      "eventDate": "2026-09-30",
+      "expiresAt": "2026-10-02",
       "sources": [
         {
-          "name": "CoreWeave",
-          "url": "https://wf.coreweave.com/blog/coreweave-forge-turn-ai-iteration-into-compounding-improvement"
-        },
-        {
-          "name": "Investor's Business Daily",
-          "url": "https://www.investors.com/news/technology/coreweave-stock/"
+          "name": "Business Insider",
+          "url": "https://www.businessinsider.com/coreweave-ceo-data-center-backlash-regulation-not-hurting-demand-2026-9"
         }
       ],
-      "priceRelation": "来源仅披露发布日期，日内先后时点不明，不能确认已反映在23:00快照中；板块因果待确认。"
+      "priceRelation": "该报道在本轮02:00行情截止前发布；直接涉及CRWV的需求表述，不能解释IREN、NBIS全部走势，也不能作为独立发电商跌幅的确定原因。"
     }
   },
   "cta": {

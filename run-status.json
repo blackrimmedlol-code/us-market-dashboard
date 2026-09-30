@@ -4,14 +4,9 @@
   "startedAt": "2026-09-30T18:09:21.592969+00:00",
   "deadlineAt": "2026-09-30T18:19:21.592969+00:00",
   "status": "partial",
-  "completedAt": "2026-09-30T18:10:57.321811+00:00",
+  "completedAt": "2026-09-30T18:15:18.590993+00:00",
   "missing": [
-    "battlefield news review",
-    "industry news: Oil & Gas Refining & Marketing",
-    "industry news: Education & Training Services",
-    "industry news: Consumer Electronics",
-    "industry news: Insurance - Specialty",
-    "industry news: REIT - Mortgage",
-    "industry news: Utilities - Independent Power Producers"
-  ]
+    "industry news: REIT - Mortgage"
+  ],
+  "newsPatchApplied": true
 }
