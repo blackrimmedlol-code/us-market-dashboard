@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-09-30T23:06:39.027404+08:00",
+    "updatedAt": "2026-09-30T15:11:59.654246+00:00",
     "asOf": "2026-09-30T15:00:00+00:00",
     "marketDate": "2026-09-30",
     "session": "intraday",
@@ -16,18 +16,11 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-09-30-intraday.json",
-    "newsReviewStatus": "partial",
-    "updateStatus": "partial",
-    "missing": [
-      "battlefield news review",
-      "industry news: Coking Coal",
-      "industry news: Consumer Electronics",
-      "industry news: Health Information Services",
-      "industry news: Pharmaceutical Retailers",
-      "industry news: REIT - Mortgage",
-      "industry news: Utilities - Independent Power Producers"
-    ],
-    "publishedAt": "2026-09-30T15:07:14.901429+00:00"
+    "newsReviewStatus": "complete",
+    "updateStatus": "complete",
+    "missing": [],
+    "publishedAt": "2026-09-30T15:11:59.654246+00:00",
+    "newsCheckedAt": "2026-09-30T15:11:58+00:00"
   },
   "assets": {
     "SPY": {
@@ -1338,58 +1331,100 @@
         "checkedAt": "2026-09-30T15:07:13.030754+00:00"
       }
     },
-    "news": {},
-    "researchAt": null
+    "news": {
+      "Coking Coal": {
+        "text": "已检索当日焦煤行业及主要代表股消息，未找到足以核实本轮行业上涨原因的新增公告或可靠报道；原因待核实，不将其他国家煤炭行情当作美股因果。",
+        "kind": "unknown",
+        "checkedAt": "2026-09-30T15:11:58+00:00"
+      },
+      "Consumer Electronics": {
+        "text": "已检索当日消费电子及苹果相关消息，尚未核实解释整个行业上涨的新增催化；科技股普涨不能自动作为该行业的确定原因。",
+        "kind": "unknown",
+        "checkedAt": "2026-09-30T15:11:58+00:00"
+      },
+      "Health Information Services": {
+        "text": "已检索医疗信息服务及TEM、VEEV相关消息，未找到足以解释本轮行业上涨的可靠新增事件；原因待核实。",
+        "kind": "unknown",
+        "checkedAt": "2026-09-30T15:11:58+00:00"
+      },
+      "Pharmaceutical Retailers": {
+        "text": "已检索HITI、PETS及药品零售行业当日消息，未确认解释本轮行业下跌的新增事件；旧财报及异国市场波动不作为当轮原因。",
+        "kind": "unknown",
+        "checkedAt": "2026-09-30T15:11:58+00:00"
+      },
+      "Utilities - Independent Power Producers": {
+        "text": "已检索独立发电商及CEG、VST、TLN消息；TLN昨日高管变动与回购公告属于个股事件，尚无证据解释本轮行业下跌，原因待核实。",
+        "kind": "unknown",
+        "checkedAt": "2026-09-30T15:11:58+00:00"
+      },
+      "REIT - Mortgage": {
+        "text": "AGNC官方股息表确认9月30日除息，每股0.12美元。除息会影响该股未复权价格，但无法据此解释整个抵押贷款REIT行业跌幅；其他驱动仍待核实。",
+        "kind": "reported",
+        "publishedAt": "2026-09-09",
+        "eventDate": "2026-09-30",
+        "expiresAt": "2026-10-01",
+        "checkedAt": "2026-09-30T15:11:58+00:00",
+        "sources": [
+          {
+            "name": "AGNC Investment",
+            "url": "https://investors.agnc.com/stock-information/dividend-history"
+          }
+        ]
+      }
+    },
+    "researchAt": "2026-09-30T15:11:58+00:00",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
-      "text": "三星预计2027年HBM将占全球DRAM晶圆产能近30%，高于当前约20%；HBM扩产可能进一步挤压标准DRAM供给。",
-      "publishedAt": "2026-09-29",
-      "expiresAt": "2026-10-02",
+      "text": "美光将在本次美股收盘后发布2026财年第四季度业绩，财报电话会定于北京时间10月1日04:30。今日报道聚焦AI存储需求和周期持续性；截至本轮快照尚未公布结果。",
+      "publishedAt": "2026-09-30",
+      "eventDate": "2026-10-01T04:30:00+08:00",
+      "expiresAt": "2026-10-01",
       "kind": "reported",
+      "label": "财报前关注",
       "sources": [
         {
-          "name": "Reuters",
-          "url": "https://www.reuters.com/world/asia-pacific/samsung-electronics-says-hbm-account-nearly-30-industry-dram-capacity-next-year-2026-09-29/"
-        }
-      ],
-      "label": "有效事件延续",
-      "eventDate": "2026-09-29",
-      "priceRelation": "本轮复核后保留既有有效事件；未确认其驱动本轮价格变化，不把新转载当作新事件。"
-    },
-    "space": {
-      "text": "SpaceX 星舰第14次飞行于9月28日首次进入轨道并部署26颗Starlink V3卫星；飞行中出现发动机异常，但任务继续完成入轨。",
-      "publishedAt": "2026-09-28",
-      "expiresAt": "2026-09-30",
-      "kind": "reported",
-      "sources": [
-        {
-          "name": "CBS News",
-          "url": "https://www.cbsnews.com/news/spacex-launches-starship-on-giant-rockets-first-flight-to-orbit/"
+          "name": "Barron's",
+          "url": "https://www.barrons.com/articles/micron-earnings-stock-price-6c25895f"
         },
         {
-          "name": "SpaceX 任务页",
-          "url": "https://www.spacex.com/launches/starship-flight-14"
+          "name": "Micron",
+          "url": "https://investors.micron.com/news/press-release/2026/Micron-Technology-to-Report-Fiscal-Fourth-Quarter-Results-on-September-30-2026/default.aspx"
         }
       ],
-      "label": "有效事件延续",
-      "eventDate": "2026-09-28",
-      "priceRelation": "本轮复核后保留既有有效事件；未确认其驱动本轮价格变化，不把新转载当作新事件。"
+      "priceRelation": "公司公布的财报时点与今日业绩前报道已核实；尚不能将预期当作已实现业绩或解释DRAM整体当轮走势。"
     },
-    "crypto": {
-      "text": "Strategy披露增持1,665枚比特币、耗资约1.43亿美元，总持仓升至847,666枚；该公司层面事件不代表整个加密板块。",
-      "publishedAt": "2026-09-28",
+    "space": {
+      "text": "今日报道指AST SpaceMobile高管控制权变更遣散安排引发收购猜测；该安排本身不证明公司正洽谈收购，尚无已确认交易。消息直接关联ASTS，不能解释全部太空样本涨幅。",
+      "publishedAt": "2026-09-30T22:03:00+08:00",
+      "eventDate": "2026-09-30",
+      "expiresAt": "2026-10-01",
+      "kind": "reported",
+      "sources": [
+        {
+          "name": "24/7 Wall St.",
+          "url": "https://247wallst.com/investing/2026/09/30/ast-spacemobile-jumps-5-on-takeover-speculation-rocket-lab-rises-5-spacex-treads-water/"
+        }
+      ],
+      "priceRelation": "核实的是媒体对市场猜测的报道，并非已达成收购；未把同涨归因于单个ASTS事件。"
+    },
+    "cloud": {
+      "text": "CoreWeave今日宣布Forge平台，连接并加速AI开发迭代各阶段，继续拓展企业软件服务。该消息只直接涉及CRWV，不能视为IREN、NBIS同步获得订单或整个新云板块的涨跌原因。",
+      "publishedAt": "2026-09-30",
       "expiresAt": "2026-10-02",
       "kind": "reported",
       "sources": [
         {
-          "name": "The Block",
-          "url": "https://www.theblock.co/news/business/2026-09-28-even-more-orange-michael-saylor-strategy-bitcoin-416976"
+          "name": "CoreWeave",
+          "url": "https://wf.coreweave.com/blog/coreweave-forge-turn-ai-iteration-into-compounding-improvement"
+        },
+        {
+          "name": "Investor's Business Daily",
+          "url": "https://www.investors.com/news/technology/coreweave-stock/"
         }
       ],
-      "label": "有效事件延续",
-      "eventDate": "2026-09-28",
-      "priceRelation": "本轮复核后保留既有有效事件；未确认其驱动本轮价格变化，不把新转载当作新事件。"
+      "priceRelation": "来源仅披露发布日期，日内先后时点不明，不能确认已反映在23:00快照中；板块因果待确认。"
     }
   },
   "cta": {
