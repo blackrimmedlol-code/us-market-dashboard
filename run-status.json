@@ -1,18 +1,17 @@
 {
-  "session": "premarket",
+  "session": "intraday",
   "marketDate": "2026-09-30",
-  "startedAt": "2026-09-30T13:33:50.919694+00:00",
-  "deadlineAt": "2026-09-30T13:43:50.919694+00:00",
+  "startedAt": "2026-09-30T15:05:56.763271+00:00",
+  "deadlineAt": "2026-09-30T15:15:56.763271+00:00",
   "status": "partial",
-  "completedAt": "2026-09-30T13:36:16.664996+00:00",
+  "completedAt": "2026-09-30T15:07:14.903941+00:00",
   "missing": [
-    "VIX",
-    "VIX3M",
-    "BTC",
-    "ETH",
-    "breadth",
     "battlefield news review",
-    "industry leaderboard"
-  ],
-  "newsPatchApplied": false
+    "industry news: Coking Coal",
+    "industry news: Consumer Electronics",
+    "industry news: Health Information Services",
+    "industry news: Pharmaceutical Retailers",
+    "industry news: REIT - Mortgage",
+    "industry news: Utilities - Independent Power Producers"
+  ]
 }
