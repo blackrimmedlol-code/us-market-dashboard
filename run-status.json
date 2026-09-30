@@ -1,10 +1,17 @@
 {
-  "session": "intraday",
+  "session": "late",
   "marketDate": "2026-09-30",
-  "startedAt": "2026-09-30T15:05:56.763271+00:00",
-  "deadlineAt": "2026-09-30T15:15:56.763271+00:00",
-  "status": "complete",
-  "completedAt": "2026-09-30T15:11:59.951449+00:00",
-  "missing": [],
-  "newsPatchApplied": true
+  "startedAt": "2026-09-30T18:09:21.592969+00:00",
+  "deadlineAt": "2026-09-30T18:19:21.592969+00:00",
+  "status": "partial",
+  "completedAt": "2026-09-30T18:10:57.321811+00:00",
+  "missing": [
+    "battlefield news review",
+    "industry news: Oil & Gas Refining & Marketing",
+    "industry news: Education & Training Services",
+    "industry news: Consumer Electronics",
+    "industry news: Insurance - Specialty",
+    "industry news: REIT - Mortgage",
+    "industry news: Utilities - Independent Power Producers"
+  ]
 }
