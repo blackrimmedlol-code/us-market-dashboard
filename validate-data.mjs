@@ -12,6 +12,10 @@ export function validate(d,old=null){
   need(Date.parse(m.asOf)<=Date.parse(m.updatedAt),'asOf cannot exceed update time');
   need(['premarket','intraday','late','close'].includes(m.session),'session');
   need(['close','intraday','premarket'].includes(m.priceBasis),'priceBasis');need(typeof m.automationEnabled==='boolean','automationEnabled');
+  if(m.updateStatus!==undefined)need(['complete','partial'].includes(m.updateStatus),'update status');
+  if(m.missing!==undefined){need(Array.isArray(m.missing)&&m.missing.every(x=>typeof x==='string'),'missing fields');need(m.updateStatus!=='complete'||m.missing.length===0,'complete cannot carry missing fields');}
+  if(m.publishedAt!==undefined)need(date(m.publishedAt)&&Date.parse(m.publishedAt)>=Date.parse(m.updatedAt),'publication time');
+  if(m.nextUpdate!==undefined&&m.nextUpdate!==null)need(['premarket','intraday','late','close'].includes(m.nextUpdate.session)&&/^\d{4}-\d{2}-\d{2}$/.test(m.nextUpdate.marketDate||'')&&date(m.nextUpdate.at),'next update');
   need(/^\d{4}-\d{2}-\d{2}$/.test(m.marketDate||''),'marketDate');
   const required=m.rulesVersion==='18.2'?SYMBOLS:SYMBOLS.filter(s=>!['RSP','SPMO','VIX3M'].includes(s));
   need(JSON.stringify(Object.keys(d.assets||{}).sort())===JSON.stringify([...required].sort()),'fixed symbol roster');

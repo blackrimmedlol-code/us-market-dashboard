@@ -1,4 +1,4 @@
-# 市场观察 · 数据契约 v18.6
+# 市场观察 · 数据契约 v18.7
 
 ## 范围
 回答市场环境、全市场涨跌前三与四板块的自身走势、相对强弱、内部共振、新增事件。操作由用户决定。取消宏观、逐股操作建议、五周期、60/252分位、判断账本。legacy/冻结，正常更新不读取。
@@ -15,7 +15,7 @@
 
 ## 数据
 data.json含meta/assets/breadth/news/cta/previous/sectorPulse。
-meta：schemaVersion=18、rulesVersion=18.2、timezone=Asia/Shanghai；updatedAt抓取/研究时刻；asOf行情截止点；marketDate美股交易日；session=premarket/intraday/late/close；priceBasis=close/intraday/premarket；automationEnabled按实际任务启停填写。
+meta：schemaVersion=18、rulesVersion=18.2、timezone=Asia/Shanghai；新增publishedAt（提交发布时刻）、updateStatus=complete/partial、missing具体缺项、nextUpdate{session,marketDate,at}；updatedAt抓取/研究时刻；asOf行情截止点；marketDate美股交易日；session=premarket/intraday/late/close；priceBasis=close/intraday/premarket；automationEnabled按实际任务启停填写。
 assets固定22项：symbol/name/status/price/changePct/asOf/marketDate/trend30m/spark/sourceUrl/note。verified才参与计算；失败unavailable且数字null，不沿用旧值冒充本轮。verified另含baselineAt/baselinePrice、ema20/emaSlopePct、vwapApprox、barCount/fetchedAt。
 breadth：verified/snapshot/unavailable；advancing/declining/upPct；marketDate/sourceUrl/asOf/fetchedAt。来源无精确行情时点，asOf必须null，不以抓取时刻替代。上涨占比=上涨/(上涨+下跌)。
 news按memory/cloud/space/crypto保存text/publishedAt/expiresAt/kind(reported|inference)/sources[{name,url}]，可加label/eventDate/priceRelation。日期精度未知可仅用日期；发布日期和未来事件日期分开。因果未证实须明示，不能从涨跌倒推原因。
@@ -26,7 +26,7 @@ previous只保留上次meta/assets/breadth，不嵌套历史。同asOf重跑不�
 完整30分钟K线；股票正式盘，盘前盘后不拼入。EMA20至少25条有效K线：价格在EMA上且斜率正为up，反向down，其余mixed，不足unknown。日内均价为30分钟HLC3量加权近似，非逐笔VWAP。
 QQQ/SPY完整30分钟EMA趋势同向决定风险倾向；均价仅补充确认。广度≥55%/≤45%支持向上/向下；VIX/VIX3M≥1或VIX上涨为压力增加，其余VIX不涨为缓和。广度和波动都反对价格才降为分化；单项反向或缺确认保留低置信度倾向；指数缺失才待确认。置信度是证据一致性，不是胜率：至少一项支持、无反向、广度和VIX/VIX3M完整为中；再有两项支持、均价同向、RSP同向、广度精确时点才高。
 RSP/SPY、SPMO/SPY须同一asOf/baselineAt，用(现比值/基准比值-1)*100。±0.2%内接近，只描述本轮窗口。RSP只补参与程度；SPMO只辅助，不决定方向或置信度。波动比值不是期货期限结构。全部规则未经收益回测。
-板块结构/相对上轮变化/改变判断条件由sectorInsights程序生成，不额外写四份LLM研报；消息默认直接展开，显示事件、日期、来源与价格关系。跨日相对差变化标明窗口重置，不称资金流。旧规则与新规则的市场标签不可直接比较，首次升级显示规则升级；不得回填旧历史。
+板块结构/相对上轮变化/改变判断条件由sectorInsights程序生成，不额外写四份LLM研报；消息默认直接展开，显示事件、日期、来源与价格关系。跨日相对差变化标明窗口重置，不称资金流。旧规则与新规则的市场标签不可直接比较，只有rulesVersion改变才显示规则升级；盘前与正式盘之间才切换方向口径，正式盘intraday→close继续比较。同一交易日相对差可比较；跨日涨幅基准重置不比较相对差变化。不得回填旧历史。
 板块至少2/3样本趋势同向；缺失不缩小分母。存储以DRAM为整体并核对四股，不重复等权；新云/太空/加密股票固定等权。相对QQQ用同窗口涨幅差，±0.2个百分点内接近。币也比较上一美股收盘至同截止点，不用滚动24小时；HOOD不计分。
 
 ## 全市场板块涨跌前三与新闻
@@ -35,21 +35,26 @@ RSP/SPY、SPMO/SPY须同一asOf/baselineAt，用(现比值/基准比值-1)*100�
 - `sectorPulse`：status=snapshot/unavailable、marketDate、targetAsOf（对应主行情完成K线窗口）、asOf=null（来源无行业精确时刻）、fetchedAt、returnBasis=daily、universe/universeCount/sourceUrl/dateBasis、rows完整数值、gainers/losers前三。只正涨幅进入上涨榜，只负涨幅进入下跌榜，不足不凑；重复、非数值、不足100个行业均拒收。
 - 统计是当日截至本轮抓取的日累计涨跌，非两次更新间涨跌。盘前不将上一正式盘榜单展示为当前榜单；若来源无可核实的盘前全行业口径则unavailable。盘中来源可能延迟。必须核对同源SPY日期及实时/闭市窗口；禁止历史盘中时段回填之后的全日榜。显示榜单日期与独立抓取时间。
 - `sectorPulse.news` 按榜单行业英文原名存一条简短解读（text≤240字，建议60–100字），kind=reported/inference/unknown；checkedAt实际核实时刻；有消息必须有publishedAt、expiresAt、sources[{name,url}]（1–2个）。reported只表示消息事实核实，不能自动代表涨跌因果已证实。unknown可无来源，明确原因待核实。
-- 每轮只研究入榜6行业；同日仍入榜、未过期的新闻可复用，复核有无新增变化并更新checkedAt；换榜或跨日重新检查。研究完成写researchAt且不早于fetchedAt，6项都需有新闻或unknown记录。新闻晚于行情时点则标“快照后消息”；发布日期精度未知仅填日期，不能假造具体时刻。
+- 每轮只研究入榜6行业的缺失、过期或新增事件。同日仍入榜、未过期且核实不超过3小时的已报道事件可复用；unknown仅复用1小时。缓存保留原checkedAt和researchAt，另写reusedAt和reviewStatus；不能把复用时间称为重新核实。实际增量复核后才更新checkedAt/researchAt；换榜或跨日重新检查。6项应有真实新闻、unknown或明确待核实状态，未完成计入partial。新闻晚于行情时点则标“快照后消息”；发布日期精度未知仅填日期，不能假造具体时刻。
 - 四个战场新闻直接展示，不折叠；继续每板块最多1条有效新闻，不凑数。榜单新闻优先原公告，再使用可靠媒体，不能用一家公司事件解释整个行业而不说明局限。
 - `compact-summary.mjs`只输出榜单6项及新闻，完整rows不进入模型上下文。主行情与榜单可以部分成功；来源失败/研究未完成写具体缺项，不称全量完成。不要重启旧版任务或恢复宏观长篇分析。
 
 ## 四时段流程
-榜单每个行业直接展示2–4个核心标的：`sectorPulse.coreTickers[英文行业名]` 保存 symbols、status、checkedAt、sourceUrl、selection=optionable-marketcap。脚本仅对当轮入榜行业并行读取 Finviz 同行业、Optionable 筛选，按市值选前4只；不足2只如实显示、不跨行业凑数。未核实显示待核实并计入partial，不妨碍有效榜单和新闻展示。每轮随主脚本更新，不另启模型研究，不调用期权链、不新增个股分析。当前来源标的核实时间与行情快照时间分开，不能冒充历史时点成分。核心标的不是期权活跃度排名；日内候选仍需用户检查到期日、买卖价差、成交量与持仓量，不能声称可做0DTE。四个任务采用 GPT-6 Sol 与原有时段。
+榜单每个行业直接展示2–4个核心标的：`sectorPulse.coreTickers[英文行业名]` 保存 symbols、status、checkedAt、sourceUrl、selection=optionable-marketcap。脚本仅对当轮入榜行业并行读取 Finviz 同行业、Optionable 筛选，按市值选前4只；不足2只如实显示、不跨行业凑数。未核实显示待核实并计入partial，不妨碍有效榜单和新闻展示。同一美东交易日已核实的行业代表股使用程序缓存，保留原checkedAt并标cached/reusedAt；跨日、失败或新入榜行业重新核实，不另启模型研究，不调用期权链、不新增个股分析。当前来源标的核实时间与行情快照时间分开，不能冒充历史时点成分。核心标的不是期权活跃度排名；日内候选仍需用户检查到期日、买卖价差、成交量与持仓量，不能声称可做0DTE。四个任务采用 GPT-6 Sol 与原有时段。
 
 沿用America/New_York周一至五09:05/11:05/14:05/16:25。夏令时中国时间21:05/23:05/次日02:05/次日04:25，冬令时顺延1小时。非有效交易日静默跳过；短日采用来源实际收盘，已闭市不称盘中。
 
-1. 读远端最新指南，工具内解析data并保存previous.json；核对交易日历和目标日期。
-2. python scripts/refresh-dashboard.py --session SESSION --market-date YYYY-MM-DD。基准缺失则保留旧快照并报错；来源失败备用一次，板块缺项允许真实partial。
-3. node scripts/compact-summary.mjs。只搜上次研究后新增公告，优先一手来源；四战场各最多一条，加涨跌榜6行业各一条简短解读（无可靠原因标unknown）；复用同日仍有效新闻，合并相同事件检索，最多5分钟新闻核实，10分钟全流程，不新建自愈任务、不无限重试。
-4. 盘前必须使用当日最新盘前报价，禁止沿用上一正式盘收盘充当本轮报价。运行当日 --session premarket --market-date YYYY-MM-DD；meta.marketDate 为当日，priceBasis=premarket。抓取 includePrePost=true 的1分钟数据，以最新已完成1分钟行情作为报价快照，保留来源时点和抓取时点，页面提示来源可能延迟，不声称逐笔无延迟。报价须在当日美东04:00至09:30窗口且距本轮截止点不超过5分钟；超时、无成交或来源失败明确unavailable，数字null，不用旧价兜底。涨跌幅统一较最近一个正式交易日实际收盘，股票基准必须核实来源regularMarketTime与前收盘时间对齐；BTC/ETH也使用该收盘时刻基准，不用24小时涨跌。只取得部分报价则发布partial，SPY/QQQ缺项时状态待确认；来源日历无法核实时明确报错，不冒称刷新成功。盘前trend30m=unknown，premarketDirection由当前价相对昨收的正/负/零决定；市场与板块的盘前方向使用此字段，明确是盘前涨跌倾向而非正式盘EMA趋势，置信度为低。报价时点未对齐则不计算相对比值/强弱，不绘制未对齐等权曲线。盘前不使用昨日广度/行业榜确认当日状态；无可核实盘前口径则显示缺失，不影响有效报价展示。切换盘前与正式盘口径时不声称结构改善或恶化。盘中/午后只写变化，收盘核实完整正式盘。新闻截止updatedAt，晚于行情asOf的事件必须标记“快照后消息，价格反应待确认”。
-5. 运行node validate-data.mjs data.json previous.json、node --test dashboard-model.test.mjs sector-pulse.test.mjs、python -m unittest discover -s scripts -p 'test_*.py'、node check-session.mjs data.json SESSION YYYY-MM-DD。退出2为部分完成。幂等须同目标session/date，updatedAt晚于名义时点且完整同窗口，不能仅凭日期跳过。
-6. 写前fetch最新SHA；冲突重读合并一次，不强推。提交data与证据，核实Pages对应SHA成功及线上内容后才通知。通知只含市场状态、四板块变化、缺项、链接。
+1. 先读远端最新指南、AGENTS及main提交SHA，按共享schedule.json判定交易日。日历来自NYSE已公布2026–2028交易日与短日表；所有页面时间为北京时间。源日历与已公布表不符时明确报错，不把旧价标成新价。
+2. 所有时段只使用统一入口：`python scripts/update-session.py prepare --session SESSION --base-head MAIN_SHA`。入口判断幂等与同仓库活动运行，执行批量行情、现有回归与校验，生成紧凑摘要、增量researchPlan和精确publication计划。抓取子进程最多240秒；总预算600秒。skip时静默结束；来源/校验失败保留旧data并生成只含run-status.json的失败状态发布计划。
+3. **先发布已验证数值，再研究新闻。** 立即按`.dashboard-run/publication.json`发布quotes阶段。`python scripts/update-session.py publish`优先使用已有环境中的GitHub凭证；没有令牌时自动输出connector计划，不要求新增权限。连接器模式由代码编排工具读取计划原文、核对main SHA、create_blob→create_tree→create_commit→update_ref(force=false)，原样发布计划文件，不手工重写JSON。写后用`publish --commit-sha SHA`记录提交。
+4. 模型只读取prepare的紧凑摘要与researchPlan。四战场增量消息批量检索；同一URL/事件只核实一次，再分别说明对相关战场和行业的关系。仅研究neededIndustries，cachedIndustries保留原研究时间。最多300秒，且不超过入口给出的newsDeadlineAt。没找到原因但已实际核实时才写unknown；未完成写缺项，不伪造checkedAt。
+5. 将实际研究结果写`.dashboard-run/news-patch.json`：`{checkedAt,reviewedSectors:[memory,cloud,space,crypto],news:{战场id:事件或null},reviewedIndustries:[已实际复核的英文行业名],sectorNews:{英文行业名:新闻或unknown}}`。无新事件保留仍有效旧事件，不以null无故清除；source/publishedAt/expiresAt遵守原契约。`python scripts/update-session.py finalize --news-file .dashboard-run/news-patch.json`合并并校验，自动标complete/partial；超出研究预算的patch不会被使用。没有完成研究可运行finalize不带文件，仍保留已发布行情和真实partial。
+6. 按final计划再次publish。冲突只允许`rebase --remote-data FILE --remote-head SHA`一次；程序保留未知字段与较新的远端内容，拒绝覆盖更新行情，不强推。publish API模式也落实同一上限。所有校验及部署验证通过才通知同步成功；verify结果为false只报告待验证或具体失败。
+7. `python scripts/update-session.py verify --commit-sha SHA`检查该SHA的Pages部署成功与线上data内容摘要一致，窗口最多90秒且计入总预算。连接器/浏览器模式可把实际取得的`{workflowRuns,onlineData}`写证据文件，使用`verify --commit-sha SHA --evidence FILE`做同样检查。失败状态发布验证改用onlineStatus对应run-status.json。不得只凭运行过、GitHub提交成功或一个布尔值称更新正常；不新建补跑任务。
+8. 浏览器每分钟仅在页面可见时自动读取已发布data/schedule/run-status；回到页面立即读取。读取不触发行情或模型。顶部分别显示行情、内容更新、发布、下一轮；15分钟宽限后未覆盖应到时段才逾期。正常隔夜、周末和节假日等待不误报，partial不冒充完整成功。来源失败保留快照并显示读取失败。
+
+盘前必须使用当日最新盘前报价，禁止沿用上一正式盘收盘充当本轮报价。运行当日 --session premarket --market-date YYYY-MM-DD；meta.marketDate 为当日，priceBasis=premarket。抓取 includePrePost=true 的1分钟数据，以最新已完成1分钟行情作为报价快照，保留来源时点和抓取时点，页面提示来源可能延迟，不声称逐笔无延迟。报价须在当日美东04:00至09:30窗口且距本轮截止点不超过5分钟；超时、无成交或来源失败明确unavailable，数字null，不用旧价兜底。涨跌幅统一较最近一个正式交易日实际收盘，股票基准必须核实来源regularMarketTime与前收盘时间对齐；BTC/ETH也使用该收盘时刻基准，不用24小时涨跌。只取得部分报价则发布partial，SPY/QQQ缺项时状态待确认；来源日历无法核实时明确报错，不冒称刷新成功。盘前trend30m=unknown，premarketDirection由当前价相对昨收的正/负/零决定；市场与板块的盘前方向使用此字段，明确是盘前涨跌倾向而非正式盘EMA趋势，置信度为低。报价时点未对齐则不计算相对比值/强弱，不绘制未对齐等权曲线。盘前不使用昨日广度/行业榜确认当日状态；无可核实盘前口径则显示缺失，不影响有效报价展示。切换盘前与正式盘口径时不声称结构改善或恶化。盘中/午后只写变化，收盘核实完整正式盘。新闻截止updatedAt，晚于行情asOf的事件必须标记“快照后消息，价格反应待确认”。
 
 仅启用这四项新版任务，旧任务与自愈继续关闭；缺少模型字段不作为暂停理由。启动时同步automationEnabled。
 legacy/data.json必须保持迁移前字节不变；回滚用正常新提交，不改写Git历史。
+

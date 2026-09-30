@@ -32,6 +32,7 @@ const labels={
   'REIT - Data Centers':'数据中心 REIT','REIT - Office':'办公 REIT','REIT - Retail':'零售 REIT',
   'Real Estate Services':'房地产服务','Marine Shipping':'海运','Railroads':'铁路','Trucking':'卡车运输'
 };
+Object.assign(labels,{'Coking Coal':'焦煤','Gambling':'博彩'});
 export const industryLabel=name=>labels[name]||name;
 export function coreTickers(p,name){
   const c=p?.coreTickers?.[name];
@@ -70,3 +71,4 @@ export function pulseNews(p,name){
   if(Date.parse(n.publishedAt)>when||Date.parse(n.expiresAt)<when)return null;
   return {...n,afterSnapshot:n.publishedAt.includes('T')&&Date.parse(n.publishedAt)>Date.parse(p.targetAsOf)};
 }
+

@@ -17,3 +17,8 @@
 .industry-tickers{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin:9px 0 8px 30px;font-size:11px;color:var(--muted)}
 .industry-tickers a{border:1px solid currentColor;border-radius:4px;padding:3px 7px;text-decoration:none;font-weight:600}
 @media(max-width:760px){.industry-tickers{margin-left:0}}
+
+
+/* v18.7: separate publication, quote and schedule clocks. */
+.snapshot-line{margin-bottom:5px}.snapshot-meta{display:flex;gap:7px 22px;flex-wrap:wrap;color:var(--muted);font-size:11px;margin-bottom:18px;line-height:1.8}.health-ready .status-dot{background:var(--up)}.health-failed,.health-overdue{color:var(--down)}.health-failed .status-dot,.health-overdue .status-dot{background:var(--down)}.health-partial,.health-pending{color:var(--flat)}.health-paused .status-dot,.health-unknown .status-dot{background:var(--muted)}
+@media(max-width:760px){.snapshot-meta{font-size:10px;gap:3px 12px;margin-bottom:14px}.snapshot-controls{flex-wrap:wrap}.sector-state{flex-wrap:wrap;gap:4px 8px}.sector-state small{white-space:normal}}

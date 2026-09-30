@@ -49,10 +49,37 @@ def core_members(industry):
     return out
 
 
-def attach_core_members(pulse):
+def attach_core_members(pulse, cache=None, now=None):
     names = [r['name'] for r in pulse.get('gainers', []) + pulse.get('losers', [])]
+    now = now or dt.datetime.now(dt.timezone.utc)
+    cache = cache or {}
+    members, retained, needed = {}, {}, []
+    for name, entry in cache.items():
+        try:
+            checked = dt.datetime.fromisoformat(entry['checkedAt'])
+            usable = (entry.get('status') == 'verified' and entry.get('selection') == 'optionable-marketcap'
+                      and checked.astimezone(NY).date().isoformat() == pulse['marketDate']
+                      and 0 <= (now - checked).total_seconds() < 24 * 3600
+                      and entry.get('sourceUrl', '').startswith('https://finviz.com/screener.ashx?')
+                      and 0 < len(entry.get('symbols', [])) <= 4
+                      and len(set(entry['symbols'])) == len(entry['symbols'])
+                      and all(re.fullmatch(r'[A-Z][A-Z0-9.-]{0,9}', s) for s in entry['symbols']))
+            if usable:
+                retained[name] = entry
+        except (KeyError, TypeError, ValueError):
+            pass
+    for name in names:
+        if name in retained:
+            members[name] = {**retained[name], 'cached': True, 'reusedAt': now.isoformat()}
+        else:
+            needed.append(name)
     with ThreadPoolExecutor(max_workers=6) as pool:
-        pulse['coreTickers'] = dict(zip(names, pool.map(core_members, names)))
+        for name, entry in zip(needed, pool.map(core_members, needed)):
+            members[name] = {**entry, 'cached': False}
+            if entry.get('status') == 'verified':
+                retained[name] = entry
+    pulse['coreTickers'] = members
+    pulse['coreTickerCache'] = retained
     return pulse
 
 
@@ -126,7 +153,7 @@ def date_basis(anchor, market_date, now, cutoff, regular_close_at=None):
     return '同源 SPY 日期锚点：' + marker[0] + '；行业表未披露逐项行情时点。'
 
 
-def get_sector_pulse(market_date, now, cutoff, regular_close_at=None):
+def get_sector_pulse(market_date, now, cutoff, regular_close_at=None, core_cache=None):
     out = {'status': 'unavailable', 'marketDate': market_date,
            'targetAsOf': dt.datetime.fromtimestamp(cutoff, dt.timezone.utc).isoformat(),
            'asOf': None, 'fetchedAt': now.isoformat(), 'returnBasis': 'daily',
@@ -142,7 +169,7 @@ def get_sector_pulse(market_date, now, cutoff, regular_close_at=None):
         out.update(status='snapshot', universeCount=len(rows), rows=rows,
                    dateBasis=basis, **rank(rows))
         out['note'] = '日累计涨跌幅；来源可能延迟，不代表两轮更新之间的涨跌。'
-        attach_core_members(out)
+        attach_core_members(out, core_cache)
     except Exception as error:
         out['note'] = str(error)[:220]
     out['fetchedAt'] = dt.datetime.now(dt.timezone.utc).isoformat()

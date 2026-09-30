@@ -2,18 +2,15 @@
 
 https://blackrimmedlol-code.github.io/us-market-dashboard/
 
-v18.3精简版：市场风险倾向与证据置信度、RSP/SPY、SPMO/SPY、VIX/VIX3M＋存储、新云、太空、加密货币。计算交给脚本，模型仅核实增量消息。
+v18.7：市场状态、涨跌前三和四个战场；报价、内容更新、发布与下一轮时间分别显示。浏览器在可见时每分钟读取已发布快照，保持当前排序与已展开的来源说明。
 
-- 规范：DATA_GUIDE.md
+- 规范：DATA_GUIDE.md；执行限制：AGENTS.md
 - 页面：index.html / dashboard.css / dashboard-app.mjs
-- 计算：dashboard-model.mjs
-- 行情：python scripts/refresh-dashboard.py --session close --market-date YYYY-MM-DD
-- 紧凑摘要：node scripts/compact-summary.mjs
-- 校验：node validate-data.mjs data.json
-- 回归：node --test dashboard-model.test.mjs
+- 计算：dashboard-model.mjs；正式盘盘中与收盘可以连续比较
+- 共享日历：schedule.json / schedule.mjs / scripts/market_calendar.py
+- 统一入口：scripts/update-session.py prepare / finalize / publish / verify
+- 摘要：scripts/compact-summary.mjs；增量研究与同源事件分组：scripts/research-plan.mjs
+- 校验：validate-data.mjs / check-session.mjs；测试：Node与Python现有及pipeline/schedule用例
 - 旧版：legacy/（冻结）
 
-四项新版任务采用 GPT-6 Sol；任务接口不返回模型字段时不因此中止更新，仍须严格核验行情来源、数据时点与部署。沿用现有 GitHub Pages。
-
-## v18.3 板块涨跌榜
-复用旧版Finviz全行业抓取与排序，展示日累计涨幅/跌幅前三及带日期来源的简短新闻。榜单位于市场状态和四战场之间；四战场新闻直接展开。规则分类仍为18.2，避免把展示升级误报为市场方向变化。每轮只向模型输出6条榜单，不输出完整行业表。
+保留四项GPT-6 Sol任务与原时段。接口缺少实际模型字段不会阻断行情更新。先发布已验证数值，随后在研究预算内合并新闻；复用事件与行业代表股保留原核实时间。完整行业表和原始行情不进入模型上下文。没有令牌时沿用已有GitHub连接器发布计划，不另建定时器或补跑。

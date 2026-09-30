@@ -8,6 +8,15 @@ export const SYMBOLS = ['SPY','QQQ','VIX','RSP','SPMO','VIX3M','DRAM',...new Set
 export const LABELS = {RISK_ON:'Risk-on',MIXED:'分化',RISK_OFF:'Risk-off',UNKNOWN:'待确认',up:'走强',down:'走弱',mixed:'分化',unknown:'待确认'};
 const finite = n => typeof n==='number' && Number.isFinite(n);
 const mean = list => list.length?list.reduce((a,b)=>a+b,0)/list.length:null;
+export function comparisonMode(meta,previous) {
+  if(!previous)return 'first';
+  if(meta.rulesVersion!==previous.rulesVersion)return 'rules';
+  if((meta.priceBasis==='premarket')!==(previous.priceBasis==='premarket'))return 'basis';
+  return meta.marketDate!==previous.marketDate?'day':'comparable';
+}
+export function trendLabel(trend,meta) {
+  return (meta.priceBasis==='premarket'?{up:'盘前偏涨',down:'盘前偏跌',mixed:'盘前分化',unknown:'待确认'}:{up:'结构偏强',down:'结构偏弱',mixed:'结构分化',unknown:'待确认'})[trend];
+}
 export function validQuote(q,meta) {
   return q?.status==='verified' && finite(q.price) && q.price>0 && finite(q.changePct) &&
     q.marketDate===meta.marketDate && Number.isFinite(Date.parse(q.asOf)) &&
@@ -62,12 +71,15 @@ export function sectorInsights(def,data){
   if(def.id==='memory'&&s.complete){const mem=direction([a.MU,a.SKHY]);structure+=` 内存端${LABELS[mem]}；WDC 的独立表现不代表 DRAM 整体。`}
   if(def.coins)structure+=` 币价${LABELS[s.coinTrend]}、股票${LABELS[s.trend]}${s.split?'，两者尚未共振':'，分别确认'}；HOOD 不计分。`;
   let delta='首次建立基线，尚无可比较的上轮结构。';
-  if(old){delta=`较上轮结构${compare(s.trend,old.trend)}。`;if(finite(s.relative)&&finite(old.relative)){
-    const diff=s.relative-old.relative;delta+=` 相对 QQQ 表现${diff>=0?'改善':'走弱'} ${Math.abs(diff).toFixed(2)} 个百分点${data.previous.meta.marketDate!==data.meta.marketDate?'（跨交易日窗口，不作连续资金流解读）':''}。`}}
+  const mode=comparisonMode(data.meta,data.previous?.meta);
+  if(old){delta=`较上轮结构${compare(s.trend,old.trend)}。`;if(mode==='day')delta+=' 跨交易日涨幅基准重置，不比较相对差变化。';
+    else if(finite(s.relative)&&finite(old.relative)){
+      const diff=s.relative-old.relative;delta+=` 相对 QQQ 表现${Math.abs(diff)<.005?'持平':(diff>0?'改善':'走弱')+' '+Math.abs(diff).toFixed(2)+' 个百分点'}。`;}}
   const thresholds=def.anchor?'DRAM 与至少3/4只代表股':def.coins?'BTC / ETH 与 COIN / MSTR':'至少'+Math.ceil(def.members.length*2/3)+'/'+def.members.length+'只样本';
   const condition=s.trend==='up'?`若${thresholds}不再保持向上结构，转为分化或下调；相对 QQQ 走弱另作提醒。`:s.trend==='unknown'?`先补齐同一时点行情，再看${thresholds}能否形成同向结构。`:`若${thresholds}形成向上结构，可上调自身走势；同时跑赢 QQQ 才上调相对强弱。`;
   if(data.meta.priceBasis==='premarket')structure=structure.replaceAll('30分钟结构','盘前相对昨收方向').replaceAll('样本结构','盘前样本');
-  if(data.previous&&data.previous.meta.priceBasis!==data.meta.priceBasis)delta='价格口径切换，本轮不与上轮结构直接比较。';
+  if(mode==='basis')delta='盘前与正式盘方向口径切换，本轮不比较结构变化。';
+  if(mode==='rules')delta='规则升级，本轮重新建立比较基线。';
   return {structure,delta,condition};
 }
 export function sectorState(def,data) {

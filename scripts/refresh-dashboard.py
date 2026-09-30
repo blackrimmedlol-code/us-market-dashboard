@@ -12,6 +12,7 @@ import re
 import subprocess
 from zoneinfo import ZoneInfo
 from refresh_sectors import get_sector_pulse
+from market_calendar import next_update
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 NY = ZoneInfo('America/New_York')
@@ -121,7 +122,7 @@ def observation(symbol, chart, cutoff, market_date, previous_close_at):
             'vwapApprox':round(vwap,5) if vwap else None,'barCount':len(seq),
             'spark':[round(b['close'],4) for b in today],
             'sourceUrl':chart['sourceUrl'],'fetchedAt':chart['fetchedAt'],
-            'note':'已完成30分钟K线；涨跌统一较上一美股交易日16:00' if symbol in ['BTC','ETH','VIX','VIX3M'] else '已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似'}
+            'note':'已完成30分钟K线；涨跌统一较上一正式盘收盘时点' if symbol in ['BTC','ETH','VIX','VIX3M'] else '已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似'}
 
 def premarket_observation(symbol, chart, cutoff, market_date, previous_close_at):
     """Use only source-timestamped, completed current-day minute bars; never carry close."""
@@ -138,7 +139,10 @@ def premarket_observation(symbol, chart, cutoff, market_date, previous_close_at)
     for i,t in enumerate(result.get('timestamp',[])):
         values = quote.get('close',[])
         price = values[i] if i < len(values) else None
-        if t % 60 == 0 and start <= t and t+60 <= cutoff and isinstance(price,(int,float)) and math.isfinite(price) and price > 0:
+        volumes = quote.get('volume', [])
+        volume = volumes[i] if i < len(volumes) else None
+        traded = symbol in ['BTC','ETH','VIX','VIX3M'] or isinstance(volume,(int,float)) and math.isfinite(volume) and volume > 0
+        if traded and t % 60 == 0 and start <= t and t+60 <= cutoff and isinstance(price,(int,float)) and math.isfinite(price) and price > 0:
             seq.append((t+60,price))
     if not seq or cutoff-seq[-1][0] > 300:
         empty['note'] = '盘前报价缺失或超过5分钟；不以昨收替代'
@@ -237,9 +241,10 @@ def main():
         assets = {s:observation(s,c,cutoff,market_date,prev['end']) for s,c in raw.items()}
     if args.session != 'premarket' and any(assets[s]['status']!='verified' for s in ['QQQ','SPY']):
         raise SystemExit('Market benchmark stale or unavailable; previous snapshot preserved')
-    breadth = get_breadth(market_date,now,cutoff)
-    sector_pulse = get_sector_pulse(market_date,now,cutoff,session['end'])
     old_pulse = old.get('sectorPulse', {})
+    breadth = get_breadth(market_date,now,cutoff)
+    core_cache = old_pulse.get('coreTickerCache', old_pulse.get('coreTickers', {}))
+    sector_pulse = get_sector_pulse(market_date,now,cutoff,session['end'],core_cache)
     # Reuse news only for the same trading date and names still in the top six.
     if old_pulse.get('marketDate') == market_date:
         names = {r['name'] for side in ['gainers','losers'] for r in sector_pulse[side]}
@@ -249,11 +254,11 @@ def main():
     if (breadth['status']=='unavailable' and cutoff==session['end'] and
         old_breadth.get('marketDate')==market_date and old_breadth.get('status') in ['verified','snapshot']):
         breadth = old_breadth  # Same historical observation, retain original fetchedAt and note.
-    out = {'meta':{'schemaVersion':18,'timezone':'Asia/Shanghai','edition':'trial',
-                   'updatedAt':now.astimezone(CN).isoformat(),'asOf':iso(cutoff) if cutoff==session['end'] else now.isoformat(),'marketDate':market_date,
+    out = {'meta':{'schemaVersion':18,'timezone':'Asia/Shanghai','edition':'compact',
+                   'updatedAt':now.astimezone(CN).isoformat(),'asOf':iso(cutoff),'marketDate':market_date,
                    'session':args.session,'priceBasis':'premarket' if args.session=='premarket' else 'close' if cutoff==session['end'] else 'intraday',
                    'automationEnabled':old.get('meta',{}).get('automationEnabled',False),
-                   'nextUpdate':None,'rulesVersion':'18.2'},
+                   'nextUpdate':next_update(now),'rulesVersion':'18.2'},
            'assets':assets,'breadth':breadth,'sectorPulse':sector_pulse,
            'news':old.get('news',{}) if old.get('meta',{}).get('schemaVersion')==18 else {},
            'cta':{'status':'unavailable','note':'有可追溯的新仓位估算才展示；不参与核心判断'},

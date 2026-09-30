@@ -63,7 +63,7 @@ class PremarketTests(unittest.TestCase):
         self.chart={'sourceUrl':'https://example.com/chart','fetchedAt':r.iso(self.cutoff),
                     'result':{'meta':{'regularMarketTime':self.baseline,'regularMarketPrice':100},
                               'timestamp':[self.cutoff-150,self.cutoff-90,self.cutoff-30],
-                              'indicators':{'quote':[{'close':[101,102,999]}]}}}
+                              'indicators':{'quote':[{'close':[101,102,999],'volume':[20,30,5]}]}}}
     def read(self):
         return r.premarket_observation('QQQ',self.chart,self.cutoff,'2026-09-29',self.baseline)
     def test_uses_latest_completed_premarket_minute_and_prior_close(self):
@@ -81,6 +81,9 @@ class PremarketTests(unittest.TestCase):
             self.assertIsNone(q['price'])
     def test_stale_regular_baseline_is_not_accepted(self):
         self.chart['result']['meta']['regularMarketTime']-=86400
+        self.assertEqual(self.read()['status'],'unavailable')
+    def test_zero_volume_or_missing_trade_is_not_a_new_equity_quote(self):
+        self.chart['result']['indicators']['quote'][0]['volume']=[0,0,0]
         self.assertEqual(self.read()['status'],'unavailable')
     def test_outside_premarket_is_rejected(self):
         self.cutoff+=3600

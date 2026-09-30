@@ -2,17 +2,24 @@
   "meta": {
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
-    "edition": "trial",
+    "edition": "compact",
     "updatedAt": "2026-09-30T04:24:44+08:00",
     "asOf": "2026-09-29T20:00:00+00:00",
     "marketDate": "2026-09-29",
     "session": "close",
     "priceBasis": "close",
     "automationEnabled": true,
-    "nextUpdate": null,
+    "nextUpdate": {
+      "session": "premarket",
+      "marketDate": "2026-09-30",
+      "at": "2026-09-30T13:05:00+00:00"
+    },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-09-29-close.json",
-    "newsCheckedAt": "2026-09-30T04:24:44+08:00"
+    "newsCheckedAt": "2026-09-30T04:24:44+08:00",
+    "updateStatus": "complete",
+    "missing": [],
+    "publishedAt": "2026-09-30T05:34:33.231Z"
   },
   "assets": {
     "SPY": {
@@ -202,7 +209,7 @@
       "barCount": 65,
       "spark": [
         18.05,
-        18.0,
+        18,
         18.01,
         18.26,
         18.19,
@@ -273,7 +280,7 @@
         1079.66,
         1078.8,
         1064.0981,
-        1069.0,
+        1069,
         1070.9,
         1068.4056,
         1072.09,
@@ -551,7 +558,7 @@
         70.11,
         70.27,
         70.02,
-        70.0,
+        70,
         69.58,
         69.72
       ],
@@ -568,7 +575,7 @@
       "asOf": "2026-09-29T20:00:00+00:00",
       "marketDate": "2026-09-29",
       "baselineAt": "2026-09-28T20:00:00+00:00",
-      "baselinePrice": 61.0,
+      "baselinePrice": 61,
       "trend30m": "down",
       "ema20": 60.13166,
       "emaSlopePct": -0.12442,
@@ -993,11 +1000,11 @@
       },
       {
         "name": "Farm & Heavy Construction Machinery",
-        "changePct": -0.0
+        "changePct": 0
       },
       {
         "name": "Waste Management",
-        "changePct": -0.0
+        "changePct": 0
       },
       {
         "name": "REIT - Diversified",
@@ -1777,7 +1784,7 @@
         "barCount": 61,
         "spark": [
           18.05,
-          18.0,
+          18,
           18.01,
           18.26,
           18.19,
@@ -1840,7 +1847,7 @@
           1079.66,
           1078.8,
           1064.0981,
-          1069.0,
+          1069,
           1070.9,
           1068.4056,
           1072.09,
@@ -2099,7 +2106,7 @@
         "asOf": "2026-09-29T18:00:00+00:00",
         "marketDate": "2026-09-29",
         "baselineAt": "2026-09-28T20:00:00+00:00",
-        "baselinePrice": 61.0,
+        "baselinePrice": 61,
         "trend30m": "down",
         "ema20": 60.57958,
         "emaSlopePct": -0.21233,
