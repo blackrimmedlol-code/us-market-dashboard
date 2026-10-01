@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-01T23:08:24.166455+08:00",
+    "updatedAt": "2026-10-01T15:10:14.186114+00:00",
     "asOf": "2026-10-01T15:00:00+00:00",
     "marketDate": "2026-10-01",
     "session": "intraday",
@@ -16,13 +16,13 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-01-intraday.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
-      "battlefield news review",
       "industry leaderboard"
     ],
-    "publishedAt": "2026-10-01T15:08:47.656354+00:00"
+    "publishedAt": "2026-10-01T15:10:14.186114+00:00",
+    "newsCheckedAt": "2026-10-01T15:09:40+00:00"
   },
   "assets": {
     "SPY": {
@@ -579,27 +579,27 @@
     "rows": [],
     "gainers": [],
     "losers": [],
-    "note": "行业日期锚点不匹配，未将新行情标为旧时段"
+    "note": "行业日期锚点不匹配，未将新行情标为旧时段",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
-      "text": "美光将在本次美股收盘后发布2026财年第四季度业绩，财报电话会定于北京时间10月1日04:30。今日报道聚焦AI存储需求和周期持续性；截至本轮快照尚未公布结果。",
-      "publishedAt": "2026-09-30",
-      "eventDate": "2026-10-01T04:30:00+08:00",
-      "expiresAt": "2026-10-01",
+      "text": "美光公布2026财年第四季营收542.3亿美元、调整后每股收益33.42美元，均高于市场预期；但盘初股价仍走弱，报道将关注点指向盈利增速持续性、毛利率指引及供需能见度。",
       "kind": "reported",
-      "label": "财报前关注",
+      "publishedAt": "2026-10-01",
+      "eventDate": "2026-09-30",
+      "expiresAt": "2026-10-03",
       "sources": [
         {
-          "name": "Barron's",
-          "url": "https://www.barrons.com/articles/micron-earnings-stock-price-6c25895f"
+          "name": "SEC / Micron",
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000018/a2026q4ex991-pressrelease.htm"
         },
         {
-          "name": "Micron",
-          "url": "https://investors.micron.com/news/press-release/2026/Micron-Technology-to-Report-Fiscal-Fourth-Quarter-Results-on-September-30-2026/default.aspx"
+          "name": "MarketWatch",
+          "url": "https://www.marketwatch.com/story/why-microns-big-earnings-report-isnt-lifting-the-stock-b965af83"
         }
       ],
-      "priceRelation": "公司公布的财报时点与今日业绩前报道已核实；尚不能将预期当作已实现业绩或解释DRAM整体当轮走势。"
+      "priceRelation": "财报在本轮23:00行情截止前发布，直接影响MU；不能单独解释DRAM、SKHY、SNDK和WDC全部走势。"
     },
     "space": {
       "text": "今日报道指AST SpaceMobile高管控制权变更遣散安排引发收购猜测；该安排本身不证明公司正洽谈收购，尚无已确认交易。消息直接关联ASTS，不能解释全部太空样本涨幅。",
@@ -628,6 +628,20 @@
         }
       ],
       "priceRelation": "该报道在本轮02:00行情截止前发布；直接涉及CRWV的需求表述，不能解释IREN、NBIS全部走势，也不能作为独立发电商跌幅的确定原因。"
+    },
+    "crypto": {
+      "text": "花旗上调12个月BTC与ETH预测，理由包括加密活动增强、宏观环境及ETF资金流恢复；这是券商预测，并非价格保证。",
+      "kind": "reported",
+      "publishedAt": "2026-10-01T07:23:12+00:00",
+      "eventDate": "2026-10-01",
+      "expiresAt": "2026-10-03",
+      "sources": [
+        {
+          "name": "Reuters",
+          "url": "https://www.reuters.com/business/finance/citi-raises-bitcoin-ether-forecasts-strong-crypto-activity-2026-10-01/"
+        }
+      ],
+      "priceRelation": "报道在本轮23:00行情截止前发布，直接涉及BTC与ETH，对COIN、MSTR仅为间接情绪关联，不能解释两只股票的全部涨跌。"
     }
   },
   "cta": {
