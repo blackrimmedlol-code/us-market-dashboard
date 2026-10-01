@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-02T02:08:56.650884+08:00",
+    "updatedAt": "2026-10-01T18:10:39.281081+00:00",
     "asOf": "2026-10-01T18:00:00+00:00",
     "marketDate": "2026-10-01",
     "session": "late",
@@ -16,13 +16,13 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-01-late.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
-      "battlefield news review",
       "industry leaderboard"
     ],
-    "publishedAt": "2026-10-01T18:09:17.129180+00:00"
+    "publishedAt": "2026-10-01T18:10:39.281081+00:00",
+    "newsCheckedAt": "2026-10-01T18:10:20+00:00"
   },
   "assets": {
     "SPY": {
@@ -713,7 +713,8 @@
     "losers": [],
     "note": "行业日期锚点不匹配，未将新行情标为旧时段",
     "news": {},
-    "researchAt": null
+    "researchAt": null,
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
@@ -735,32 +736,36 @@
       "priceRelation": "财报在本轮23:00行情截止前发布，直接影响MU；不能单独解释DRAM、SKHY、SNDK和WDC全部走势。"
     },
     "space": {
-      "text": "今日报道指AST SpaceMobile高管控制权变更遣散安排引发收购猜测；该安排本身不证明公司正洽谈收购，尚无已确认交易。消息直接关联ASTS，不能解释全部太空样本涨幅。",
-      "publishedAt": "2026-09-30T22:03:00+08:00",
-      "eventDate": "2026-09-30",
-      "expiresAt": "2026-10-01",
+      "text": "Rocket Lab与Synspective签署20次Electron任务的多年协议，为Electron迄今最大的单笔商业发射合同；这是RKLB公司层面的订单，不代表太空板块整体。",
       "kind": "reported",
+      "publishedAt": "2026-09-30",
+      "eventDate": "2026-09-30",
+      "expiresAt": "2026-10-04",
       "sources": [
         {
-          "name": "24/7 Wall St.",
-          "url": "https://247wallst.com/investing/2026/09/30/ast-spacemobile-jumps-5-on-takeover-speculation-rocket-lab-rises-5-spacex-treads-water/"
+          "name": "Rocket Lab",
+          "url": "https://investors.rocketlabcorp.com/news-releases/news-release-details/rocket-lab-secures-largest-ever-electron-commercial-deal-20"
         }
       ],
-      "priceRelation": "核实的是媒体对市场猜测的报道，并非已达成收购；未把同涨归因于单个ASTS事件。"
+      "priceRelation": "公告在本轮02:00行情截止前发布，直接涉及RKLB；不能解释ASTS与SPCX的同步或反向走势。"
     },
     "cloud": {
-      "text": "CoreWeave CEO在CNBC采访中称公司订单未减少，并认为数据中心监管限制将改变设施选址，而非降低需求。这是管理层观点，尚不等于新增订单或监管风险已经解除。",
+      "text": "Nebius在10月1日的季度更新中列出需求驱动的GPU定价调整，并公布当日起适用的GPU小时价格；这说明算力供需仍在影响定价，但不等于所有新云公司的订单同步增长。",
       "kind": "reported",
-      "publishedAt": "2026-09-30T23:58:04.407+08:00",
-      "eventDate": "2026-09-30",
-      "expiresAt": "2026-10-02",
+      "publishedAt": "2026-10-01",
+      "eventDate": "2026-10-01",
+      "expiresAt": "2026-10-04",
       "sources": [
         {
-          "name": "Business Insider",
-          "url": "https://www.businessinsider.com/coreweave-ceo-data-center-backlash-regulation-not-hurting-demand-2026-9"
+          "name": "Nebius AI Cloud",
+          "url": "https://nebius.com/blog/posts/compute-cloud-platform-q3-2026"
+        },
+        {
+          "name": "Nebius Pricing",
+          "url": "https://nebius.com/prices"
         }
       ],
-      "priceRelation": "该报道在本轮02:00行情截止前发布；直接涉及CRWV的需求表述，不能解释IREN、NBIS全部走势，也不能作为独立发电商跌幅的确定原因。"
+      "priceRelation": "更新在本轮02:00行情截止前发布，直接涉及NBIS的定价；对IREN、CRWV仅为行业供需参照，不能解释三只股票全部涨跌。"
     },
     "crypto": {
       "text": "花旗上调12个月BTC与ETH预测，理由包括加密活动增强、宏观环境及ETF资金流恢复；这是券商预测，并非价格保证。",

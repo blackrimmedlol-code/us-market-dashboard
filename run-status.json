@@ -4,9 +4,9 @@
   "startedAt": "2026-10-01T18:08:28.622970+00:00",
   "deadlineAt": "2026-10-01T18:18:28.622970+00:00",
   "status": "partial",
-  "completedAt": "2026-10-01T18:09:17.131031+00:00",
+  "completedAt": "2026-10-01T18:10:39.391388+00:00",
   "missing": [
-    "battlefield news review",
     "industry leaderboard"
-  ]
+  ],
+  "newsPatchApplied": true
 }
