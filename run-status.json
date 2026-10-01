@@ -1,12 +1,12 @@
 {
-  "session": "intraday",
+  "session": "late",
   "marketDate": "2026-10-01",
-  "startedAt": "2026-10-01T15:07:45.751364+00:00",
-  "deadlineAt": "2026-10-01T15:17:45.751364+00:00",
+  "startedAt": "2026-10-01T18:08:28.622970+00:00",
+  "deadlineAt": "2026-10-01T18:18:28.622970+00:00",
   "status": "partial",
-  "completedAt": "2026-10-01T15:10:14.303664+00:00",
+  "completedAt": "2026-10-01T18:09:17.131031+00:00",
   "missing": [
+    "battlefield news review",
     "industry leaderboard"
-  ],
-  "newsPatchApplied": true
+  ]
 }
