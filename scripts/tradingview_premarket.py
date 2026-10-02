@@ -5,6 +5,7 @@ import datetime as dt
 import json
 import math
 import subprocess
+import time
 from zoneinfo import ZoneInfo
 NY=ZoneInfo('America/New_York'); UTC=dt.timezone.utc
 URL='https://scanner.tradingview.com/america/scan'
@@ -42,5 +43,5 @@ def observation(symbol, first, second, prior, day, baseline_at, names):
     except (KeyError,TypeError,ValueError): return empty
 
 def batch(symbols,prior,day,baseline_at,names):
-    first=scan(symbols); second=scan(symbols)
+    first=scan(symbols); time.sleep(15); second=scan(symbols)
     return {s:observation(s,first,second,prior,day,baseline_at,names) for s in symbols},{'sourceUrl':URL,'first':first,'second':second}
