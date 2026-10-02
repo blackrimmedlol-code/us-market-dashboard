@@ -229,8 +229,23 @@ def main():
         prior_day=dt.date.fromisoformat(market_date)-dt.timedelta(days=1)
         while not trading_day(prior_day.isoformat()): prior_day-=dt.timedelta(days=1)
         prior_end=dt.datetime.fromisoformat(prior_day.isoformat()+'T'+CONFIG['earlyCloses'].get(prior_day.isoformat(),'16:00')).replace(tzinfo=NY).timestamp()
-        prior=old['assets'] if old['meta'].get('session')=='close' else (old.get('previous') or {}).get('assets',{})
         symbols=[s for s in NAMES if s not in ['BTC','ETH','VIX','VIX3M']]
+        # Verify the immediately preceding regular close independently. The
+        # previous dashboard snapshot may be intraday when a close run was
+        # missed, so it is not a valid premarket baseline.
+        with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
+            close_raw=dict(zip(symbols,pool.map(lambda symbol:get_chart(symbol,False),symbols)))
+        prior={}
+        for symbol,chart in close_raw.items():
+            result=chart.get('result') if isinstance(chart,dict) else None
+            meta=result.get('meta',{}) if isinstance(result,dict) else {}
+            terminal=meta.get('regularMarketTime',0)
+            baseline=meta.get('regularMarketPrice')
+            if (prior_end-60 <= terminal <= prior_end+60 and isinstance(baseline,(int,float))
+                    and math.isfinite(baseline) and baseline>0):
+                prior[symbol]={'status':'verified','price':baseline,'asOf':iso(prior_end)}
+        if old['meta'].get('session')=='close':
+            for symbol,asset in old['assets'].items(): prior.setdefault(symbol,asset)
         try:
             alternative,alternative_raw=alternative_premarket(symbols,prior,market_date,iso(prior_end),NAMES)
         except Exception as error:
@@ -243,6 +258,10 @@ def main():
                 raw.update(zip(missing_symbols,pool.map(lambda symbol:get_chart(symbol,True),missing_symbols)))
         for symbol in NAMES:
             raw.setdefault(symbol,{'error':'无有效盘前来源'})
+        alternative_raw['baselineVerification']={s:{'status':prior.get(s,{}).get('status','unavailable'),
+            'price':prior.get(s,{}).get('price'),'asOf':prior.get(s,{}).get('asOf'),
+            'sourceUrl':close_raw.get(s,{}).get('sourceUrl'),'fetchedAt':close_raw.get(s,{}).get('fetchedAt')}
+            for s in symbols}
         raw['alternativePremarket']=alternative_raw
     else:
         with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
