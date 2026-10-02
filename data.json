@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-02T21:25:38.646718+08:00",
+    "updatedAt": "2026-10-02T13:30:34.275345+00:00",
     "asOf": "2026-10-02T13:25:38.641322+00:00",
     "marketDate": "2026-10-02",
     "session": "premarket",
@@ -26,7 +26,7 @@
       "battlefield news review",
       "industry leaderboard"
     ],
-    "publishedAt": "2026-10-02T13:25:39.603840+00:00"
+    "publishedAt": "2026-10-02T13:30:34.275345+00:00"
   },
   "assets": {
     "SPY": {
@@ -1200,7 +1200,7 @@
     "marketDate": "2026-10-02",
     "targetAsOf": "2026-10-02T13:25:38.641322+00:00",
     "asOf": null,
-    "fetchedAt": "2026-10-02T13:25:38.646718+00:00",
+    "fetchedAt": "2026-10-02T13:30:34.275335+00:00",
     "returnBasis": "daily",
     "universe": "Finviz 全部细分行业（提供方口径）",
     "universeCount": 0,
@@ -1209,7 +1209,8 @@
     "rows": [],
     "gainers": [],
     "losers": [],
-    "note": "盘前无可核实的全市场细分行业口径"
+    "note": "盘前无可核实的全市场细分行业口径",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {

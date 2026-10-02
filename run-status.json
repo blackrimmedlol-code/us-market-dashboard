@@ -4,7 +4,7 @@
   "startedAt": "2026-10-02T13:24:09.362118+00:00",
   "deadlineAt": "2026-10-02T13:34:09.362118+00:00",
   "status": "partial",
-  "completedAt": "2026-10-02T13:25:39.605513+00:00",
+  "completedAt": "2026-10-02T13:30:34.423282+00:00",
   "missing": [
     "VIX",
     "VIX3M",
@@ -12,5 +12,6 @@
     "breadth",
     "battlefield news review",
     "industry leaderboard"
-  ]
+  ],
+  "newsPatchApplied": false
 }
