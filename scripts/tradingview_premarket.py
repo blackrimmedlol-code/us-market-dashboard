@@ -43,5 +43,12 @@ def observation(symbol, first, second, prior, day, baseline_at, names):
     except (KeyError,TypeError,ValueError): return empty
 
 def batch(symbols,prior,day,baseline_at,names):
-    first=scan(symbols); time.sleep(15); second=scan(symbols)
+    first=scan(symbols); second=first
+    for _ in range(5):
+        time.sleep(15); second=scan(symbols)
+        def changed(symbol):
+            earlier=first['rows'].get(symbol,{}); row=second['rows'].get(symbol,{})
+            return (row.get('premarket_close')!=earlier.get('premarket_close')
+                    or row.get('premarket_volume',0)>earlier.get('premarket_volume',0))
+        if all(changed(symbol) for symbol in ['SPY','QQQ'] if symbol in symbols): break
     return {s:observation(s,first,second,prior,day,baseline_at,names) for s in symbols},{'sourceUrl':URL,'first':first,'second':second}
