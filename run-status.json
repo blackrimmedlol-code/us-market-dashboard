@@ -1,9 +1,9 @@
 {
   "session": "premarket",
   "marketDate": "2026-10-02",
-  "startedAt": "2026-10-02T13:15:16.446742+00:00",
-  "deadlineAt": "2026-10-02T13:25:16.446742+00:00",
+  "startedAt": "2026-10-02T13:19:42.009848+00:00",
+  "deadlineAt": "2026-10-02T13:29:42.009848+00:00",
   "status": "failed",
-  "completedAt": "2026-10-02T13:16:35.576824+00:00",
+  "completedAt": "2026-10-02T13:20:51.529339+00:00",
   "error": "All benchmark premarket sources unavailable\n"
 }
