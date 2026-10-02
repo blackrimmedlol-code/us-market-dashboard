@@ -1,9 +1,16 @@
 {
   "session": "premarket",
   "marketDate": "2026-10-02",
-  "startedAt": "2026-10-02T13:19:42.009848+00:00",
-  "deadlineAt": "2026-10-02T13:29:42.009848+00:00",
-  "status": "failed",
-  "completedAt": "2026-10-02T13:20:51.529339+00:00",
-  "error": "All benchmark premarket sources unavailable\n"
+  "startedAt": "2026-10-02T13:24:09.362118+00:00",
+  "deadlineAt": "2026-10-02T13:34:09.362118+00:00",
+  "status": "partial",
+  "completedAt": "2026-10-02T13:25:39.605513+00:00",
+  "missing": [
+    "VIX",
+    "VIX3M",
+    "MSTR",
+    "breadth",
+    "battlefield news review",
+    "industry leaderboard"
+  ]
 }
