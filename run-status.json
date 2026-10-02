@@ -1,12 +1,9 @@
 {
-  "session": "late",
-  "marketDate": "2026-10-01",
-  "startedAt": "2026-10-01T18:08:28.622970+00:00",
-  "deadlineAt": "2026-10-01T18:18:28.622970+00:00",
-  "status": "partial",
-  "completedAt": "2026-10-01T18:10:39.391388+00:00",
-  "missing": [
-    "industry leaderboard"
-  ],
-  "newsPatchApplied": true
+  "session": "premarket",
+  "marketDate": "2026-10-02",
+  "startedAt": "2026-10-02T13:10:21.047539+00:00",
+  "deadlineAt": "2026-10-02T13:20:21.047539+00:00",
+  "status": "failed",
+  "completedAt": "2026-10-02T13:11:01.315229+00:00",
+  "error": "All benchmark premarket sources unavailable\n"
 }
