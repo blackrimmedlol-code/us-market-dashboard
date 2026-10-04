@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-04T13:12:32.349465+08:00",
+    "updatedAt": "2026-10-04T05:14:41.525717+00:00",
     "asOf": "2026-10-02T20:00:00+00:00",
     "marketDate": "2026-10-02",
     "session": "close",
@@ -16,18 +16,11 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-02-close.json",
-    "newsReviewStatus": "partial",
-    "updateStatus": "partial",
-    "missing": [
-      "battlefield news review",
-      "industry news: Copper",
-      "industry news: Communication Equipment",
-      "industry news: Electrical Equipment & Parts",
-      "industry news: Advertising Agencies",
-      "industry news: Staffing & Employment Services",
-      "industry news: Computer Hardware"
-    ],
-    "publishedAt": "2026-10-04T05:13:01.497432+00:00"
+    "newsReviewStatus": "complete",
+    "updateStatus": "complete",
+    "missing": [],
+    "publishedAt": "2026-10-04T05:14:41.525717+00:00",
+    "newsCheckedAt": "2026-10-04T05:14:41.470664+00:00"
   },
   "assets": {
     "SPY": {
@@ -1562,73 +1555,119 @@
         "checkedAt": "2026-10-04T05:13:00.581090+00:00"
       }
     },
-    "news": {},
-    "researchAt": null
+    "news": {
+      "Copper": {
+        "text": "10月2日铜价获美元回落及智利供给风险支持。铜矿股领涨与这一背景方向一致，但股票涨幅不能直接归因于铜价，报道也提示能源成本与需求风险。",
+        "kind": "inference",
+        "publishedAt": "2026-10-02",
+        "expiresAt": "2026-10-05T20:00:00+00:00",
+        "sources": [
+          {
+            "name": "Reuters（Business Recorder转载）",
+            "url": "https://www.brecorder.com/news/40442350/"
+          }
+        ],
+        "checkedAt": "2026-10-04T05:14:41.470664+00:00"
+      },
+      "Communication Equipment": {
+        "text": "HPE于9月30日上调网络业务增长预期并披露Vultr订单，这是仍有效的AI网络需求背景，非10月2日新增公告。仅能解释部分成分的情绪，未核实全行业统一上涨原因。",
+        "kind": "inference",
+        "publishedAt": "2026-09-30T13:17:00+00:00",
+        "expiresAt": "2026-10-05T20:00:00+00:00",
+        "sources": [
+          {
+            "name": "Reuters",
+            "url": "https://www.reuters.com/business/hpe-boosts-networking-growth-outlook-gets-12-billion-ai-order-cloud-firm-vultr-2026-09-30/"
+          }
+        ],
+        "checkedAt": "2026-10-04T05:14:41.470664+00:00"
+      },
+      "Electrical Equipment & Parts": {
+        "text": "10月2日发布的8月工厂订单数据显示电气设备、家电及零部件订单环比增加1.1%，与设备需求支撑方向一致。将其视作行业上涨背景属于推断，不能认定为VRT、BE等股票的唯一催化。",
+        "kind": "inference",
+        "publishedAt": "2026-10-02T14:25:00+00:00",
+        "expiresAt": "2026-10-05T20:00:00+00:00",
+        "sources": [
+          {
+            "name": "Reuters",
+            "url": "https://www.reuters.com/business/aerospace-defense/us-factory-orders-increase-slightly-august-2026-10-02/"
+          }
+        ],
+        "checkedAt": "2026-10-04T05:14:41.470664+00:00"
+      },
+      "Advertising Agencies": {
+        "text": "已检索当日行业及主要成分消息，未找到可靠的共同下跌原因；保持原因待核实，不以其他板块或单家公司事件替代行业归因。",
+        "kind": "unknown",
+        "sources": [],
+        "checkedAt": "2026-10-04T05:14:41.470664+00:00"
+      },
+      "Staffing & Employment Services": {
+        "text": "10月2日就业报告显示9月新增非农岗位低于预期。招聘需求放缓可作为人力服务股承压的背景，但报告也指出低招聘、低裁员状态，行业跌幅的具体归因仍属推断。",
+        "kind": "inference",
+        "publishedAt": "2026-10-02T12:38:00+00:00",
+        "expiresAt": "2026-10-05T20:00:00+00:00",
+        "sources": [
+          {
+            "name": "Reuters",
+            "url": "https://www.reuters.com/business/us-job-growth-slows-sharply-september-unemployment-rate-rises-42-2026-10-02/"
+          }
+        ],
+        "checkedAt": "2026-10-04T05:14:41.470664+00:00"
+      },
+      "Computer Hardware": {
+        "text": "东芝计划扩大硬盘产能的报道对应STX等硬盘成分的竞争压力，可解释部分硬件股承压背景；无法用该事件统一解释DELL、ANET或SNDK，整个行业的共同下跌原因未证实。",
+        "kind": "inference",
+        "publishedAt": "2026-10-02",
+        "expiresAt": "2026-10-05T20:00:00+00:00",
+        "sources": [
+          {
+            "name": "TIKR（引述Nikkei）",
+            "url": "https://www.tikr.com/blog/seagate-sinks-12-western-digital-down-10-as-toshiba-plans-to-double-hard-disk-output"
+          }
+        ],
+        "checkedAt": "2026-10-04T05:14:41.470664+00:00"
+      }
+    },
+    "researchAt": "2026-10-04T05:14:41.470664+00:00",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
-      "text": "美光公布2026财年第四季营收542.3亿美元、调整后每股收益33.42美元，均高于市场预期；但盘初股价仍走弱，报道将关注点指向盈利增速持续性、毛利率指引及供需能见度。",
+      "text": "10月2日报道称东芝计划扩大AI数据中心硬盘产能，WDC及STX盘中承压。这是HDD竞争与供给事件，不能直接外推为MU、SKHY或整个DRAM板块利空；盘中跌幅不作为本轮收盘价。",
       "kind": "reported",
-      "publishedAt": "2026-10-01",
-      "eventDate": "2026-09-30",
-      "expiresAt": "2026-10-03",
+      "publishedAt": "2026-10-02",
+      "expiresAt": "2026-10-05T20:00:00+00:00",
       "sources": [
         {
-          "name": "SEC / Micron",
-          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000018/a2026q4ex991-pressrelease.htm"
-        },
-        {
-          "name": "MarketWatch",
-          "url": "https://www.marketwatch.com/story/why-microns-big-earnings-report-isnt-lifting-the-stock-b965af83"
+          "name": "TIKR（引述Nikkei）",
+          "url": "https://www.tikr.com/blog/seagate-sinks-12-western-digital-down-10-as-toshiba-plans-to-double-hard-disk-output"
         }
-      ],
-      "priceRelation": "财报在本轮23:00行情截止前发布，直接影响MU；不能单独解释DRAM、SKHY、SNDK和WDC全部走势。"
+      ]
     },
     "space": {
-      "text": "Rocket Lab与Synspective签署20次Electron任务的多年协议，为Electron迄今最大的单笔商业发射合同；这是RKLB公司层面的订单，不代表太空板块整体。",
+      "text": "10月2日报道确认Falcon 9于10月1日完成拼车发射、部署两颗Unseenlabs卫星。事件直接关联SPCX发射业务；RKLB与ASTS上涨不能据此认定为各自新增订单或业绩兑现。",
       "kind": "reported",
-      "publishedAt": "2026-09-30",
-      "eventDate": "2026-09-30",
-      "expiresAt": "2026-10-04",
+      "publishedAt": "2026-10-02T14:47:00+00:00",
+      "expiresAt": "2026-10-05T20:00:00+00:00",
       "sources": [
         {
-          "name": "Rocket Lab",
-          "url": "https://investors.rocketlabcorp.com/news-releases/news-release-details/rocket-lab-secures-largest-ever-electron-commercial-deal-20"
+          "name": "24/7 Wall St.",
+          "url": "https://247wallst.com/investing/2026/10/02/spacex-climbs-6-on-fresh-falcon-9-rideshare-launch-rocket-lab-jumps-7-ast-spacemobile-ticks-up/"
         }
       ],
-      "priceRelation": "公告在本轮02:00行情截止前发布，直接涉及RKLB；不能解释ASTS与SPCX的同步或反向走势。"
-    },
-    "cloud": {
-      "text": "Nebius在10月1日的季度更新中列出需求驱动的GPU定价调整，并公布当日起适用的GPU小时价格；这说明算力供需仍在影响定价，但不等于所有新云公司的订单同步增长。",
-      "kind": "reported",
-      "publishedAt": "2026-10-01",
-      "eventDate": "2026-10-01",
-      "expiresAt": "2026-10-04",
-      "sources": [
-        {
-          "name": "Nebius AI Cloud",
-          "url": "https://nebius.com/blog/posts/compute-cloud-platform-q3-2026"
-        },
-        {
-          "name": "Nebius Pricing",
-          "url": "https://nebius.com/prices"
-        }
-      ],
-      "priceRelation": "更新在本轮02:00行情截止前发布，直接涉及NBIS的定价；对IREN、CRWV仅为行业供需参照，不能解释三只股票全部涨跌。"
+      "eventDate": "2026-10-01"
     },
     "crypto": {
-      "text": "花旗上调12个月BTC与ETH预测，理由包括加密活动增强、宏观环境及ETF资金流恢复；这是券商预测，并非价格保证。",
+      "text": "10月2日报道COIN在分析师上调目标价等支持消息下仍盘中走弱；报道没有核实统一下跌原因。该消息只适用于COIN，不代表MSTR或BTC/ETH基本面恶化。",
       "kind": "reported",
-      "publishedAt": "2026-10-01T07:23:12+00:00",
-      "eventDate": "2026-10-01",
-      "expiresAt": "2026-10-03",
+      "publishedAt": "2026-10-02",
+      "expiresAt": "2026-10-05T20:00:00+00:00",
       "sources": [
         {
-          "name": "Reuters",
-          "url": "https://www.reuters.com/business/finance/citi-raises-bitcoin-ether-forecasts-strong-crypto-activity-2026-10-01/"
+          "name": "Benzinga（TradingView转载）",
+          "url": "https://www.tradingview.com/news/benzinga:1633ff6f8094b:0-coinbase-stock-drops-what-s-going-on/"
         }
-      ],
-      "priceRelation": "报道在本轮23:00行情截止前发布，直接涉及BTC与ETH，对COIN、MSTR仅为间接情绪关联，不能解释两只股票的全部涨跌。"
+      ]
     }
   },
   "cta": {

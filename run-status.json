@@ -3,15 +3,8 @@
   "marketDate": "2026-10-02",
   "startedAt": "2026-10-04T05:12:08.036487+00:00",
   "deadlineAt": "2026-10-04T05:22:08.036487+00:00",
-  "status": "partial",
-  "completedAt": "2026-10-04T05:13:01.499548+00:00",
-  "missing": [
-    "battlefield news review",
-    "industry news: Copper",
-    "industry news: Communication Equipment",
-    "industry news: Electrical Equipment & Parts",
-    "industry news: Advertising Agencies",
-    "industry news: Staffing & Employment Services",
-    "industry news: Computer Hardware"
-  ]
+  "status": "complete",
+  "completedAt": "2026-10-04T05:14:41.646957+00:00",
+  "missing": [],
+  "newsPatchApplied": true
 }
