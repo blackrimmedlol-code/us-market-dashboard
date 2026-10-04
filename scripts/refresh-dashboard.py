@@ -11,7 +11,7 @@ import pathlib
 import re
 import subprocess
 from zoneinfo import ZoneInfo
-from refresh_sectors import get_sector_pulse
+from refresh_sectors import get_sector_pulse, date_basis, ANCHOR_URL
 from market_calendar import next_update, trading_day, CONFIG
 from tradingview_premarket import batch as alternative_premarket
 
@@ -178,16 +178,20 @@ def get_breadth(market_date, now, cutoff):
         html = fetch(url)
         adv = re.search(r'Advancing</p><p>[\d.]+% \(([\d,]+)\)',html)
         dec = re.search(r'Declining</p><p>\(([\d,]+)\)',html)
-        date_match = re.search(r'"ticker":"\$MARKET","dateTime":"(\d{4}-\d{2}-\d{2})',html)
         # Finviz has no precise timestamp for the breadth box. Only associate it with
         # a completed session when captured after its close and before the next open.
         local = now.astimezone(NY)
         today_open = local.replace(hour=9,minute=30,second=0,microsecond=0).timestamp()
         today_close = local.replace(hour=16,minute=0,second=0,microsecond=0).timestamp()
-        after_target = now.timestamp() >= cutoff and now.timestamp()-cutoff < 20*3600
+        after_target = now.timestamp() >= cutoff and now.timestamp()-cutoff < 96*3600
         premarket_open = local.replace(hour=4,minute=0,second=0,microsecond=0).timestamp()
-        closed_window = now.timestamp() < premarket_open or now.timestamp() >= today_close
-        closed_aligned = date_match and date_match[1] == market_date and after_target and closed_window
+        closed_window = (not trading_day(local.date().isoformat()) or now.timestamp() < premarket_open
+                         or local.date().isoformat() == market_date and now.timestamp() >= today_close)
+        closed_aligned = False
+        if after_target and closed_window:
+            # The homepage headline timestamp is a NEWS timestamp, not the quote date.
+            date_basis(fetch(ANCHOR_URL), market_date, now, cutoff, cutoff)
+            closed_aligned = True
         live_aligned = (local.date().isoformat()==market_date and today_open <= now.timestamp() < today_close
                         and 0 <= now.timestamp()-cutoff < 1800)
         if not (adv and dec and (closed_aligned or live_aligned)):

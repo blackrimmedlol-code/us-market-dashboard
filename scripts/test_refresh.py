@@ -46,12 +46,22 @@ class RefreshTests(unittest.TestCase):
         self.assertLessEqual(dt.datetime.fromisoformat(q['asOf']).timestamp(),cutoff)
 
     def test_premarket_breadth_never_masquerades_as_prior_close(self):
-        html='Advancing</p><p>50% (100)</p> Declining</p><p>(100)</p> "ticker":"$MARKET","dateTime":"2026-09-23"'
+        html='Advancing</p><p>50% (100)</p> Declining</p><p>(100)</p> Last Close 767 Sep 23 3:59 PM'
         cutoff=dt.datetime.fromisoformat('2026-09-23T20:00:00+00:00').timestamp()
         with patch.object(r,'fetch',return_value=html):
             for hour,status in [(7,'snapshot'),(8,'unavailable'),(12,'unavailable')]:
                 now=dt.datetime(2026,9,24,hour,30,tzinfo=dt.timezone.utc)
                 self.assertEqual(r.get_breadth('2026-09-23',now,cutoff)['status'],status)
+
+    def test_weekend_breadth_uses_quote_date_and_rejects_news_date_as_anchor(self):
+        html = 'Advancing</p><p>55% (110)</p> Declining</p><p>(90)</p> "ticker":"$MARKET","dateTime":"2026-10-03"'
+        quote = '<span class="quote-price_date">Oct 02<span> • </span>3:59 PM ET</span>'
+        cutoff = dt.datetime.fromisoformat('2026-10-02T20:00:00+00:00').timestamp()
+        now = dt.datetime.fromisoformat('2026-10-04T05:00:00+00:00')
+        with patch.object(r, 'fetch', side_effect=[html, quote]):
+            self.assertEqual(r.get_breadth('2026-10-02', now, cutoff)['upPct'], 55)
+        with patch.object(r, 'fetch', side_effect=[html, quote.replace('Oct 02','Oct 01')]):
+            self.assertEqual(r.get_breadth('2026-10-02', now, cutoff)['status'], 'unavailable')
 
 if __name__=='__main__':
     unittest.main()

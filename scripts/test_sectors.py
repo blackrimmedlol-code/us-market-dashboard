@@ -35,3 +35,11 @@ class SectorTests(unittest.TestCase):
         now=dt.datetime.fromisoformat('2026-11-27T19:00:00+00:00')
         cutoff=dt.datetime.fromisoformat('2026-11-27T18:00:00+00:00').timestamp()
         self.assertIn('SPY',date_basis('Last Close 767 Nov 27 12:59 PM','2026-11-27',now,cutoff,cutoff))
+
+    def test_current_quote_markup_accepts_zero_padded_day_not_news_dates(self):
+        now = dt.datetime.fromisoformat('2026-10-04T05:00:00+00:00')
+        cutoff = dt.datetime.fromisoformat('2026-10-02T20:00:00+00:00').timestamp()
+        anchor = '<span class="quote-price_date">Oct 02<span class="muted"> • </span>3:59 PM ET</span>'
+        self.assertIn('SPY', date_basis(anchor, '2026-10-02', now, cutoff))
+        with self.assertRaises(ValueError):
+            date_basis(anchor.replace('Oct 02', 'Oct 01') + '<td>Oct-02-26 news</td>', '2026-10-02', now, cutoff)

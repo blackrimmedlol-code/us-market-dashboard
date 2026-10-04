@@ -134,9 +134,13 @@ def rank(rows):
 def date_basis(anchor, market_date, now, cutoff, regular_close_at=None):
     plain = re.sub('<[^>]+>', ' ', re.sub(r'<script\b[^>]*>.*?</script>', '', anchor, flags=re.S))
     plain = re.sub(r'\s+', ' ', unescape(plain))
+    quoted = re.search(r'<span\b[^>]*class=["\'][^"\']*\bquote-price_date\b[^"\']*["\'][^>]*>(.*?)</span>\s*(?:</span>)?', anchor, re.S)
     marker = re.search(r'Last Close.{0,180}', plain)
-    expected = dt.date.fromisoformat(market_date).strftime('%b %d').replace(' 0', ' ')
-    if not marker or not re.search(r'\b' + re.escape(expected) + r'\b', marker[0]):
+    text = re.sub('<[^>]+>', ' ', unescape(quoted[1])) if quoted else marker[0] if marker else ''
+    text = re.sub(r'\s+', ' ', text).strip()
+    month_day = re.search(r'\b([A-Z][a-z]{2})\s+(\d{1,2})\b', text)
+    expected = dt.date.fromisoformat(market_date)
+    if not month_day or month_day[1] != expected.strftime('%b') or int(month_day[2]) != expected.day:
         raise ValueError('行业日期锚点不匹配，未将新行情标为旧时段')
     local = now.astimezone(NY)
     end = dt.datetime.fromtimestamp(cutoff, NY)
@@ -150,7 +154,7 @@ def date_basis(anchor, market_date, now, cutoff, regular_close_at=None):
               (local.date() == end.date() or local.weekday() >= 5 or local.time() < dt.time(9, 30)))
     if end.date().isoformat() != market_date or not (live and 0 <= age < 1800 or closed):
         raise ValueError('行业快照无法对齐本轮窗口，未复用旧榜单')
-    return '同源 SPY 日期锚点：' + marker[0] + '；行业表未披露逐项行情时点。'
+    return '同源 SPY 日期锚点：' + text + '；行业表未披露逐项行情时点。'
 
 
 def get_sector_pulse(market_date, now, cutoff, regular_close_at=None, core_cache=None):

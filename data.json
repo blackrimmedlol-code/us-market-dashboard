@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-04T13:08:34.352857+08:00",
+    "updatedAt": "2026-10-04T13:12:32.349465+08:00",
     "asOf": "2026-10-02T20:00:00+00:00",
     "marketDate": "2026-10-02",
     "session": "close",
@@ -19,11 +19,15 @@
     "newsReviewStatus": "partial",
     "updateStatus": "partial",
     "missing": [
-      "breadth",
       "battlefield news review",
-      "industry leaderboard"
+      "industry news: Copper",
+      "industry news: Communication Equipment",
+      "industry news: Electrical Equipment & Parts",
+      "industry news: Advertising Agencies",
+      "industry news: Staffing & Employment Services",
+      "industry news: Computer Hardware"
     ],
-    "publishedAt": "2026-10-04T05:08:51.489477+00:00"
+    "publishedAt": "2026-10-04T05:13:01.497432+00:00"
   },
   "assets": {
     "SPY": {
@@ -57,7 +61,7 @@
         769.67
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/SPY?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-10-04T05:08:15.927085+00:00",
+      "fetchedAt": "2026-10-04T05:12:14.094866+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "QQQ": {
@@ -91,7 +95,7 @@
         749.53
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/QQQ?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-10-04T05:08:15.936837+00:00",
+      "fetchedAt": "2026-10-04T05:12:14.074752+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "VIX": {
@@ -125,7 +129,7 @@
         15.4
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/^VIX?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-10-04T05:08:15.921293+00:00",
+      "fetchedAt": "2026-10-04T05:12:14.060378+00:00",
       "note": "已完成30分钟K线；涨跌统一较上一正式盘收盘时点"
     },
     "RSP": {
@@ -159,7 +163,7 @@
         209.72
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/RSP?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-10-04T05:08:15.916157+00:00",
+      "fetchedAt": "2026-10-04T05:12:14.036392+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "SPMO": {
@@ -193,7 +197,7 @@
         153.28
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/SPMO?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-10-04T05:08:15.899841+00:00",
+      "fetchedAt": "2026-10-04T05:12:14.053737+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "VIX3M": {
@@ -227,7 +231,7 @@
         18.09
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/^VIX3M?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-10-04T05:08:15.931211+00:00",
+      "fetchedAt": "2026-10-04T05:12:14.067478+00:00",
       "note": "已完成30分钟K线；涨跌统一较上一正式盘收盘时点"
     },
     "DRAM": {
@@ -261,7 +265,7 @@
         61.73
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/DRAM?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-10-04T05:08:22.243846+00:00",
+      "fetchedAt": "2026-10-04T05:12:20.052180+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "MU": {
@@ -295,7 +299,7 @@
         1074.27
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/MU?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-10-04T05:08:22.255489+00:00",
+      "fetchedAt": "2026-10-04T05:12:20.040115+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "SKHY": {
@@ -329,7 +333,7 @@
         195.11
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/SKHY?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-10-04T05:08:22.362340+00:00",
+      "fetchedAt": "2026-10-04T05:12:20.082306+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "SNDK": {
@@ -363,7 +367,7 @@
         1719.35
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/SNDK?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-10-04T05:08:22.247631+00:00",
+      "fetchedAt": "2026-10-04T05:12:20.083800+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "WDC": {
@@ -397,7 +401,7 @@
         415.12
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/WDC?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-10-04T05:08:22.334293+00:00",
+      "fetchedAt": "2026-10-04T05:12:20.064124+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "IREN": {
@@ -431,7 +435,7 @@
         41.785
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/IREN?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-10-04T05:08:22.288281+00:00",
+      "fetchedAt": "2026-10-04T05:12:20.041034+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "NBIS": {
@@ -465,7 +469,7 @@
         242.81
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/NBIS?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-10-04T05:08:28.823415+00:00",
+      "fetchedAt": "2026-10-04T05:12:25.748132+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "CRWV": {
@@ -499,7 +503,7 @@
         89.61
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/CRWV?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-10-04T05:08:28.779746+00:00",
+      "fetchedAt": "2026-10-04T05:12:25.693356+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "SPCX": {
@@ -533,7 +537,7 @@
         158.975
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/SPCX?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-10-04T05:08:28.872423+00:00",
+      "fetchedAt": "2026-10-04T05:12:25.703515+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "RKLB": {
@@ -567,7 +571,7 @@
         73.92
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/RKLB?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-10-04T05:08:28.870459+00:00",
+      "fetchedAt": "2026-10-04T05:12:25.762412+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "ASTS": {
@@ -601,7 +605,7 @@
         58.45
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/ASTS?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-10-04T05:08:28.807100+00:00",
+      "fetchedAt": "2026-10-04T05:12:25.815828+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "BTC": {
@@ -635,7 +639,7 @@
         84291.4922
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/BTC-USD?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-10-04T05:08:28.878048+00:00",
+      "fetchedAt": "2026-10-04T05:12:25.689877+00:00",
       "note": "已完成30分钟K线；涨跌统一较上一正式盘收盘时点"
     },
     "ETH": {
@@ -669,7 +673,7 @@
         2667.29
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/ETH-USD?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-10-04T05:08:34.316519+00:00",
+      "fetchedAt": "2026-10-04T05:12:32.297275+00:00",
       "note": "已完成30分钟K线；涨跌统一较上一正式盘收盘时点"
     },
     "COIN": {
@@ -703,7 +707,7 @@
         183.0
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/COIN?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-10-04T05:08:34.346404+00:00",
+      "fetchedAt": "2026-10-04T05:12:32.320193+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "MSTR": {
@@ -737,7 +741,7 @@
         160.03
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/MSTR?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-10-04T05:08:34.262186+00:00",
+      "fetchedAt": "2026-10-04T05:12:32.334002+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     },
     "HOOD": {
@@ -771,36 +775,793 @@
         112.74
       ],
       "sourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/HOOD?interval=30m&range=5d&includePrePost=false",
-      "fetchedAt": "2026-10-04T05:08:34.256645+00:00",
+      "fetchedAt": "2026-10-04T05:12:32.327259+00:00",
       "note": "已完成30分钟K线；较前一正式盘收盘；均价为30分钟HLC3量加权近似"
     }
   },
   "breadth": {
-    "status": "unavailable",
+    "status": "snapshot",
     "sourceUrl": "https://finviz.com/",
-    "fetchedAt": "2026-10-04T05:08:34.352857+00:00",
+    "fetchedAt": "2026-10-04T05:12:32.349465+00:00",
     "asOf": null,
     "marketDate": "2026-10-02",
-    "advancing": null,
-    "declining": null,
-    "upPct": null,
-    "note": "广度快照无法与本轮时段可靠对齐"
+    "advancing": 3082,
+    "declining": 2277,
+    "upPct": 57.51,
+    "note": "Finviz NYSE/Nasdaq/AMEX 涨跌家数；比例不含平盘。闭市窗口抓取并以该日市场摘要交叉核对；来源未提供该框精确行情时刻。"
   },
   "sectorPulse": {
-    "status": "unavailable",
+    "status": "snapshot",
     "marketDate": "2026-10-02",
     "targetAsOf": "2026-10-02T20:00:00+00:00",
     "asOf": null,
-    "fetchedAt": "2026-10-04T05:08:50.635930+00:00",
+    "fetchedAt": "2026-10-04T05:13:00.672326+00:00",
     "returnBasis": "daily",
     "universe": "Finviz 全部细分行业（提供方口径）",
-    "universeCount": 0,
+    "universeCount": 144,
     "sourceUrl": "https://finviz.com/groups.ashx?g=industry&v=140&o=-change",
-    "dateBasis": null,
-    "rows": [],
-    "gainers": [],
-    "losers": [],
-    "note": "行业日期锚点不匹配，未将新行情标为旧时段",
+    "dateBasis": "同源 SPY 日期锚点：Oct 02 •；行业表未披露逐项行情时点。",
+    "rows": [
+      {
+        "name": "Copper",
+        "changePct": 3.73
+      },
+      {
+        "name": "Communication Equipment",
+        "changePct": 3.15
+      },
+      {
+        "name": "Electrical Equipment & Parts",
+        "changePct": 3.12
+      },
+      {
+        "name": "Auto Manufacturers",
+        "changePct": 3.08
+      },
+      {
+        "name": "Aerospace & Defense",
+        "changePct": 2.98
+      },
+      {
+        "name": "Solar",
+        "changePct": 2.97
+      },
+      {
+        "name": "Semiconductor Equipment & Materials",
+        "changePct": 2.94
+      },
+      {
+        "name": "Textile Manufacturing",
+        "changePct": 2.93
+      },
+      {
+        "name": "Electronics & Computer Distribution",
+        "changePct": 2.76
+      },
+      {
+        "name": "Rental & Leasing Services",
+        "changePct": 2.73
+      },
+      {
+        "name": "Scientific & Technical Instruments",
+        "changePct": 2.44
+      },
+      {
+        "name": "Farm & Heavy Construction Machinery",
+        "changePct": 2.36
+      },
+      {
+        "name": "Electronic Components",
+        "changePct": 2.22
+      },
+      {
+        "name": "Trucking",
+        "changePct": 2.05
+      },
+      {
+        "name": "Utilities - Regulated Water",
+        "changePct": 1.94
+      },
+      {
+        "name": "Paper & Paper Products",
+        "changePct": 1.9
+      },
+      {
+        "name": "Railroads",
+        "changePct": 1.87
+      },
+      {
+        "name": "Metal Fabrication",
+        "changePct": 1.81
+      },
+      {
+        "name": "Semiconductors",
+        "changePct": 1.8
+      },
+      {
+        "name": "Engineering & Construction",
+        "changePct": 1.78
+      },
+      {
+        "name": "Healthcare Plans",
+        "changePct": 1.78
+      },
+      {
+        "name": "Waste Management",
+        "changePct": 1.73
+      },
+      {
+        "name": "Other Industrial Metals & Mining",
+        "changePct": 1.73
+      },
+      {
+        "name": "Steel",
+        "changePct": 1.54
+      },
+      {
+        "name": "Packaged Foods",
+        "changePct": 1.51
+      },
+      {
+        "name": "Insurance - Specialty",
+        "changePct": 1.45
+      },
+      {
+        "name": "Tools & Accessories",
+        "changePct": 1.44
+      },
+      {
+        "name": "Food Distribution",
+        "changePct": 1.32
+      },
+      {
+        "name": "Marine Shipping",
+        "changePct": 1.3
+      },
+      {
+        "name": "Building Products & Equipment",
+        "changePct": 1.2
+      },
+      {
+        "name": "Specialty Chemicals",
+        "changePct": 1.2
+      },
+      {
+        "name": "Farm Products",
+        "changePct": 1.18
+      },
+      {
+        "name": "Recreational Vehicles",
+        "changePct": 1.16
+      },
+      {
+        "name": "Thermal Coal",
+        "changePct": 1.16
+      },
+      {
+        "name": "Internet Content & Information",
+        "changePct": 1.07
+      },
+      {
+        "name": "Medical Care Facilities",
+        "changePct": 1.06
+      },
+      {
+        "name": "Utilities - Diversified",
+        "changePct": 1.04
+      },
+      {
+        "name": "Utilities - Renewable",
+        "changePct": 1.04
+      },
+      {
+        "name": "Consumer Electronics",
+        "changePct": 1.03
+      },
+      {
+        "name": "Airports & Air Services",
+        "changePct": 1.0
+      },
+      {
+        "name": "Specialty Industrial Machinery",
+        "changePct": 1.0
+      },
+      {
+        "name": "Beverages - Brewers",
+        "changePct": 0.98
+      },
+      {
+        "name": "Software - Infrastructure",
+        "changePct": 0.98
+      },
+      {
+        "name": "Gold",
+        "changePct": 0.97
+      },
+      {
+        "name": "REIT - Specialty",
+        "changePct": 0.96
+      },
+      {
+        "name": "Internet Retail",
+        "changePct": 0.95
+      },
+      {
+        "name": "Integrated Freight & Logistics",
+        "changePct": 0.95
+      },
+      {
+        "name": "Travel Services",
+        "changePct": 0.94
+      },
+      {
+        "name": "Utilities - Regulated Gas",
+        "changePct": 0.9
+      },
+      {
+        "name": "Insurance - Reinsurance",
+        "changePct": 0.88
+      },
+      {
+        "name": "Oil & Gas Midstream",
+        "changePct": 0.84
+      },
+      {
+        "name": "Lodging",
+        "changePct": 0.84
+      },
+      {
+        "name": "REIT - Office",
+        "changePct": 0.82
+      },
+      {
+        "name": "Diagnostics & Research",
+        "changePct": 0.82
+      },
+      {
+        "name": "Leisure",
+        "changePct": 0.76
+      },
+      {
+        "name": "Telecom Services",
+        "changePct": 0.73
+      },
+      {
+        "name": "Business Equipment & Supplies",
+        "changePct": 0.73
+      },
+      {
+        "name": "Industrial Distribution",
+        "changePct": 0.71
+      },
+      {
+        "name": "Confectioners",
+        "changePct": 0.69
+      },
+      {
+        "name": "Pollution & Treatment Controls",
+        "changePct": 0.66
+      },
+      {
+        "name": "Chemicals",
+        "changePct": 0.63
+      },
+      {
+        "name": "Banks - Regional",
+        "changePct": 0.61
+      },
+      {
+        "name": "Furnishings, Fixtures & Appliances",
+        "changePct": 0.59
+      },
+      {
+        "name": "Airlines",
+        "changePct": 0.58
+      },
+      {
+        "name": "REIT - Hotel & Motel",
+        "changePct": 0.57
+      },
+      {
+        "name": "Utilities - Regulated Electric",
+        "changePct": 0.51
+      },
+      {
+        "name": "Oil & Gas Equipment & Services",
+        "changePct": 0.5
+      },
+      {
+        "name": "Capital Markets",
+        "changePct": 0.5
+      },
+      {
+        "name": "REIT - Retail",
+        "changePct": 0.49
+      },
+      {
+        "name": "Oil & Gas Integrated",
+        "changePct": 0.49
+      },
+      {
+        "name": "Department Stores",
+        "changePct": 0.46
+      },
+      {
+        "name": "REIT - Industrial",
+        "changePct": 0.46
+      },
+      {
+        "name": "Household & Personal Products",
+        "changePct": 0.43
+      },
+      {
+        "name": "Beverages - Wineries & Distilleries",
+        "changePct": 0.4
+      },
+      {
+        "name": "Coking Coal",
+        "changePct": 0.39
+      },
+      {
+        "name": "REIT - Diversified",
+        "changePct": 0.39
+      },
+      {
+        "name": "Auto & Truck Dealerships",
+        "changePct": 0.39
+      },
+      {
+        "name": "Shell Companies",
+        "changePct": 0.38
+      },
+      {
+        "name": "Insurance - Diversified",
+        "changePct": 0.38
+      },
+      {
+        "name": "Oil & Gas E&P",
+        "changePct": 0.36
+      },
+      {
+        "name": "REIT - Healthcare Facilities",
+        "changePct": 0.35
+      },
+      {
+        "name": "Education & Training Services",
+        "changePct": 0.33
+      },
+      {
+        "name": "Insurance - Life",
+        "changePct": 0.32
+      },
+      {
+        "name": "Banks - Diversified",
+        "changePct": 0.31
+      },
+      {
+        "name": "Medical Devices",
+        "changePct": 0.3
+      },
+      {
+        "name": "Credit Services",
+        "changePct": 0.27
+      },
+      {
+        "name": "Drug Manufacturers - Specialty & Generic",
+        "changePct": 0.23
+      },
+      {
+        "name": "Silver",
+        "changePct": 0.21
+      },
+      {
+        "name": "Specialty Retail",
+        "changePct": 0.19
+      },
+      {
+        "name": "Discount Stores",
+        "changePct": 0.15
+      },
+      {
+        "name": "Restaurants",
+        "changePct": 0.12
+      },
+      {
+        "name": "Building Materials",
+        "changePct": 0.09
+      },
+      {
+        "name": "Lumber & Wood Production",
+        "changePct": 0.09
+      },
+      {
+        "name": "Other Precious Metals & Mining",
+        "changePct": 0.08
+      },
+      {
+        "name": "Oil & Gas Refining & Marketing",
+        "changePct": 0.03
+      },
+      {
+        "name": "Insurance - Property & Casualty",
+        "changePct": 0.01
+      },
+      {
+        "name": "Beverages - Non-Alcoholic",
+        "changePct": 0.01
+      },
+      {
+        "name": "Real Estate - Diversified",
+        "changePct": 0.01
+      },
+      {
+        "name": "Medical Distribution",
+        "changePct": -0.02
+      },
+      {
+        "name": "Security & Protection Services",
+        "changePct": -0.02
+      },
+      {
+        "name": "Conglomerates",
+        "changePct": -0.04
+      },
+      {
+        "name": "Entertainment",
+        "changePct": -0.06
+      },
+      {
+        "name": "Resorts & Casinos",
+        "changePct": -0.07
+      },
+      {
+        "name": "Auto Parts",
+        "changePct": -0.12
+      },
+      {
+        "name": "Asset Management",
+        "changePct": -0.12
+      },
+      {
+        "name": "Home Improvement Retail",
+        "changePct": -0.14
+      },
+      {
+        "name": "Uranium",
+        "changePct": -0.15
+      },
+      {
+        "name": "Aluminum",
+        "changePct": -0.2
+      },
+      {
+        "name": "Personal Services",
+        "changePct": -0.22
+      },
+      {
+        "name": "Financial Conglomerates",
+        "changePct": -0.27
+      },
+      {
+        "name": "Tobacco",
+        "changePct": -0.31
+      },
+      {
+        "name": "Grocery Stores",
+        "changePct": -0.32
+      },
+      {
+        "name": "Biotechnology",
+        "changePct": -0.33
+      },
+      {
+        "name": "Agricultural Inputs",
+        "changePct": -0.43
+      },
+      {
+        "name": "Packaging & Containers",
+        "changePct": -0.45
+      },
+      {
+        "name": "Utilities - Independent Power Producers",
+        "changePct": -0.45
+      },
+      {
+        "name": "Drug Manufacturers - General",
+        "changePct": -0.47
+      },
+      {
+        "name": "REIT - Residential",
+        "changePct": -0.48
+      },
+      {
+        "name": "Apparel Manufacturing",
+        "changePct": -0.51
+      },
+      {
+        "name": "Real Estate Services",
+        "changePct": -0.52
+      },
+      {
+        "name": "Specialty Business Services",
+        "changePct": -0.62
+      },
+      {
+        "name": "Software - Application",
+        "changePct": -0.66
+      },
+      {
+        "name": "Medical Instruments & Supplies",
+        "changePct": -0.74
+      },
+      {
+        "name": "Health Information Services",
+        "changePct": -0.74
+      },
+      {
+        "name": "Real Estate - Development",
+        "changePct": -0.81
+      },
+      {
+        "name": "Apparel Retail",
+        "changePct": -0.89
+      },
+      {
+        "name": "Publishing",
+        "changePct": -1.02
+      },
+      {
+        "name": "Electronic Gaming & Multimedia",
+        "changePct": -1.08
+      },
+      {
+        "name": "Residential Construction",
+        "changePct": -1.1
+      },
+      {
+        "name": "Oil & Gas Drilling",
+        "changePct": -1.16
+      },
+      {
+        "name": "Financial Data & Stock Exchanges",
+        "changePct": -1.23
+      },
+      {
+        "name": "REIT - Mortgage",
+        "changePct": -1.24
+      },
+      {
+        "name": "Luxury Goods",
+        "changePct": -1.28
+      },
+      {
+        "name": "Pharmaceutical Retailers",
+        "changePct": -1.41
+      },
+      {
+        "name": "Gambling",
+        "changePct": -1.57
+      },
+      {
+        "name": "Insurance Brokers",
+        "changePct": -1.68
+      },
+      {
+        "name": "Broadcasting",
+        "changePct": -1.9
+      },
+      {
+        "name": "Mortgage Finance",
+        "changePct": -1.9
+      },
+      {
+        "name": "Footwear & Accessories",
+        "changePct": -1.91
+      },
+      {
+        "name": "Consulting Services",
+        "changePct": -2.19
+      },
+      {
+        "name": "Information Technology Services",
+        "changePct": -2.75
+      },
+      {
+        "name": "Computer Hardware",
+        "changePct": -2.9
+      },
+      {
+        "name": "Staffing & Employment Services",
+        "changePct": -2.93
+      },
+      {
+        "name": "Advertising Agencies",
+        "changePct": -3.34
+      }
+    ],
+    "gainers": [
+      {
+        "name": "Copper",
+        "changePct": 3.73
+      },
+      {
+        "name": "Communication Equipment",
+        "changePct": 3.15
+      },
+      {
+        "name": "Electrical Equipment & Parts",
+        "changePct": 3.12
+      }
+    ],
+    "losers": [
+      {
+        "name": "Advertising Agencies",
+        "changePct": -3.34
+      },
+      {
+        "name": "Staffing & Employment Services",
+        "changePct": -2.93
+      },
+      {
+        "name": "Computer Hardware",
+        "changePct": -2.9
+      }
+    ],
+    "note": "日累计涨跌幅；来源可能延迟，不代表两轮更新之间的涨跌。",
+    "coreTickers": {
+      "Copper": {
+        "symbols": [
+          "SCCO",
+          "FCX",
+          "TECK",
+          "HBM"
+        ],
+        "sourceUrl": "https://finviz.com/screener.ashx?v=111&f=ind_copper,sh_opt_option&o=-marketcap",
+        "selection": "optionable-marketcap",
+        "status": "verified",
+        "checkedAt": "2026-10-04T05:13:00.660959+00:00",
+        "cached": false
+      },
+      "Communication Equipment": {
+        "symbols": [
+          "CSCO",
+          "LITE",
+          "HPE",
+          "MSI"
+        ],
+        "sourceUrl": "https://finviz.com/screener.ashx?v=111&f=ind_communicationequipment,sh_opt_option&o=-marketcap",
+        "selection": "optionable-marketcap",
+        "status": "verified",
+        "checkedAt": "2026-10-04T05:13:00.668132+00:00",
+        "cached": false
+      },
+      "Electrical Equipment & Parts": {
+        "symbols": [
+          "VRT",
+          "BE",
+          "NVT",
+          "HUBB"
+        ],
+        "sourceUrl": "https://finviz.com/screener.ashx?v=111&f=ind_electricalequipmentparts,sh_opt_option&o=-marketcap",
+        "selection": "optionable-marketcap",
+        "status": "verified",
+        "checkedAt": "2026-10-04T05:13:00.671497+00:00",
+        "cached": false
+      },
+      "Advertising Agencies": {
+        "symbols": [
+          "APP",
+          "OMC",
+          "TTD",
+          "WPP"
+        ],
+        "sourceUrl": "https://finviz.com/screener.ashx?v=111&f=ind_advertisingagencies,sh_opt_option&o=-marketcap",
+        "selection": "optionable-marketcap",
+        "status": "verified",
+        "checkedAt": "2026-10-04T05:13:00.625661+00:00",
+        "cached": false
+      },
+      "Staffing & Employment Services": {
+        "symbols": [
+          "KFY",
+          "RHI",
+          "TNET",
+          "MAN"
+        ],
+        "sourceUrl": "https://finviz.com/screener.ashx?v=111&f=ind_staffingemploymentservices,sh_opt_option&o=-marketcap",
+        "selection": "optionable-marketcap",
+        "status": "verified",
+        "checkedAt": "2026-10-04T05:13:00.623200+00:00",
+        "cached": false
+      },
+      "Computer Hardware": {
+        "symbols": [
+          "DELL",
+          "ANET",
+          "SNDK",
+          "STX"
+        ],
+        "sourceUrl": "https://finviz.com/screener.ashx?v=111&f=ind_computerhardware,sh_opt_option&o=-marketcap",
+        "selection": "optionable-marketcap",
+        "status": "verified",
+        "checkedAt": "2026-10-04T05:13:00.581090+00:00",
+        "cached": false
+      }
+    },
+    "coreTickerCache": {
+      "Copper": {
+        "symbols": [
+          "SCCO",
+          "FCX",
+          "TECK",
+          "HBM"
+        ],
+        "sourceUrl": "https://finviz.com/screener.ashx?v=111&f=ind_copper,sh_opt_option&o=-marketcap",
+        "selection": "optionable-marketcap",
+        "status": "verified",
+        "checkedAt": "2026-10-04T05:13:00.660959+00:00"
+      },
+      "Communication Equipment": {
+        "symbols": [
+          "CSCO",
+          "LITE",
+          "HPE",
+          "MSI"
+        ],
+        "sourceUrl": "https://finviz.com/screener.ashx?v=111&f=ind_communicationequipment,sh_opt_option&o=-marketcap",
+        "selection": "optionable-marketcap",
+        "status": "verified",
+        "checkedAt": "2026-10-04T05:13:00.668132+00:00"
+      },
+      "Electrical Equipment & Parts": {
+        "symbols": [
+          "VRT",
+          "BE",
+          "NVT",
+          "HUBB"
+        ],
+        "sourceUrl": "https://finviz.com/screener.ashx?v=111&f=ind_electricalequipmentparts,sh_opt_option&o=-marketcap",
+        "selection": "optionable-marketcap",
+        "status": "verified",
+        "checkedAt": "2026-10-04T05:13:00.671497+00:00"
+      },
+      "Advertising Agencies": {
+        "symbols": [
+          "APP",
+          "OMC",
+          "TTD",
+          "WPP"
+        ],
+        "sourceUrl": "https://finviz.com/screener.ashx?v=111&f=ind_advertisingagencies,sh_opt_option&o=-marketcap",
+        "selection": "optionable-marketcap",
+        "status": "verified",
+        "checkedAt": "2026-10-04T05:13:00.625661+00:00"
+      },
+      "Staffing & Employment Services": {
+        "symbols": [
+          "KFY",
+          "RHI",
+          "TNET",
+          "MAN"
+        ],
+        "sourceUrl": "https://finviz.com/screener.ashx?v=111&f=ind_staffingemploymentservices,sh_opt_option&o=-marketcap",
+        "selection": "optionable-marketcap",
+        "status": "verified",
+        "checkedAt": "2026-10-04T05:13:00.623200+00:00"
+      },
+      "Computer Hardware": {
+        "symbols": [
+          "DELL",
+          "ANET",
+          "SNDK",
+          "STX"
+        ],
+        "sourceUrl": "https://finviz.com/screener.ashx?v=111&f=ind_computerhardware,sh_opt_option&o=-marketcap",
+        "selection": "optionable-marketcap",
+        "status": "verified",
+        "checkedAt": "2026-10-04T05:13:00.581090+00:00"
+      }
+    },
     "news": {},
     "researchAt": null
   },

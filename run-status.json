@@ -1,13 +1,17 @@
 {
   "session": "close",
   "marketDate": "2026-10-02",
-  "startedAt": "2026-10-04T05:08:09.645641+00:00",
-  "deadlineAt": "2026-10-04T05:18:09.645641+00:00",
+  "startedAt": "2026-10-04T05:12:08.036487+00:00",
+  "deadlineAt": "2026-10-04T05:22:08.036487+00:00",
   "status": "partial",
-  "completedAt": "2026-10-04T05:08:51.491552+00:00",
+  "completedAt": "2026-10-04T05:13:01.499548+00:00",
   "missing": [
-    "breadth",
     "battlefield news review",
-    "industry leaderboard"
+    "industry news: Copper",
+    "industry news: Communication Equipment",
+    "industry news: Electrical Equipment & Parts",
+    "industry news: Advertising Agencies",
+    "industry news: Staffing & Employment Services",
+    "industry news: Computer Hardware"
   ]
 }
