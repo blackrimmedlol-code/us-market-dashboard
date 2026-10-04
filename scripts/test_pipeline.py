@@ -27,6 +27,44 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(nominal('2026-11-02', 'premarket').astimezone(dt.timezone.utc).hour, 14)
         self.assertEqual(next_update(dt.datetime(2026, 11, 26, 20, tzinfo=dt.timezone.utc))['marketDate'], '2026-11-27')
 
+    def test_early_trigger_waits_for_all_four_slots_in_bounded_chunks(self):
+        for day in ['2026-10-02', '2026-11-02']:
+            for session in ['premarket', 'intraday', 'late', 'close']:
+                slot = nominal(day, session)
+                clock = [slot - dt.timedelta(seconds=85)]
+                waits = []
+                def advance(seconds):
+                    waits.append(seconds)
+                    clock[0] += dt.timedelta(seconds=seconds)
+                with patch.object(p, 'now', side_effect=lambda: clock[0]), patch.object(p.time, 'sleep', side_effect=advance):
+                    self.assertEqual(p.wait_for_slot(slot, clock[0]), slot)
+                self.assertEqual(waits, [60, 25])
+
+    def test_on_time_and_delayed_trigger_do_not_wait(self):
+        slot = nominal('2026-10-02', 'intraday')
+        with patch.object(p.time, 'sleep') as sleep:
+            for seconds in [0, 180]:
+                start = slot + dt.timedelta(seconds=seconds)
+                self.assertEqual(p.wait_for_slot(slot, start), start)
+            self.assertIsNone(p.wait_for_slot(slot, slot - dt.timedelta(seconds=301)))
+            sleep.assert_not_called()
+
+    def test_weekend_and_holiday_skip_without_fetching(self):
+        for day in ['2026-10-04', '2026-11-26']:
+            with patch.object(p, 'command') as command:
+                result = p.prepare(SimpleNamespace(market_date=day, session='close', base_head='test'))
+                self.assertTrue(result['skip'])
+                command.assert_not_called()
+
+    def test_manual_close_only_accepts_latest_completed_session(self):
+        clock = dt.datetime(2026, 10, 4, 5, 5, tzinfo=dt.timezone.utc)
+        self.assertEqual(p.latest_closed_day(clock), '2026-10-02')
+        with patch.object(p, 'now', return_value=clock), patch.object(p, 'command') as command:
+            for day, session in [('2026-10-01', 'close'), ('2026-10-02', 'intraday')]:
+                with self.assertRaises(ValueError):
+                    p.prepare(SimpleNamespace(market_date=day, session=session, base_head='test', backfill_close=True))
+            command.assert_not_called()
+
     def test_conflict_merge_preserves_unknown_fields_and_refuses_newer_quotes(self):
         remote = copy.deepcopy(self.data)
         remote['retained'] = {'extra': 1}

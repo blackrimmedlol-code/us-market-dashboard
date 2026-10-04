@@ -94,21 +94,42 @@ def already_current(data, session, day, slot):
     result = command(['node', 'check-session.mjs', 'data.json', session, day], accept=(0, 2))
     return json.loads(result.stdout).get('complete', False)
 
+def wait_for_slot(slot, start):
+    early = (slot - start).total_seconds()
+    if early > 300:
+        return None
+    while early > 0:
+        time.sleep(min(60, early))
+        start = now()
+        early = (slot - start).total_seconds()
+    return start
+
+def latest_closed_day(start):
+    day = start.astimezone(NY).date()
+    for _ in range(12):
+        text = day.isoformat()
+        if trading_day(text) and start >= nominal(text, 'close'):
+            return text
+        day -= dt.timedelta(days=1)
+    raise ValueError('最近已结束交易日未核实')
+
 def prepare(args):
     start = now()
     day = args.market_date or start.astimezone(NY).date().isoformat()
     if not trading_day(day):
         return {'skip': True, 'reason': '非有效交易日'}
-    if day != start.astimezone(NY).date().isoformat():
+    manual_close = getattr(args, 'backfill_close', False)
+    if manual_close and (args.session != 'close' or day != latest_closed_day(start)):
+        raise ValueError('手动补收盘仅允许最近已结束交易日')
+    if not manual_close and day != start.astimezone(NY).date().isoformat():
         raise ValueError('定时入口只处理当前美东交易日，不回填旧时段')
     slot = nominal(day, args.session)
-    early = (slot - start).total_seconds()
-    if early > 60:
+    start = wait_for_slot(slot, start)
+    if start is None:
         return {'skip': True, 'reason': '尚未到本轮名义时点'}
-    if early > 0:
-        time.sleep(early)
-        start = now()
     old = read(ROOT / 'data.json')
+    if old.get('meta', {}).get('marketDate', '') > day:
+        raise ValueError('拒绝用旧交易日覆盖较新的行情')
     if already_current(old, args.session, day, slot):
         return {'skip': True, 'reason': '本交易日同一时段已完整发布'}
     if STATE.exists():
@@ -352,6 +373,7 @@ def main():
     p = sub.add_parser('prepare')
     p.add_argument('--session', choices=['premarket', 'intraday', 'late', 'close'], required=True)
     p.add_argument('--market-date')
+    p.add_argument('--backfill-close', action='store_true', help='手动补最近已结束交易日收盘；不用于定时任务')
     p.add_argument('--base-head', required=True)
     p = sub.add_parser('finalize')
     p.add_argument('--news-file')
