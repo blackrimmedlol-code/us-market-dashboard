@@ -1,12 +1,17 @@
 {
-  "session": "late",
+  "session": "close",
   "marketDate": "2026-10-05",
-  "startedAt": "2026-10-05T18:05:34.030031+00:00",
-  "deadlineAt": "2026-10-05T18:15:34.030031+00:00",
+  "startedAt": "2026-10-05T20:25:23.250979+00:00",
+  "deadlineAt": "2026-10-05T20:35:23.250979+00:00",
   "status": "partial",
-  "completedAt": "2026-10-05T18:07:41.560430+00:00",
+  "completedAt": "2026-10-05T20:26:18.491201+00:00",
   "missing": [
-    "industry core tickers: Staffing & Employment Services"
-  ],
-  "newsPatchApplied": true
+    "battlefield news review",
+    "industry news: Oil & Gas Drilling",
+    "industry news: Health Information Services",
+    "industry news: Aluminum",
+    "industry news: Textile Manufacturing",
+    "industry news: Residential Construction",
+    "industry news: Food Distribution"
+  ]
 }
