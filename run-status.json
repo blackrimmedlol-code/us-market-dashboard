@@ -1,10 +1,18 @@
 {
-  "session": "intraday",
+  "session": "late",
   "marketDate": "2026-10-05",
-  "startedAt": "2026-10-05T15:08:48.188226+00:00",
-  "deadlineAt": "2026-10-05T15:18:48.188226+00:00",
-  "status": "complete",
-  "completedAt": "2026-10-05T15:11:31.347592+00:00",
-  "missing": [],
-  "newsPatchApplied": true
+  "startedAt": "2026-10-05T18:05:34.030031+00:00",
+  "deadlineAt": "2026-10-05T18:15:34.030031+00:00",
+  "status": "partial",
+  "completedAt": "2026-10-05T18:06:14.256492+00:00",
+  "missing": [
+    "battlefield news review",
+    "industry news: Oil & Gas Drilling",
+    "industry news: Aluminum",
+    "industry news: Gambling",
+    "industry news: Residential Construction",
+    "industry news: REIT - Healthcare Facilities",
+    "industry core tickers: Staffing & Employment Services",
+    "industry news: Staffing & Employment Services"
+  ]
 }
