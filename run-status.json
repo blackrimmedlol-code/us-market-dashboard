@@ -3,15 +3,8 @@
   "marketDate": "2026-10-05",
   "startedAt": "2026-10-05T20:25:23.250979+00:00",
   "deadlineAt": "2026-10-05T20:35:23.250979+00:00",
-  "status": "partial",
-  "completedAt": "2026-10-05T20:26:18.491201+00:00",
-  "missing": [
-    "battlefield news review",
-    "industry news: Oil & Gas Drilling",
-    "industry news: Health Information Services",
-    "industry news: Aluminum",
-    "industry news: Textile Manufacturing",
-    "industry news: Residential Construction",
-    "industry news: Food Distribution"
-  ]
+  "status": "complete",
+  "completedAt": "2026-10-05T20:28:15.400163+00:00",
+  "missing": [],
+  "newsPatchApplied": true
 }
