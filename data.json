@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-06T02:05:56.880124+08:00",
+    "updatedAt": "2026-10-05T18:07:41.449844+00:00",
     "asOf": "2026-10-05T18:00:00+00:00",
     "marketDate": "2026-10-05",
     "session": "late",
@@ -16,19 +16,13 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-05-late.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
-      "battlefield news review",
-      "industry news: Oil & Gas Drilling",
-      "industry news: Aluminum",
-      "industry news: Gambling",
-      "industry news: Residential Construction",
-      "industry news: REIT - Healthcare Facilities",
-      "industry core tickers: Staffing & Employment Services",
-      "industry news: Staffing & Employment Services"
+      "industry core tickers: Staffing & Employment Services"
     ],
-    "publishedAt": "2026-10-05T18:06:14.254619+00:00"
+    "publishedAt": "2026-10-05T18:07:41.449844+00:00",
+    "newsCheckedAt": "2026-10-05T18:07:08+00:00"
   },
   "assets": {
     "SPY": {
@@ -1511,17 +1505,62 @@
     },
     "news": {
       "Oil & Gas Drilling": {
-        "text": "已检索当日公开消息，未找到足以解释整个油气钻探行业领涨的统一事件；个股与油价变动不能直接外推为行业共同因果。",
-        "kind": "unknown",
-        "checkedAt": "2026-10-05T15:10:50+00:00"
+        "text": "10月5日能源股在WTI下跌约1%的同时整体上涨，显示本轮强势并非简单由油价上行驱动；报道覆盖宽口径能源板块，不能单独确认油气钻探行业领涨原因。",
+        "kind": "reported",
+        "publishedAt": "2026-10-05",
+        "expiresAt": "2026-10-06T20:00:00+00:00",
+        "sources": [
+          {
+            "name": "MarketWatch",
+            "url": "https://www.marketwatch.com/livecoverage/stock-market-today-dow-s-p-500-nasdaq-bond-yields-heightened-treasurys-us-services-pmi/card/energy-stocks-see-rare-gains-as-oil-prices-fall-cGRYgOJOPyHcFvsyqKbD"
+          }
+        ],
+        "checkedAt": "2026-10-05T18:07:08+00:00"
       },
       "Gambling": {
-        "text": "已检索当日公开消息，未找到足以解释整个博彩行业领涨的统一事件，原因待核实。",
+        "text": "10月5日DKNG获美国银行由中性上调至买入，报道指向估值回落后的风险回报及预测市场机会；该事件可解释DKNG强势，但不能单独证明整个博彩行业上涨的统一原因。",
+        "kind": "reported",
+        "publishedAt": "2026-10-05",
+        "expiresAt": "2026-10-06T20:00:00+00:00",
+        "sources": [
+          {
+            "name": "eOption（引述盘中市场消息）",
+            "url": "https://www.eoption.com/mid-morning-look-october-05-2026/"
+          }
+        ],
+        "checkedAt": "2026-10-05T18:07:08+00:00"
+      },
+      "Aluminum": {
+        "text": "已检索当日公开消息，未找到足以解释铝业整体领涨的统一事件；个股上涨及更广泛的金属行情不能直接视为行业共同因果。",
         "kind": "unknown",
-        "checkedAt": "2026-10-05T15:10:50+00:00"
+        "checkedAt": "2026-10-05T18:07:08+00:00"
+      },
+      "Residential Construction": {
+        "text": "已检索当日公开消息，未找到足以解释住宅建筑行业整体领跌的统一事件，原因待核实。",
+        "kind": "unknown",
+        "checkedAt": "2026-10-05T18:07:08+00:00"
+      },
+      "REIT - Healthcare Facilities": {
+        "text": "已检索当日公开消息，未找到足以解释医疗设施REIT整体领跌的统一事件；个别机构覆盖观点不能直接外推为行业当日因果。",
+        "kind": "unknown",
+        "checkedAt": "2026-10-05T18:07:08+00:00"
+      },
+      "Staffing & Employment Services": {
+        "text": "10月5日报道转述基金三季度信，称Kelly Services受益于招聘业务复苏并出现多年首次业务量增长；这属于单家公司背景，不能解释本轮招聘服务行业整体下跌。",
+        "kind": "reported",
+        "publishedAt": "2026-10-05T15:43:00+00:00",
+        "expiresAt": "2026-10-06T20:00:00+00:00",
+        "sources": [
+          {
+            "name": "Yahoo Finance",
+            "url": "https://finance.yahoo.com/markets/stocks/articles/staffing-sector-recovery-drives-kelly-154336149.html"
+          }
+        ],
+        "checkedAt": "2026-10-05T18:07:08+00:00"
       }
     },
-    "researchAt": "2026-10-05T15:10:50+00:00"
+    "researchAt": "2026-10-05T18:07:08+00:00",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
