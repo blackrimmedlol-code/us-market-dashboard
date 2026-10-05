@@ -1,22 +1,17 @@
 {
-  "session": "premarket",
+  "session": "intraday",
   "marketDate": "2026-10-05",
-  "startedAt": "2026-10-05T13:09:25.044878+00:00",
-  "deadlineAt": "2026-10-05T13:19:25.044878+00:00",
+  "startedAt": "2026-10-05T15:08:48.188226+00:00",
+  "deadlineAt": "2026-10-05T15:18:48.188226+00:00",
   "status": "partial",
-  "completedAt": "2026-10-05T13:10:35.983668+00:00",
+  "completedAt": "2026-10-05T15:10:01.690947+00:00",
   "missing": [
-    "VIX",
-    "RSP",
-    "SPMO",
-    "VIX3M",
-    "DRAM",
-    "SKHY",
-    "CRWV",
-    "ASTS",
-    "COIN",
-    "breadth",
     "battlefield news review",
-    "industry leaderboard"
+    "industry news: Oil & Gas Drilling",
+    "industry news: Gambling",
+    "industry news: Utilities - Independent Power Producers",
+    "industry news: Integrated Freight & Logistics",
+    "industry news: Trucking",
+    "industry news: Footwear & Accessories"
   ]
 }
