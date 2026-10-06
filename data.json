@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-07T02:05:51.131767+08:00",
+    "updatedAt": "2026-10-06T18:08:34.263070+00:00",
     "asOf": "2026-10-06T18:00:00+00:00",
     "marketDate": "2026-10-06",
     "session": "late",
@@ -16,18 +16,11 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-06-late.json",
-    "newsReviewStatus": "partial",
-    "updateStatus": "partial",
-    "missing": [
-      "battlefield news review",
-      "industry news: Utilities - Independent Power Producers",
-      "industry news: Uranium",
-      "industry news: Engineering & Construction",
-      "industry news: Department Stores",
-      "industry news: Diagnostics & Research",
-      "industry news: Biotechnology"
-    ],
-    "publishedAt": "2026-10-06T18:06:21.111137+00:00"
+    "newsReviewStatus": "complete",
+    "updateStatus": "complete",
+    "missing": [],
+    "publishedAt": "2026-10-06T18:08:34.263070+00:00",
+    "newsCheckedAt": "2026-10-06T18:08:20+00:00"
   },
   "assets": {
     "SPY": {
@@ -1487,30 +1480,37 @@
             "url": "https://www.reuters.com/business/energy/google-enters-massive-36-gw-power-deal-with-constellation-energy-2026-10-06/"
           }
         ],
-        "checkedAt": "2026-10-06T15:14:39+00:00"
+        "checkedAt": "2026-10-06T15:14:39+00:00",
+        "reusedAt": "2026-10-06T18:08:34.263070+00:00"
       },
       "Uranium": {
-        "text": "已检索当日铀矿与核能相关消息；Google—Constellation协议提振核能叙事，但现货铀价近乎持平，未找到足以解释铀矿行业整体涨幅的统一直接事件。",
+        "text": "已复核当日铀矿与核能增量消息；核电长期供电协议与铀价走强构成背景，但未找到足以解释铀矿行业整体涨幅的统一直接事件，原因待核实。",
         "kind": "unknown",
-        "checkedAt": "2026-10-06T15:14:39+00:00"
+        "checkedAt": "2026-10-06T18:08:20+00:00"
       },
       "Engineering & Construction": {
-        "text": "已检索当日主要工程建筑公司及基础设施消息，未找到足以解释行业整体上涨的统一新增事件；电网与数据中心建设需求仅构成背景，不能确认当日因果。",
+        "text": "已复核当日工程建筑及基础设施增量消息；电网、数据中心与国防资本开支构成背景，但未找到足以解释行业整体上涨的统一直接事件，原因待核实。",
         "kind": "unknown",
-        "checkedAt": "2026-10-06T15:14:39+00:00"
+        "checkedAt": "2026-10-06T18:08:20+00:00"
       },
       "Diagnostics & Research": {
-        "text": "已检索当日诊断与研究主要样本消息，成分股表现分化，未找到足以解释行业整体下跌的统一新增事件，原因待核实。",
+        "text": "已复核当日诊断与研究主要样本增量消息；成分股表现分化，未找到足以解释行业整体下跌的统一新增事件，原因待核实。",
         "kind": "unknown",
-        "checkedAt": "2026-10-06T15:14:39+00:00"
+        "checkedAt": "2026-10-06T18:08:20+00:00"
       },
       "Department Stores": {
-        "text": "已检索当日百货公司及主要样本公开消息，未找到足以解释行业整体下跌的统一新增事件，原因待核实。",
+        "text": "已复核当日百货公司及主要样本公开消息，未找到足以解释行业整体下跌的统一新增事件，原因待核实。",
         "kind": "unknown",
-        "checkedAt": "2026-10-06T15:14:39+00:00"
+        "checkedAt": "2026-10-06T18:08:20+00:00"
+      },
+      "Biotechnology": {
+        "text": "已复核当日生物技术主要样本及行业增量消息，未找到足以解释行业整体下跌的统一新增事件，原因待核实。",
+        "kind": "unknown",
+        "checkedAt": "2026-10-06T18:08:20+00:00"
       }
     },
-    "researchAt": "2026-10-06T15:14:39Z"
+    "researchAt": "2026-10-06T18:08:20Z",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {

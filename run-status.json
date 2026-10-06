@@ -3,15 +3,8 @@
   "marketDate": "2026-10-06",
   "startedAt": "2026-10-06T18:05:18.446458+00:00",
   "deadlineAt": "2026-10-06T18:15:18.446458+00:00",
-  "status": "partial",
-  "completedAt": "2026-10-06T18:06:21.112938+00:00",
-  "missing": [
-    "battlefield news review",
-    "industry news: Utilities - Independent Power Producers",
-    "industry news: Uranium",
-    "industry news: Engineering & Construction",
-    "industry news: Department Stores",
-    "industry news: Diagnostics & Research",
-    "industry news: Biotechnology"
-  ]
+  "status": "complete",
+  "completedAt": "2026-10-06T18:08:34.380976+00:00",
+  "missing": [],
+  "newsPatchApplied": true
 }
