@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-06T23:12:18.377176+08:00",
+    "updatedAt": "2026-10-06T15:14:41.720916+00:00",
     "asOf": "2026-10-06T15:00:00+00:00",
     "marketDate": "2026-10-06",
     "session": "intraday",
@@ -16,19 +16,13 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-06-intraday.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
-      "battlefield news review",
-      "industry news: Utilities - Independent Power Producers",
-      "industry news: Uranium",
-      "industry news: Engineering & Construction",
-      "industry news: Diagnostics & Research",
-      "industry news: Department Stores",
-      "industry core tickers: Semiconductor Equipment & Materials",
-      "industry news: Semiconductor Equipment & Materials"
+      "industry core tickers: Semiconductor Equipment & Materials"
     ],
-    "publishedAt": "2026-10-06T15:12:56.988826+00:00"
+    "publishedAt": "2026-10-06T15:14:41.720916+00:00",
+    "newsCheckedAt": "2026-10-06T15:14:39+00:00"
   },
   "assets": {
     "SPY": {
@@ -1323,8 +1317,48 @@
         "checkedAt": "2026-10-06T15:12:56.019220+00:00"
       }
     },
-    "news": {},
-    "researchAt": null
+    "news": {
+      "Utilities - Independent Power Producers": {
+        "text": "Google与Constellation签署3590MW长期供电安排，其中890MW来自11座核电机组增容，带动CEG大涨；事件直接解释龙头异动，但不能证明所有独立电力生产商涨幅均由此驱动。",
+        "kind": "reported",
+        "publishedAt": "2026-10-06",
+        "expiresAt": "2026-10-07T20:00:00+00:00",
+        "sources": [
+          {
+            "name": "Reuters",
+            "url": "https://www.reuters.com/business/energy/google-enters-massive-36-gw-power-deal-with-constellation-energy-2026-10-06/"
+          }
+        ],
+        "checkedAt": "2026-10-06T15:14:39+00:00"
+      },
+      "Uranium": {
+        "text": "已检索当日铀矿与核能相关消息；Google—Constellation协议提振核能叙事，但现货铀价近乎持平，未找到足以解释铀矿行业整体涨幅的统一直接事件。",
+        "kind": "unknown",
+        "checkedAt": "2026-10-06T15:14:39+00:00"
+      },
+      "Engineering & Construction": {
+        "text": "已检索当日主要工程建筑公司及基础设施消息，未找到足以解释行业整体上涨的统一新增事件；电网与数据中心建设需求仅构成背景，不能确认当日因果。",
+        "kind": "unknown",
+        "checkedAt": "2026-10-06T15:14:39+00:00"
+      },
+      "Diagnostics & Research": {
+        "text": "已检索当日诊断与研究主要样本消息，成分股表现分化，未找到足以解释行业整体下跌的统一新增事件，原因待核实。",
+        "kind": "unknown",
+        "checkedAt": "2026-10-06T15:14:39+00:00"
+      },
+      "Department Stores": {
+        "text": "已检索当日百货公司及主要样本公开消息，未找到足以解释行业整体下跌的统一新增事件，原因待核实。",
+        "kind": "unknown",
+        "checkedAt": "2026-10-06T15:14:39+00:00"
+      },
+      "Semiconductor Equipment & Materials": {
+        "text": "已检索当日半导体设备与材料消息，未找到足以解释行业整体下跌的统一新增事件；个别芯片及设备股异动不能代表全行业共同因果。",
+        "kind": "unknown",
+        "checkedAt": "2026-10-06T15:14:39+00:00"
+      }
+    },
+    "researchAt": "2026-10-06T15:14:39Z",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
@@ -1340,14 +1374,14 @@
       ]
     },
     "space": {
-      "text": "路透10月5日报道，SpaceX子公司已在9月向佛罗里达州申请天然气管道相关审批，以支持卡纳维拉尔角发射基础设施；申请尚待批准，直接关联SPCX，不能等同RKLB或ASTS新增订单，也不能确认是本轮板块上涨原因。",
+      "text": "10月6日报道称，SpaceX因自动中止而推迟的美国太空发展局任务将再次尝试发射，火箭与载荷据报状态正常；事件直接关联SPCX的发射节奏，不能解释RKLB与ASTS全部涨幅。",
       "kind": "reported",
-      "publishedAt": "2026-10-05T19:32:52+00:00",
-      "expiresAt": "2026-10-08T20:00:00+00:00",
+      "publishedAt": "2026-10-06",
+      "expiresAt": "2026-10-09T20:00:00+00:00",
       "sources": [
         {
-          "name": "Reuters",
-          "url": "https://www.reuters.com/business/energy/spacex-seeks-approval-florida-gas-pipeline-support-cape-canaveral-launches-2026-10-05/"
+          "name": "Investor's Business Daily",
+          "url": "https://www.investors.com/news/spacex-stock-sda-mission-pwsa-satellite-constellation-falcon-9-spcx/"
         }
       ]
     },
