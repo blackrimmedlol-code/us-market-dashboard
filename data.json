@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-06T21:06:44.461783+08:00",
+    "updatedAt": "2026-10-06T13:07:43.596052+00:00",
     "asOf": "2026-10-06T13:06:44.452899+00:00",
     "marketDate": "2026-10-06",
     "session": "premarket",
@@ -16,7 +16,7 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-06-premarket.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
       "VIX",
@@ -26,10 +26,10 @@
       "WDC",
       "MSTR",
       "breadth",
-      "battlefield news review",
       "industry leaderboard"
     ],
-    "publishedAt": "2026-10-06T13:06:45.443016+00:00"
+    "publishedAt": "2026-10-06T13:07:43.596052+00:00",
+    "newsCheckedAt": "2026-10-06T13:07:41+00:00"
   },
   "assets": {
     "SPY": {
@@ -1129,7 +1129,7 @@
     "marketDate": "2026-10-06",
     "targetAsOf": "2026-10-06T13:06:44.452899+00:00",
     "asOf": null,
-    "fetchedAt": "2026-10-06T13:06:44.461783+00:00",
+    "fetchedAt": "2026-10-06T13:07:43.596038+00:00",
     "returnBasis": "daily",
     "universe": "Finviz 全部细分行业（提供方口径）",
     "universeCount": 0,
@@ -1138,7 +1138,8 @@
     "rows": [],
     "gainers": [],
     "losers": [],
-    "note": "盘前无可核实的全市场细分行业口径"
+    "note": "盘前无可核实的全市场细分行业口径",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
