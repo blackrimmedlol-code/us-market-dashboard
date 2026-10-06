@@ -1,12 +1,17 @@
 {
-  "session": "intraday",
+  "session": "late",
   "marketDate": "2026-10-06",
-  "startedAt": "2026-10-06T15:11:44.755712+00:00",
-  "deadlineAt": "2026-10-06T15:21:44.755712+00:00",
+  "startedAt": "2026-10-06T18:05:18.446458+00:00",
+  "deadlineAt": "2026-10-06T18:15:18.446458+00:00",
   "status": "partial",
-  "completedAt": "2026-10-06T15:14:41.843818+00:00",
+  "completedAt": "2026-10-06T18:06:21.112938+00:00",
   "missing": [
-    "industry core tickers: Semiconductor Equipment & Materials"
-  ],
-  "newsPatchApplied": true
+    "battlefield news review",
+    "industry news: Utilities - Independent Power Producers",
+    "industry news: Uranium",
+    "industry news: Engineering & Construction",
+    "industry news: Department Stores",
+    "industry news: Diagnostics & Research",
+    "industry news: Biotechnology"
+  ]
 }
