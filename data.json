@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-08T02:05:56.050665+08:00",
+    "updatedAt": "2026-10-07T18:08:18.817279+00:00",
     "asOf": "2026-10-07T18:00:00+00:00",
     "marketDate": "2026-10-07",
     "session": "late",
@@ -16,18 +16,11 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-07-late.json",
-    "newsReviewStatus": "partial",
-    "updateStatus": "partial",
-    "missing": [
-      "battlefield news review",
-      "industry news: Grocery Stores",
-      "industry news: Drug Manufacturers - General",
-      "industry news: Healthcare Plans",
-      "industry news: Farm & Heavy Construction Machinery",
-      "industry news: Uranium",
-      "industry news: Engineering & Construction"
-    ],
-    "publishedAt": "2026-10-07T18:06:33.748320+00:00"
+    "newsReviewStatus": "complete",
+    "updateStatus": "complete",
+    "missing": [],
+    "publishedAt": "2026-10-07T18:08:18.817279+00:00",
+    "newsCheckedAt": "2026-10-07T18:08:15+00:00"
   },
   "assets": {
     "SPY": {
@@ -1479,8 +1472,48 @@
         "checkedAt": "2026-10-07T18:06:32.879951+00:00"
       }
     },
-    "news": {},
-    "researchAt": null
+    "news": {
+      "Grocery Stores": {
+        "kind": "unknown",
+        "text": "已复核本轮增量消息，未找到可同时解释该行业主要成分股表现的统一直接事件。",
+        "checkedAt": "2026-10-07T18:08:15+00:00"
+      },
+      "Drug Manufacturers - General": {
+        "kind": "unknown",
+        "text": "已复核本轮增量消息；个股催化与表现分化，未找到可解释行业整体走势的统一直接事件。",
+        "checkedAt": "2026-10-07T18:08:15+00:00"
+      },
+      "Healthcare Plans": {
+        "kind": "unknown",
+        "text": "已复核本轮增量消息，未找到可同时解释该行业主要成分股表现的统一直接事件。",
+        "checkedAt": "2026-10-07T18:08:15+00:00"
+      },
+      "Farm & Heavy Construction Machinery": {
+        "kind": "reported",
+        "text": "美国联邦贸易委员会与农业部启动对农业设备市场竞争及商业行为的公开调查；卡特彼勒、迪尔及同业同步下跌，事件可解释主要成分股共振，但不能证明行业全部跌幅均由此驱动。",
+        "publishedAt": "2026-10-07",
+        "expiresAt": "2026-10-09T20:00:00Z",
+        "sources": [
+          {
+            "name": "Barron's",
+            "url": "https://www.barrons.com/articles/stock-movers-919402d1"
+          }
+        ],
+        "checkedAt": "2026-10-07T18:08:15+00:00"
+      },
+      "Uranium": {
+        "kind": "unknown",
+        "text": "已复核本轮增量消息，未找到可同时解释该行业主要成分股下跌的统一直接事件。",
+        "checkedAt": "2026-10-07T18:08:15+00:00"
+      },
+      "Engineering & Construction": {
+        "kind": "unknown",
+        "text": "已复核本轮增量消息；现有资本开支背景不足以解释本轮同步变动，未找到统一直接事件。",
+        "checkedAt": "2026-10-07T18:08:15+00:00"
+      }
+    },
+    "researchAt": "2026-10-07T18:08:15Z",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
