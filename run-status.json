@@ -1,10 +1,9 @@
 {
-  "session": "late",
+  "session": "close",
   "marketDate": "2026-10-07",
-  "startedAt": "2026-10-07T18:05:09.554647+00:00",
-  "deadlineAt": "2026-10-07T18:15:09.554647+00:00",
-  "status": "complete",
-  "completedAt": "2026-10-07T18:08:18.932140+00:00",
-  "missing": [],
-  "newsPatchApplied": true
+  "startedAt": "2026-10-07T20:25:07.550001+00:00",
+  "deadlineAt": "2026-10-07T20:35:07.550001+00:00",
+  "status": "failed",
+  "completedAt": "2026-10-07T20:25:12.861752+00:00",
+  "error": " requested URL returned error: 403\ncurl: (22) The requested URL returned error: 403\ncurl: (22) The creuqrule:s t(e22d) U RLT hreet urrenqedu eesrtreodr :U R4L0 3re\nturned error: 403\ncurl: (22) The requested URL returned error: 403\ncurl: (22) The requested URL returned error: 403\ncurl: (22) The requested URL returned error: 403\ncurl: (22) The requested URL returned error: 403\ncurl: (22) The requested URL returned error: 403\ncurl: (22) The requested URL returned error: 403\ncurl: (22) The requested URL returned error: 403\ncurl: (22) The requested URL returned error: 403\ncurl: (22) The requested U"
 }
