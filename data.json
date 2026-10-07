@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-08T04:28:24.233284+08:00",
+    "updatedAt": "2026-10-07T20:30:27.218569+00:00",
     "asOf": "2026-10-07T20:00:00+00:00",
     "marketDate": "2026-10-07",
     "session": "close",
@@ -16,18 +16,11 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-07-close.json",
-    "newsReviewStatus": "partial",
-    "updateStatus": "partial",
-    "missing": [
-      "battlefield news review",
-      "industry news: Drug Manufacturers - General",
-      "industry news: Grocery Stores",
-      "industry news: Tobacco",
-      "industry news: Silver",
-      "industry news: Farm & Heavy Construction Machinery",
-      "industry news: Uranium"
-    ],
-    "publishedAt": "2026-10-07T20:28:49.259671+00:00"
+    "newsReviewStatus": "complete",
+    "updateStatus": "complete",
+    "missing": [],
+    "publishedAt": "2026-10-07T20:30:27.218569+00:00",
+    "newsCheckedAt": "2026-10-07T20:29:47+00:00"
   },
   "assets": {
     "SPY": {
@@ -1593,13 +1586,13 @@
     "news": {
       "Grocery Stores": {
         "kind": "unknown",
-        "text": "已复核本轮增量消息，未找到可同时解释该行业主要成分股表现的统一直接事件。",
-        "checkedAt": "2026-10-07T18:08:15+00:00"
+        "text": "已复核收盘前增量消息，未找到可同时解释该行业主要成分股上涨的统一直接事件。",
+        "checkedAt": "2026-10-07T20:29:47+00:00"
       },
       "Drug Manufacturers - General": {
         "kind": "unknown",
-        "text": "已复核本轮增量消息；个股催化与表现分化，未找到可解释行业整体走势的统一直接事件。",
-        "checkedAt": "2026-10-07T18:08:15+00:00"
+        "text": "已复核收盘前增量消息；主要成分股催化与表现分化，未找到可解释行业整体上涨的统一直接事件。",
+        "checkedAt": "2026-10-07T20:29:47+00:00"
       },
       "Farm & Heavy Construction Machinery": {
         "kind": "reported",
@@ -1612,15 +1605,35 @@
             "url": "https://www.barrons.com/articles/stock-movers-919402d1"
           }
         ],
-        "checkedAt": "2026-10-07T18:08:15+00:00"
+        "checkedAt": "2026-10-07T18:08:15+00:00",
+        "reusedAt": "2026-10-07T20:30:27.218569+00:00"
       },
       "Uranium": {
         "kind": "unknown",
-        "text": "已复核本轮增量消息，未找到可同时解释该行业主要成分股下跌的统一直接事件。",
-        "checkedAt": "2026-10-07T18:08:15+00:00"
+        "text": "已复核到铀矿及先进核能标的同步下跌，但现有报道未确认统一新增催化，具体共同原因仍待核实。",
+        "checkedAt": "2026-10-07T20:29:47+00:00"
+      },
+      "Tobacco": {
+        "kind": "unknown",
+        "text": "已复核收盘前增量消息，未找到可同时解释该行业主要成分股上涨的统一新增事件。",
+        "checkedAt": "2026-10-07T20:29:47+00:00"
+      },
+      "Silver": {
+        "kind": "reported",
+        "text": "《华尔街日报》报道，美元走强和美债收益率高企压制贵金属需求，COMEX白银当日下跌2.1%；这为银矿股共振提供商品端背景，但不能解释行业全部4.86%的跌幅。",
+        "publishedAt": "2026-10-07T18:05:00Z",
+        "expiresAt": "2026-10-09T20:00:00Z",
+        "sources": [
+          {
+            "name": "The Wall Street Journal",
+            "url": "https://www.wsj.com/finance/commodities-futures/gold-ticks-lower-as-investors-await-fed-meeting-minutes-1e95b0b1"
+          }
+        ],
+        "checkedAt": "2026-10-07T20:29:47+00:00"
       }
     },
-    "researchAt": "2026-10-07T18:08:15Z"
+    "researchAt": "2026-10-07T20:29:47Z",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
