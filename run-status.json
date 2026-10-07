@@ -4,7 +4,7 @@
   "startedAt": "2026-10-07T13:11:34.876072+00:00",
   "deadlineAt": "2026-10-07T13:21:34.876072+00:00",
   "status": "partial",
-  "completedAt": "2026-10-07T13:12:33.435381+00:00",
+  "completedAt": "2026-10-07T13:15:03.937080+00:00",
   "missing": [
     "VIX",
     "RSP",
@@ -18,7 +18,7 @@
     "COIN",
     "HOOD",
     "breadth",
-    "battlefield news review",
     "industry leaderboard"
-  ]
+  ],
+  "newsPatchApplied": true
 }

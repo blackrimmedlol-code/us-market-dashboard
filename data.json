@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-07T21:12:32.032927+08:00",
+    "updatedAt": "2026-10-07T13:15:03.643817+00:00",
     "asOf": "2026-10-07T13:12:32.012403+00:00",
     "marketDate": "2026-10-07",
     "session": "premarket",
@@ -16,7 +16,7 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-07-premarket.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
       "VIX",
@@ -31,10 +31,10 @@
       "COIN",
       "HOOD",
       "breadth",
-      "battlefield news review",
       "industry leaderboard"
     ],
-    "publishedAt": "2026-10-07T13:12:33.433344+00:00"
+    "publishedAt": "2026-10-07T13:15:03.643817+00:00",
+    "newsCheckedAt": "2026-10-07T13:14:50+00:00"
   },
   "assets": {
     "SPY": {
@@ -1086,7 +1086,7 @@
     "marketDate": "2026-10-07",
     "targetAsOf": "2026-10-07T13:12:32.012403+00:00",
     "asOf": null,
-    "fetchedAt": "2026-10-07T13:12:32.032927+00:00",
+    "fetchedAt": "2026-10-07T13:15:03.643802+00:00",
     "returnBasis": "daily",
     "universe": "Finviz 全部细分行业（提供方口径）",
     "universeCount": 0,
@@ -1095,54 +1095,55 @@
     "rows": [],
     "gainers": [],
     "losers": [],
-    "note": "盘前无可核实的全市场细分行业口径"
+    "note": "盘前无可核实的全市场细分行业口径",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
-      "text": "10月6日报道称，存储股未跟随大盘与半导体板块走强，WDC与希捷跌幅突出；报道将压力与硬盘市场竞争及此前大幅上涨后的调整联系起来，但不能解释DRAM全部成分的同步表现。",
+      "text": "10月7日报道称，MU盘前下跌之际，其台湾桃园厂工会以高票授权潜在罢工；劳资争议为MU增加运营不确定性，但不能单独解释SNDK、SKHY与WDC的全部表现。",
       "kind": "reported",
-      "publishedAt": "2026-10-06",
-      "expiresAt": "2026-10-09T20:00:00Z",
+      "publishedAt": "2026-10-07",
+      "expiresAt": "2026-10-10T20:00:00Z",
       "sources": [
         {
           "name": "Barron's",
-          "url": "https://www.barrons.com/livecoverage/stock-market-news-today-100626/card/why-memory-stocks-are-sitting-out-the-stock-market-rally-mCsppTvVCufVday5S6ci"
+          "url": "https://www.barrons.com/articles/micron-stock-price-memory-chips-strike-0a3c551f"
         }
       ]
     },
     "space": {
-      "text": "10月6日报道称，SpaceX因自动中止而推迟的美国太空发展局任务将再次尝试发射，火箭与载荷据报状态正常；事件直接关联SPCX的发射节奏，不能解释RKLB与ASTS全部涨幅。",
+      "text": "10月7日报道称SPCX盘前下跌，背景是金融时报称SpaceX寻求约400亿美元融资以购买英伟达芯片；事件直接关联SPCX，不能解释RKLB与ASTS的全部走势。",
       "kind": "reported",
-      "publishedAt": "2026-10-06",
-      "expiresAt": "2026-10-09T20:00:00+00:00",
+      "publishedAt": "2026-10-07",
+      "expiresAt": "2026-10-10T20:00:00Z",
       "sources": [
         {
-          "name": "Investor's Business Daily",
-          "url": "https://www.investors.com/news/spacex-stock-sda-mission-pwsa-satellite-constellation-falcon-9-spcx/"
+          "name": "Reuters",
+          "url": "https://www.reuters.com/business/wall-st-futures-slip-yields-oil-rebound-fed-minutes-focus-2026-10-07/"
         }
       ]
     },
     "crypto": {
-      "text": "Strategy披露9月28日至10月4日增持334枚比特币、耗资约2870万美元，持仓升至84.8万枚；事件直接关联MSTR，不代表COIN或BTC/ETH出现同等基本面变化。",
+      "text": "10月7日报道称，油价、美债收益率和美元同步走高压制加密资产；BTC跌破84000美元、ETH走弱，COIN与MSTR盘前承压，属于跨资产风险背景而非单一公司事件。",
       "kind": "reported",
-      "publishedAt": "2026-10-05T12:13:00+00:00",
-      "expiresAt": "2026-10-08T20:00:00+00:00",
+      "publishedAt": "2026-10-07T12:28:00Z",
+      "expiresAt": "2026-10-09T20:00:00Z",
       "sources": [
         {
-          "name": "The Block（引述Strategy 8-K）",
-          "url": "https://www.theblock.co/news/business/2026-10-05-more-orange-than-ever-michael-saylor-strategy-bitcoin-417631"
+          "name": "Barron's",
+          "url": "https://www.barrons.com/articles/bitcoin-xrp-ethereum-crypto-coinbase-stock-2c0c0616"
         }
       ]
     },
     "cloud": {
-      "text": "10月5日报道称CRWV、IREN与NBIS盘前上行，并引用数据中心容量与用电需求预期；报道属于行业需求与分析师观点，不能证明三家公司当日基本面同步改善。",
+      "text": "10月7日报道称CRWV、NBIS与IREN盘前均回落逾2%，主要背景为长端美债收益率和油价上升、前一日上涨后的回吐；报道未发现三家公司共同的新负面公告。",
       "kind": "reported",
-      "publishedAt": "2026-10-05",
-      "expiresAt": "2026-10-08T20:00:00+00:00",
+      "publishedAt": "2026-10-07",
+      "expiresAt": "2026-10-09T20:00:00Z",
       "sources": [
         {
           "name": "TipRanks",
-          "url": "https://www.tipranks.com/news/why-are-coreweave-iren-and-nebius-stocks-rising-in-premarket-today-oct-5"
+          "url": "https://www.tipranks.com/news/ai-stocks-coreweave-nebius-and-iren-are-falling-in-premarket-today-october-7-whats-behind-the-pullback"
         }
       ]
     }
