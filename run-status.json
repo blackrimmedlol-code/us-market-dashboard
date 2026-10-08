@@ -1,9 +1,21 @@
 {
-  "session": "intraday",
+  "session": "late",
   "marketDate": "2026-10-08",
-  "startedAt": "2026-10-08T15:14:55.156097+00:00",
-  "deadlineAt": "2026-10-08T15:24:55.156097+00:00",
-  "status": "failed",
-  "completedAt": "2026-10-08T15:15:31.878265+00:00",
-  "error": "Pdr  todoxuye   tCitmOcNoe NuEoCtTui trmal\n:eboo urtt(e\nd 2d8ue )t o Ptricomxeyuo rult:C \nO(N2N8E) CPTr oaxbyo rCtOeNdN EdCuTe  atboo rttiemd edouuet t\no timeout\ncurl: (28) Proxy CONNECT aborted due to timeout\nccuurrll:: ( (2288c))  uPPrrrloo:x xy( yC2O8 NC)N ECcTOP uNarNborxEly:  C(oCOrNt2TNe8EdC ) Tdau  bePao rrbtootorxtye e ddCtOi  NddmNueuoEeeuCt  T\ntt oao b ttoiritmmeeedoo udtuut\ne\n to timeout\ncurl: (28) Proxy CONNECT aborted due to timeout\ncurl: (28) Proxy CONNECT aborted due to timeout\ncccuurulrr:ll :: ( ((2282)88 ))P r oPxPryro oxCxyOy NCN ECCOOTNN NNaEEbCCoTTr t eaadbb odrutorted due "
+  "startedAt": "2026-10-08T18:10:07.997402+00:00",
+  "deadlineAt": "2026-10-08T18:20:07.997402+00:00",
+  "status": "partial",
+  "completedAt": "2026-10-08T18:10:37.562549+00:00",
+  "missing": [
+    "battlefield news review",
+    "industry news: Oil & Gas Refining & Marketing",
+    "industry core tickers: Tobacco",
+    "industry news: Tobacco",
+    "industry core tickers: Oil & Gas Drilling",
+    "industry news: Oil & Gas Drilling",
+    "industry core tickers: Pharmaceutical Retailers",
+    "industry news: Pharmaceutical Retailers",
+    "industry news: Utilities - Independent Power Producers",
+    "industry core tickers: Uranium",
+    "industry news: Uranium"
+  ]
 }
