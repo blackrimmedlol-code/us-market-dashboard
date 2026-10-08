@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-09T02:10:22.166468+08:00",
+    "updatedAt": "2026-10-08T18:12:28.460013+00:00",
     "asOf": "2026-10-08T18:00:00+00:00",
     "marketDate": "2026-10-08",
     "session": "late",
@@ -16,22 +16,16 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-08-late.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
-      "battlefield news review",
-      "industry news: Oil & Gas Refining & Marketing",
       "industry core tickers: Tobacco",
-      "industry news: Tobacco",
       "industry core tickers: Oil & Gas Drilling",
-      "industry news: Oil & Gas Drilling",
       "industry core tickers: Pharmaceutical Retailers",
-      "industry news: Pharmaceutical Retailers",
-      "industry news: Utilities - Independent Power Producers",
-      "industry core tickers: Uranium",
-      "industry news: Uranium"
+      "industry core tickers: Uranium"
     ],
-    "publishedAt": "2026-10-08T18:10:37.560557+00:00"
+    "publishedAt": "2026-10-08T18:12:28.460013+00:00",
+    "newsCheckedAt": "2026-10-08T18:12:06+00:00"
   },
   "assets": {
     "SPY": {
@@ -1414,8 +1408,64 @@
         "checkedAt": "2026-10-08T18:10:36.531464+00:00"
       }
     },
-    "news": {},
-    "researchAt": null
+    "news": {
+      "Oil & Gas Refining & Marketing": {
+        "kind": "inference",
+        "text": "伊朗相关供应风险推动Brent上涨约3.8%至104美元附近；油价与成品油供应趋紧为炼化股上涨提供背景，但不是该行业全部成分股上涨的直接证据。",
+        "publishedAt": "2026-10-08",
+        "expiresAt": "2026-10-10T20:00:00Z",
+        "sources": [
+          {
+            "name": "Associated Press",
+            "url": "https://apnews.com/article/6a096d714c874db13632794a32cebaa6"
+          }
+        ],
+        "checkedAt": "2026-10-08T18:12:06+00:00"
+      },
+      "Tobacco": {
+        "kind": "unknown",
+        "text": "已复核本轮增量消息，未找到可同时解释该行业主要成分股上涨的统一新增事件。",
+        "checkedAt": "2026-10-08T18:12:06+00:00"
+      },
+      "Oil & Gas Drilling": {
+        "kind": "inference",
+        "text": "伊朗相关供应风险推动Brent与WTI大涨，较高油价通常改善钻探活动预期；但现有报道未证实这是当日全部钻井股上涨的直接原因。",
+        "publishedAt": "2026-10-08",
+        "expiresAt": "2026-10-10T20:00:00Z",
+        "sources": [
+          {
+            "name": "Associated Press",
+            "url": "https://apnews.com/article/6a096d714c874db13632794a32cebaa6"
+          }
+        ],
+        "checkedAt": "2026-10-08T18:12:06+00:00"
+      },
+      "Pharmaceutical Retailers": {
+        "kind": "unknown",
+        "text": "已复核本轮增量消息，未找到可确认的统一新增催化，行业领跌的共同原因仍待核实。",
+        "checkedAt": "2026-10-08T18:12:06+00:00"
+      },
+      "Utilities - Independent Power Producers": {
+        "kind": "reported",
+        "text": "Barron's报道，OpenAI收入预期落差引发AI交易回撤，Vistra等AI供电相关标的位列跌幅前列；该事件可解释部分行业压力，但不能代表CEG、NRG与TLN的全部跌幅。",
+        "publishedAt": "2026-10-08T17:35:18Z",
+        "expiresAt": "2026-10-10T20:00:00Z",
+        "sources": [
+          {
+            "name": "Barron's",
+            "url": "https://www.barrons.com/livecoverage/stock-market-news-today-100826/card/stocks-sink-after-openai-report-sours-ai-trade-BKsGL9ZiRLoaWdN2KuCG"
+          }
+        ],
+        "checkedAt": "2026-10-08T18:12:06+00:00"
+      },
+      "Uranium": {
+        "kind": "unknown",
+        "text": "已复核到铀矿及核能标的继续同步下跌，但未找到可确认的统一新增催化，具体共同原因仍待核实。",
+        "checkedAt": "2026-10-08T18:12:06+00:00"
+      }
+    },
+    "researchAt": "2026-10-08T18:12:06Z",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
@@ -1456,13 +1506,13 @@
     },
     "cloud": {
       "kind": "reported",
-      "text": "10月8日盘前，CRWV、NBIS与IREN继续下跌；报道将共同背景指向油价和长端美债收益率上升对高估值成长股的压力，同时强调IREN另有数据中心相关担忧，不能把全部跌幅归为单一事件。",
-      "publishedAt": "2026-10-08",
+      "text": "10月8日午后，Barron's援引FT称OpenAI年化经常性收入较此前媒体预期低约200亿美元，随后AI相关股票普遍下挫；这为新云板块同步走弱提供市场情绪背景，但并非CRWV、NBIS或IREN的公司级负面公告。",
+      "publishedAt": "2026-10-08T17:35:18Z",
       "expiresAt": "2026-10-10T20:00:00Z",
       "sources": [
         {
-          "name": "TipRanks",
-          "url": "https://www.tipranks.com/news/coreweave-nebius-and-iren-stocks-extend-losses-in-premarket-today-whats-behind-the-sell-off"
+          "name": "Barron's",
+          "url": "https://www.barrons.com/livecoverage/stock-market-news-today-100826/card/stocks-sink-after-openai-report-sours-ai-trade-BKsGL9ZiRLoaWdN2KuCG"
         }
       ]
     }

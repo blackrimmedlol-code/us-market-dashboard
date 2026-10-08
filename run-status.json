@@ -4,18 +4,12 @@
   "startedAt": "2026-10-08T18:10:07.997402+00:00",
   "deadlineAt": "2026-10-08T18:20:07.997402+00:00",
   "status": "partial",
-  "completedAt": "2026-10-08T18:10:37.562549+00:00",
+  "completedAt": "2026-10-08T18:12:28.576007+00:00",
   "missing": [
-    "battlefield news review",
-    "industry news: Oil & Gas Refining & Marketing",
     "industry core tickers: Tobacco",
-    "industry news: Tobacco",
     "industry core tickers: Oil & Gas Drilling",
-    "industry news: Oil & Gas Drilling",
     "industry core tickers: Pharmaceutical Retailers",
-    "industry news: Pharmaceutical Retailers",
-    "industry news: Utilities - Independent Power Producers",
-    "industry core tickers: Uranium",
-    "industry news: Uranium"
-  ]
+    "industry core tickers: Uranium"
+  ],
+  "newsPatchApplied": true
 }
