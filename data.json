@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-08T21:11:39.591631+08:00",
+    "updatedAt": "2026-10-08T13:13:28.315038+00:00",
     "asOf": "2026-10-08T13:11:39.578928+00:00",
     "marketDate": "2026-10-08",
     "session": "premarket",
@@ -16,7 +16,7 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-08-premarket.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
       "VIX",
@@ -29,10 +29,10 @@
       "NBIS",
       "CRWV",
       "breadth",
-      "battlefield news review",
       "industry leaderboard"
     ],
-    "publishedAt": "2026-10-08T13:11:40.708498+00:00"
+    "publishedAt": "2026-10-08T13:13:28.315038+00:00",
+    "newsCheckedAt": "2026-10-08T13:13:15+00:00"
   },
   "assets": {
     "SPY": {
@@ -1106,7 +1106,7 @@
     "marketDate": "2026-10-08",
     "targetAsOf": "2026-10-08T13:11:39.578928+00:00",
     "asOf": null,
-    "fetchedAt": "2026-10-08T13:11:39.591631+00:00",
+    "fetchedAt": "2026-10-08T13:13:28.315025+00:00",
     "returnBasis": "daily",
     "universe": "Finviz 全部细分行业（提供方口径）",
     "universeCount": 0,
@@ -1115,18 +1115,19 @@
     "rows": [],
     "gainers": [],
     "losers": [],
-    "note": "盘前无可核实的全市场细分行业口径"
+    "note": "盘前无可核实的全市场细分行业口径",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
-      "text": "10月7日报道称，MU盘前下跌之际，其台湾桃园厂工会以高票授权潜在罢工；劳资争议为MU增加运营不确定性，但不能单独解释SNDK、SKHY与WDC的全部表现。",
       "kind": "reported",
-      "publishedAt": "2026-10-07",
+      "text": "10月8日盘前，三星初步季度利润虽同比大增但低于预期，MU、SNDK与SKHY同步承压；报道同时指出市场担忧存储周期接近高点，但该判断尚不能单独解释所有存储标的走势。",
+      "publishedAt": "2026-10-08",
       "expiresAt": "2026-10-10T20:00:00Z",
       "sources": [
         {
           "name": "Barron's",
-          "url": "https://www.barrons.com/articles/micron-stock-price-memory-chips-strike-0a3c551f"
+          "url": "https://www.barrons.com/articles/micron-stock-price-samsung-profit-memory-chips-2344912c"
         }
       ]
     },
@@ -1155,14 +1156,14 @@
       ]
     },
     "cloud": {
-      "text": "10月7日报道称CRWV、NBIS与IREN盘前均回落逾2%，主要背景为长端美债收益率和油价上升、前一日上涨后的回吐；报道未发现三家公司共同的新负面公告。",
       "kind": "reported",
-      "publishedAt": "2026-10-07",
-      "expiresAt": "2026-10-09T20:00:00Z",
+      "text": "10月8日盘前，CRWV、NBIS与IREN继续下跌；报道将共同背景指向油价和长端美债收益率上升对高估值成长股的压力，同时强调IREN另有数据中心相关担忧，不能把全部跌幅归为单一事件。",
+      "publishedAt": "2026-10-08",
+      "expiresAt": "2026-10-10T20:00:00Z",
       "sources": [
         {
           "name": "TipRanks",
-          "url": "https://www.tipranks.com/news/ai-stocks-coreweave-nebius-and-iren-are-falling-in-premarket-today-october-7-whats-behind-the-pullback"
+          "url": "https://www.tipranks.com/news/coreweave-nebius-and-iren-stocks-extend-losses-in-premarket-today-whats-behind-the-sell-off"
         }
       ]
     }
