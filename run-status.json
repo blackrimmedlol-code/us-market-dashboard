@@ -1,22 +1,9 @@
 {
-  "session": "premarket",
+  "session": "intraday",
   "marketDate": "2026-10-08",
-  "startedAt": "2026-10-08T13:10:20.356673+00:00",
-  "deadlineAt": "2026-10-08T13:20:20.356673+00:00",
-  "status": "partial",
-  "completedAt": "2026-10-08T13:13:28.462187+00:00",
-  "missing": [
-    "VIX",
-    "RSP",
-    "SPMO",
-    "VIX3M",
-    "MU",
-    "SNDK",
-    "WDC",
-    "NBIS",
-    "CRWV",
-    "breadth",
-    "industry leaderboard"
-  ],
-  "newsPatchApplied": true
+  "startedAt": "2026-10-08T15:09:01.156663+00:00",
+  "deadlineAt": "2026-10-08T15:19:01.156663+00:00",
+  "status": "failed",
+  "completedAt": "2026-10-08T15:13:01.258981+00:00",
+  "error": "Command '['/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python', 'scripts/refresh-dashboard.py', '--session', 'intraday', '--market-date', '2026-10-08']' timed out after 240 seconds"
 }
