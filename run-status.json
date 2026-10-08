@@ -1,15 +1,17 @@
 {
-  "session": "late",
+  "session": "close",
   "marketDate": "2026-10-08",
-  "startedAt": "2026-10-08T18:10:07.997402+00:00",
-  "deadlineAt": "2026-10-08T18:20:07.997402+00:00",
+  "startedAt": "2026-10-08T20:30:15.330109+00:00",
+  "deadlineAt": "2026-10-08T20:40:15.330109+00:00",
   "status": "partial",
-  "completedAt": "2026-10-08T18:12:28.576007+00:00",
+  "completedAt": "2026-10-08T20:31:28.099219+00:00",
   "missing": [
-    "industry core tickers: Tobacco",
-    "industry core tickers: Oil & Gas Drilling",
-    "industry core tickers: Pharmaceutical Retailers",
-    "industry core tickers: Uranium"
-  ],
-  "newsPatchApplied": true
+    "battlefield news review",
+    "industry news: Oil & Gas Refining & Marketing",
+    "industry news: Gambling",
+    "industry news: Consulting Services",
+    "industry news: Pharmaceutical Retailers",
+    "industry news: Utilities - Independent Power Producers",
+    "industry news: Semiconductors"
+  ]
 }
