@@ -3,15 +3,8 @@
   "marketDate": "2026-10-08",
   "startedAt": "2026-10-08T20:30:15.330109+00:00",
   "deadlineAt": "2026-10-08T20:40:15.330109+00:00",
-  "status": "partial",
-  "completedAt": "2026-10-08T20:31:28.099219+00:00",
-  "missing": [
-    "battlefield news review",
-    "industry news: Oil & Gas Refining & Marketing",
-    "industry news: Gambling",
-    "industry news: Consulting Services",
-    "industry news: Pharmaceutical Retailers",
-    "industry news: Utilities - Independent Power Producers",
-    "industry news: Semiconductors"
-  ]
+  "status": "complete",
+  "completedAt": "2026-10-08T20:32:41.866463+00:00",
+  "missing": [],
+  "newsPatchApplied": true
 }

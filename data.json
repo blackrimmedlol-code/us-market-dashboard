@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-09T04:30:48.402607+08:00",
+    "updatedAt": "2026-10-08T20:32:41.730379+00:00",
     "asOf": "2026-10-08T20:00:00+00:00",
     "marketDate": "2026-10-08",
     "session": "close",
@@ -16,18 +16,11 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-08-close.json",
-    "newsReviewStatus": "partial",
-    "updateStatus": "partial",
-    "missing": [
-      "battlefield news review",
-      "industry news: Oil & Gas Refining & Marketing",
-      "industry news: Gambling",
-      "industry news: Consulting Services",
-      "industry news: Pharmaceutical Retailers",
-      "industry news: Utilities - Independent Power Producers",
-      "industry news: Semiconductors"
-    ],
-    "publishedAt": "2026-10-08T20:31:28.096986+00:00"
+    "newsReviewStatus": "complete",
+    "updateStatus": "complete",
+    "missing": [],
+    "publishedAt": "2026-10-08T20:32:41.730379+00:00",
+    "newsCheckedAt": "2026-10-08T20:32:30+00:00"
   },
   "assets": {
     "SPY": {
@@ -1572,12 +1565,13 @@
             "url": "https://apnews.com/article/6a096d714c874db13632794a32cebaa6"
           }
         ],
-        "checkedAt": "2026-10-08T18:12:06+00:00"
+        "checkedAt": "2026-10-08T18:12:06+00:00",
+        "reusedAt": "2026-10-08T20:32:41.730379+00:00"
       },
       "Pharmaceutical Retailers": {
         "kind": "unknown",
-        "text": "已复核本轮增量消息，未找到可确认的统一新增催化，行业领跌的共同原因仍待核实。",
-        "checkedAt": "2026-10-08T18:12:06+00:00"
+        "text": "已复核HITI与PETS相关增量消息，未找到可确认的统一新增催化，行业共同下跌原因仍待核实。",
+        "checkedAt": "2026-10-08T20:32:30+00:00"
       },
       "Utilities - Independent Power Producers": {
         "kind": "reported",
@@ -1590,10 +1584,39 @@
             "url": "https://www.barrons.com/livecoverage/stock-market-news-today-100826/card/stocks-sink-after-openai-report-sours-ai-trade-BKsGL9ZiRLoaWdN2KuCG"
           }
         ],
-        "checkedAt": "2026-10-08T18:12:06+00:00"
+        "checkedAt": "2026-10-08T18:12:06+00:00",
+        "reusedAt": "2026-10-08T20:32:41.730379+00:00"
+      },
+      "Gambling": {
+        "kind": "unknown",
+        "text": "已复核本轮增量消息；虽有机构调整DKNG与FLUT目标价，但方向与行业整体上涨不一致，未找到可同时解释主要成分股走强的统一新增事件。",
+        "checkedAt": "2026-10-08T20:32:30+00:00"
+      },
+      "Consulting Services": {
+        "kind": "unknown",
+        "text": "已复核VRSK、EFX、BAH与FCN相关增量消息，未找到可确认的统一新增催化，行业共同上涨原因仍待核实。",
+        "checkedAt": "2026-10-08T20:32:30+00:00"
+      },
+      "Semiconductors": {
+        "kind": "reported",
+        "text": "FT披露OpenAI年化收入约500亿美元，较此前市场获知的700亿美元低约200亿美元；消息后AI相关科技股与芯片股下挫，为行业领跌提供直接背景，但不等于所有成分股均由该事件驱动。",
+        "publishedAt": "2026-10-08T16:42:34Z",
+        "expiresAt": "2026-10-10T20:00:00Z",
+        "sources": [
+          {
+            "name": "Financial Times",
+            "url": "https://www.ft.com/content/b66a9858-f8fb-46cb-b506-44bfe26fca2a"
+          },
+          {
+            "name": "Reuters",
+            "url": "https://www.reuters.com/business/wall-st-futures-slide-rising-oil-yields-dampen-mood-2026-10-08/"
+          }
+        ],
+        "checkedAt": "2026-10-08T20:32:30+00:00"
       }
     },
-    "researchAt": "2026-10-08T18:12:06Z"
+    "researchAt": "2026-10-08T20:32:30Z",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
