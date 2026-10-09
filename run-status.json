@@ -1,19 +1,19 @@
 {
-  "session": "premarket",
+  "session": "intraday",
   "marketDate": "2026-10-09",
-  "startedAt": "2026-10-09T13:10:57.451650+00:00",
-  "deadlineAt": "2026-10-09T13:20:57.451650+00:00",
+  "startedAt": "2026-10-09T15:05:08.781441+00:00",
+  "deadlineAt": "2026-10-09T15:15:08.781441+00:00",
   "status": "partial",
-  "completedAt": "2026-10-09T13:13:01.374779+00:00",
+  "completedAt": "2026-10-09T15:05:42.560104+00:00",
   "missing": [
-    "VIX",
-    "RSP",
-    "SPMO",
-    "VIX3M",
-    "WDC",
-    "NBIS",
-    "breadth",
-    "industry leaderboard"
-  ],
-  "newsPatchApplied": true
+    "battlefield news review",
+    "industry core tickers: Textile Manufacturing",
+    "industry news: Textile Manufacturing",
+    "industry news: Coking Coal",
+    "industry core tickers: Electronic Gaming & Multimedia",
+    "industry news: Electronic Gaming & Multimedia",
+    "industry news: Telecom Services",
+    "industry news: Mortgage Finance",
+    "industry news: Department Stores"
+  ]
 }
