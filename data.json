@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-09T23:05:24.654386+08:00",
+    "updatedAt": "2026-10-09T15:07:07.517163+00:00",
     "asOf": "2026-10-09T15:00:00+00:00",
     "marketDate": "2026-10-09",
     "session": "intraday",
@@ -16,20 +16,14 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-09-intraday.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
-      "battlefield news review",
       "industry core tickers: Textile Manufacturing",
-      "industry news: Textile Manufacturing",
-      "industry news: Coking Coal",
-      "industry core tickers: Electronic Gaming & Multimedia",
-      "industry news: Electronic Gaming & Multimedia",
-      "industry news: Telecom Services",
-      "industry news: Mortgage Finance",
-      "industry news: Department Stores"
+      "industry core tickers: Electronic Gaming & Multimedia"
     ],
-    "publishedAt": "2026-10-09T15:05:42.557574+00:00"
+    "publishedAt": "2026-10-09T15:07:07.517163+00:00",
+    "newsCheckedAt": "2026-10-09T15:06:41+00:00"
   },
   "assets": {
     "SPY": {
@@ -1308,31 +1302,71 @@
         "checkedAt": "2026-10-09T15:05:41.536138+00:00"
       }
     },
-    "news": {},
-    "researchAt": null
+    "news": {
+      "Textile Manufacturing": {
+        "kind": "unknown",
+        "text": "已复核本轮增量消息，未找到可同时解释该行业主要成分股上涨的统一新增事件。",
+        "checkedAt": "2026-10-09T15:06:41+00:00"
+      },
+      "Coking Coal": {
+        "kind": "unknown",
+        "text": "已复核到焦煤现货供需消息，但报道方向与美股行业上涨不一致，未找到可确认的统一新增催化。",
+        "checkedAt": "2026-10-09T15:06:41+00:00"
+      },
+      "Electronic Gaming & Multimedia": {
+        "kind": "unknown",
+        "text": "已复核本轮增量消息，未找到可同时解释该行业主要成分股上涨的统一新增事件。",
+        "checkedAt": "2026-10-09T15:06:41+00:00"
+      },
+      "Telecom Services": {
+        "kind": "reported",
+        "text": "SpaceX收购全国性800MHz低频频谱，加剧卫星移动通信竞争担忧；Reuters报道T、VZ与TMUS盘前同步大跌，为行业领跌提供直接背景。",
+        "publishedAt": "2026-10-09",
+        "expiresAt": "2026-10-11T20:00:00Z",
+        "sources": [
+          {
+            "name": "Reuters",
+            "url": "https://www.reuters.com/business/media-telecom/us-european-telecom-stocks-slide-spacex-spectrum-deal-rattles-sector-2026-10-09/"
+          }
+        ],
+        "checkedAt": "2026-10-09T15:06:41+00:00"
+      },
+      "Mortgage Finance": {
+        "kind": "unknown",
+        "text": "已复核RKT、PFSI、UWMC与WD相关增量消息，未找到可确认的统一当日催化，行业共同下跌原因仍待核实。",
+        "checkedAt": "2026-10-09T15:06:41+00:00"
+      },
+      "Department Stores": {
+        "kind": "unknown",
+        "text": "已复核M与KSS相关增量消息，未找到可确认的统一新增催化，行业共同下跌原因仍待核实。",
+        "checkedAt": "2026-10-09T15:06:41+00:00"
+      }
+    },
+    "researchAt": "2026-10-09T15:06:41Z",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
       "kind": "reported",
-      "text": "10月9日盘前，MU等存储股从前一日抛售中反弹；报道将修复与市场重新厘清OpenAI收入统计口径联系起来，但这属于AI交易情绪回暖，并非存储公司新增基本面公告。",
-      "publishedAt": "2026-10-09T12:37:00Z",
+      "text": "10月9日早盘，MU与SNDK一度随芯片股修复；报道将反弹与市场重新厘清OpenAI收入统计口径联系起来，但这仍是AI交易情绪背景，并非存储公司新增基本面公告。",
+      "publishedAt": "2026-10-09",
       "expiresAt": "2026-10-11T20:00:00Z",
       "sources": [
         {
-          "name": "Barron's",
-          "url": "https://www.barrons.com/articles/micron-stock-price-ai-trade-b07c970a"
+          "name": "MarketWatch",
+          "url": "https://www.marketwatch.com/story/nvidia-and-micron-shares-bounce-as-investors-get-clarity-on-a-key-openai-matter-ba76ed20"
         }
       ]
     },
     "space": {
       "kind": "reported",
-      "text": "10月9日盘前，SpaceX取得蜂窝频谱牌照、无线通信业务预期升温，SPCX走高；事件直接关联SPCX，但不能解释RKLB与ASTS的全部盘前表现。",
+      "text": "SpaceX约80亿美元收购全国性低频频谱，引发卫星移动通信竞争重估；事件直接关联SPCX，并可能压制ASTS，但不能解释RKLB的全部跌幅。",
       "publishedAt": "2026-10-09",
       "expiresAt": "2026-10-11T20:00:00Z",
       "sources": [
         {
-          "name": "The Wall Street Journal",
-          "url": "https://www.wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-10-09-2026/card/stocks-to-watch-spacex-at-t-delta-humana-w2uoRubVRBJOSHp1bvcs"
+          "name": "Reuters",
+          "url": "https://www.reuters.com/business/media-telecom/us-european-telecom-stocks-slide-spacex-spectrum-deal-rattles-sector-2026-10-09/"
         }
       ]
     },
