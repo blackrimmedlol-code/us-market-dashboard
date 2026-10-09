@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-09T21:11:58.904196+08:00",
+    "updatedAt": "2026-10-09T13:13:01.106659+00:00",
     "asOf": "2026-10-09T13:11:58.891530+00:00",
     "marketDate": "2026-10-09",
     "session": "premarket",
@@ -16,7 +16,7 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-09-premarket.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
       "VIX",
@@ -26,10 +26,10 @@
       "WDC",
       "NBIS",
       "breadth",
-      "battlefield news review",
       "industry leaderboard"
     ],
-    "publishedAt": "2026-10-09T13:12:00.651734+00:00"
+    "publishedAt": "2026-10-09T13:13:01.106659+00:00",
+    "newsCheckedAt": "2026-10-09T13:12:46+00:00"
   },
   "assets": {
     "SPY": {
@@ -1139,7 +1139,7 @@
     "marketDate": "2026-10-09",
     "targetAsOf": "2026-10-09T13:11:58.891530+00:00",
     "asOf": null,
-    "fetchedAt": "2026-10-09T13:11:58.904196+00:00",
+    "fetchedAt": "2026-10-09T13:13:01.106644+00:00",
     "returnBasis": "daily",
     "universe": "Finviz 全部细分行业（提供方口径）",
     "universeCount": 0,
@@ -1148,30 +1148,31 @@
     "rows": [],
     "gainers": [],
     "losers": [],
-    "note": "盘前无可核实的全市场细分行业口径"
+    "note": "盘前无可核实的全市场细分行业口径",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
       "kind": "reported",
-      "text": "10月8日盘前，三星初步季度利润虽同比大增但低于预期，MU、SNDK与SKHY同步承压；报道同时指出市场担忧存储周期接近高点，但该判断尚不能单独解释所有存储标的走势。",
-      "publishedAt": "2026-10-08",
-      "expiresAt": "2026-10-10T20:00:00Z",
+      "text": "10月9日盘前，MU等存储股从前一日抛售中反弹；报道将修复与市场重新厘清OpenAI收入统计口径联系起来，但这属于AI交易情绪回暖，并非存储公司新增基本面公告。",
+      "publishedAt": "2026-10-09T12:37:00Z",
+      "expiresAt": "2026-10-11T20:00:00Z",
       "sources": [
         {
           "name": "Barron's",
-          "url": "https://www.barrons.com/articles/micron-stock-price-samsung-profit-memory-chips-2344912c"
+          "url": "https://www.barrons.com/articles/micron-stock-price-ai-trade-b07c970a"
         }
       ]
     },
     "space": {
-      "text": "10月7日报道称SPCX盘前下跌，背景是金融时报称SpaceX寻求约400亿美元融资以购买英伟达芯片；事件直接关联SPCX，不能解释RKLB与ASTS的全部走势。",
       "kind": "reported",
-      "publishedAt": "2026-10-07",
-      "expiresAt": "2026-10-10T20:00:00Z",
+      "text": "10月9日盘前，SpaceX取得蜂窝频谱牌照、无线通信业务预期升温，SPCX走高；事件直接关联SPCX，但不能解释RKLB与ASTS的全部盘前表现。",
+      "publishedAt": "2026-10-09",
+      "expiresAt": "2026-10-11T20:00:00Z",
       "sources": [
         {
-          "name": "Reuters",
-          "url": "https://www.reuters.com/business/wall-st-futures-slip-yields-oil-rebound-fed-minutes-focus-2026-10-07/"
+          "name": "The Wall Street Journal",
+          "url": "https://www.wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-10-09-2026/card/stocks-to-watch-spacex-at-t-delta-humana-w2uoRubVRBJOSHp1bvcs"
         }
       ]
     },

@@ -4,7 +4,7 @@
   "startedAt": "2026-10-09T13:10:57.451650+00:00",
   "deadlineAt": "2026-10-09T13:20:57.451650+00:00",
   "status": "partial",
-  "completedAt": "2026-10-09T13:12:00.654397+00:00",
+  "completedAt": "2026-10-09T13:13:01.374779+00:00",
   "missing": [
     "VIX",
     "RSP",
@@ -13,7 +13,7 @@
     "WDC",
     "NBIS",
     "breadth",
-    "battlefield news review",
     "industry leaderboard"
-  ]
+  ],
+  "newsPatchApplied": true
 }
