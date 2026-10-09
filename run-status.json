@@ -3,15 +3,8 @@
   "marketDate": "2026-10-09",
   "startedAt": "2026-10-09T18:08:14.526462+00:00",
   "deadlineAt": "2026-10-09T18:18:14.526462+00:00",
-  "status": "partial",
-  "completedAt": "2026-10-09T18:08:42.811918+00:00",
-  "missing": [
-    "battlefield news review",
-    "industry news: Copper",
-    "industry news: Coking Coal",
-    "industry news: Textile Manufacturing",
-    "industry news: Telecom Services",
-    "industry news: Mortgage Finance",
-    "industry news: Agricultural Inputs"
-  ]
+  "status": "complete",
+  "completedAt": "2026-10-09T18:09:44.030472+00:00",
+  "missing": [],
+  "newsPatchApplied": true
 }

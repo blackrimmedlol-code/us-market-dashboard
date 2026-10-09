@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-10T02:08:28.680003+08:00",
+    "updatedAt": "2026-10-09T18:09:43.898273+00:00",
     "asOf": "2026-10-09T18:00:00+00:00",
     "marketDate": "2026-10-09",
     "session": "late",
@@ -16,18 +16,11 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-09-late.json",
-    "newsReviewStatus": "partial",
-    "updateStatus": "partial",
-    "missing": [
-      "battlefield news review",
-      "industry news: Copper",
-      "industry news: Coking Coal",
-      "industry news: Textile Manufacturing",
-      "industry news: Telecom Services",
-      "industry news: Mortgage Finance",
-      "industry news: Agricultural Inputs"
-    ],
-    "publishedAt": "2026-10-09T18:08:42.810120+00:00"
+    "newsReviewStatus": "complete",
+    "updateStatus": "complete",
+    "missing": [],
+    "publishedAt": "2026-10-09T18:09:43.898273+00:00",
+    "newsCheckedAt": "2026-10-09T18:09:33+00:00"
   },
   "assets": {
     "SPY": {
@@ -1488,17 +1481,17 @@
     "news": {
       "Textile Manufacturing": {
         "kind": "unknown",
-        "text": "已复核本轮增量消息，未找到可同时解释该行业主要成分股上涨的统一新增事件。",
-        "checkedAt": "2026-10-09T15:06:41+00:00"
+        "text": "已复核AIN、UFI与CULP本轮增量消息，未找到可同时解释行业主要成分股上涨的统一新增事件。",
+        "checkedAt": "2026-10-09T18:09:33+00:00"
       },
       "Coking Coal": {
         "kind": "unknown",
-        "text": "已复核到焦煤现货供需消息，但报道方向与美股行业上涨不一致，未找到可确认的统一新增催化。",
-        "checkedAt": "2026-10-09T15:06:41+00:00"
+        "text": "已复核HCC、AMR、SXC与METC本轮增量消息，未找到可同时解释主要成分股上涨的统一新增事件。",
+        "checkedAt": "2026-10-09T18:09:33+00:00"
       },
       "Telecom Services": {
         "kind": "reported",
-        "text": "SpaceX收购全国性800MHz低频频谱，加剧卫星移动通信竞争担忧；Reuters报道T、VZ与TMUS盘前同步大跌，为行业领跌提供直接背景。",
+        "text": "SpaceX收购全国性800MHz低频频谱，加剧卫星移动通信竞争担忧；Reuters报道T、VZ与TMUS同步大跌，为行业领跌提供直接背景。",
         "publishedAt": "2026-10-09",
         "expiresAt": "2026-10-11T20:00:00Z",
         "sources": [
@@ -1507,15 +1500,26 @@
             "url": "https://www.reuters.com/business/media-telecom/us-european-telecom-stocks-slide-spacex-spectrum-deal-rattles-sector-2026-10-09/"
           }
         ],
-        "checkedAt": "2026-10-09T15:06:41+00:00"
+        "checkedAt": "2026-10-09T18:09:33+00:00"
       },
       "Mortgage Finance": {
         "kind": "unknown",
-        "text": "已复核RKT、PFSI、UWMC与WD相关增量消息，未找到可确认的统一当日催化，行业共同下跌原因仍待核实。",
-        "checkedAt": "2026-10-09T15:06:41+00:00"
+        "text": "已复核RKT、PFSI、UWMC与WD本轮增量消息，未找到可确认的统一当日催化，行业共同下跌原因仍待核实。",
+        "checkedAt": "2026-10-09T18:09:33+00:00"
+      },
+      "Copper": {
+        "kind": "unknown",
+        "text": "已复核铜价、供需与SCCO、FCX、TECK、HBM本轮增量消息；虽有中国补库及矿端供应风险背景，未找到可确认的统一新增事件解释行业当轮涨幅。",
+        "checkedAt": "2026-10-09T18:09:33+00:00"
+      },
+      "Agricultural Inputs": {
+        "kind": "unknown",
+        "text": "已复核NTR、CF、CTVA与ICL本轮增量消息，未找到可同时解释行业主要成分股下跌的统一新增事件。",
+        "checkedAt": "2026-10-09T18:09:33+00:00"
       }
     },
-    "researchAt": "2026-10-09T15:06:41Z"
+    "researchAt": "2026-10-09T18:09:33Z",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
