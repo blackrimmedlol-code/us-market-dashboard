@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-10T04:28:24.360240+08:00",
+    "updatedAt": "2026-10-09T20:29:42.306137+00:00",
     "asOf": "2026-10-09T20:00:00+00:00",
     "marketDate": "2026-10-09",
     "session": "close",
@@ -16,19 +16,13 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-09-close.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
-      "battlefield news review",
-      "industry news: Copper",
-      "industry news: REIT - Specialty",
-      "industry news: Textile Manufacturing",
-      "industry news: Telecom Services",
-      "industry news: Mortgage Finance",
-      "industry core tickers: Farm Products",
-      "industry news: Farm Products"
+      "industry core tickers: Farm Products"
     ],
-    "publishedAt": "2026-10-09T20:28:39.799374+00:00"
+    "publishedAt": "2026-10-09T20:29:42.306137+00:00",
+    "newsCheckedAt": "2026-10-09T20:29:29+00:00"
   },
   "assets": {
     "SPY": {
@@ -1586,8 +1580,8 @@
     "news": {
       "Textile Manufacturing": {
         "kind": "unknown",
-        "text": "已复核AIN、UFI与CULP本轮增量消息，未找到可同时解释行业主要成分股上涨的统一新增事件。",
-        "checkedAt": "2026-10-09T18:09:33+00:00"
+        "text": "已复核AIN、UFI与CULP的本轮增量消息，未找到可同时解释行业主要成分股上涨的统一新增事件。",
+        "checkedAt": "2026-10-09T20:29:29+00:00"
       },
       "Telecom Services": {
         "kind": "reported",
@@ -1600,20 +1594,40 @@
             "url": "https://www.reuters.com/business/media-telecom/us-european-telecom-stocks-slide-spacex-spectrum-deal-rattles-sector-2026-10-09/"
           }
         ],
-        "checkedAt": "2026-10-09T18:09:33+00:00"
+        "checkedAt": "2026-10-09T18:09:33+00:00",
+        "reusedAt": "2026-10-09T20:29:42.306137+00:00"
       },
       "Mortgage Finance": {
         "kind": "unknown",
-        "text": "已复核RKT、PFSI、UWMC与WD本轮增量消息，未找到可确认的统一当日催化，行业共同下跌原因仍待核实。",
-        "checkedAt": "2026-10-09T18:09:33+00:00"
+        "text": "已复核RKT、PFSI、UWMC与WD的本轮增量消息，未找到上次核实后可确认的统一新增催化，行业下跌原因仍待核实。",
+        "checkedAt": "2026-10-09T20:29:29+00:00"
       },
       "Copper": {
         "kind": "unknown",
-        "text": "已复核铜价、供需与SCCO、FCX、TECK、HBM本轮增量消息；虽有中国补库及矿端供应风险背景，未找到可确认的统一新增事件解释行业当轮涨幅。",
-        "checkedAt": "2026-10-09T18:09:33+00:00"
+        "text": "已复核铜价、供需及SCCO、FCX、TECK、HBM的本轮增量消息，未找到可确认的统一新增事件解释行业收盘涨幅。",
+        "checkedAt": "2026-10-09T20:29:29+00:00"
+      },
+      "REIT - Specialty": {
+        "kind": "reported",
+        "text": "Reuters称SpaceX低频频谱交易后，AMT、CCI与SBAC上涨6.5%至13.3%，市场预期卫星网络仍需地面塔站；该事件直接解释通信塔REIT走强，但不代表全部专业REIT。",
+        "publishedAt": "2026-10-09",
+        "expiresAt": "2026-10-11T20:00:00Z",
+        "sources": [
+          {
+            "name": "Reuters",
+            "url": "https://www.reuters.com/business/media-telecom/us-european-telecom-stocks-slide-spacex-spectrum-deal-rattles-sector-2026-10-09/"
+          }
+        ],
+        "checkedAt": "2026-10-09T20:29:29+00:00"
+      },
+      "Farm Products": {
+        "kind": "unknown",
+        "text": "已复核ADM、BG及当日农产品供需消息，未找到可同时解释行业主要成分股下跌的统一新增事件。",
+        "checkedAt": "2026-10-09T20:29:29+00:00"
       }
     },
-    "researchAt": "2026-10-09T18:09:33Z"
+    "researchAt": "2026-10-09T20:29:29Z",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
@@ -1641,16 +1655,17 @@
       ]
     },
     "crypto": {
-      "text": "10月7日报道称，油价、美债收益率和美元同步走高压制加密资产；BTC跌破84000美元、ETH走弱，COIN与MSTR盘前承压，属于跨资产风险背景而非单一公司事件。",
       "kind": "reported",
-      "publishedAt": "2026-10-07T12:28:00Z",
-      "expiresAt": "2026-10-09T20:00:00Z",
+      "text": "截至美东15:10，CoinDesk称BTC回落至约82450美元、较当日高点低约1%，ETH周跌幅约7%；油价、利率及安全事件共同压制币价，属于加密风险背景，并非COIN或MSTR公司级事件。",
+      "publishedAt": "2026-10-09T19:10:00Z",
+      "expiresAt": "2026-10-10T20:00:00Z",
       "sources": [
         {
-          "name": "Barron's",
-          "url": "https://www.barrons.com/articles/bitcoin-xrp-ethereum-crypto-coinbase-stock-2c0c0616"
+          "name": "CoinDesk",
+          "url": "https://www.coindesk.com/business/2026/10/09/live-updates-xrp-etfs-the-only-ones-in-green-as-btc-eth-zec-funds-post-outflows"
         }
-      ]
+      ],
+      "afterSnapshot": false
     },
     "cloud": {
       "kind": "reported",

@@ -4,15 +4,9 @@
   "startedAt": "2026-10-09T20:28:10.767032+00:00",
   "deadlineAt": "2026-10-09T20:38:10.767032+00:00",
   "status": "partial",
-  "completedAt": "2026-10-09T20:28:39.801286+00:00",
+  "completedAt": "2026-10-09T20:29:42.429325+00:00",
   "missing": [
-    "battlefield news review",
-    "industry news: Copper",
-    "industry news: REIT - Specialty",
-    "industry news: Textile Manufacturing",
-    "industry news: Telecom Services",
-    "industry news: Mortgage Finance",
-    "industry core tickers: Farm Products",
-    "industry news: Farm Products"
-  ]
+    "industry core tickers: Farm Products"
+  ],
+  "newsPatchApplied": true
 }
