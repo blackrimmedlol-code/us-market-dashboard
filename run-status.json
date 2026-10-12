@@ -4,21 +4,15 @@
   "startedAt": "2026-10-12T15:06:41.963845+00:00",
   "deadlineAt": "2026-10-12T15:16:41.963845+00:00",
   "status": "partial",
-  "completedAt": "2026-10-12T15:07:18.898968+00:00",
+  "completedAt": "2026-10-12T15:08:59.143060+00:00",
   "missing": [
     "breadth",
-    "battlefield news review",
     "industry core tickers: Internet Content & Information",
-    "industry news: Internet Content & Information",
     "industry core tickers: Furnishings, Fixtures & Appliances",
-    "industry news: Furnishings, Fixtures & Appliances",
     "industry core tickers: Insurance - Reinsurance",
-    "industry news: Insurance - Reinsurance",
     "industry core tickers: Communication Equipment",
-    "industry news: Communication Equipment",
     "industry core tickers: Computer Hardware",
-    "industry news: Computer Hardware",
-    "industry core tickers: Electrical Equipment & Parts",
-    "industry news: Electrical Equipment & Parts"
-  ]
+    "industry core tickers: Electrical Equipment & Parts"
+  ],
+  "newsPatchApplied": true
 }

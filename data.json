@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-12T23:06:57.351896+08:00",
+    "updatedAt": "2026-10-12T15:08:59.017604+00:00",
     "asOf": "2026-10-12T15:00:00+00:00",
     "marketDate": "2026-10-12",
     "session": "intraday",
@@ -16,25 +16,19 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-12-intraday.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
       "breadth",
-      "battlefield news review",
       "industry core tickers: Internet Content & Information",
-      "industry news: Internet Content & Information",
       "industry core tickers: Furnishings, Fixtures & Appliances",
-      "industry news: Furnishings, Fixtures & Appliances",
       "industry core tickers: Insurance - Reinsurance",
-      "industry news: Insurance - Reinsurance",
       "industry core tickers: Communication Equipment",
-      "industry news: Communication Equipment",
       "industry core tickers: Computer Hardware",
-      "industry news: Computer Hardware",
-      "industry core tickers: Electrical Equipment & Parts",
-      "industry news: Electrical Equipment & Parts"
+      "industry core tickers: Electrical Equipment & Parts"
     ],
-    "publishedAt": "2026-10-12T15:07:18.896904+00:00"
+    "publishedAt": "2026-10-12T15:08:59.017604+00:00",
+    "newsCheckedAt": "2026-10-12T15:08:27+00:00"
   },
   "assets": {
     "SPY": {
@@ -1252,8 +1246,48 @@
       }
     },
     "coreTickerCache": {},
-    "news": {},
-    "researchAt": null
+    "news": {
+      "Internet Content & Information": {
+        "kind": "reported",
+        "text": "Reuters报道Meta盘中上涨约3.2%，带动标普信息通信服务板块走强；Meta对互联网内容板块构成直接支撑，但不能单独解释全部成分股上涨。",
+        "publishedAt": "2026-10-12T10:09:28Z",
+        "expiresAt": "2026-10-13T20:00:00Z",
+        "sources": [
+          {
+            "name": "Reuters",
+            "url": "https://www.reuters.com/business/us-stock-futures-muted-oil-stays-above-100-ahead-earnings-2026-10-12/"
+          }
+        ],
+        "checkedAt": "2026-10-12T15:08:27+00:00"
+      },
+      "Furnishings, Fixtures & Appliances": {
+        "kind": "unknown",
+        "text": "已复核本轮家具、家居装置与电器相关增量消息，未找到可同时解释主要成分股上涨的统一新增事件。",
+        "checkedAt": "2026-10-12T15:08:27+00:00"
+      },
+      "Insurance - Reinsurance": {
+        "kind": "unknown",
+        "text": "已复核本轮再保险公司及行业消息，未找到可同时解释主要成分股上涨的统一新增事件。",
+        "checkedAt": "2026-10-12T15:08:27+00:00"
+      },
+      "Communication Equipment": {
+        "kind": "unknown",
+        "text": "已复核本轮通信设备相关增量消息；盘前光通信个股表现分化，未找到可确认的统一新增事件解释行业盘中下跌。",
+        "checkedAt": "2026-10-12T15:08:27+00:00"
+      },
+      "Computer Hardware": {
+        "kind": "unknown",
+        "text": "已复核本轮电脑硬件相关增量消息，未找到可同时解释主要成分股下跌的统一新增事件。",
+        "checkedAt": "2026-10-12T15:08:27+00:00"
+      },
+      "Electrical Equipment & Parts": {
+        "kind": "unknown",
+        "text": "已复核本轮电气设备与零部件相关增量消息，未找到可同时解释主要成分股下跌的统一新增事件。",
+        "checkedAt": "2026-10-12T15:08:27+00:00"
+      }
+    },
+    "researchAt": "2026-10-12T15:08:27Z",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
