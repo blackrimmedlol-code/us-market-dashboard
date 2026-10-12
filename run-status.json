@@ -1,15 +1,21 @@
 {
-  "session": "late",
+  "session": "close",
   "marketDate": "2026-10-12",
-  "startedAt": "2026-10-12T18:05:14.308335+00:00",
-  "deadlineAt": "2026-10-12T18:15:14.308335+00:00",
+  "startedAt": "2026-10-12T20:26:01.580656+00:00",
+  "deadlineAt": "2026-10-12T20:36:01.580656+00:00",
   "status": "partial",
-  "completedAt": "2026-10-12T18:07:40.695666+00:00",
+  "completedAt": "2026-10-12T20:26:36.611195+00:00",
   "missing": [
     "breadth",
-    "industry core tickers: Thermal Coal",
-    "industry core tickers: Coking Coal",
-    "industry core tickers: Electrical Equipment & Parts"
-  ],
-  "newsPatchApplied": true
+    "battlefield news review",
+    "industry core tickers: Medical Devices",
+    "industry news: Medical Devices",
+    "industry news: Beverages - Wineries & Distilleries",
+    "industry core tickers: REIT - Healthcare Facilities",
+    "industry news: REIT - Healthcare Facilities",
+    "industry news: Mortgage Finance",
+    "industry news: Communication Equipment",
+    "industry core tickers: Auto & Truck Dealerships",
+    "industry news: Auto & Truck Dealerships"
+  ]
 }
