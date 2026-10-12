@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-12T21:19:54.443646+08:00",
+    "updatedAt": "2026-10-12T13:21:50.172693+00:00",
     "asOf": "2026-10-12T13:19:54.439216+00:00",
     "marketDate": "2026-10-12",
     "session": "premarket",
@@ -16,16 +16,16 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-12-premarket.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
       "VIX",
       "VIX3M",
       "breadth",
-      "battlefield news review",
       "industry leaderboard"
     ],
-    "publishedAt": "2026-10-12T13:19:55.564234+00:00"
+    "publishedAt": "2026-10-12T13:21:50.172693+00:00",
+    "newsCheckedAt": "2026-10-12T13:21:13+00:00"
   },
   "assets": {
     "SPY": {
@@ -1199,7 +1199,7 @@
     "marketDate": "2026-10-12",
     "targetAsOf": "2026-10-12T13:19:54.439216+00:00",
     "asOf": null,
-    "fetchedAt": "2026-10-12T13:19:54.443646+00:00",
+    "fetchedAt": "2026-10-12T13:21:50.172681+00:00",
     "returnBasis": "daily",
     "universe": "Finviz 全部细分行业（提供方口径）",
     "universeCount": 0,
@@ -1208,57 +1208,61 @@
     "rows": [],
     "gainers": [],
     "losers": [],
-    "note": "盘前无可核实的全市场细分行业口径"
+    "note": "盘前无可核实的全市场细分行业口径",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
       "kind": "reported",
-      "text": "10月9日早盘，MU与SNDK一度随芯片股修复；报道将反弹与市场重新厘清OpenAI收入统计口径联系起来，但这仍是AI交易情绪背景，并非存储公司新增基本面公告。",
-      "publishedAt": "2026-10-09",
-      "expiresAt": "2026-10-11T20:00:00Z",
+      "text": "CXMT披露4F²高密度存储单元技术进展后，MU、SKHY、SNDK与WDC盘前同步承压；报道显示市场在重新评估中国存储竞争，但尚不能据此判断长期定价影响。",
+      "publishedAt": "2026-10-12",
+      "expiresAt": "2026-10-13T20:00:00Z",
       "sources": [
         {
           "name": "MarketWatch",
-          "url": "https://www.marketwatch.com/story/nvidia-and-micron-shares-bounce-as-investors-get-clarity-on-a-key-openai-matter-ba76ed20"
+          "url": "https://www.marketwatch.com/livecoverage/stock-market-today-dow-s-p-500-nasdaq-climb-wall-street-banks-earnings-season/card/memory-chip-makers-slide-as-cxmt-reports-technological-progress-JfFeuqwkJssxf04Ke7ng"
         }
-      ]
+      ],
+      "afterSnapshot": false
     },
     "space": {
       "kind": "reported",
-      "text": "SpaceX约80亿美元收购全国性低频频谱，引发卫星移动通信竞争重估；事件直接关联SPCX，并可能压制ASTS，但不能解释RKLB的全部跌幅。",
-      "publishedAt": "2026-10-09",
-      "expiresAt": "2026-10-11T20:00:00Z",
+      "text": "SpaceX于10月10日成功为美国太空军发射21颗数据传输卫星，直接体现SPCX任务执行进展；事件与RKLB、ASTS盘前涨跌没有已确认的统一因果。",
+      "publishedAt": "2026-10-10T08:03:18Z",
+      "expiresAt": "2026-10-13T20:00:00Z",
       "sources": [
         {
-          "name": "Reuters",
-          "url": "https://www.reuters.com/business/media-telecom/us-european-telecom-stocks-slide-spacex-spectrum-deal-rattles-sector-2026-10-09/"
+          "name": "Space.com",
+          "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-falcon-9-rocket-launch-data-transport-satellites-military-proliferated-architecture"
         }
-      ]
+      ],
+      "afterSnapshot": false
     },
     "crypto": {
       "kind": "reported",
-      "text": "截至美东15:10，CoinDesk称BTC回落至约82450美元、较当日高点低约1%，ETH周跌幅约7%；油价、利率及安全事件共同压制币价，属于加密风险背景，并非COIN或MSTR公司级事件。",
-      "publishedAt": "2026-10-09T19:10:00Z",
-      "expiresAt": "2026-10-10T20:00:00Z",
+      "text": "CoinDesk称BTC周末反弹至84000美元上方、ETH等主要币种同步走强，同时上周现货BTC ETF净流出逾6亿美元；币价修复与资金流压力并存，并非COIN或MSTR公司级事件。",
+      "publishedAt": "2026-10-12T08:49:00Z",
+      "expiresAt": "2026-10-13T20:00:00Z",
       "sources": [
         {
           "name": "CoinDesk",
-          "url": "https://www.coindesk.com/business/2026/10/09/live-updates-xrp-etfs-the-only-ones-in-green-as-btc-eth-zec-funds-post-outflows"
+          "url": "https://www.coindesk.com/markets/2026/10/12/bitcoin-shrugs-off-etf-outflows-to-trade-above-usd84-000-as-oil-falls"
         }
       ],
       "afterSnapshot": false
     },
     "cloud": {
       "kind": "reported",
-      "text": "10月8日午后，Barron's援引FT称OpenAI年化经常性收入较此前媒体预期低约200亿美元，随后AI相关股票普遍下挫；这为新云板块同步走弱提供市场情绪背景，但并非CRWV、NBIS或IREN的公司级负面公告。",
-      "publishedAt": "2026-10-08T17:35:18Z",
-      "expiresAt": "2026-10-10T20:00:00Z",
+      "text": "IBD援引The Information称IREN与Anthropic签署多年云服务协议，IREN盘前走强；该事件直接关联IREN，但不是NBIS或CRWV的公司级新增消息。",
+      "publishedAt": "2026-10-12T12:31:00Z",
+      "expiresAt": "2026-10-13T20:00:00Z",
       "sources": [
         {
-          "name": "Barron's",
-          "url": "https://www.barrons.com/livecoverage/stock-market-news-today-100826/card/stocks-sink-after-openai-report-sours-ai-trade-BKsGL9ZiRLoaWdN2KuCG"
+          "name": "Investor's Business Daily",
+          "url": "https://www.investors.com/news/iren-stock-anthropic-ai-cloud-services-deal-data-center-buildout-reports/"
         }
-      ]
+      ],
+      "afterSnapshot": false
     }
   },
   "cta": {
