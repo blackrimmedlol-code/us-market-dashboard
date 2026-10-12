@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-13T02:05:36.606562+08:00",
+    "updatedAt": "2026-10-12T18:07:40.565868+00:00",
     "asOf": "2026-10-12T18:00:00+00:00",
     "marketDate": "2026-10-12",
     "session": "late",
@@ -16,22 +16,16 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-12-late.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
       "breadth",
-      "battlefield news review",
       "industry core tickers: Thermal Coal",
-      "industry news: Thermal Coal",
-      "industry news: Beverages - Wineries & Distilleries",
       "industry core tickers: Coking Coal",
-      "industry news: Coking Coal",
-      "industry news: Communication Equipment",
-      "industry news: Computer Hardware",
-      "industry core tickers: Electrical Equipment & Parts",
-      "industry news: Electrical Equipment & Parts"
+      "industry core tickers: Electrical Equipment & Parts"
     ],
-    "publishedAt": "2026-10-12T18:06:05.750995+00:00"
+    "publishedAt": "2026-10-12T18:07:40.565868+00:00",
+    "newsCheckedAt": "2026-10-12T18:07:30+00:00"
   },
   "assets": {
     "SPY": {
@@ -1433,21 +1427,37 @@
     "news": {
       "Communication Equipment": {
         "kind": "unknown",
-        "text": "已复核本轮通信设备相关增量消息；盘前光通信个股表现分化，未找到可确认的统一新增事件解释行业盘中下跌。",
-        "checkedAt": "2026-10-12T15:08:27+00:00"
+        "text": "已复核CSCO、HPE、LITE与MSI本轮增量消息，未找到可确认的统一新增事件解释行业下跌。",
+        "checkedAt": "2026-10-12T18:07:30+00:00"
       },
       "Computer Hardware": {
         "kind": "unknown",
-        "text": "已复核本轮电脑硬件相关增量消息，未找到可同时解释主要成分股下跌的统一新增事件。",
-        "checkedAt": "2026-10-12T15:08:27+00:00"
+        "text": "已复核DELL、ANET、SNDK与STX本轮增量消息；AI融资担忧与芯片卖压构成风险背景，但未找到可确认的行业统一直接催化。",
+        "checkedAt": "2026-10-12T18:07:30+00:00"
       },
       "Electrical Equipment & Parts": {
         "kind": "unknown",
-        "text": "已复核本轮电气设备与零部件相关增量消息，未找到可同时解释主要成分股下跌的统一新增事件。",
-        "checkedAt": "2026-10-12T15:08:27+00:00"
+        "text": "已复核本轮电气设备与零部件增量消息，未找到可同时解释主要成分股下跌的统一新增事件。",
+        "checkedAt": "2026-10-12T18:07:30+00:00"
+      },
+      "Thermal Coal": {
+        "kind": "unknown",
+        "text": "已复核美股热煤成分及国际煤炭供需增量消息；印度电厂供应改善仅属区域背景，未找到可确认的统一新增事件解释美股行业上涨。",
+        "checkedAt": "2026-10-12T18:07:30+00:00"
+      },
+      "Beverages - Wineries & Distilleries": {
+        "kind": "unknown",
+        "text": "已复核DEO、BF-A、BF-B与MGPI本轮增量消息，未找到可同时解释主要成分股上涨的统一新增事件。",
+        "checkedAt": "2026-10-12T18:07:30+00:00"
+      },
+      "Coking Coal": {
+        "kind": "unknown",
+        "text": "已复核美股焦煤成分及煤炭供需增量消息，未找到可同时解释主要成分股上涨的统一新增事件。",
+        "checkedAt": "2026-10-12T18:07:30+00:00"
       }
     },
-    "researchAt": "2026-10-12T15:08:27Z"
+    "researchAt": "2026-10-12T18:07:30Z",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {

@@ -4,18 +4,12 @@
   "startedAt": "2026-10-12T18:05:14.308335+00:00",
   "deadlineAt": "2026-10-12T18:15:14.308335+00:00",
   "status": "partial",
-  "completedAt": "2026-10-12T18:06:05.752934+00:00",
+  "completedAt": "2026-10-12T18:07:40.695666+00:00",
   "missing": [
     "breadth",
-    "battlefield news review",
     "industry core tickers: Thermal Coal",
-    "industry news: Thermal Coal",
-    "industry news: Beverages - Wineries & Distilleries",
     "industry core tickers: Coking Coal",
-    "industry news: Coking Coal",
-    "industry news: Communication Equipment",
-    "industry news: Computer Hardware",
-    "industry core tickers: Electrical Equipment & Parts",
-    "industry news: Electrical Equipment & Parts"
-  ]
+    "industry core tickers: Electrical Equipment & Parts"
+  ],
+  "newsPatchApplied": true
 }
