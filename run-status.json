@@ -4,18 +4,12 @@
   "startedAt": "2026-10-12T20:26:01.580656+00:00",
   "deadlineAt": "2026-10-12T20:36:01.580656+00:00",
   "status": "partial",
-  "completedAt": "2026-10-12T20:26:36.611195+00:00",
+  "completedAt": "2026-10-12T20:28:52.910662+00:00",
   "missing": [
     "breadth",
-    "battlefield news review",
     "industry core tickers: Medical Devices",
-    "industry news: Medical Devices",
-    "industry news: Beverages - Wineries & Distilleries",
     "industry core tickers: REIT - Healthcare Facilities",
-    "industry news: REIT - Healthcare Facilities",
-    "industry news: Mortgage Finance",
-    "industry news: Communication Equipment",
-    "industry core tickers: Auto & Truck Dealerships",
-    "industry news: Auto & Truck Dealerships"
-  ]
+    "industry core tickers: Auto & Truck Dealerships"
+  ],
+  "newsPatchApplied": true
 }

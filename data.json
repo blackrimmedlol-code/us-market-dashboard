@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-13T04:26:16.905934+08:00",
+    "updatedAt": "2026-10-12T20:28:52.781424+00:00",
     "asOf": "2026-10-12T20:00:00+00:00",
     "marketDate": "2026-10-12",
     "session": "close",
@@ -16,22 +16,16 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-12-close.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
       "breadth",
-      "battlefield news review",
       "industry core tickers: Medical Devices",
-      "industry news: Medical Devices",
-      "industry news: Beverages - Wineries & Distilleries",
       "industry core tickers: REIT - Healthcare Facilities",
-      "industry news: REIT - Healthcare Facilities",
-      "industry news: Mortgage Finance",
-      "industry news: Communication Equipment",
-      "industry core tickers: Auto & Truck Dealerships",
-      "industry news: Auto & Truck Dealerships"
+      "industry core tickers: Auto & Truck Dealerships"
     ],
-    "publishedAt": "2026-10-12T20:26:36.608301+00:00"
+    "publishedAt": "2026-10-12T20:28:52.781424+00:00",
+    "newsCheckedAt": "2026-10-12T20:28:26+00:00"
   },
   "assets": {
     "SPY": {
@@ -1535,16 +1529,37 @@
     "news": {
       "Communication Equipment": {
         "kind": "unknown",
-        "text": "已复核CSCO、HPE、LITE与MSI本轮增量消息，未找到可确认的统一新增事件解释行业下跌。",
-        "checkedAt": "2026-10-12T18:07:30+00:00"
+        "text": "已复核CSCO、HPE、LITE与MSI本轮增量消息；LITE的获利回吐仅属个股背景，未找到可确认的统一新增事件解释行业下跌。",
+        "checkedAt": "2026-10-12T20:28:26+00:00"
       },
       "Beverages - Wineries & Distilleries": {
         "kind": "unknown",
         "text": "已复核DEO、BF-A、BF-B与MGPI本轮增量消息，未找到可同时解释主要成分股上涨的统一新增事件。",
-        "checkedAt": "2026-10-12T18:07:30+00:00"
+        "checkedAt": "2026-10-12T20:28:26+00:00"
+      },
+      "Medical Devices": {
+        "kind": "unknown",
+        "text": "已复核本轮医疗器械增量消息；个别大型成分股存在公司级产品与资产组合事件，但未找到可确认的统一行业事件解释整体上涨。",
+        "checkedAt": "2026-10-12T20:28:26+00:00"
+      },
+      "REIT - Healthcare Facilities": {
+        "kind": "unknown",
+        "text": "已复核医疗设施REIT本轮增量消息，未找到可确认的统一新增事件解释行业上涨。",
+        "checkedAt": "2026-10-12T20:28:26+00:00"
+      },
+      "Mortgage Finance": {
+        "kind": "unknown",
+        "text": "已复核RKT、PFSI、UWMC与WD本轮增量消息；个别公司存在评级与内部人交易信息，但未找到可确认的统一新增事件解释行业下跌。",
+        "checkedAt": "2026-10-12T20:28:26+00:00"
+      },
+      "Auto & Truck Dealerships": {
+        "kind": "unknown",
+        "text": "已复核汽车与卡车经销商本轮增量消息，未找到可同时解释主要成分股下跌的统一新增事件。",
+        "checkedAt": "2026-10-12T20:28:26+00:00"
       }
     },
-    "researchAt": "2026-10-12T18:07:30Z"
+    "researchAt": "2026-10-12T20:28:26Z",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
