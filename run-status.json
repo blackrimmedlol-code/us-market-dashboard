@@ -1,12 +1,15 @@
 {
-  "session": "close",
-  "marketDate": "2026-10-09",
-  "startedAt": "2026-10-09T20:28:10.767032+00:00",
-  "deadlineAt": "2026-10-09T20:38:10.767032+00:00",
+  "session": "premarket",
+  "marketDate": "2026-10-12",
+  "startedAt": "2026-10-12T13:19:02.409428+00:00",
+  "deadlineAt": "2026-10-12T13:29:02.409428+00:00",
   "status": "partial",
-  "completedAt": "2026-10-09T20:29:42.429325+00:00",
+  "completedAt": "2026-10-12T13:19:55.565951+00:00",
   "missing": [
-    "industry core tickers: Farm Products"
-  ],
-  "newsPatchApplied": true
+    "VIX",
+    "VIX3M",
+    "breadth",
+    "battlefield news review",
+    "industry leaderboard"
+  ]
 }
