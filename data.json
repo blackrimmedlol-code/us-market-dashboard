@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-13T21:07:36.370523+08:00",
+    "updatedAt": "2026-10-13T13:08:48.516742+00:00",
     "asOf": "2026-10-13T13:07:36.361535+00:00",
     "marketDate": "2026-10-13",
     "session": "premarket",
@@ -16,7 +16,7 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-13-premarket.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
       "VIX",
@@ -27,10 +27,10 @@
       "MSTR",
       "HOOD",
       "breadth",
-      "battlefield news review",
       "industry leaderboard"
     ],
-    "publishedAt": "2026-10-13T13:07:37.503523+00:00"
+    "publishedAt": "2026-10-13T13:08:48.516742+00:00",
+    "newsCheckedAt": "2026-10-13T13:08:34+00:00"
   },
   "assets": {
     "SPY": {
@@ -1120,7 +1120,7 @@
     "marketDate": "2026-10-13",
     "targetAsOf": "2026-10-13T13:07:36.361535+00:00",
     "asOf": null,
-    "fetchedAt": "2026-10-13T13:07:36.370523+00:00",
+    "fetchedAt": "2026-10-13T13:08:48.516662+00:00",
     "returnBasis": "daily",
     "universe": "Finviz 全部细分行业（提供方口径）",
     "universeCount": 0,
@@ -1129,7 +1129,8 @@
     "rows": [],
     "gainers": [],
     "losers": [],
-    "note": "盘前无可核实的全市场细分行业口径"
+    "note": "盘前无可核实的全市场细分行业口径",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
@@ -1147,13 +1148,13 @@
     },
     "space": {
       "kind": "reported",
-      "text": "SpaceX于10月10日成功为美国太空军发射21颗数据传输卫星，直接体现SPCX任务执行进展；事件与RKLB、ASTS盘前涨跌没有已确认的统一因果。",
-      "publishedAt": "2026-10-10T08:03:18Z",
-      "expiresAt": "2026-10-13T20:00:00Z",
+      "text": "MarketWatch援引Space Capital称，SpaceX减少2028年后的外部拼车发射预订，正推动资金转向替代发射商；该事件直接反映SPCX运力资源调整，并可能利好RKLB所在的替代运力赛道，但不是ASTS公司级催化。",
+      "publishedAt": "2026-10-13T11:06:00Z",
+      "expiresAt": "2026-10-14T20:00:00Z",
       "sources": [
         {
-          "name": "Space.com",
-          "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-falcon-9-rocket-launch-data-transport-satellites-military-proliferated-architecture"
+          "name": "MarketWatch",
+          "url": "https://www.marketwatch.com/story/a-spacex-launch-shortage-is-fueling-a-100-billion-investing-spree-25b7d043"
         }
       ],
       "afterSnapshot": false
