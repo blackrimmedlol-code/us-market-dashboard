@@ -1,20 +1,22 @@
 {
-  "session": "premarket",
+  "session": "intraday",
   "marketDate": "2026-10-13",
-  "startedAt": "2026-10-13T13:06:27.112896+00:00",
-  "deadlineAt": "2026-10-13T13:16:27.112896+00:00",
+  "startedAt": "2026-10-13T15:06:58.925126+00:00",
+  "deadlineAt": "2026-10-13T15:16:58.925126+00:00",
   "status": "partial",
-  "completedAt": "2026-10-13T13:08:48.696541+00:00",
+  "completedAt": "2026-10-13T15:07:53.990600+00:00",
   "missing": [
-    "VIX",
-    "RSP",
-    "SPMO",
-    "VIX3M",
-    "COIN",
-    "MSTR",
-    "HOOD",
     "breadth",
-    "industry leaderboard"
-  ],
-  "newsPatchApplied": true
+    "battlefield news review",
+    "industry news: Oil & Gas Refining & Marketing",
+    "industry core tickers: Farm Products",
+    "industry news: Farm Products",
+    "industry core tickers: Beverages - Wineries & Distilleries",
+    "industry news: Beverages - Wineries & Distilleries",
+    "industry news: Semiconductor Equipment & Materials",
+    "industry core tickers: Computer Hardware",
+    "industry news: Computer Hardware",
+    "industry core tickers: Aerospace & Defense",
+    "industry news: Aerospace & Defense"
+  ]
 }
