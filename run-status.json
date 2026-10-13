@@ -4,16 +4,10 @@
   "startedAt": "2026-10-13T18:05:51.367343+00:00",
   "deadlineAt": "2026-10-13T18:15:51.367343+00:00",
   "status": "partial",
-  "completedAt": "2026-10-13T18:06:23.819943+00:00",
+  "completedAt": "2026-10-13T18:08:16.647934+00:00",
   "missing": [
     "breadth",
-    "battlefield news review",
-    "industry news: Oil & Gas Refining & Marketing",
-    "industry news: Farm Products",
-    "industry news: Beverages - Wineries & Distilleries",
-    "industry news: Semiconductor Equipment & Materials",
-    "industry news: Silver",
-    "industry core tickers: Biotechnology",
-    "industry news: Biotechnology"
-  ]
+    "industry core tickers: Biotechnology"
+  ],
+  "newsPatchApplied": true
 }

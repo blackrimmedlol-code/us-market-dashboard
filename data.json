@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-14T02:06:10.381450+08:00",
+    "updatedAt": "2026-10-13T18:08:16.518031+00:00",
     "asOf": "2026-10-13T18:00:00+00:00",
     "marketDate": "2026-10-13",
     "session": "late",
@@ -16,20 +16,14 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-13-late.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
       "breadth",
-      "battlefield news review",
-      "industry news: Oil & Gas Refining & Marketing",
-      "industry news: Farm Products",
-      "industry news: Beverages - Wineries & Distilleries",
-      "industry news: Semiconductor Equipment & Materials",
-      "industry news: Silver",
-      "industry core tickers: Biotechnology",
-      "industry news: Biotechnology"
+      "industry core tickers: Biotechnology"
     ],
-    "publishedAt": "2026-10-13T18:06:23.818227+00:00"
+    "publishedAt": "2026-10-13T18:08:16.518031+00:00",
+    "newsCheckedAt": "2026-10-13T18:08:03+00:00"
   },
   "assets": {
     "SPY": {
@@ -1465,18 +1459,18 @@
     "news": {
       "Oil & Gas Refining & Marketing": {
         "kind": "unknown",
-        "text": "已复核MPC、VLO、PSX与DINO本轮增量消息；炼油利润率与成品油供应偏紧仍是背景，但未找到可确认的当日统一新增事件解释行业上涨。",
-        "checkedAt": "2026-10-13T15:09:15+00:00"
+        "text": "已复核MPC、VLO、PSX与DINO盘中以来增量消息；炼油利润率与成品油供应偏紧仍是背景，但未找到可确认的统一新增事件解释行业进一步上涨。",
+        "checkedAt": "2026-10-13T18:08:03+00:00"
       },
       "Farm Products": {
         "kind": "unknown",
-        "text": "已复核农产品行业本轮增量消息，未找到可同时解释主要成分股上涨的统一新增事件。",
-        "checkedAt": "2026-10-13T15:09:15+00:00"
+        "text": "已复核ADM、BG、TSN与CALM盘中以来增量消息，未找到可同时解释主要成分股上涨的统一新增事件。",
+        "checkedAt": "2026-10-13T18:08:03+00:00"
       },
       "Beverages - Wineries & Distilleries": {
         "kind": "unknown",
-        "text": "已复核葡萄酒与烈酒行业本轮增量消息；加州葡萄收成与库存再平衡仅属供应背景，未找到可确认的统一新增事件解释行业上涨。",
-        "checkedAt": "2026-10-13T15:09:15+00:00"
+        "text": "已复核DEO、BF-A、BF-B与MGPI盘中以来增量消息，未找到可同时解释主要成分股上涨的统一新增事件。",
+        "checkedAt": "2026-10-13T18:08:03+00:00"
       },
       "Semiconductor Equipment & Materials": {
         "kind": "reported",
@@ -1489,10 +1483,22 @@
             "url": "https://www.reuters.com/world/china/us-chip-stocks-extend-slide-china-memory-report-ai-spending-jitters-hit-sector-2026-10-13/"
           }
         ],
-        "checkedAt": "2026-10-13T15:09:15+00:00"
+        "checkedAt": "2026-10-13T15:09:15+00:00",
+        "reusedAt": "2026-10-13T18:08:16.518031+00:00"
+      },
+      "Silver": {
+        "kind": "unknown",
+        "text": "已复核AG、AYA、EXK与SVM盘中以来增量消息；白银期货方向不足以解释股票行业同步下跌，未找到可确认的统一新增事件。",
+        "checkedAt": "2026-10-13T18:08:03+00:00"
+      },
+      "Biotechnology": {
+        "kind": "unknown",
+        "text": "已复核生物技术行业盘中以来增量消息；冬季并购预期仅属前瞻背景，未找到可确认的统一新增事件解释行业下跌。",
+        "checkedAt": "2026-10-13T18:08:03+00:00"
       }
     },
-    "researchAt": "2026-10-13T15:09:15Z"
+    "researchAt": "2026-10-13T18:08:03Z",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
