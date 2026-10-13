@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-13T23:07:31.065670+08:00",
+    "updatedAt": "2026-10-13T15:09:50.821123+00:00",
     "asOf": "2026-10-13T15:00:00+00:00",
     "marketDate": "2026-10-13",
     "session": "intraday",
@@ -16,23 +16,17 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-13-intraday.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
       "breadth",
-      "battlefield news review",
-      "industry news: Oil & Gas Refining & Marketing",
       "industry core tickers: Farm Products",
-      "industry news: Farm Products",
       "industry core tickers: Beverages - Wineries & Distilleries",
-      "industry news: Beverages - Wineries & Distilleries",
-      "industry news: Semiconductor Equipment & Materials",
       "industry core tickers: Computer Hardware",
-      "industry news: Computer Hardware",
-      "industry core tickers: Aerospace & Defense",
-      "industry news: Aerospace & Defense"
+      "industry core tickers: Aerospace & Defense"
     ],
-    "publishedAt": "2026-10-13T15:07:53.988230+00:00"
+    "publishedAt": "2026-10-13T15:09:50.821123+00:00",
+    "newsCheckedAt": "2026-10-13T15:09:15+00:00"
   },
   "assets": {
     "SPY": {
@@ -1283,8 +1277,56 @@
         "checkedAt": "2026-10-13T15:07:52.474594+00:00"
       }
     },
-    "news": {},
-    "researchAt": null
+    "news": {
+      "Oil & Gas Refining & Marketing": {
+        "kind": "unknown",
+        "text": "已复核MPC、VLO、PSX与DINO本轮增量消息；炼油利润率与成品油供应偏紧仍是背景，但未找到可确认的当日统一新增事件解释行业上涨。",
+        "checkedAt": "2026-10-13T15:09:15+00:00"
+      },
+      "Farm Products": {
+        "kind": "unknown",
+        "text": "已复核农产品行业本轮增量消息，未找到可同时解释主要成分股上涨的统一新增事件。",
+        "checkedAt": "2026-10-13T15:09:15+00:00"
+      },
+      "Beverages - Wineries & Distilleries": {
+        "kind": "unknown",
+        "text": "已复核葡萄酒与烈酒行业本轮增量消息；加州葡萄收成与库存再平衡仅属供应背景，未找到可确认的统一新增事件解释行业上涨。",
+        "checkedAt": "2026-10-13T15:09:15+00:00"
+      },
+      "Semiconductor Equipment & Materials": {
+        "kind": "reported",
+        "text": "Reuters报道中国存储竞争与AI资本开支持续性担忧拖累芯片板块；该风险背景与ASML、AMAT、LRCX和KLAC同步走弱相关，但并非四家公司共同发布的新事件。",
+        "publishedAt": "2026-10-13",
+        "expiresAt": "2026-10-14T20:00:00Z",
+        "sources": [
+          {
+            "name": "Reuters",
+            "url": "https://www.reuters.com/world/china/us-chip-stocks-extend-slide-china-memory-report-ai-spending-jitters-hit-sector-2026-10-13/"
+          }
+        ],
+        "checkedAt": "2026-10-13T15:09:15+00:00"
+      },
+      "Computer Hardware": {
+        "kind": "reported",
+        "text": "Reuters报道中国存储竞争与AI支出疑虑令美国存储及硬件相关股票延续抛售；这可解释SNDK、STX等存储硬件压力，但不足以证明所有电脑硬件成分股具有同一公司级催化。",
+        "publishedAt": "2026-10-13",
+        "expiresAt": "2026-10-14T20:00:00Z",
+        "sources": [
+          {
+            "name": "Reuters",
+            "url": "https://www.reuters.com/world/china/us-chip-stocks-extend-slide-china-memory-report-ai-spending-jitters-hit-sector-2026-10-13/"
+          }
+        ],
+        "checkedAt": "2026-10-13T15:09:15+00:00"
+      },
+      "Aerospace & Defense": {
+        "kind": "unknown",
+        "text": "已复核航空航天与国防行业本轮增量消息；ASTS评级下调仅属个股事件，未找到可确认的统一新增事件解释整个行业下跌。",
+        "checkedAt": "2026-10-13T15:09:15+00:00"
+      }
+    },
+    "researchAt": "2026-10-13T15:09:15Z",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
@@ -1302,13 +1344,13 @@
     },
     "space": {
       "kind": "reported",
-      "text": "MarketWatch援引Space Capital称，SpaceX减少2028年后的外部拼车发射预订，正推动资金转向替代发射商；该事件直接反映SPCX运力资源调整，并可能利好RKLB所在的替代运力赛道，但不是ASTS公司级催化。",
-      "publishedAt": "2026-10-13T11:06:00Z",
+      "text": "Piper Sandler下调ASTS评级后，该股盘中显著走弱；这是ASTS公司级事件，不能据此解释SPCX或RKLB的同步下跌。",
+      "publishedAt": "2026-10-13",
       "expiresAt": "2026-10-14T20:00:00Z",
       "sources": [
         {
-          "name": "MarketWatch",
-          "url": "https://www.marketwatch.com/story/a-spacex-launch-shortage-is-fueling-a-100-billion-investing-spree-25b7d043"
+          "name": "Benzinga",
+          "url": "https://www.benzinga.com/quote/ASTS/news"
         }
       ],
       "afterSnapshot": false
