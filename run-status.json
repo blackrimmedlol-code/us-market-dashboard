@@ -1,13 +1,18 @@
 {
-  "session": "late",
+  "session": "close",
   "marketDate": "2026-10-13",
-  "startedAt": "2026-10-13T18:05:51.367343+00:00",
-  "deadlineAt": "2026-10-13T18:15:51.367343+00:00",
+  "startedAt": "2026-10-13T20:27:59.343252+00:00",
+  "deadlineAt": "2026-10-13T20:37:59.343252+00:00",
   "status": "partial",
-  "completedAt": "2026-10-13T18:08:16.647934+00:00",
+  "completedAt": "2026-10-13T20:28:29.405003+00:00",
   "missing": [
     "breadth",
-    "industry core tickers: Biotechnology"
-  ],
-  "newsPatchApplied": true
+    "battlefield news review",
+    "industry news: Oil & Gas Refining & Marketing",
+    "industry news: Solar",
+    "industry news: Farm Products",
+    "industry news: Semiconductor Equipment & Materials",
+    "industry news: Biotechnology",
+    "industry news: Silver"
+  ]
 }
