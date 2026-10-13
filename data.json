@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-14T04:28:12.415561+08:00",
+    "updatedAt": "2026-10-13T20:30:03.894341+00:00",
     "asOf": "2026-10-13T20:00:00+00:00",
     "marketDate": "2026-10-13",
     "session": "close",
@@ -16,19 +16,13 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-13-close.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
-      "breadth",
-      "battlefield news review",
-      "industry news: Oil & Gas Refining & Marketing",
-      "industry news: Solar",
-      "industry news: Farm Products",
-      "industry news: Semiconductor Equipment & Materials",
-      "industry news: Biotechnology",
-      "industry news: Silver"
+      "breadth"
     ],
-    "publishedAt": "2026-10-13T20:28:29.399548+00:00"
+    "publishedAt": "2026-10-13T20:30:03.894341+00:00",
+    "newsCheckedAt": "2026-10-13T20:29:31+00:00"
   },
   "assets": {
     "SPY": {
@@ -1581,55 +1575,87 @@
     },
     "news": {
       "Oil & Gas Refining & Marketing": {
-        "kind": "unknown",
-        "text": "已复核MPC、VLO、PSX与DINO盘中以来增量消息；炼油利润率与成品油供应偏紧仍是背景，但未找到可确认的统一新增事件解释行业进一步上涨。",
-        "checkedAt": "2026-10-13T18:08:03+00:00"
+        "kind": "reported",
+        "text": "MPC、VLO、PSX等炼油股继续受成品油价格偏高及裂解价差改善支撑；这是行业利润率背景，未发现收盘前新增的单一共同事件。",
+        "publishedAt": "2026-10-13",
+        "expiresAt": "2026-10-14T20:00:00Z",
+        "sources": [
+          {
+            "name": "eOption",
+            "url": "https://www.eoption.com/mid-morning-look-october-13-2026/"
+          },
+          {
+            "name": "Investor's Business Daily",
+            "url": "https://www.investors.com/news/oil-stocks-buy-points-chevron-exxon-oil-prices-rise-fang-trgp/"
+          }
+        ],
+        "checkedAt": "2026-10-13T20:29:31+00:00"
       },
       "Farm Products": {
         "kind": "unknown",
-        "text": "已复核ADM、BG、TSN与CALM盘中以来增量消息，未找到可同时解释主要成分股上涨的统一新增事件。",
-        "checkedAt": "2026-10-13T18:08:03+00:00"
+        "text": "已复核ADM、BG、TSN与CALM午后以来消息，未找到可同时解释主要成分股上涨的统一新增事件。",
+        "checkedAt": "2026-10-13T20:29:31+00:00"
       },
       "Semiconductor Equipment & Materials": {
         "kind": "reported",
-        "text": "Reuters报道中国存储竞争与AI资本开支持续性担忧拖累芯片板块；该风险背景与ASML、AMAT、LRCX和KLAC同步走弱相关，但并非四家公司共同发布的新事件。",
+        "text": "中国存储竞争与AI资本开支疑虑压制芯片链情绪；AMAT未给出行业支出展望进一步增加设备需求不确定性，但并非四家设备商共同发布的新事件。",
         "publishedAt": "2026-10-13",
         "expiresAt": "2026-10-14T20:00:00Z",
         "sources": [
           {
             "name": "Reuters",
             "url": "https://www.reuters.com/world/china/us-chip-stocks-extend-slide-china-memory-report-ai-spending-jitters-hit-sector-2026-10-13/"
+          },
+          {
+            "name": "Investing.com",
+            "url": "https://in.investing.com/news/stock-market-news/applied-materials-shares-slide-as-chip-equipment-outlook-remains-uncertain-5631229"
           }
         ],
-        "checkedAt": "2026-10-13T15:09:15+00:00",
-        "reusedAt": "2026-10-13T18:08:16.518031+00:00"
+        "checkedAt": "2026-10-13T20:29:31+00:00"
       },
       "Silver": {
-        "kind": "unknown",
-        "text": "已复核AG、AYA、EXK与SVM盘中以来增量消息；白银期货方向不足以解释股票行业同步下跌，未找到可确认的统一新增事件。",
-        "checkedAt": "2026-10-13T18:08:03+00:00"
+        "kind": "reported",
+        "text": "现货白银当日下跌约1.8%，AG、EXK与SVM等矿业股同步走弱；贵金属价格回落与板块下跌方向一致。",
+        "publishedAt": "2026-10-13",
+        "expiresAt": "2026-10-14T20:00:00Z",
+        "sources": [
+          {
+            "name": "Reuters",
+            "url": "https://www.reuters.com/world/india/gold-eases-firm-dollar-spotlight-us-inflation-data-2026-10-13/"
+          }
+        ],
+        "checkedAt": "2026-10-13T20:29:31+00:00"
       },
       "Biotechnology": {
         "kind": "unknown",
-        "text": "已复核生物技术行业盘中以来增量消息；冬季并购预期仅属前瞻背景，未找到可确认的统一新增事件解释行业下跌。",
-        "checkedAt": "2026-10-13T18:08:03+00:00"
+        "text": "Syndax试验失利拖累部分生物技术股，但该公司事件不足以解释完整行业下跌；未找到可确认的统一新增原因。",
+        "checkedAt": "2026-10-13T20:29:31+00:00"
+      },
+      "Solar": {
+        "kind": "unknown",
+        "text": "已复核FSLR、NXT、ENPH与SEDG当日消息；代表股表现分化，未找到可确认的统一事件解释Finviz太阳能行业上涨。",
+        "checkedAt": "2026-10-13T20:29:31+00:00"
       }
     },
-    "researchAt": "2026-10-13T18:08:03Z"
+    "researchAt": "2026-10-13T20:29:31Z",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
       "kind": "reported",
-      "text": "CXMT披露4F²高密度存储单元技术进展后，MU、SKHY、SNDK与WDC盘前同步承压；报道显示市场在重新评估中国存储竞争，但尚不能据此判断长期定价影响。",
-      "publishedAt": "2026-10-12",
-      "expiresAt": "2026-10-13T20:00:00Z",
+      "text": "Reuters与Investopedia报道，CXMT存储技术进展引发竞争担忧，叠加AI资本开支持续性疑虑，MU、SNDK、SKHY及DRAM同步承压；商业化能力仍未得到确认。",
+      "publishedAt": "2026-10-13",
+      "expiresAt": "2026-10-14T20:00:00Z",
       "sources": [
         {
-          "name": "MarketWatch",
-          "url": "https://www.marketwatch.com/livecoverage/stock-market-today-dow-s-p-500-nasdaq-climb-wall-street-banks-earnings-season/card/memory-chip-makers-slide-as-cxmt-reports-technological-progress-JfFeuqwkJssxf04Ke7ng"
+          "name": "Reuters",
+          "url": "https://www.reuters.com/world/china/us-chip-stocks-extend-slide-china-memory-report-ai-spending-jitters-hit-sector-2026-10-13/"
+        },
+        {
+          "name": "Investopedia",
+          "url": "https://www.investopedia.com/market-update-memory-stocks-extend-slide-on-news-of-design-breakthrough-in-china-12171774"
         }
-      ],
-      "afterSnapshot": false
+      ]
     },
     "space": {
       "kind": "reported",

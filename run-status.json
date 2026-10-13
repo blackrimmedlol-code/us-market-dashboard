@@ -4,15 +4,9 @@
   "startedAt": "2026-10-13T20:27:59.343252+00:00",
   "deadlineAt": "2026-10-13T20:37:59.343252+00:00",
   "status": "partial",
-  "completedAt": "2026-10-13T20:28:29.405003+00:00",
+  "completedAt": "2026-10-13T20:30:04.153537+00:00",
   "missing": [
-    "breadth",
-    "battlefield news review",
-    "industry news: Oil & Gas Refining & Marketing",
-    "industry news: Solar",
-    "industry news: Farm Products",
-    "industry news: Semiconductor Equipment & Materials",
-    "industry news: Biotechnology",
-    "industry news: Silver"
-  ]
+    "breadth"
+  ],
+  "newsPatchApplied": true
 }
