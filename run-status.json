@@ -1,15 +1,20 @@
 {
-  "session": "close",
-  "marketDate": "2026-10-12",
-  "startedAt": "2026-10-12T20:26:01.580656+00:00",
-  "deadlineAt": "2026-10-12T20:36:01.580656+00:00",
+  "session": "premarket",
+  "marketDate": "2026-10-13",
+  "startedAt": "2026-10-13T13:06:27.112896+00:00",
+  "deadlineAt": "2026-10-13T13:16:27.112896+00:00",
   "status": "partial",
-  "completedAt": "2026-10-12T20:28:52.910662+00:00",
+  "completedAt": "2026-10-13T13:07:37.506109+00:00",
   "missing": [
+    "VIX",
+    "RSP",
+    "SPMO",
+    "VIX3M",
+    "COIN",
+    "MSTR",
+    "HOOD",
     "breadth",
-    "industry core tickers: Medical Devices",
-    "industry core tickers: REIT - Healthcare Facilities",
-    "industry core tickers: Auto & Truck Dealerships"
-  ],
-  "newsPatchApplied": true
+    "battlefield news review",
+    "industry leaderboard"
+  ]
 }
