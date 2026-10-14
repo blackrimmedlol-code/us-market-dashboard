@@ -1,18 +1,21 @@
 {
-  "session": "intraday",
+  "session": "late",
   "marketDate": "2026-10-14",
-  "startedAt": "2026-10-14T15:05:13.974975+00:00",
-  "deadlineAt": "2026-10-14T15:15:13.974975+00:00",
+  "startedAt": "2026-10-14T18:08:25.260535+00:00",
+  "deadlineAt": "2026-10-14T18:18:25.260535+00:00",
   "status": "partial",
-  "completedAt": "2026-10-14T15:07:41.899958+00:00",
+  "completedAt": "2026-10-14T18:08:56.173039+00:00",
   "missing": [
     "breadth",
-    "industry core tickers: Drug Manufacturers - General",
-    "industry core tickers: Healthcare Plans",
+    "battlefield news review",
+    "industry news: Drug Manufacturers - General",
     "industry core tickers: Discount Stores",
+    "industry news: Discount Stores",
+    "industry core tickers: Healthcare Plans",
+    "industry news: Healthcare Plans",
     "industry core tickers: Silver",
-    "industry core tickers: Utilities - Independent Power Producers",
-    "industry core tickers: Uranium"
-  ],
-  "newsPatchApplied": true
+    "industry news: Silver",
+    "industry news: Electrical Equipment & Parts",
+    "industry news: Other Precious Metals & Mining"
+  ]
 }
