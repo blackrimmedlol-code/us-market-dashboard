@@ -1,17 +1,24 @@
 {
-  "session": "premarket",
+  "session": "intraday",
   "marketDate": "2026-10-14",
-  "startedAt": "2026-10-14T13:05:29.229209+00:00",
-  "deadlineAt": "2026-10-14T13:15:29.229209+00:00",
+  "startedAt": "2026-10-14T15:05:13.974975+00:00",
+  "deadlineAt": "2026-10-14T15:15:13.974975+00:00",
   "status": "partial",
-  "completedAt": "2026-10-14T13:08:50.611992+00:00",
+  "completedAt": "2026-10-14T15:05:50.448407+00:00",
   "missing": [
-    "VIX",
-    "RSP",
-    "SPMO",
-    "VIX3M",
     "breadth",
-    "industry leaderboard"
-  ],
-  "newsPatchApplied": true
+    "battlefield news review",
+    "industry core tickers: Drug Manufacturers - General",
+    "industry news: Drug Manufacturers - General",
+    "industry core tickers: Healthcare Plans",
+    "industry news: Healthcare Plans",
+    "industry core tickers: Discount Stores",
+    "industry news: Discount Stores",
+    "industry core tickers: Silver",
+    "industry news: Silver",
+    "industry core tickers: Utilities - Independent Power Producers",
+    "industry news: Utilities - Independent Power Producers",
+    "industry core tickers: Uranium",
+    "industry news: Uranium"
+  ]
 }
