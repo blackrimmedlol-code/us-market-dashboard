@@ -4,18 +4,12 @@
   "startedAt": "2026-10-14T18:08:25.260535+00:00",
   "deadlineAt": "2026-10-14T18:18:25.260535+00:00",
   "status": "partial",
-  "completedAt": "2026-10-14T18:08:56.173039+00:00",
+  "completedAt": "2026-10-14T18:10:33.696184+00:00",
   "missing": [
     "breadth",
-    "battlefield news review",
-    "industry news: Drug Manufacturers - General",
     "industry core tickers: Discount Stores",
-    "industry news: Discount Stores",
     "industry core tickers: Healthcare Plans",
-    "industry news: Healthcare Plans",
-    "industry core tickers: Silver",
-    "industry news: Silver",
-    "industry news: Electrical Equipment & Parts",
-    "industry news: Other Precious Metals & Mining"
-  ]
+    "industry core tickers: Silver"
+  ],
+  "newsPatchApplied": true
 }

@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-15T02:08:39.888279+08:00",
+    "updatedAt": "2026-10-14T18:10:33.558241+00:00",
     "asOf": "2026-10-14T18:00:00+00:00",
     "marketDate": "2026-10-14",
     "session": "late",
@@ -16,22 +16,16 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-14-late.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
       "breadth",
-      "battlefield news review",
-      "industry news: Drug Manufacturers - General",
       "industry core tickers: Discount Stores",
-      "industry news: Discount Stores",
       "industry core tickers: Healthcare Plans",
-      "industry news: Healthcare Plans",
-      "industry core tickers: Silver",
-      "industry news: Silver",
-      "industry news: Electrical Equipment & Parts",
-      "industry news: Other Precious Metals & Mining"
+      "industry core tickers: Silver"
     ],
-    "publishedAt": "2026-10-14T18:08:56.171170+00:00"
+    "publishedAt": "2026-10-14T18:10:33.558241+00:00",
+    "newsCheckedAt": "2026-10-14T18:10:09+00:00"
   },
   "assets": {
     "SPY": {
@@ -1433,33 +1427,29 @@
     "news": {
       "Drug Manufacturers - General": {
         "kind": "reported",
-        "text": "热于预期的CPI压制大盘时，医疗保健成为防御性强势板块；AMGN、MRK等大型药企上涨，但未发现全行业统一公司事件。",
+        "text": "热CPI引发防御轮动，LLY、MRK、ABBV等大型药企普涨，制药ETF亦走强；这是板块性表现，不是单一公司事件。",
         "publishedAt": "2026-10-14",
         "expiresAt": "2026-10-15T20:00:00Z",
         "sources": [
           {
             "name": "Barron's",
-            "url": "https://www.barrons.com/livecoverage/stock-market-news-today-101426/card/why-is-the-dow-rising-look-at-healthcare-and-staples--zVXS4WXNZqqPAcGq1Kwm"
-          },
-          {
-            "name": "MarketWatch",
-            "url": "https://www.marketwatch.com/data-news/dow-rallies-184-points-on-gains-for-shares-of-unitedhealth-amgen-66cb435a-a4f23acb0a46"
+            "url": "https://www.barrons.com/articles/eli-lilly-merck-abbvie-stocks-healthcare-b5846f07"
           }
         ],
-        "checkedAt": "2026-10-14T15:07:12+00:00"
+        "checkedAt": "2026-10-14T18:10:09+00:00"
       },
       "Healthcare Plans": {
         "kind": "reported",
-        "text": "UnitedHealth盘中上涨约4.2%，成为医疗保健与道指走强的重要贡献者；这是权重股驱动，不能确认所有医保股存在共同新增事件。",
-        "publishedAt": "2026-10-14T13:48:00Z",
+        "text": "医疗保健在大盘下跌中保持防御强势，UnitedHealth盘中上涨约2.9%；权重股贡献明确，但不能代表全部医保股同幅上涨。",
+        "publishedAt": "2026-10-14",
         "expiresAt": "2026-10-15T20:00:00Z",
         "sources": [
           {
-            "name": "MarketWatch",
-            "url": "https://www.marketwatch.com/data-news/dow-rallies-184-points-on-gains-for-shares-of-unitedhealth-amgen-66cb435a-a4f23acb0a46"
+            "name": "Barron's",
+            "url": "https://www.barrons.com/articles/eli-lilly-merck-abbvie-stocks-healthcare-b5846f07"
           }
         ],
-        "checkedAt": "2026-10-14T15:07:12+00:00"
+        "checkedAt": "2026-10-14T18:10:09+00:00"
       },
       "Discount Stores": {
         "kind": "inference",
@@ -1476,27 +1466,42 @@
             "url": "https://www.marketwatch.com/data-news/dow-rallies-184-points-on-gains-for-shares-of-unitedhealth-amgen-66cb435a-a4f23acb0a46"
           }
         ],
-        "checkedAt": "2026-10-14T15:07:12+00:00"
+        "checkedAt": "2026-10-14T18:10:09+00:00"
       },
       "Silver": {
         "kind": "reported",
-        "text": "热于预期的CPI推高短端收益率和美元，现货白银下跌约2%；无息贵金属承压与白银矿业股下跌方向一致。",
-        "publishedAt": "2026-10-14",
-        "expiresAt": "2026-10-15T20:00:00Z",
+        "text": "COMEX白银收跌6.10%，为6月24日以来最大单日跌幅；热CPI提高加息预期，无息贵金属继续承压。",
+        "publishedAt": "2026-10-14T17:46:00Z",
+        "expiresAt": "2026-10-15T18:00:00Z",
         "sources": [
           {
-            "name": "Benzinga",
-            "url": "https://www.benzinga.com/markets/equities/26/10/62352969/hot-cpi-10-stocks-falling-premarket-inflation-report"
-          },
-          {
-            "name": "Charles Schwab",
-            "url": "https://www.schwab.com/learn/story/stock-market-update-open"
+            "name": "Dow Jones Market Data",
+            "url": "https://www.wsj.com/finance/commodities-futures/gold-steady-ahead-of-u-s-inflation-data-5b71987b"
           }
         ],
-        "checkedAt": "2026-10-14T15:07:12+00:00"
+        "checkedAt": "2026-10-14T18:10:09+00:00"
+      },
+      "Electrical Equipment & Parts": {
+        "kind": "unknown",
+        "text": "已检索本轮新增消息，未确认能够统一解释电气设备与零部件行业跌幅的共同事件。",
+        "checkedAt": "2026-10-14T18:10:09+00:00"
+      },
+      "Other Precious Metals & Mining": {
+        "kind": "inference",
+        "text": "金银期货在热CPI后显著下跌，与其他贵金属矿业股承压方向一致；但商品结算表现不能证明所有成分股存在统一公司催化。",
+        "publishedAt": "2026-10-14T17:46:00Z",
+        "expiresAt": "2026-10-15T18:00:00Z",
+        "sources": [
+          {
+            "name": "Dow Jones Market Data",
+            "url": "https://www.wsj.com/finance/commodities-futures/gold-steady-ahead-of-u-s-inflation-data-5b71987b"
+          }
+        ],
+        "checkedAt": "2026-10-14T18:10:09+00:00"
       }
     },
-    "researchAt": "2026-10-14T15:07:12Z"
+    "researchAt": "2026-10-14T18:10:09Z",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
@@ -1546,17 +1551,13 @@
     },
     "cloud": {
       "kind": "reported",
-      "text": "美国核心CPI高于预期后短端利率与加息预期上升，长久期AI基础设施股承压；CRWV的高杠杆融资背景又放大估值敏感性，但并非三家公司共同事件。",
-      "publishedAt": "2026-10-14",
-      "expiresAt": "2026-10-15T20:00:00Z",
+      "text": "热CPI重新推高加息押注，债务密集型AI基础设施股午后继续承压；Reuters称IREN、NBIS、CRWV均明显下跌，融资成本担忧构成共同压力。",
+      "publishedAt": "2026-10-14T16:11:00Z",
+      "expiresAt": "2026-10-15T16:15:00Z",
       "sources": [
         {
-          "name": "Charles Schwab",
-          "url": "https://www.schwab.com/learn/story/stock-market-update-open"
-        },
-        {
-          "name": "Financial Times",
-          "url": "https://www.ft.com/content/4ffa1853-0e2c-424f-b941-88c6bcac5765"
+          "name": "Reuters",
+          "url": "https://www.investing.com/news/economy-news/ai-infrastructure-firms-slump-as-us-rate-hike-bets-rise-4949759"
         }
       ]
     }
