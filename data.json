@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-14T23:05:31.023855+08:00",
+    "updatedAt": "2026-10-14T15:07:41.779149+00:00",
     "asOf": "2026-10-14T15:00:00+00:00",
     "marketDate": "2026-10-14",
     "session": "intraday",
@@ -16,25 +16,19 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-14-intraday.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
       "breadth",
-      "battlefield news review",
       "industry core tickers: Drug Manufacturers - General",
-      "industry news: Drug Manufacturers - General",
       "industry core tickers: Healthcare Plans",
-      "industry news: Healthcare Plans",
       "industry core tickers: Discount Stores",
-      "industry news: Discount Stores",
       "industry core tickers: Silver",
-      "industry news: Silver",
       "industry core tickers: Utilities - Independent Power Producers",
-      "industry news: Utilities - Independent Power Producers",
-      "industry core tickers: Uranium",
-      "industry news: Uranium"
+      "industry core tickers: Uranium"
     ],
-    "publishedAt": "2026-10-14T15:05:50.446287+00:00"
+    "publishedAt": "2026-10-14T15:07:41.779149+00:00",
+    "newsCheckedAt": "2026-10-14T15:07:12+00:00"
   },
   "assets": {
     "SPY": {
@@ -1252,8 +1246,108 @@
       }
     },
     "coreTickerCache": {},
-    "news": {},
-    "researchAt": null
+    "news": {
+      "Drug Manufacturers - General": {
+        "kind": "reported",
+        "text": "热于预期的CPI压制大盘时，医疗保健成为防御性强势板块；AMGN、MRK等大型药企上涨，但未发现全行业统一公司事件。",
+        "publishedAt": "2026-10-14",
+        "expiresAt": "2026-10-15T20:00:00Z",
+        "sources": [
+          {
+            "name": "Barron's",
+            "url": "https://www.barrons.com/livecoverage/stock-market-news-today-101426/card/why-is-the-dow-rising-look-at-healthcare-and-staples--zVXS4WXNZqqPAcGq1Kwm"
+          },
+          {
+            "name": "MarketWatch",
+            "url": "https://www.marketwatch.com/data-news/dow-rallies-184-points-on-gains-for-shares-of-unitedhealth-amgen-66cb435a-a4f23acb0a46"
+          }
+        ],
+        "checkedAt": "2026-10-14T15:07:12+00:00"
+      },
+      "Healthcare Plans": {
+        "kind": "reported",
+        "text": "UnitedHealth盘中上涨约4.2%，成为医疗保健与道指走强的重要贡献者；这是权重股驱动，不能确认所有医保股存在共同新增事件。",
+        "publishedAt": "2026-10-14T13:48:00Z",
+        "expiresAt": "2026-10-15T20:00:00Z",
+        "sources": [
+          {
+            "name": "MarketWatch",
+            "url": "https://www.marketwatch.com/data-news/dow-rallies-184-points-on-gains-for-shares-of-unitedhealth-amgen-66cb435a-a4f23acb0a46"
+          }
+        ],
+        "checkedAt": "2026-10-14T15:07:12+00:00"
+      },
+      "Discount Stores": {
+        "kind": "inference",
+        "text": "消费必需品在热CPI后的防御轮动中走强，WMT亦上涨；折扣零售受益于价值消费叙事，但本轮行业上涨的统一因果尚未完全确认。",
+        "publishedAt": "2026-10-14",
+        "expiresAt": "2026-10-15T20:00:00Z",
+        "sources": [
+          {
+            "name": "Barron's",
+            "url": "https://www.barrons.com/livecoverage/stock-market-news-today-101426/card/why-is-the-dow-rising-look-at-healthcare-and-staples--zVXS4WXNZqqPAcGq1Kwm"
+          },
+          {
+            "name": "MarketWatch",
+            "url": "https://www.marketwatch.com/data-news/dow-rallies-184-points-on-gains-for-shares-of-unitedhealth-amgen-66cb435a-a4f23acb0a46"
+          }
+        ],
+        "checkedAt": "2026-10-14T15:07:12+00:00"
+      },
+      "Silver": {
+        "kind": "reported",
+        "text": "热于预期的CPI推高短端收益率和美元，现货白银下跌约2%；无息贵金属承压与白银矿业股下跌方向一致。",
+        "publishedAt": "2026-10-14",
+        "expiresAt": "2026-10-15T20:00:00Z",
+        "sources": [
+          {
+            "name": "Benzinga",
+            "url": "https://www.benzinga.com/markets/equities/26/10/62352969/hot-cpi-10-stocks-falling-premarket-inflation-report"
+          },
+          {
+            "name": "Charles Schwab",
+            "url": "https://www.schwab.com/learn/story/stock-market-update-open"
+          }
+        ],
+        "checkedAt": "2026-10-14T15:07:12+00:00"
+      },
+      "Utilities - Independent Power Producers": {
+        "kind": "inference",
+        "text": "热CPI后收益率上升压制高估值、资本密集型电力股；PJM容量拍卖延后仍是行业背景，但未找到盘中新的统一公司事件。",
+        "publishedAt": "2026-10-14",
+        "expiresAt": "2026-10-15T20:00:00Z",
+        "sources": [
+          {
+            "name": "Charles Schwab",
+            "url": "https://www.schwab.com/learn/story/stock-market-update-open"
+          },
+          {
+            "name": "S&P Global",
+            "url": "https://www.spglobal.com/market-intelligence/en/news-insights/articles/2026/10/pjm-auction-delay-complicates-independent-power-producers-stock-price-recovery-106494914"
+          }
+        ],
+        "checkedAt": "2026-10-14T15:07:12+00:00"
+      },
+      "Uranium": {
+        "kind": "inference",
+        "text": "高收益率环境与AI核能交易去杠杆继续压制铀矿及核能股票；未发现铀现货基本面同步恶化或盘中统一新增事件。",
+        "publishedAt": "2026-10-14",
+        "expiresAt": "2026-10-15T20:00:00Z",
+        "sources": [
+          {
+            "name": "Charles Schwab",
+            "url": "https://www.schwab.com/learn/story/stock-market-update-open"
+          },
+          {
+            "name": "The Closing Print",
+            "url": "https://theclosingprint.net/2026/10/uranium-market-deep-dive-2026-10-12/"
+          }
+        ],
+        "checkedAt": "2026-10-14T15:07:12+00:00"
+      }
+    },
+    "researchAt": "2026-10-14T15:07:12Z",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
@@ -1287,22 +1381,30 @@
     },
     "crypto": {
       "kind": "reported",
-      "text": "比特币在美国CPI公布前维持约8.3万美元附近震荡，亚洲风险资产抛售伴随大额加密清算；宏观不确定性与板块盘前走弱方向一致，但不是COIN、MSTR共同公司事件。",
-      "publishedAt": "2026-10-14",
+      "text": "美国CPI高于预期推升加息押注，比特币随即跌破约8.3万美元；更高收益率与美元走强对币价及COIN、MSTR形成共同压力。",
+      "publishedAt": "2026-10-14T13:29:00Z",
       "expiresAt": "2026-10-15T13:30:00Z",
       "sources": [
         {
-          "name": "CoinDesk",
-          "url": "https://www.coindesk.com/markets/2026/10/13/live-updates-bitcoin-whipsaws-between-usd81-000-and-usd84-000-as-altcoins-slide"
+          "name": "Dow Jones Newswires",
+          "url": "https://www.marketscreener.com/news/bitcoin-falls-on-hot-inflation-print-update-ce785dd2df8ef327"
+        },
+        {
+          "name": "Charles Schwab",
+          "url": "https://www.schwab.com/learn/story/stock-market-update-open"
         }
       ]
     },
     "cloud": {
       "kind": "reported",
-      "text": "FT报道CoreWeave寻求以芯片抵押融资吸引保险资金，其高杠杆扩张再受关注；这是CRWV公司级融资背景，不能单独解释IREN与NBIS同步下跌。",
-      "publishedAt": "2026-10-14T04:00:04Z",
+      "text": "美国核心CPI高于预期后短端利率与加息预期上升，长久期AI基础设施股承压；CRWV的高杠杆融资背景又放大估值敏感性，但并非三家公司共同事件。",
+      "publishedAt": "2026-10-14",
       "expiresAt": "2026-10-15T20:00:00Z",
       "sources": [
+        {
+          "name": "Charles Schwab",
+          "url": "https://www.schwab.com/learn/story/stock-market-update-open"
+        },
         {
           "name": "Financial Times",
           "url": "https://www.ft.com/content/4ffa1853-0e2c-424f-b941-88c6bcac5765"
