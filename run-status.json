@@ -1,12 +1,17 @@
 {
-  "session": "close",
-  "marketDate": "2026-10-13",
-  "startedAt": "2026-10-13T20:27:59.343252+00:00",
-  "deadlineAt": "2026-10-13T20:37:59.343252+00:00",
+  "session": "premarket",
+  "marketDate": "2026-10-14",
+  "startedAt": "2026-10-14T13:05:29.229209+00:00",
+  "deadlineAt": "2026-10-14T13:15:29.229209+00:00",
   "status": "partial",
-  "completedAt": "2026-10-13T20:30:04.153537+00:00",
+  "completedAt": "2026-10-14T13:07:20.050470+00:00",
   "missing": [
-    "breadth"
-  ],
-  "newsPatchApplied": true
+    "VIX",
+    "RSP",
+    "SPMO",
+    "VIX3M",
+    "breadth",
+    "battlefield news review",
+    "industry leaderboard"
+  ]
 }
