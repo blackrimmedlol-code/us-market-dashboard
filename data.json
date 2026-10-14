@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-15T04:26:24.188297+08:00",
+    "updatedAt": "2026-10-14T20:27:54.055229+00:00",
     "asOf": "2026-10-14T20:00:00+00:00",
     "marketDate": "2026-10-14",
     "session": "close",
@@ -16,19 +16,13 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-14-close.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
-      "breadth",
-      "battlefield news review",
-      "industry news: Discount Stores",
-      "industry news: Healthcare Plans",
-      "industry news: Drug Manufacturers - General",
-      "industry news: Electrical Equipment & Parts",
-      "industry news: Computer Hardware",
-      "industry news: Uranium"
+      "breadth"
     ],
-    "publishedAt": "2026-10-14T20:26:45.403148+00:00"
+    "publishedAt": "2026-10-14T20:27:54.055229+00:00",
+    "newsCheckedAt": "2026-10-14T20:27:41+00:00"
   },
   "assets": {
     "SPY": {
@@ -1589,7 +1583,8 @@
             "url": "https://www.barrons.com/articles/eli-lilly-merck-abbvie-stocks-healthcare-b5846f07"
           }
         ],
-        "checkedAt": "2026-10-14T18:10:09+00:00"
+        "checkedAt": "2026-10-14T18:10:09+00:00",
+        "reusedAt": "2026-10-14T20:27:54.055229+00:00"
       },
       "Healthcare Plans": {
         "kind": "reported",
@@ -1602,7 +1597,8 @@
             "url": "https://www.barrons.com/articles/eli-lilly-merck-abbvie-stocks-healthcare-b5846f07"
           }
         ],
-        "checkedAt": "2026-10-14T18:10:09+00:00"
+        "checkedAt": "2026-10-14T18:10:09+00:00",
+        "reusedAt": "2026-10-14T20:27:54.055229+00:00"
       },
       "Discount Stores": {
         "kind": "inference",
@@ -1619,15 +1615,39 @@
             "url": "https://www.marketwatch.com/data-news/dow-rallies-184-points-on-gains-for-shares-of-unitedhealth-amgen-66cb435a-a4f23acb0a46"
           }
         ],
-        "checkedAt": "2026-10-14T18:10:09+00:00"
+        "checkedAt": "2026-10-14T18:10:09+00:00",
+        "reusedAt": "2026-10-14T20:27:54.055229+00:00"
       },
       "Electrical Equipment & Parts": {
         "kind": "unknown",
-        "text": "已检索本轮新增消息，未确认能够统一解释电气设备与零部件行业跌幅的共同事件。",
-        "checkedAt": "2026-10-14T18:10:09+00:00"
+        "text": "已复核收盘前新增消息；VRT等数据中心相关设备股随AI交易回落，但未确认能够统一解释全行业跌幅的共同事件。",
+        "checkedAt": "2026-10-14T20:27:41+00:00"
+      },
+      "Computer Hardware": {
+        "kind": "reported",
+        "text": "Barclays因企业AI支出增长疑虑下调DELL、HPE和NTAP评级，DELL收跌约11%；这是部分硬件股催化，不能单独解释ANET、SNDK、STX。",
+        "publishedAt": "2026-10-14",
+        "expiresAt": "2026-10-15T20:30:00Z",
+        "sources": [
+          {
+            "name": "Investopedia",
+            "url": "https://www.investopedia.com/market-update-dell-hpe-and-netapp-stocks-slump-after-downgrades-on-worries-about-ai-spending-12173932"
+          },
+          {
+            "name": "Reuters",
+            "url": "https://www.reuters.com/business/sp-500-dow-futures-rise-ahead-big-bank-results-cpi-data-2026-10-14/"
+          }
+        ],
+        "checkedAt": "2026-10-14T20:27:41+00:00"
+      },
+      "Uranium": {
+        "kind": "unknown",
+        "text": "已复核收盘前新增消息，未发现能够统一解释铀矿行业继续下跌的新增基本面事件。",
+        "checkedAt": "2026-10-14T20:27:41+00:00"
       }
     },
-    "researchAt": "2026-10-14T18:10:09Z"
+    "researchAt": "2026-10-14T20:27:41Z",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
@@ -1677,13 +1697,13 @@
     },
     "cloud": {
       "kind": "reported",
-      "text": "热CPI重新推高加息押注，债务密集型AI基础设施股午后继续承压；Reuters称IREN、NBIS、CRWV均明显下跌，融资成本担忧构成共同压力。",
-      "publishedAt": "2026-10-14T16:11:00Z",
-      "expiresAt": "2026-10-15T16:15:00Z",
+      "text": "热CPI与融资成本担忧推动AI基础设施股收盘延续抛售，CRWV约跌16%、NBIS约跌11%；共同压力来自资本密集度与高利率敏感性。",
+      "publishedAt": "2026-10-14",
+      "expiresAt": "2026-10-15T20:30:00Z",
       "sources": [
         {
           "name": "Reuters",
-          "url": "https://www.investing.com/news/economy-news/ai-infrastructure-firms-slump-as-us-rate-hike-bets-rise-4949759"
+          "url": "https://www.reuters.com/business/red-hot-cpi-report-fuels-ai-rout-2026-10-14/"
         }
       ]
     }

@@ -4,15 +4,9 @@
   "startedAt": "2026-10-14T20:26:09.112112+00:00",
   "deadlineAt": "2026-10-14T20:36:09.112112+00:00",
   "status": "partial",
-  "completedAt": "2026-10-14T20:26:45.405050+00:00",
+  "completedAt": "2026-10-14T20:27:54.204571+00:00",
   "missing": [
-    "breadth",
-    "battlefield news review",
-    "industry news: Discount Stores",
-    "industry news: Healthcare Plans",
-    "industry news: Drug Manufacturers - General",
-    "industry news: Electrical Equipment & Parts",
-    "industry news: Computer Hardware",
-    "industry news: Uranium"
-  ]
+    "breadth"
+  ],
+  "newsPatchApplied": true
 }
