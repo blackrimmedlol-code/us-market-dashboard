@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-14T21:07:19.104122+08:00",
+    "updatedAt": "2026-10-14T13:08:50.463318+00:00",
     "asOf": "2026-10-14T13:07:19.098583+00:00",
     "marketDate": "2026-10-14",
     "session": "premarket",
@@ -16,7 +16,7 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-14-premarket.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
       "VIX",
@@ -24,10 +24,10 @@
       "SPMO",
       "VIX3M",
       "breadth",
-      "battlefield news review",
       "industry leaderboard"
     ],
-    "publishedAt": "2026-10-14T13:07:20.048601+00:00"
+    "publishedAt": "2026-10-14T13:08:50.463318+00:00",
+    "newsCheckedAt": "2026-10-14T13:08:28+00:00"
   },
   "assets": {
     "SPY": {
@@ -1153,7 +1153,7 @@
     "marketDate": "2026-10-14",
     "targetAsOf": "2026-10-14T13:07:19.098583+00:00",
     "asOf": null,
-    "fetchedAt": "2026-10-14T13:07:19.104122+00:00",
+    "fetchedAt": "2026-10-14T13:08:50.463305+00:00",
     "returnBasis": "daily",
     "universe": "Finviz 全部细分行业（提供方口径）",
     "universeCount": 0,
@@ -1162,22 +1162,23 @@
     "rows": [],
     "gainers": [],
     "losers": [],
-    "note": "盘前无可核实的全市场细分行业口径"
+    "note": "盘前无可核实的全市场细分行业口径",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
       "kind": "reported",
-      "text": "Reuters与Investopedia报道，CXMT存储技术进展引发竞争担忧，叠加AI资本开支持续性疑虑，MU、SNDK、SKHY及DRAM同步承压；商业化能力仍未得到确认。",
-      "publishedAt": "2026-10-13",
-      "expiresAt": "2026-10-14T20:00:00Z",
+      "text": "存储股盘前延续下跌；CXMT技术进展引发的竞争担忧与AI资本开支持续性疑虑仍在发酵，但其商业化能力尚未确认。",
+      "publishedAt": "2026-10-14",
+      "expiresAt": "2026-10-15T20:00:00Z",
       "sources": [
+        {
+          "name": "Investopedia",
+          "url": "https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-on-wednesday-october-14-2026-12173013"
+        },
         {
           "name": "Reuters",
           "url": "https://www.reuters.com/world/china/us-chip-stocks-extend-slide-china-memory-report-ai-spending-jitters-hit-sector-2026-10-13/"
-        },
-        {
-          "name": "Investopedia",
-          "url": "https://www.investopedia.com/market-update-memory-stocks-extend-slide-on-news-of-design-breakthrough-in-china-12171774"
         }
       ]
     },
@@ -1196,29 +1197,27 @@
     },
     "crypto": {
       "kind": "reported",
-      "text": "CoinDesk称BTC周末反弹至84000美元上方、ETH等主要币种同步走强，同时上周现货BTC ETF净流出逾6亿美元；币价修复与资金流压力并存，并非COIN或MSTR公司级事件。",
-      "publishedAt": "2026-10-12T08:49:00Z",
-      "expiresAt": "2026-10-13T20:00:00Z",
+      "text": "比特币在美国CPI公布前维持约8.3万美元附近震荡，亚洲风险资产抛售伴随大额加密清算；宏观不确定性与板块盘前走弱方向一致，但不是COIN、MSTR共同公司事件。",
+      "publishedAt": "2026-10-14",
+      "expiresAt": "2026-10-15T13:30:00Z",
       "sources": [
         {
           "name": "CoinDesk",
-          "url": "https://www.coindesk.com/markets/2026/10/12/bitcoin-shrugs-off-etf-outflows-to-trade-above-usd84-000-as-oil-falls"
+          "url": "https://www.coindesk.com/markets/2026/10/13/live-updates-bitcoin-whipsaws-between-usd81-000-and-usd84-000-as-altcoins-slide"
         }
-      ],
-      "afterSnapshot": false
+      ]
     },
     "cloud": {
       "kind": "reported",
-      "text": "IBD援引The Information称IREN与Anthropic签署多年云服务协议，IREN盘前走强；该事件直接关联IREN，但不是NBIS或CRWV的公司级新增消息。",
-      "publishedAt": "2026-10-12T12:31:00Z",
-      "expiresAt": "2026-10-13T20:00:00Z",
+      "text": "FT报道CoreWeave寻求以芯片抵押融资吸引保险资金，其高杠杆扩张再受关注；这是CRWV公司级融资背景，不能单独解释IREN与NBIS同步下跌。",
+      "publishedAt": "2026-10-14T04:00:04Z",
+      "expiresAt": "2026-10-15T20:00:00Z",
       "sources": [
         {
-          "name": "Investor's Business Daily",
-          "url": "https://www.investors.com/news/iren-stock-anthropic-ai-cloud-services-deal-data-center-buildout-reports/"
+          "name": "Financial Times",
+          "url": "https://www.ft.com/content/4ffa1853-0e2c-424f-b941-88c6bcac5765"
         }
-      ],
-      "afterSnapshot": false
+      ]
     }
   },
   "cta": {

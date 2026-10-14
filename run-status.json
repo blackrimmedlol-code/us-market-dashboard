@@ -4,14 +4,14 @@
   "startedAt": "2026-10-14T13:05:29.229209+00:00",
   "deadlineAt": "2026-10-14T13:15:29.229209+00:00",
   "status": "partial",
-  "completedAt": "2026-10-14T13:07:20.050470+00:00",
+  "completedAt": "2026-10-14T13:08:50.611992+00:00",
   "missing": [
     "VIX",
     "RSP",
     "SPMO",
     "VIX3M",
     "breadth",
-    "battlefield news review",
     "industry leaderboard"
-  ]
+  ],
+  "newsPatchApplied": true
 }
