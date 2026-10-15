@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-15T23:06:58.733519+08:00",
+    "updatedAt": "2026-10-15T15:09:53.577763+00:00",
     "asOf": "2026-10-15T15:00:00+00:00",
     "marketDate": "2026-10-15",
     "session": "intraday",
@@ -16,25 +16,19 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-15-intraday.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
       "breadth",
-      "battlefield news review",
       "industry core tickers: Recreational Vehicles",
-      "industry news: Recreational Vehicles",
       "industry core tickers: Auto & Truck Dealerships",
-      "industry news: Auto & Truck Dealerships",
       "industry core tickers: Insurance Brokers",
-      "industry news: Insurance Brokers",
       "industry core tickers: Computer Hardware",
-      "industry news: Computer Hardware",
       "industry core tickers: Electrical Equipment & Parts",
-      "industry news: Electrical Equipment & Parts",
-      "industry core tickers: Electronics & Computer Distribution",
-      "industry news: Electronics & Computer Distribution"
+      "industry core tickers: Electronics & Computer Distribution"
     ],
-    "publishedAt": "2026-10-15T15:07:17.917409+00:00"
+    "publishedAt": "2026-10-15T15:09:53.577763+00:00",
+    "newsCheckedAt": "2026-10-15T15:09:23+00:00"
   },
   "assets": {
     "SPY": {
@@ -1252,31 +1246,71 @@
       }
     },
     "coreTickerCache": {},
-    "news": {},
-    "researchAt": null
+    "news": {
+      "Recreational Vehicles": {
+        "kind": "unknown",
+        "text": "已检索当日行业与主要公司消息，未找到可验证本轮上涨原因的行业级事件；原因待核实。",
+        "checkedAt": "2026-10-15T15:09:23+00:00"
+      },
+      "Auto & Truck Dealerships": {
+        "kind": "unknown",
+        "text": "已检索当日汽车零售与经销商消息，未找到可验证本轮上涨原因的共同事件；原因待核实。",
+        "checkedAt": "2026-10-15T15:09:23+00:00"
+      },
+      "Insurance Brokers": {
+        "kind": "unknown",
+        "text": "已检索当日保险经纪行业消息，未找到可验证本轮上涨原因的共同事件；原因待核实。",
+        "checkedAt": "2026-10-15T15:09:23+00:00"
+      },
+      "Computer Hardware": {
+        "kind": "reported",
+        "text": "科技与AI相关资产早盘普遍承压，利率与AI债务担忧构成硬件板块的共同背景；这不是对全部成分股下跌因果的确认。",
+        "publishedAt": "2026-10-15",
+        "expiresAt": "2026-10-16T15:00:00Z",
+        "sources": [
+          {
+            "name": "The Guardian",
+            "url": "https://www.theguardian.com/business/2026/oct/15/tech-market-sell-off-deepens-amid-fears-over-us-inflation-and-ai-debt"
+          }
+        ],
+        "checkedAt": "2026-10-15T15:09:23+00:00"
+      },
+      "Electrical Equipment & Parts": {
+        "kind": "unknown",
+        "text": "已检索当日行业及主要成分公司消息，未找到可验证本轮下跌原因的共同事件；原因待核实。",
+        "checkedAt": "2026-10-15T15:09:23+00:00"
+      },
+      "Electronics & Computer Distribution": {
+        "kind": "unknown",
+        "text": "已检索当日电子与电脑分销行业消息，未找到可验证本轮下跌原因的共同事件；原因待核实。",
+        "checkedAt": "2026-10-15T15:09:23+00:00"
+      }
+    },
+    "researchAt": "2026-10-15T15:09:23+00:00",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
       "kind": "reported",
-      "text": "全球存储股盘前继续下挫，WDC、SNDK、STX、MU跌幅均超过4%；中国存储竞争、AI融资压力与估值担忧共同压制情绪。",
-      "publishedAt": "2026-10-15",
-      "expiresAt": "2026-10-16T13:00:00Z",
+      "text": "存储股早盘延续普跌，MU、SNDK、SKHY、WDC均明显回落；中国存储技术进展、AI融资压力与估值担忧仍是共同背景，不能据此断言单一原因。",
+      "publishedAt": "2026-10-15T13:22:30Z",
+      "expiresAt": "2026-10-16T15:00:00Z",
       "sources": [
+        {
+          "name": "Investopedia",
+          "url": "https://www.investopedia.com/market-update-ai-trade-takes-another-hit-thursday-as-tech-sell-off-continues-12174857"
+        },
         {
           "name": "Financial Times",
           "url": "https://www.ft.com/content/cf5f1209-da29-4ce1-b425-0e83818bf9ec"
-        },
-        {
-          "name": "Barron's",
-          "url": "https://www.barrons.com/articles/micron-stock-price-memory-chips-3ad18124"
         }
       ]
     },
     "space": {
       "kind": "reported",
-      "text": "RKLB将Neutron首次发射推迟至2027年，盘前下跌约9%；这是RKLB公司级事件，不能单独解释SPCX与ASTS同步走弱。",
+      "text": "RKLB把Neutron首次发射推迟至2027年后早盘跌幅扩大；这是RKLB公司级事件，不能单独解释SPCX与ASTS同步走弱。",
       "publishedAt": "2026-10-15T10:24:51Z",
-      "expiresAt": "2026-10-16T13:00:00Z",
+      "expiresAt": "2026-10-16T15:00:00Z",
       "sources": [
         {
           "name": "The Wall Street Journal",
@@ -1286,7 +1320,7 @@
     },
     "crypto": {
       "kind": "reported",
-      "text": "热于预期的PPI延续利率不确定性，比特币盘前回落至约8.07万美元；币价与COIN、MSTR同步走弱，但并非两家公司共同经营事件。",
+      "text": "早间通胀数据曾压低比特币及加密股，但截至本轮快照BTC、ETH与两只股票涨幅转正，30分钟股票结构仍分化，早间消息不能解释当前上涨。",
       "publishedAt": "2026-10-15T12:52:00Z",
       "expiresAt": "2026-10-16T13:00:00Z",
       "sources": [
@@ -1302,13 +1336,17 @@
     },
     "cloud": {
       "kind": "reported",
-      "text": "AI融资与高利率担忧延续，CRWV继前一日重挫后盘前再跌约6.3%；共同压力仍集中在资本密集型扩张与融资成本。",
-      "publishedAt": "2026-10-15",
-      "expiresAt": "2026-10-16T13:00:00Z",
+      "text": "CRWV债券收益率升至约16%附近后，CRWV、NBIS与IREN早盘继续下跌；市场聚焦资本密集型扩张的信用与融资风险。",
+      "publishedAt": "2026-10-15T14:33:00Z",
+      "expiresAt": "2026-10-16T15:00:00Z",
       "sources": [
         {
-          "name": "Reuters",
-          "url": "https://www.reuters.com/business/nasdaq-futures-dive-1-ai-rout-deepens-debt-concerns-2026-10-15/"
+          "name": "Barron's",
+          "url": "https://www.barrons.com/articles/coreweave-stock-price-ai-debt-nvidia-rescue-3fb8a7f2"
+        },
+        {
+          "name": "Investopedia",
+          "url": "https://www.investopedia.com/market-update-ai-trade-takes-another-hit-thursday-as-tech-sell-off-continues-12174857"
         }
       ]
     }
