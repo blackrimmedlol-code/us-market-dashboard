@@ -4,19 +4,13 @@
   "startedAt": "2026-10-15T18:05:41.421143+00:00",
   "deadlineAt": "2026-10-15T18:15:41.421143+00:00",
   "status": "partial",
-  "completedAt": "2026-10-15T18:06:15.849896+00:00",
+  "completedAt": "2026-10-15T18:07:46.998382+00:00",
   "missing": [
     "breadth",
-    "battlefield news review",
     "industry core tickers: Recreational Vehicles",
-    "industry news: Recreational Vehicles",
-    "industry news: Footwear & Accessories",
     "industry core tickers: Auto & Truck Dealerships",
-    "industry news: Auto & Truck Dealerships",
-    "industry news: Computer Hardware",
     "industry core tickers: Electronics & Computer Distribution",
-    "industry news: Electronics & Computer Distribution",
-    "industry core tickers: Electrical Equipment & Parts",
-    "industry news: Electrical Equipment & Parts"
-  ]
+    "industry core tickers: Electrical Equipment & Parts"
+  ],
+  "newsPatchApplied": true
 }
