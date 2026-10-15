@@ -1,17 +1,24 @@
 {
-  "session": "premarket",
+  "session": "intraday",
   "marketDate": "2026-10-15",
-  "startedAt": "2026-10-15T13:06:22.918779+00:00",
-  "deadlineAt": "2026-10-15T13:16:22.918779+00:00",
+  "startedAt": "2026-10-15T15:06:38.270225+00:00",
+  "deadlineAt": "2026-10-15T15:16:38.270225+00:00",
   "status": "partial",
-  "completedAt": "2026-10-15T13:08:53.599419+00:00",
+  "completedAt": "2026-10-15T15:07:17.919450+00:00",
   "missing": [
-    "VIX",
-    "RSP",
-    "SPMO",
-    "VIX3M",
     "breadth",
-    "industry leaderboard"
-  ],
-  "newsPatchApplied": true
+    "battlefield news review",
+    "industry core tickers: Recreational Vehicles",
+    "industry news: Recreational Vehicles",
+    "industry core tickers: Auto & Truck Dealerships",
+    "industry news: Auto & Truck Dealerships",
+    "industry core tickers: Insurance Brokers",
+    "industry news: Insurance Brokers",
+    "industry core tickers: Computer Hardware",
+    "industry news: Computer Hardware",
+    "industry core tickers: Electrical Equipment & Parts",
+    "industry news: Electrical Equipment & Parts",
+    "industry core tickers: Electronics & Computer Distribution",
+    "industry news: Electronics & Computer Distribution"
+  ]
 }
