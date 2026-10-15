@@ -4,17 +4,11 @@
   "startedAt": "2026-10-15T20:28:16.724679+00:00",
   "deadlineAt": "2026-10-15T20:38:16.724679+00:00",
   "status": "partial",
-  "completedAt": "2026-10-15T20:29:01.467242+00:00",
+  "completedAt": "2026-10-15T20:30:58.359402+00:00",
   "missing": [
     "breadth",
-    "battlefield news review",
     "industry core tickers: Recreational Vehicles",
-    "industry news: Recreational Vehicles",
-    "industry news: Advertising Agencies",
-    "industry news: Mortgage Finance",
-    "industry news: Computer Hardware",
-    "industry news: Electronics & Computer Distribution",
-    "industry core tickers: Oil & Gas Refining & Marketing",
-    "industry news: Oil & Gas Refining & Marketing"
-  ]
+    "industry core tickers: Oil & Gas Refining & Marketing"
+  ],
+  "newsPatchApplied": true
 }

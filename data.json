@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-16T04:28:36.707463+08:00",
+    "updatedAt": "2026-10-15T20:30:58.232990+00:00",
     "asOf": "2026-10-15T20:00:00+00:00",
     "marketDate": "2026-10-15",
     "session": "close",
@@ -16,21 +16,15 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-15-close.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
       "breadth",
-      "battlefield news review",
       "industry core tickers: Recreational Vehicles",
-      "industry news: Recreational Vehicles",
-      "industry news: Advertising Agencies",
-      "industry news: Mortgage Finance",
-      "industry news: Computer Hardware",
-      "industry news: Electronics & Computer Distribution",
-      "industry core tickers: Oil & Gas Refining & Marketing",
-      "industry news: Oil & Gas Refining & Marketing"
+      "industry core tickers: Oil & Gas Refining & Marketing"
     ],
-    "publishedAt": "2026-10-15T20:29:01.465305+00:00"
+    "publishedAt": "2026-10-15T20:30:58.232990+00:00",
+    "newsCheckedAt": "2026-10-15T20:30:27+00:00"
   },
   "assets": {
     "SPY": {
@@ -1549,37 +1543,72 @@
     "news": {
       "Recreational Vehicles": {
         "kind": "unknown",
-        "text": "已复核当日休闲车行业及主要公司消息，未找到可验证本轮上涨原因的共同事件；原因待核实。",
-        "checkedAt": "2026-10-15T18:07:19+00:00"
+        "text": "已复核当日休闲车行业及主要公司消息，未找到可验证收盘上涨原因的共同事件；原因待核实。",
+        "checkedAt": "2026-10-15T20:30:27+00:00"
       },
       "Computer Hardware": {
         "kind": "reported",
-        "text": "科技与AI相关资产早盘普遍承压，利率与AI债务担忧构成硬件板块的共同背景；这不是对全部成分股下跌因果的确认。",
+        "text": "AI与硬件抛售尾盘有所收窄，但DELL等仍明显收跌；融资成本与AI债务担忧是共同背景，不代表全部成分的单一跌因。",
         "publishedAt": "2026-10-15",
-        "expiresAt": "2026-10-16T15:00:00Z",
+        "expiresAt": "2026-10-16T20:00:00Z",
         "sources": [
           {
-            "name": "The Guardian",
-            "url": "https://www.theguardian.com/business/2026/oct/15/tech-market-sell-off-deepens-amid-fears-over-us-inflation-and-ai-debt"
+            "name": "Reuters",
+            "url": "https://www.reuters.com/business/red-hot-cpi-report-fuels-ai-rout-2026-10-14/"
           }
         ],
-        "checkedAt": "2026-10-15T15:09:23+00:00",
-        "reusedAt": "2026-10-15T18:07:46.840414+00:00"
+        "checkedAt": "2026-10-15T20:30:27+00:00"
       },
       "Electronics & Computer Distribution": {
         "kind": "unknown",
-        "text": "已复核当日电子与电脑分销消息；DigiKey扩建为单一公司事件，未找到可验证本轮行业下跌的共同原因。",
-        "checkedAt": "2026-10-15T18:07:19+00:00"
+        "text": "已复核SNX、ARW、AVT、NSIT及行业消息，未找到可验证本轮行业下跌的共同事件；原因待核实。",
+        "checkedAt": "2026-10-15T20:30:27+00:00"
+      },
+      "Advertising Agencies": {
+        "kind": "unknown",
+        "text": "已复核APP、OMC、TTD与WPP消息；个股表现不一，未找到可验证行业领涨的统一事件，原因待核实。",
+        "checkedAt": "2026-10-15T20:30:27+00:00"
+      },
+      "Mortgage Finance": {
+        "kind": "reported",
+        "text": "30年按揭利率结束连续七周上升并持平于7.40%，同期10年期美债收益率回落；可构成板块背景，但未证实为全部成分上涨的直接原因。",
+        "publishedAt": "2026-10-15T16:01:04Z",
+        "expiresAt": "2026-10-16T20:00:00Z",
+        "sources": [
+          {
+            "name": "Freddie Mac",
+            "url": "https://freddiemac.gcs-web.com/news-releases/news-release-details/mortgage-rates-hold-steady-740"
+          },
+          {
+            "name": "Associated Press",
+            "url": "https://apnews.com/article/ae938216d9d45a4e2c829845b40d83f5"
+          }
+        ],
+        "checkedAt": "2026-10-15T20:30:27+00:00"
+      },
+      "Oil & Gas Refining & Marketing": {
+        "kind": "reported",
+        "text": "Brent当日下跌约1.9%，纽约321裂解价差下跌约5.4%，构成炼化板块的共同压力背景；未证实为全部成分下跌的唯一原因。",
+        "publishedAt": "2026-10-15",
+        "expiresAt": "2026-10-16T20:00:00Z",
+        "sources": [
+          {
+            "name": "Morgan Downey Commodity News",
+            "url": "https://commoditynews.morgandowney.com/news/2026-10-15"
+          }
+        ],
+        "checkedAt": "2026-10-15T20:30:27+00:00"
       }
     },
-    "researchAt": "2026-10-15T18:07:19+00:00"
+    "researchAt": "2026-10-15T20:30:27+00:00",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
       "kind": "reported",
-      "text": "AI抛售午后放缓但存储股仍承压，SNDK、MU等延续弱势；中国存储竞争与AI融资担忧仍是背景，不能据此确认单一跌因。",
+      "text": "存储股收盘仍低于昨收，但尾盘结构转强；AI抛售放缓与逢低买盘提供背景，中国存储竞争担忧仍未消退。",
       "publishedAt": "2026-10-15",
-      "expiresAt": "2026-10-16T18:00:00Z",
+      "expiresAt": "2026-10-16T20:00:00Z",
       "sources": [
         {
           "name": "Reuters",
@@ -1593,25 +1622,21 @@
     },
     "space": {
       "kind": "reported",
-      "text": "RKLB确认Neutron因生产流程问题推迟至2027年，午后仍跌近10%；这是RKLB公司级事件，不能单独解释SPCX与ASTS走势。",
+      "text": "RKLB因Neutron生产流程问题推迟至2027年而明显收跌；这是RKLB公司级事件，不能单独解释SPCX与ASTS走势。",
       "publishedAt": "2026-10-15T16:27:39Z",
-      "expiresAt": "2026-10-16T18:00:00Z",
+      "expiresAt": "2026-10-16T20:00:00Z",
       "sources": [
         {
           "name": "Investopedia",
           "url": "https://www.investopedia.com/market-update-rocket-lab-stock-tumbles-after-launch-delay-rklb-12175215"
-        },
-        {
-          "name": "The Wall Street Journal",
-          "url": "https://www.wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-10-15-2026/card/stocks-to-watch-coreweave-tsmc-rocket-lab-moWRqcpNFQnPzm0OM5Xz"
         }
       ]
     },
     "crypto": {
       "kind": "reported",
-      "text": "BTC盘中跌破8万美元后回升，MSTR则在MSCI分类决定前出现缓解性买盘；两只股票与币价当前向上，但MSTR事件并非板块共同催化。",
+      "text": "BTC盘中跌破8万美元后回升，COIN与MSTR收盘继续向上；MSTR在MSCI分类决定前的缓解性买盘属于公司级因素，并非共同催化。",
       "publishedAt": "2026-10-15",
-      "expiresAt": "2026-10-16T18:00:00Z",
+      "expiresAt": "2026-10-16T20:00:00Z",
       "sources": [
         {
           "name": "CoinScreamer",
@@ -1625,9 +1650,9 @@
     },
     "cloud": {
       "kind": "reported",
-      "text": "CRWV午后从早盘约10%的跌幅中反弹，债券收益率仍曾升至约16%；板块跌幅收窄，但高杠杆与融资成本担忧未消失。",
+      "text": "CRWV从早盘重挫中反弹，带动新云收盘转涨并形成向上结构；债券收益率一度超过15%，信用与融资风险仍是主要反向证据。",
       "publishedAt": "2026-10-15",
-      "expiresAt": "2026-10-16T18:00:00Z",
+      "expiresAt": "2026-10-16T20:00:00Z",
       "sources": [
         {
           "name": "Reuters",
