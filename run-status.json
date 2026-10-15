@@ -1,16 +1,20 @@
 {
-  "session": "late",
+  "session": "close",
   "marketDate": "2026-10-15",
-  "startedAt": "2026-10-15T18:05:41.421143+00:00",
-  "deadlineAt": "2026-10-15T18:15:41.421143+00:00",
+  "startedAt": "2026-10-15T20:28:16.724679+00:00",
+  "deadlineAt": "2026-10-15T20:38:16.724679+00:00",
   "status": "partial",
-  "completedAt": "2026-10-15T18:07:46.998382+00:00",
+  "completedAt": "2026-10-15T20:29:01.467242+00:00",
   "missing": [
     "breadth",
+    "battlefield news review",
     "industry core tickers: Recreational Vehicles",
-    "industry core tickers: Auto & Truck Dealerships",
-    "industry core tickers: Electronics & Computer Distribution",
-    "industry core tickers: Electrical Equipment & Parts"
-  ],
-  "newsPatchApplied": true
+    "industry news: Recreational Vehicles",
+    "industry news: Advertising Agencies",
+    "industry news: Mortgage Finance",
+    "industry news: Computer Hardware",
+    "industry news: Electronics & Computer Distribution",
+    "industry core tickers: Oil & Gas Refining & Marketing",
+    "industry news: Oil & Gas Refining & Marketing"
+  ]
 }
