@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-15T21:07:26.652204+08:00",
+    "updatedAt": "2026-10-15T13:08:52.098816+00:00",
     "asOf": "2026-10-15T13:07:26.640551+00:00",
     "marketDate": "2026-10-15",
     "session": "premarket",
@@ -16,7 +16,7 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-15-premarket.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
       "VIX",
@@ -24,10 +24,10 @@
       "SPMO",
       "VIX3M",
       "breadth",
-      "battlefield news review",
       "industry leaderboard"
     ],
-    "publishedAt": "2026-10-15T13:07:30.644878+00:00"
+    "publishedAt": "2026-10-15T13:08:52.098816+00:00",
+    "newsCheckedAt": "2026-10-15T13:08:28+00:00"
   },
   "assets": {
     "SPY": {
@@ -1153,7 +1153,7 @@
     "marketDate": "2026-10-15",
     "targetAsOf": "2026-10-15T13:07:26.640551+00:00",
     "asOf": null,
-    "fetchedAt": "2026-10-15T13:07:26.652204+00:00",
+    "fetchedAt": "2026-10-15T13:08:52.098795+00:00",
     "returnBasis": "daily",
     "universe": "Finviz 全部细分行业（提供方口径）",
     "universeCount": 0,
@@ -1162,63 +1162,63 @@
     "rows": [],
     "gainers": [],
     "losers": [],
-    "note": "盘前无可核实的全市场细分行业口径"
+    "note": "盘前无可核实的全市场细分行业口径",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
       "kind": "reported",
-      "text": "存储股盘前延续下跌；CXMT技术进展引发的竞争担忧与AI资本开支持续性疑虑仍在发酵，但其商业化能力尚未确认。",
-      "publishedAt": "2026-10-14",
-      "expiresAt": "2026-10-15T20:00:00Z",
+      "text": "全球存储股盘前继续下挫，WDC、SNDK、STX、MU跌幅均超过4%；中国存储竞争、AI融资压力与估值担忧共同压制情绪。",
+      "publishedAt": "2026-10-15",
+      "expiresAt": "2026-10-16T13:00:00Z",
       "sources": [
         {
-          "name": "Investopedia",
-          "url": "https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-on-wednesday-october-14-2026-12173013"
+          "name": "Financial Times",
+          "url": "https://www.ft.com/content/cf5f1209-da29-4ce1-b425-0e83818bf9ec"
         },
         {
-          "name": "Reuters",
-          "url": "https://www.reuters.com/world/china/us-chip-stocks-extend-slide-china-memory-report-ai-spending-jitters-hit-sector-2026-10-13/"
+          "name": "Barron's",
+          "url": "https://www.barrons.com/articles/micron-stock-price-memory-chips-3ad18124"
         }
       ]
     },
     "space": {
       "kind": "reported",
-      "text": "Piper Sandler下调ASTS评级后，该股盘中显著走弱；这是ASTS公司级事件，不能据此解释SPCX或RKLB的同步下跌。",
-      "publishedAt": "2026-10-13",
-      "expiresAt": "2026-10-14T20:00:00Z",
+      "text": "RKLB将Neutron首次发射推迟至2027年，盘前下跌约9%；这是RKLB公司级事件，不能单独解释SPCX与ASTS同步走弱。",
+      "publishedAt": "2026-10-15T10:24:51Z",
+      "expiresAt": "2026-10-16T13:00:00Z",
       "sources": [
         {
-          "name": "Benzinga",
-          "url": "https://www.benzinga.com/quote/ASTS/news"
+          "name": "The Wall Street Journal",
+          "url": "https://www.wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-10-15-2026/card/stocks-to-watch-coreweave-tsmc-rocket-lab-moWRqcpNFQnPzm0OM5Xz"
         }
-      ],
-      "afterSnapshot": false
+      ]
     },
     "crypto": {
       "kind": "reported",
-      "text": "美国CPI高于预期推升加息押注，比特币随即跌破约8.3万美元；更高收益率与美元走强对币价及COIN、MSTR形成共同压力。",
-      "publishedAt": "2026-10-14T13:29:00Z",
-      "expiresAt": "2026-10-15T13:30:00Z",
+      "text": "热于预期的PPI延续利率不确定性，比特币盘前回落至约8.07万美元；币价与COIN、MSTR同步走弱，但并非两家公司共同经营事件。",
+      "publishedAt": "2026-10-15T12:52:00Z",
+      "expiresAt": "2026-10-16T13:00:00Z",
       "sources": [
         {
-          "name": "Dow Jones Newswires",
-          "url": "https://www.marketscreener.com/news/bitcoin-falls-on-hot-inflation-print-update-ce785dd2df8ef327"
+          "name": "Investor's Business Daily",
+          "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-inflation-data-nvidia-amd-micron-ai-fears/"
         },
         {
-          "name": "Charles Schwab",
-          "url": "https://www.schwab.com/learn/story/stock-market-update-open"
+          "name": "MarketWatch",
+          "url": "https://www.marketwatch.com/livecoverage/ppi-report-today-september-inflation-fed-rates-live-updates/card/hot-ppi-still-not-turning-market-in-favor-of-an-october-rate-hike-oUXxMUhe0SI457hFlL3Y"
         }
       ]
     },
     "cloud": {
       "kind": "reported",
-      "text": "热CPI与融资成本担忧推动AI基础设施股收盘延续抛售，CRWV约跌16%、NBIS约跌11%；共同压力来自资本密集度与高利率敏感性。",
-      "publishedAt": "2026-10-14",
-      "expiresAt": "2026-10-15T20:30:00Z",
+      "text": "AI融资与高利率担忧延续，CRWV继前一日重挫后盘前再跌约6.3%；共同压力仍集中在资本密集型扩张与融资成本。",
+      "publishedAt": "2026-10-15",
+      "expiresAt": "2026-10-16T13:00:00Z",
       "sources": [
         {
           "name": "Reuters",
-          "url": "https://www.reuters.com/business/red-hot-cpi-report-fuels-ai-rout-2026-10-14/"
+          "url": "https://www.reuters.com/business/nasdaq-futures-dive-1-ai-rout-deepens-debt-concerns-2026-10-15/"
         }
       ]
     }
