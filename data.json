@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-16T23:09:28.641489+08:00",
+    "updatedAt": "2026-10-16T15:11:31.259380+00:00",
     "asOf": "2026-10-16T15:00:00+00:00",
     "marketDate": "2026-10-16",
     "session": "intraday",
@@ -16,7 +16,7 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-16-intraday.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
       "breadth",
@@ -33,7 +33,8 @@
       "industry core tickers: Software - Application",
       "industry news: Software - Application"
     ],
-    "publishedAt": "2026-10-16T15:09:44.846012+00:00"
+    "publishedAt": "2026-10-16T15:11:31.259380+00:00",
+    "newsCheckedAt": "2026-10-16T15:10:45+00:00"
   },
   "assets": {
     "SPY": {
@@ -1267,30 +1268,96 @@
         "status": "verified",
         "checkedAt": "2026-10-16T15:09:43.735744+00:00"
       }
-    }
+    },
+    "news": {
+      "Aluminum": {
+        "kind": "reported",
+        "text": "Alcoa三季度调整后每股收益1.82美元，并报告强劲现金流与产量进展，构成铝业领涨背景；这是龙头公司事件，不能解释全部成分。",
+        "publishedAt": "2026-10-15",
+        "expiresAt": "2026-10-17T15:00:00Z",
+        "sources": [
+          {
+            "name": "Alcoa / SEC",
+            "url": "https://www.sec.gov/Archives/edgar/data/1675149/000119312526422891/aa-ex99_1.htm"
+          }
+        ],
+        "checkedAt": "2026-10-16T15:10:45+00:00"
+      },
+      "REIT - Hotel & Motel": {
+        "kind": "unknown",
+        "text": "已复核HST、RHP、APLE、PK及酒店REIT消息，未找到可验证本轮行业上涨的共同新增事件；原因待核实。",
+        "checkedAt": "2026-10-16T15:10:45+00:00"
+      },
+      "Tobacco": {
+        "kind": "unknown",
+        "text": "已复核主要烟草股及行业消息，未找到可验证本轮行业上涨的共同新增事件；原因待核实。",
+        "checkedAt": "2026-10-16T15:10:45+00:00"
+      },
+      "Computer Hardware": {
+        "kind": "reported",
+        "text": "AI投资与融资可持续性担忧继续压制科技硬件，电脑硬件处于相关抛售背景中；未证实为全部成分下跌的唯一原因。",
+        "publishedAt": "2026-10-16",
+        "expiresAt": "2026-10-17T15:00:00Z",
+        "sources": [
+          {
+            "name": "Reuters",
+            "url": "https://www.reuters.com/business/wall-st-futures-mixed-tech-wobbles-again-tesla-gains-2026-10-16/"
+          }
+        ],
+        "checkedAt": "2026-10-16T15:10:45+00:00"
+      },
+      "Software - Infrastructure": {
+        "kind": "reported",
+        "text": "科技板块受AI投资回报与融资担忧拖累，基础设施软件同步承压；这是市场背景，未确认全部成分存在统一公司级催化。",
+        "publishedAt": "2026-10-16",
+        "expiresAt": "2026-10-17T15:00:00Z",
+        "sources": [
+          {
+            "name": "Reuters",
+            "url": "https://www.reuters.com/business/wall-st-futures-mixed-tech-wobbles-again-tesla-gains-2026-10-16/"
+          }
+        ],
+        "checkedAt": "2026-10-16T15:10:45+00:00"
+      },
+      "Software - Application": {
+        "kind": "reported",
+        "text": "科技板块受AI投资回报与融资担忧拖累，应用软件同步承压；这是市场背景，未确认全部成分存在统一公司级催化。",
+        "publishedAt": "2026-10-16",
+        "expiresAt": "2026-10-17T15:00:00Z",
+        "sources": [
+          {
+            "name": "Reuters",
+            "url": "https://www.reuters.com/business/wall-st-futures-mixed-tech-wobbles-again-tesla-gains-2026-10-16/"
+          }
+        ],
+        "checkedAt": "2026-10-16T15:10:45+00:00"
+      }
+    },
+    "researchAt": "2026-10-16T15:10:45Z",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
       "kind": "reported",
-      "text": "存储股收盘仍低于昨收，但尾盘结构转强；AI抛售放缓与逢低买盘提供背景，中国存储竞争担忧仍未消退。",
-      "publishedAt": "2026-10-15",
-      "expiresAt": "2026-10-16T20:00:00Z",
+      "text": "MU、SKHY、SNDK与WDC盘中继续承压；市场仍在消化中国CXMT竞争与AI交易降温担忧，分析师认为HBM需求尚未被直接动摇，不能据此确认单一跌因。",
+      "publishedAt": "2026-10-16T13:53:00Z",
+      "expiresAt": "2026-10-17T15:00:00Z",
       "sources": [
         {
-          "name": "Reuters",
-          "url": "https://www.reuters.com/business/red-hot-cpi-report-fuels-ai-rout-2026-10-14/"
+          "name": "Barron's",
+          "url": "https://www.barrons.com/articles/micron-stock-price-drop-buy-ad2ff6d2"
         },
         {
-          "name": "Barron's",
-          "url": "https://www.barrons.com/articles/micron-stock-price-memory-chips-3ad18124"
+          "name": "Reuters",
+          "url": "https://www.reuters.com/business/wall-st-futures-mixed-tech-wobbles-again-tesla-gains-2026-10-16/"
         }
       ]
     },
     "space": {
       "kind": "reported",
-      "text": "RKLB因Neutron生产流程问题推迟至2027年而明显收跌；这是RKLB公司级事件，不能单独解释SPCX与ASTS走势。",
+      "text": "RKLB的Neutron首飞延至2027年仍是公司级压力；本轮未找到可同时解释SPCX与ASTS下跌的新增共同事件。",
       "publishedAt": "2026-10-15T16:27:39Z",
-      "expiresAt": "2026-10-16T20:00:00Z",
+      "expiresAt": "2026-10-17T15:00:00Z",
       "sources": [
         {
           "name": "Investopedia",
@@ -1300,9 +1367,9 @@
     },
     "crypto": {
       "kind": "reported",
-      "text": "BTC盘中跌破8万美元后回升，COIN与MSTR收盘继续向上；MSTR在MSCI分类决定前的缓解性买盘属于公司级因素，并非共同催化。",
+      "text": "已检索BTC、ETH、COIN与MSTR自上次核实后的增量消息，未找到可验证本轮同步走弱的新增共同事件；保留昨日BTC回落与MSTR公司级事件背景。",
       "publishedAt": "2026-10-15",
-      "expiresAt": "2026-10-16T20:00:00Z",
+      "expiresAt": "2026-10-17T20:00:00Z",
       "sources": [
         {
           "name": "CoinScreamer",
@@ -1316,17 +1383,13 @@
     },
     "cloud": {
       "kind": "reported",
-      "text": "CRWV从早盘重挫中反弹，带动新云收盘转涨并形成向上结构；债券收益率一度超过15%，信用与融资风险仍是主要反向证据。",
-      "publishedAt": "2026-10-15",
-      "expiresAt": "2026-10-16T20:00:00Z",
+      "text": "CRWV债务负担与再融资成本担忧延续，并波及NBIS、IREN等新云公司；这是板块共同压力背景，但不代表三家公司风险结构完全相同。",
+      "publishedAt": "2026-10-16",
+      "expiresAt": "2026-10-17T15:00:00Z",
       "sources": [
         {
           "name": "Reuters",
-          "url": "https://www.reuters.com/business/red-hot-cpi-report-fuels-ai-rout-2026-10-14/"
-        },
-        {
-          "name": "Axios",
-          "url": "https://www.axios.com/2026/10/15/ai-coreweave-bonds-stocks"
+          "url": "https://www.reuters.com/business/coreweave-shares-bonds-headed-steep-weekly-losses-ai-borrowing-concerns-mount-2026-10-16/"
         }
       ]
     }
