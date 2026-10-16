@@ -20,18 +20,11 @@
     "updateStatus": "partial",
     "missing": [
       "breadth",
-      "battlefield news review",
       "industry core tickers: Aluminum",
-      "industry news: Aluminum",
-      "industry news: REIT - Hotel & Motel",
       "industry core tickers: Tobacco",
-      "industry news: Tobacco",
       "industry core tickers: Computer Hardware",
-      "industry news: Computer Hardware",
       "industry core tickers: Software - Infrastructure",
-      "industry news: Software - Infrastructure",
-      "industry core tickers: Software - Application",
-      "industry news: Software - Application"
+      "industry core tickers: Software - Application"
     ],
     "publishedAt": "2026-10-16T15:11:31.259380+00:00",
     "newsCheckedAt": "2026-10-16T15:10:45+00:00"
