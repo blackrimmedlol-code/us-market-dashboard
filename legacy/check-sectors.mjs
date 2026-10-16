@@ -1,0 +1,10 @@
+import {readFileSync} from 'node:fs';
+import sectors from './sector-model.js';
+const [file='data.json',expectedDate,since]=process.argv.slice(2);
+if(!/^\d{4}-\d{2}-\d{2}$/.test(expectedDate||''))throw Error('Usage: node check-sectors.mjs data.json EXPECTED_MARKET_DATE [ROUND_START_ISO]');
+const p=JSON.parse(readFileSync(file)).sectorPulse,errors=sectors.errors(p);
+if(p?.marketDate!==expectedDate)errors.push('行业行情日期不匹配');
+if(since&&(!Number.isFinite(Date.parse(since))||!(Date.parse(p?.fetchedAt)>=Date.parse(since))))errors.push('行业榜未经本轮检查');
+if(p?.status==='unavailable')errors.push('本轮来源不可用，已记录不等于已更新');
+console.log(JSON.stringify({complete:!errors.length,marketDate:p?.marketDate,rows:(p?.gainers?.length||0)+(p?.losers?.length||0),unresolved:(p?.gainers||[]).concat(p?.losers||[]).filter(x=>x.driverStatus==='unknown').length,errors},null,2));
+process.exit(errors.length?2:0);
