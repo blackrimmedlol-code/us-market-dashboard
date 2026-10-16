@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-17T04:27:15.701430+08:00",
+    "updatedAt": "2026-10-16T20:28:52.451188+00:00",
     "asOf": "2026-10-16T20:00:00+00:00",
     "marketDate": "2026-10-16",
     "session": "close",
@@ -16,19 +16,13 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-16-close.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
-      "breadth",
-      "battlefield news review",
-      "industry news: Oil & Gas E&P",
-      "industry news: Oil & Gas Integrated",
-      "industry news: Oil & Gas Midstream",
-      "industry news: Computer Hardware",
-      "industry news: Electrical Equipment & Parts",
-      "industry news: Electronic Components"
+      "breadth"
     ],
-    "publishedAt": "2026-10-16T20:27:42.268854+00:00"
+    "publishedAt": "2026-10-16T20:28:52.451188+00:00",
+    "newsCheckedAt": "2026-10-16T20:28:28+00:00"
   },
   "assets": {
     "SPY": {
@@ -1578,42 +1572,120 @@
     "news": {
       "Computer Hardware": {
         "kind": "reported",
-        "text": "AI投资与融资可持续性担忧继续压制科技硬件，电脑硬件处于相关抛售背景中；未证实为全部成分下跌的唯一原因。",
-        "publishedAt": "2026-10-16",
-        "expiresAt": "2026-10-17T15:00:00Z",
+        "text": "AI投资回报、债务融资与高利率担忧继续压制电脑硬件和芯片相关资产；这是共同市场背景，未确认全部成分存在单一跌因。",
+        "publishedAt": "2026-10-16T15:01:57Z",
+        "expiresAt": "2026-10-17T20:00:00Z",
+        "sources": [
+          {
+            "name": "Reuters",
+            "url": "https://www.reuters.com/business/wall-st-futures-mixed-tech-wobbles-again-tesla-gains-2026-10-16/"
+          },
+          {
+            "name": "Associated Press",
+            "url": "https://apnews.com/article/d2655f64db7ec8ae450525d58f97b628"
+          }
+        ],
+        "checkedAt": "2026-10-16T20:28:28+00:00"
+      },
+      "Oil & Gas E&P": {
+        "kind": "reported",
+        "text": "Brent原油收涨约3.7%，中东供应担忧支撑油气生产商；这是行业共同价格背景，未证实为全部成分上涨的唯一原因。",
+        "publishedAt": "2026-10-16T15:01:57Z",
+        "expiresAt": "2026-10-17T20:00:00Z",
+        "sources": [
+          {
+            "name": "Reuters",
+            "url": "https://www.reuters.com/business/wall-st-futures-mixed-tech-wobbles-again-tesla-gains-2026-10-16/"
+          },
+          {
+            "name": "Associated Press",
+            "url": "https://apnews.com/article/d2655f64db7ec8ae450525d58f97b628"
+          }
+        ],
+        "checkedAt": "2026-10-16T20:28:28+00:00"
+      },
+      "Oil & Gas Integrated": {
+        "kind": "reported",
+        "text": "油价因中东供应担忧上涨逾3%，XOM与CVX等综合油气公司受益；仍不能把全部成分涨幅归因于单一事件。",
+        "publishedAt": "2026-10-16T15:01:57Z",
+        "expiresAt": "2026-10-17T20:00:00Z",
+        "sources": [
+          {
+            "name": "Reuters",
+            "url": "https://www.reuters.com/business/wall-st-futures-mixed-tech-wobbles-again-tesla-gains-2026-10-16/"
+          },
+          {
+            "name": "Associated Press",
+            "url": "https://apnews.com/article/d2655f64db7ec8ae450525d58f97b628"
+          }
+        ],
+        "checkedAt": "2026-10-16T20:28:28+00:00"
+      },
+      "Oil & Gas Midstream": {
+        "kind": "reported",
+        "text": "油价上行与周末前供应风险偏好为中游油气板块提供背景；中游现金流并非完全随现货油价变化，不能直接确认统一因果。",
+        "publishedAt": "2026-10-16T15:01:57Z",
+        "expiresAt": "2026-10-17T20:00:00Z",
         "sources": [
           {
             "name": "Reuters",
             "url": "https://www.reuters.com/business/wall-st-futures-mixed-tech-wobbles-again-tesla-gains-2026-10-16/"
           }
         ],
-        "checkedAt": "2026-10-16T15:10:45+00:00"
+        "checkedAt": "2026-10-16T20:28:28+00:00"
+      },
+      "Electrical Equipment & Parts": {
+        "kind": "reported",
+        "text": "AI数据中心融资与资本开支回报担忧扩散至供电及电气设备链；这是估值压力背景，未确认全部成分的统一公司级催化。",
+        "publishedAt": "2026-10-16T15:01:57Z",
+        "expiresAt": "2026-10-17T20:00:00Z",
+        "sources": [
+          {
+            "name": "Reuters",
+            "url": "https://www.reuters.com/business/wall-st-futures-mixed-tech-wobbles-again-tesla-gains-2026-10-16/"
+          }
+        ],
+        "checkedAt": "2026-10-16T20:28:28+00:00"
+      },
+      "Electronic Components": {
+        "kind": "reported",
+        "text": "AI相关科技抛售与融资成本担忧波及电子元件链；这是共同风险背景，未确认APH、GLW、TEL与CLS存在统一公司级跌因。",
+        "publishedAt": "2026-10-16T15:01:57Z",
+        "expiresAt": "2026-10-17T20:00:00Z",
+        "sources": [
+          {
+            "name": "Reuters",
+            "url": "https://www.reuters.com/business/wall-st-futures-mixed-tech-wobbles-again-tesla-gains-2026-10-16/"
+          }
+        ],
+        "checkedAt": "2026-10-16T20:28:28+00:00"
       }
     },
-    "researchAt": "2026-10-16T15:10:45Z"
+    "researchAt": "2026-10-16T20:28:28Z",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
       "kind": "reported",
-      "text": "MU、SKHY、SNDK与WDC盘中继续承压；市场仍在消化中国CXMT竞争与AI交易降温担忧，分析师认为HBM需求尚未被直接动摇，不能据此确认单一跌因。",
-      "publishedAt": "2026-10-16T13:53:00Z",
-      "expiresAt": "2026-10-17T15:00:00Z",
+      "text": "存储股收盘继续下挫，MU等处于AI交易降温、融资成本与中国竞争担忧交织的科技抛售中；这些是共同背景，不能确认单一跌因。",
+      "publishedAt": "2026-10-16T15:01:57Z",
+      "expiresAt": "2026-10-17T20:00:00Z",
       "sources": [
-        {
-          "name": "Barron's",
-          "url": "https://www.barrons.com/articles/micron-stock-price-drop-buy-ad2ff6d2"
-        },
         {
           "name": "Reuters",
           "url": "https://www.reuters.com/business/wall-st-futures-mixed-tech-wobbles-again-tesla-gains-2026-10-16/"
+        },
+        {
+          "name": "Associated Press",
+          "url": "https://apnews.com/article/d2655f64db7ec8ae450525d58f97b628"
         }
       ]
     },
     "space": {
       "kind": "reported",
-      "text": "RKLB的Neutron首飞延至2027年仍是公司级压力；本轮未找到可同时解释SPCX与ASTS下跌的新增共同事件。",
+      "text": "RKLB的Neutron延期仍是公司级压力；已复核收盘增量，未找到可同时解释SPCX、RKLB与ASTS下跌的新增共同事件。",
       "publishedAt": "2026-10-15T16:27:39Z",
-      "expiresAt": "2026-10-17T15:00:00Z",
+      "expiresAt": "2026-10-17T20:00:00Z",
       "sources": [
         {
           "name": "Investopedia",
@@ -1623,29 +1695,25 @@
     },
     "crypto": {
       "kind": "reported",
-      "text": "已检索BTC、ETH、COIN与MSTR自上次核实后的增量消息，未找到可验证本轮同步走弱的新增共同事件；保留昨日BTC回落与MSTR公司级事件背景。",
-      "publishedAt": "2026-10-15",
+      "text": "MSTR受MSCI拟调整数字资产公司指数资格的公司级风险压制；股票与币价收盘同步走弱，但未找到可验证整个板块的单一新增催化。",
+      "publishedAt": "2026-10-16",
       "expiresAt": "2026-10-17T20:00:00Z",
       "sources": [
         {
-          "name": "CoinScreamer",
-          "url": "https://coinscreamer.com/bitcoin-below-80000-inflation-etf-outflows-october-15/"
-        },
-        {
-          "name": "Investing.com",
-          "url": "https://in.investing.com/equities/microstrategy-inc"
+          "name": "Barron's",
+          "url": "https://www.barrons.com/articles/strategy-stock-mcsi-index-exclusion-bitcoin-price-8602a511"
         }
       ]
     },
     "cloud": {
       "kind": "reported",
-      "text": "CRWV债务负担与再融资成本担忧延续，并波及NBIS、IREN等新云公司；这是板块共同压力背景，但不代表三家公司风险结构完全相同。",
-      "publishedAt": "2026-10-16",
-      "expiresAt": "2026-10-17T15:00:00Z",
+      "text": "CRWV、NBIS与IREN收盘延续弱势，债务负担、再融资成本及AI基础设施盈利兑现担忧仍是共同压力；三家公司风险程度并不相同。",
+      "publishedAt": "2026-10-16T15:01:57Z",
+      "expiresAt": "2026-10-17T20:00:00Z",
       "sources": [
         {
           "name": "Reuters",
-          "url": "https://www.reuters.com/business/coreweave-shares-bonds-headed-steep-weekly-losses-ai-borrowing-concerns-mount-2026-10-16/"
+          "url": "https://www.reuters.com/business/wall-st-futures-mixed-tech-wobbles-again-tesla-gains-2026-10-16/"
         }
       ]
     }

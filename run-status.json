@@ -4,15 +4,9 @@
   "startedAt": "2026-10-16T20:27:03.084057+00:00",
   "deadlineAt": "2026-10-16T20:37:03.084057+00:00",
   "status": "partial",
-  "completedAt": "2026-10-16T20:27:42.271324+00:00",
+  "completedAt": "2026-10-16T20:28:52.585912+00:00",
   "missing": [
-    "breadth",
-    "battlefield news review",
-    "industry news: Oil & Gas E&P",
-    "industry news: Oil & Gas Integrated",
-    "industry news: Oil & Gas Midstream",
-    "industry news: Computer Hardware",
-    "industry news: Electrical Equipment & Parts",
-    "industry news: Electronic Components"
-  ]
+    "breadth"
+  ],
+  "newsPatchApplied": true
 }
