@@ -1,4 +1,4 @@
-# 市场观察 · 数据契约 v18.7
+# 市场观察 · 数据契约 v18.8
 
 ## 范围
 回答市场环境、全市场涨跌前三与四板块的自身走势、相对强弱、内部共振、新增事件。操作由用户决定。取消宏观、逐股操作建议、五周期、60/252分位、判断账本。legacy/冻结，正常更新不读取。
@@ -63,3 +63,20 @@ legacy/data.json必须保持迁移前字节不变；回滚用正常新提交，�
 TradingView批量盘前报价为独立替代源；与最后已核实正式收盘价交叉验证基准和来源盘前会话日期。来源无逐笔时间时，连续两次抓取证明价格或累计盘前成交量更新，观察范围不超过5分钟，记录quoteTimeType=observed-update-bound、quoteTimeBounds与原始证据；asOf为报价观察时刻，不声称成交时刻或1分钟K线。无近期更新证据保持缺失；不计算精确同步相对比值或强弱。源失败换独立源并发布有效部分，不自行暂停定时任务。
 
 开盘后5分钟内允许发布来源明确保留的当日盘前最终报价，截止点为09:30边界，quoteTimeType=premarket-session-final；这是盘前最终快照而非正式盘实时价，不冒称逐笔时刻。与先前正式收盘交叉核对的独立来源基准允许不超过0.1%竞价口径差，涨跌仍统一使用该来源的前收盘；超过容差拒收。
+
+
+## v18.8｜交易工作台三标的小时快照
+
+用户授权将SOXL、GDXU、BITX的小时趋势及ATR并入现有四轮任务，不新增调度、不恢复旧的五周期个股研究。只在本仓库发布公共`trading-trends.json`；交易工作台通过同源Pages读取。不得访问用户浏览器交易记录、净值、现金或持仓；不向公开文件加入这些信息，不连接券商或自动下单。
+
+统一入口`finalize`在已发布行情和新闻核对之后调用`scripts/trading_trends.py`，额外耗时最多30秒，并从同一600秒总预算中预留至少15秒给发布。源失败或预算不足写本轮unavailable及null数值，保留正常看板结果；不伪造旧指标的新时间，不另建补跑任务。`prepare`的quotes发布继续优先，不等待这项数据。
+
+快照契约：schemaVersion=1、rulesVersion=gnot-trend-1h-v1、timeframe=1h、regularOnly=true；generatedAt为本次指标截止检查时间，assets严格三项。每项包含symbol/status/trend/close1h/ema20/ema50/atr14/barStartAt/barCloseAt/marketDate/barCount/sourceUrl/fetchedAt/note。仅来源有效时verified；否则所有数值和barCloseAt为null，trend=unknown。来源使用三只产品自身的Yahoo 60m正式盘OHLC，不能用SOXX、GDX或BTC价格替代。取连续最近250根已完成正式盘小时K线；盘前盘后、未完成K线和16:00终端标记排除；最后不足一小时的会话收盘K线按提供方小时口径纳入并标shortenedSessionBar。EMA用前N根SMA作种子后递推，ATR14用含跨日跳空的True Range和Wilder平滑。来源口径与其他图表软件可能不同，工作台须允许手动核对切换。
+
+趋势只按close1h>ema50且ema20>ema50判合格。来源必须覆盖截止时点最新已完成小时K线；最近250根中间缺线也判不可用。盘前或周末显示上一正式盘真实barCloseAt，不能改成当前交易日；它是参考快照，不能当盘前正式盘买入信号。
+
+`finalize`的精确publication计划含本轮趋势文件与trendsDigest，返回trendsStatus供简报使用。模型仍只读紧凑状态，不读取250根历史、不用LLM生成指标。通过连接器发布时照计划精确内容提交。若冲突，除远端data外还需读取远端trading-trends.json，并把文件传给`rebase --remote-trends FILE`；远端更新趋势比本轮晚时保留远端文件，不覆盖。不能只重读data后盲写较旧快照。
+
+发布验证除原data／run-status外，还须核对线上完整趋势JSON摘要；`verify --evidence`证据需提供onlineTrends。只有该SHA的Pages成功且本轮计划文件线上一致，才称三标的已同步；缺失行如实报告。正常看板的complete与三标的状态分别说明。
+
+交易工作台每分钟只读取已发布小快照，不触发模型或行情任务。小时数据仍按其真实K线收盘时间检查当日与90分钟有效期；出现新完成小时K线后旧自动快照立即失效。30分钟突破与信号有效期、账户档位、现金及持仓估值仍独立核对；不因读取成功把允许股数自动改为正数。自动指标不改已成交记录冻结的止损、目标、初始R或预算。

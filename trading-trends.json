@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "rulesVersion": "gnot-trend-1h-v1",
+  "generatedAt": "2026-10-18T16:39:29.844548+00:00",
+  "session": "bootstrap",
+  "requestedMarketDate": "2026-10-18",
+  "timeframe": "1h",
+  "regularOnly": true,
+  "method": {
+    "source": "Yahoo Finance chart",
+    "interval": "60m",
+    "regularOnly": true,
+    "emaSeed": "SMA of first N closed bars",
+    "atr": "Wilder RMA14 of true range",
+    "warmupBars": 250,
+    "sessionAnchor": "09:30 America/New_York",
+    "sessionEndCandle": "closed shortened final candle included",
+    "priceBasis": "same provider USD OHLC; never underlying proxy prices"
+  },
+  "assets": {
+    "SOXL": {
+      "symbol": "SOXL",
+      "status": "unavailable",
+      "trend": "unknown",
+      "close1h": null,
+      "ema20": null,
+      "ema50": null,
+      "atr14": null,
+      "barStartAt": null,
+      "barCloseAt": null,
+      "marketDate": null,
+      "barCount": 0,
+      "sourceUrl": null,
+      "note": "Yahoo两端请求失败：CalledProcessError/CalledProcessError"
+    },
+    "GDXU": {
+      "symbol": "GDXU",
+      "status": "unavailable",
+      "trend": "unknown",
+      "close1h": null,
+      "ema20": null,
+      "ema50": null,
+      "atr14": null,
+      "barStartAt": null,
+      "barCloseAt": null,
+      "marketDate": null,
+      "barCount": 0,
+      "sourceUrl": null,
+      "note": "Yahoo两端请求失败：CalledProcessError/CalledProcessError"
+    },
+    "BITX": {
+      "symbol": "BITX",
+      "status": "unavailable",
+      "trend": "unknown",
+      "close1h": null,
+      "ema20": null,
+      "ema50": null,
+      "atr14": null,
+      "barStartAt": null,
+      "barCloseAt": null,
+      "marketDate": null,
+      "barCount": 0,
+      "sourceUrl": null,
+      "note": "Yahoo两端请求失败：CalledProcessError/CalledProcessError"
+    }
+  }
+}

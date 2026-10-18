@@ -19,6 +19,7 @@ import urllib.error
 import urllib.request
 import fcntl
 from market_calendar import ROOT, NY, UTC, nominal, next_update, trading_day
+from trading_trends import failed_snapshot, validate_feed
 
 REPO = 'blackrimmedlol-code/us-market-dashboard'
 PAGE = 'https://blackrimmedlol-code.github.io/us-market-dashboard/'
@@ -69,6 +70,11 @@ def record(state, status, **extra):
 
 def build_plan(state, phase='final', failed=False):
     paths = ['run-status.json'] if failed else ['data.json', 'run-status.json', read(ROOT / 'data.json')['meta']['evidencePath']]
+    if not failed and phase == 'final' and state.get('trendsGeneratedAt') and not state.get('trendsSuperseded'):
+        feed = validate_feed(read(ROOT / 'trading-trends.json'))
+        if feed['generatedAt'] != state['trendsGeneratedAt']:
+            raise ValueError('趋势快照不属于本轮，禁止混入旧文件')
+        paths.append('trading-trends.json')
     files = []
     for path in paths:
         content = (ROOT / path).read_text()
@@ -78,6 +84,7 @@ def build_plan(state, phase='final', failed=False):
             'message': f"Update {state['marketDate']} {state['session']} {phase}",
             'files': files, 'allowForce': False, 'maxConflictRetries': 1,
             'dataDigest': None if failed else digest(read(ROOT / 'data.json')),
+            'trendsDigest': digest(read(ROOT / 'trading-trends.json')) if 'trading-trends.json' in paths else None,
             'statusDigest': digest(read(ROOT / 'run-status.json')),
             'pageUrl': PAGE}
     write(WORK / 'publication.json', plan)
@@ -240,10 +247,28 @@ def finalize(args):
         raise
     data['meta'].update(updateStatus='complete' if report['complete'] else 'partial', missing=report['missing'])
     write(ROOT / 'data.json', data)
+    # Numerical dashboard quotes are already published. This small independent
+    # snapshot must not block them, the news result or the remaining publish budget.
+    refresh_workbench_trends(state)
     state.update(phase='final', dataDigest=digest(data))
     write(STATE, state)
     record(state, data['meta']['updateStatus'], missing=report['missing'], newsPatchApplied=applied)
-    return {**build_plan(state), 'complete': report['complete'], 'missing': report['missing'], 'newsPatchApplied': applied}
+    return {**build_plan(state), 'complete': report['complete'], 'missing': report['missing'], 'newsPatchApplied': applied, 'trendsStatus': state.get('trendsStatus')}
+
+def refresh_workbench_trends(state):
+    try:
+        budget = min(30, remaining(state) - 15)
+        if budget < 5:
+            raise TimeoutError('本轮剩余预算不足，未刷新三标的趋势')
+        command([sys.executable, 'scripts/trading_trends.py', '--session', state['session'],
+                 '--market-date', state['marketDate'], '--output', str(ROOT / 'trading-trends.json')], timeout=budget, state=state)
+        feed = validate_feed(read(ROOT / 'trading-trends.json'))
+    except Exception as error:
+        feed = failed_snapshot(now(), state['session'], state['marketDate'], str(error)[:240])
+        write(ROOT / 'trading-trends.json', feed)
+    state['trendsGeneratedAt'] = feed['generatedAt']
+    state['trendsStatus'] = {s: v['status'] for s, v in feed['assets'].items()}
+    return state['trendsStatus']
 
 def merge_remote(candidate, remote):
     """A single conflict merge preserves unknown fields and newer remote snapshots."""
@@ -265,6 +290,10 @@ def rebase(args):
     state = read(STATE)
     if state.get('conflictRetries', 0) >= 1:
         raise ValueError('已达到一次冲突重读合并上限')
+    if state.get('trendsGeneratedAt'):
+        if not getattr(args, 'remote_trends', None):
+            raise ValueError('发布冲突须同时重读远端trading-trends.json，避免覆盖较新趋势快照')
+        reconcile_trends(state, read(args.remote_trends))
     merged = merge_remote(read(ROOT / 'data.json'), read(args.remote_data))
     write(ROOT / 'data.json', merged)
     write(WORK / 'previous.json', read(args.remote_data))
@@ -272,6 +301,16 @@ def rebase(args):
     state.update(publishedHead=args.remote_head, conflictRetries=1)
     write(STATE, state)
     return build_plan(state, state['phase'])
+
+def reconcile_trends(state, remote):
+    remote = validate_feed(remote)
+    current = validate_feed(read(ROOT / 'trading-trends.json'))
+    if parse_date(remote['generatedAt']) > parse_date(current['generatedAt']):
+        state['trendsSuperseded'] = True
+        state['trendsRemoteGeneratedAt'] = remote['generatedAt']
+        state['trendsStatus'] = {s: v['status'] for s, v in remote['assets'].items()}
+    elif remote['generatedAt'] == current['generatedAt'] and digest(remote) != digest(current):
+        raise ValueError('同一生成时刻的趋势内容冲突，停止覆盖')
 
 def request(method, path, value=None, token=None):
     url = 'https://api.github.com/repos/' + REPO + '/' + path
@@ -307,6 +346,9 @@ def publish(args):
                 raise ValueError('远端再次变化，停止发布')
             encoded = request('GET', 'contents/data.json', token=token)
             remote = json.loads(base64.b64decode(encoded['content']))
+            if state.get('trendsGeneratedAt'):
+                trends_encoded = request('GET', 'contents/trading-trends.json', token=token)
+                reconcile_trends(state, json.loads(base64.b64decode(trends_encoded['content'])))
             write(ROOT / 'data.json', merge_remote(read(ROOT / 'data.json'), remote))
             write(WORK / 'previous.json', remote)
             validate(state)
@@ -336,7 +378,8 @@ def verify_result(plan, commit, evidence):
     pages = any(r.get('status') == 'completed' and r.get('conclusion') == 'success' for r in matched)
     online = evidence.get('onlineData')
     same = online is not None and digest(online) == plan['dataDigest'] if plan.get('dataDigest') else digest(evidence.get('onlineStatus')) == plan.get('statusDigest')
-    return {'commit': commit, 'pagesDeployed': pages, 'onlineMatches': same, 'verified': pages and same}
+    trends_same = not plan.get('trendsDigest') or evidence.get('onlineTrends') is not None and digest(evidence['onlineTrends']) == plan['trendsDigest']
+    return {'commit': commit, 'pagesDeployed': pages, 'onlineMatches': same, 'trendsMatches': trends_same, 'verified': pages and same and trends_same}
 
 def verify(args):
     plan, state = read(WORK / 'publication.json'), read(STATE)
@@ -355,7 +398,11 @@ def verify(args):
             path = 'data.json' if plan.get('dataDigest') else 'run-status.json'
             with urllib.request.urlopen(PAGE + path + '?v=' + str(int(time.time())), timeout=20) as response:
                 online = json.load(response)
-            result = verify_result(plan, commit, {'workflowRuns': runs, 'onlineData': online if plan.get('dataDigest') else None, 'onlineStatus': online})
+            trends = None
+            if plan.get('trendsDigest'):
+                with urllib.request.urlopen(PAGE + 'trading-trends.json?v=' + str(int(time.time())), timeout=15) as response:
+                    trends = json.load(response)
+            result = verify_result(plan, commit, {'workflowRuns': runs, 'onlineData': online if plan.get('dataDigest') else None, 'onlineStatus': online, 'onlineTrends': trends})
             if result['verified']:
                 break
             time.sleep(min(10, max(0, end - time.monotonic())))
@@ -380,6 +427,7 @@ def main():
     p = sub.add_parser('rebase')
     p.add_argument('--remote-data', required=True)
     p.add_argument('--remote-head', required=True)
+    p.add_argument('--remote-trends', help='冲突时同时读取的远端公共趋势快照')
     p = sub.add_parser('publish')
     p.add_argument('--transport', choices=['api', 'connector'], default='api')
     p.add_argument('--commit-sha')

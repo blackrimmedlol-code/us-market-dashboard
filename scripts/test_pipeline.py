@@ -143,6 +143,9 @@ class PipelineTests(unittest.TestCase):
                     p.write(root / 'data.json', candidate)
                     p.write(root / candidate['meta']['evidencePath'], {'recorded': True})
                     return subprocess.CompletedProcess(arguments, 0, '{}', '')
+                if 'scripts/trading_trends.py' in arguments:
+                    p.write(root / 'trading-trends.json',p.failed_snapshot(clock[0],'close','2026-09-29','isolated source absence'))
+                    return subprocess.CompletedProcess(arguments,0,'{}','')
                 if '--test' in arguments or 'unittest' in arguments:
                     return subprocess.CompletedProcess(arguments, 0, '', '')
                 return original_command(arguments, **kwargs)
@@ -182,7 +185,7 @@ class PipelineTests(unittest.TestCase):
                 self.assertTrue(final['complete'])
                 second = p.publish(SimpleNamespace(commit_sha=None, transport='api'))
                 self.assertNotEqual(first['commit'], second['commit'])
-                p.write(evidence, {'workflowRuns': [{'head_sha': second['commit'], 'name': 'pages build and deployment', 'status': 'completed', 'conclusion': 'success'}], 'onlineData': p.read(root / 'data.json')})
+                p.write(evidence, {'workflowRuns': [{'head_sha': second['commit'], 'name': 'pages build and deployment', 'status': 'completed', 'conclusion': 'success'}], 'onlineData': p.read(root / 'data.json'),'onlineTrends':p.read(root/'trading-trends.json')})
                 self.assertTrue(p.verify(SimpleNamespace(commit_sha=second['commit'], evidence=str(evidence)))['verified'])
                 self.assertEqual(p.read(p.STATE)['phase'], 'verified')
                 self.assertEqual(len([c for c in calls if c[1] == 'git/refs/heads/main']), 2)
