@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-19T23:09:55.231036+08:00",
+    "updatedAt": "2026-10-19T15:12:36.298797+00:00",
     "asOf": "2026-10-19T15:00:00+00:00",
     "marketDate": "2026-10-19",
     "session": "intraday",
@@ -16,25 +16,19 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-19-intraday.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
       "breadth",
-      "battlefield news review",
       "industry core tickers: Computer Hardware",
-      "industry news: Computer Hardware",
       "industry core tickers: Internet Retail",
-      "industry news: Internet Retail",
       "industry core tickers: Semiconductor Equipment & Materials",
-      "industry news: Semiconductor Equipment & Materials",
       "industry core tickers: REIT - Mortgage",
-      "industry news: REIT - Mortgage",
       "industry core tickers: Utilities - Independent Power Producers",
-      "industry news: Utilities - Independent Power Producers",
-      "industry core tickers: Agricultural Inputs",
-      "industry news: Agricultural Inputs"
+      "industry core tickers: Agricultural Inputs"
     ],
-    "publishedAt": "2026-10-19T15:10:11.952318+00:00"
+    "publishedAt": "2026-10-19T15:12:36.298797+00:00",
+    "newsCheckedAt": "2026-10-19T15:12:00+00:00"
   },
   "assets": {
     "SPY": {
@@ -1251,58 +1245,84 @@
         "cached": false
       }
     },
-    "coreTickerCache": {}
+    "coreTickerCache": {},
+    "news": {
+      "Computer Hardware": {
+        "kind": "unknown",
+        "text": "已检索本轮增量，未找到可核实的行业共同催化。",
+        "checkedAt": "2026-10-19T15:12:00+00:00"
+      },
+      "Internet Retail": {
+        "kind": "unknown",
+        "text": "已检索本轮增量，未找到可核实的行业共同催化。",
+        "checkedAt": "2026-10-19T15:12:00+00:00"
+      },
+      "Semiconductor Equipment & Materials": {
+        "kind": "reported",
+        "text": "美国芯片股在上周重挫后反弹，较低美债收益率与油价回落提供支持；该宏观背景并非设备与材料行业的独立因果。",
+        "checkedAt": "2026-10-19T15:12:00+00:00",
+        "publishedAt": "2026-10-19",
+        "expiresAt": "2026-10-20T20:00:00Z",
+        "sources": [
+          {
+            "name": "Reuters",
+            "url": "https://www.investing.com/news/stock-market-news/us-chip-stocks-rise-after-steepest-weekly-selloff-in-months-4957420"
+          }
+        ]
+      },
+      "REIT - Mortgage": {
+        "kind": "unknown",
+        "text": "已检索本轮增量；AGNC业绩尚待发布，当前下跌原因未确认。",
+        "checkedAt": "2026-10-19T15:12:00+00:00"
+      },
+      "Utilities - Independent Power Producers": {
+        "kind": "unknown",
+        "text": "已检索本轮增量，未找到可核实的行业共同催化。",
+        "checkedAt": "2026-10-19T15:12:00+00:00"
+      },
+      "Agricultural Inputs": {
+        "kind": "unknown",
+        "text": "已检索本轮增量，未找到可核实的行业共同催化。",
+        "checkedAt": "2026-10-19T15:12:00+00:00"
+      }
+    },
+    "researchAt": "2026-10-19T15:12:00Z",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
       "kind": "reported",
-      "text": "存储股收盘继续下挫，MU等处于AI交易降温、融资成本与中国竞争担忧交织的科技抛售中；这些是共同背景，不能确认单一跌因。",
-      "publishedAt": "2026-10-16T15:01:57Z",
-      "expiresAt": "2026-10-17T20:00:00Z",
+      "text": "Micron宣布10月21日举行技术网络研讨会，主题覆盖DRAM、HBM与NAND；这是MU的公司级后续催化，不能单独解释本轮存储股共同反弹。",
+      "publishedAt": "2026-10-19",
+      "expiresAt": "2026-10-22T20:00:00Z",
       "sources": [
         {
-          "name": "Reuters",
-          "url": "https://www.reuters.com/business/wall-st-futures-mixed-tech-wobbles-again-tesla-gains-2026-10-16/"
-        },
-        {
-          "name": "Associated Press",
-          "url": "https://apnews.com/article/d2655f64db7ec8ae450525d58f97b628"
+          "name": "Micron",
+          "url": "https://micron.gcs-web.com/latest-news"
         }
       ]
     },
     "space": {
       "kind": "reported",
-      "text": "RKLB的Neutron延期仍是公司级压力；已复核收盘增量，未找到可同时解释SPCX、RKLB与ASTS下跌的新增共同事件。",
-      "publishedAt": "2026-10-15T16:27:39Z",
-      "expiresAt": "2026-10-17T20:00:00Z",
+      "text": "SpaceX将于本周公布季度业绩，市场关注Starlink增长与AI资本开支；这是SPCX的公司级事件，不能直接解释RKLB与ASTS走势。",
+      "publishedAt": "2026-10-19T11:06:28Z",
+      "expiresAt": "2026-10-21T20:00:00Z",
       "sources": [
         {
-          "name": "Investopedia",
-          "url": "https://www.investopedia.com/market-update-rocket-lab-stock-tumbles-after-launch-delay-rklb-12175215"
-        }
-      ]
-    },
-    "crypto": {
-      "kind": "reported",
-      "text": "MSTR受MSCI拟调整数字资产公司指数资格的公司级风险压制；股票与币价收盘同步走弱，但未找到可验证整个板块的单一新增催化。",
-      "publishedAt": "2026-10-16",
-      "expiresAt": "2026-10-17T20:00:00Z",
-      "sources": [
-        {
-          "name": "Barron's",
-          "url": "https://www.barrons.com/articles/strategy-stock-mcsi-index-exclusion-bitcoin-price-8602a511"
+          "name": "Reuters",
+          "url": "https://www.reuters.com/business/media-telecom/spacex-tesla-earnings-test-musks-ai-spending-ambitions-merger-talk-grows-2026-10-19/"
         }
       ]
     },
     "cloud": {
       "kind": "reported",
-      "text": "CRWV、NBIS与IREN收盘延续弱势，债务负担、再融资成本及AI基础设施盈利兑现担忧仍是共同压力；三家公司风险程度并不相同。",
-      "publishedAt": "2026-10-16T15:01:57Z",
-      "expiresAt": "2026-10-17T20:00:00Z",
+      "text": "Goldman Sachs将CoreWeave由中性上调至买入，但同时下调目标价；该消息直接关联CRWV，NBIS与IREN的同步反弹更像板块情绪修复，融资风险仍未消失。",
+      "publishedAt": "2026-10-19",
+      "expiresAt": "2026-10-21T20:00:00Z",
       "sources": [
         {
-          "name": "Reuters",
-          "url": "https://www.reuters.com/business/wall-st-futures-mixed-tech-wobbles-again-tesla-gains-2026-10-16/"
+          "name": "Barron's",
+          "url": "https://www.barrons.com/articles/coreweave-stock-buy-upgrade-ai-f9313f06"
         }
       ]
     }
