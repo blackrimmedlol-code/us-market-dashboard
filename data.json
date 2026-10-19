@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-20T02:05:49.969704+08:00",
+    "updatedAt": "2026-10-19T18:07:13.212815+00:00",
     "asOf": "2026-10-19T18:00:00+00:00",
     "marketDate": "2026-10-19",
     "session": "late",
@@ -16,25 +16,19 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-19-late.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
       "breadth",
-      "battlefield news review",
       "industry core tickers: Internet Retail",
-      "industry news: Internet Retail",
       "industry core tickers: Computer Hardware",
-      "industry news: Computer Hardware",
       "industry core tickers: Business Equipment & Supplies",
-      "industry news: Business Equipment & Supplies",
       "industry core tickers: Coking Coal",
-      "industry news: Coking Coal",
       "industry core tickers: REIT - Mortgage",
-      "industry news: REIT - Mortgage",
-      "industry core tickers: Utilities - Independent Power Producers",
-      "industry news: Utilities - Independent Power Producers"
+      "industry core tickers: Utilities - Independent Power Producers"
     ],
-    "publishedAt": "2026-10-19T18:06:05.946845+00:00"
+    "publishedAt": "2026-10-19T18:07:13.212815+00:00",
+    "newsCheckedAt": "2026-10-19T18:06:50+00:00"
   },
   "assets": {
     "SPY": {
@@ -1387,61 +1381,68 @@
     "news": {
       "Computer Hardware": {
         "kind": "unknown",
-        "text": "已检索本轮增量，未找到可核实的行业共同催化。",
-        "checkedAt": "2026-10-19T15:12:00+00:00"
+        "text": "已复核午后增量，未找到可核实的行业共同催化。",
+        "checkedAt": "2026-10-19T18:06:50+00:00"
       },
       "Internet Retail": {
-        "kind": "unknown",
-        "text": "已检索本轮增量，未找到可核实的行业共同催化。",
-        "checkedAt": "2026-10-19T15:12:00+00:00"
+        "kind": "reported",
+        "text": "Amazon获Morgan Stanley列为首选后午后上涨；这是AMZN公司级催化，不足以确认整个互联网零售行业的共同涨因。",
+        "checkedAt": "2026-10-19T18:06:50+00:00",
+        "publishedAt": "2026-10-19",
+        "expiresAt": "2026-10-20T20:00:00Z",
+        "sources": [
+          {
+            "name": "Reuters",
+            "url": "https://www.reuters.com/business/wall-st-futures-climb-ai-stocks-rebound-oil-yields-fall-2026-10-19/"
+          }
+        ]
       },
       "REIT - Mortgage": {
         "kind": "unknown",
-        "text": "已检索本轮增量；AGNC业绩尚待发布，当前下跌原因未确认。",
-        "checkedAt": "2026-10-19T15:12:00+00:00"
+        "text": "已复核午后增量；AGNC业绩尚未发布，行业下跌原因未确认。",
+        "checkedAt": "2026-10-19T18:06:50+00:00"
       },
       "Utilities - Independent Power Producers": {
         "kind": "unknown",
-        "text": "已检索本轮增量，未找到可核实的行业共同催化。",
-        "checkedAt": "2026-10-19T15:12:00+00:00"
+        "text": "已复核午后增量，未找到可核实的行业共同催化。",
+        "checkedAt": "2026-10-19T18:06:50+00:00"
+      },
+      "Business Equipment & Supplies": {
+        "kind": "unknown",
+        "text": "已复核午后增量，未找到可核实的行业共同催化。",
+        "checkedAt": "2026-10-19T18:06:50+00:00"
+      },
+      "Coking Coal": {
+        "kind": "unknown",
+        "text": "已复核午后增量，未找到可核实的行业共同催化。",
+        "checkedAt": "2026-10-19T18:06:50+00:00"
       }
     },
-    "researchAt": "2026-10-19T15:12:00Z"
+    "researchAt": "2026-10-19T18:06:50Z",
+    "reviewStatus": "complete"
   },
   "news": {
     "memory": {
       "kind": "reported",
-      "text": "Micron宣布10月21日举行技术网络研讨会，主题覆盖DRAM、HBM与NAND；这是MU的公司级后续催化，不能单独解释本轮存储股共同反弹。",
+      "text": "Reuters午后更新显示MU上涨约5.3%、费城半导体指数反弹约3.7%，背景是上周连跌后的AI交易修复；这是共同市场背景，不能证明存储股存在新的独立基本面催化。",
       "publishedAt": "2026-10-19",
-      "expiresAt": "2026-10-22T20:00:00Z",
-      "sources": [
-        {
-          "name": "Micron",
-          "url": "https://micron.gcs-web.com/latest-news"
-        }
-      ]
-    },
-    "space": {
-      "kind": "reported",
-      "text": "SpaceX将于本周公布季度业绩，市场关注Starlink增长与AI资本开支；这是SPCX的公司级事件，不能直接解释RKLB与ASTS走势。",
-      "publishedAt": "2026-10-19T11:06:28Z",
-      "expiresAt": "2026-10-21T20:00:00Z",
+      "expiresAt": "2026-10-20T20:00:00Z",
       "sources": [
         {
           "name": "Reuters",
-          "url": "https://www.reuters.com/business/media-telecom/spacex-tesla-earnings-test-musks-ai-spending-ambitions-merger-talk-grows-2026-10-19/"
+          "url": "https://www.reuters.com/business/wall-st-futures-climb-ai-stocks-rebound-oil-yields-fall-2026-10-19/"
         }
       ]
     },
     "cloud": {
       "kind": "reported",
-      "text": "Goldman Sachs将CoreWeave由中性上调至买入，但同时下调目标价；该消息直接关联CRWV，NBIS与IREN的同步反弹更像板块情绪修复，融资风险仍未消失。",
+      "text": "CoreWeave获上调评级后反弹，NBIS与IREN同步回升；Reuters仍将融资成本和高杠杆列为上周抛售核心担忧，因此当前更接近情绪修复而非风险解除。",
       "publishedAt": "2026-10-19",
-      "expiresAt": "2026-10-21T20:00:00Z",
+      "expiresAt": "2026-10-20T20:00:00Z",
       "sources": [
         {
-          "name": "Barron's",
-          "url": "https://www.barrons.com/articles/coreweave-stock-buy-upgrade-ai-f9313f06"
+          "name": "Reuters",
+          "url": "https://www.reuters.com/business/wall-st-futures-climb-ai-stocks-rebound-oil-yields-fall-2026-10-19/"
         }
       ]
     }

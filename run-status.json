@@ -4,21 +4,15 @@
   "startedAt": "2026-10-19T18:05:35.714763+00:00",
   "deadlineAt": "2026-10-19T18:15:35.714763+00:00",
   "status": "partial",
-  "completedAt": "2026-10-19T18:06:05.949391+00:00",
+  "completedAt": "2026-10-19T18:07:17.030882+00:00",
   "missing": [
     "breadth",
-    "battlefield news review",
     "industry core tickers: Internet Retail",
-    "industry news: Internet Retail",
     "industry core tickers: Computer Hardware",
-    "industry news: Computer Hardware",
     "industry core tickers: Business Equipment & Supplies",
-    "industry news: Business Equipment & Supplies",
     "industry core tickers: Coking Coal",
-    "industry news: Coking Coal",
     "industry core tickers: REIT - Mortgage",
-    "industry news: REIT - Mortgage",
-    "industry core tickers: Utilities - Independent Power Producers",
-    "industry news: Utilities - Independent Power Producers"
-  ]
+    "industry core tickers: Utilities - Independent Power Producers"
+  ],
+  "newsPatchApplied": true
 }
