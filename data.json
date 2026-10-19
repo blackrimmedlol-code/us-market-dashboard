@@ -3,7 +3,7 @@
     "schemaVersion": 18,
     "timezone": "Asia/Shanghai",
     "edition": "compact",
-    "updatedAt": "2026-10-20T04:25:33.869353+08:00",
+    "updatedAt": "2026-10-19T20:27:05.544791+00:00",
     "asOf": "2026-10-19T20:00:00+00:00",
     "marketDate": "2026-10-19",
     "session": "close",
@@ -16,25 +16,19 @@
     },
     "rulesVersion": "18.2",
     "evidencePath": "history/v18/2026-10-19-close.json",
-    "newsReviewStatus": "partial",
+    "newsReviewStatus": "complete",
     "updateStatus": "partial",
     "missing": [
       "breadth",
-      "battlefield news review",
       "industry core tickers: Internet Retail",
-      "industry news: Internet Retail",
       "industry core tickers: Computer Hardware",
-      "industry news: Computer Hardware",
       "industry core tickers: Oil & Gas Drilling",
-      "industry news: Oil & Gas Drilling",
       "industry core tickers: Coking Coal",
-      "industry news: Coking Coal",
       "industry core tickers: REIT - Mortgage",
-      "industry news: REIT - Mortgage",
-      "industry core tickers: Utilities - Independent Power Producers",
-      "industry news: Utilities - Independent Power Producers"
+      "industry core tickers: Utilities - Independent Power Producers"
     ],
-    "publishedAt": "2026-10-19T20:25:52.580308+00:00"
+    "publishedAt": "2026-10-19T20:27:05.544791+00:00",
+    "newsCheckedAt": "2026-10-19T20:26:45+00:00"
   },
   "assets": {
     "SPY": {
@@ -1475,8 +1469,8 @@
     "news": {
       "Computer Hardware": {
         "kind": "unknown",
-        "text": "已复核午后增量，未找到可核实的行业共同催化。",
-        "checkedAt": "2026-10-19T18:06:50+00:00"
+        "text": "已复核收盘增量，未找到可核实的行业共同催化。",
+        "checkedAt": "2026-10-19T20:26:45+00:00"
       },
       "Internet Retail": {
         "kind": "reported",
@@ -1489,52 +1483,42 @@
             "name": "Reuters",
             "url": "https://www.reuters.com/business/wall-st-futures-climb-ai-stocks-rebound-oil-yields-fall-2026-10-19/"
           }
-        ]
+        ],
+        "reusedAt": "2026-10-19T20:27:05.544791+00:00"
       },
       "REIT - Mortgage": {
         "kind": "unknown",
-        "text": "已复核午后增量；AGNC业绩尚未发布，行业下跌原因未确认。",
-        "checkedAt": "2026-10-19T18:06:50+00:00"
+        "text": "已复核收盘增量；AGNC业绩尚未发布，行业跌因仍未确认。",
+        "checkedAt": "2026-10-19T20:26:45+00:00"
       },
       "Utilities - Independent Power Producers": {
         "kind": "unknown",
-        "text": "已复核午后增量，未找到可核实的行业共同催化。",
-        "checkedAt": "2026-10-19T18:06:50+00:00"
+        "text": "已复核收盘增量；公用事业指数走弱，但未找到独立电力生产商的统一直接催化。",
+        "checkedAt": "2026-10-19T20:26:45+00:00"
       },
       "Coking Coal": {
         "kind": "unknown",
-        "text": "已复核午后增量，未找到可核实的行业共同催化。",
-        "checkedAt": "2026-10-19T18:06:50+00:00"
+        "text": "已复核收盘增量，未找到可核实的行业共同催化。",
+        "checkedAt": "2026-10-19T20:26:45+00:00"
+      },
+      "Oil & Gas Drilling": {
+        "kind": "reported",
+        "text": "周一午后能源股整体走弱，油服指数小幅回落；油价与个股消息分化，不能确认钻井行业上涨由单一事件驱动。",
+        "checkedAt": "2026-10-19T20:26:45+00:00",
+        "publishedAt": "2026-10-19",
+        "expiresAt": "2026-10-20T20:00:00Z",
+        "sources": [
+          {
+            "name": "MT Newswires",
+            "url": "https://ca.finance.yahoo.com/news/sector-energy-stocks-decline-monday-173905976.html"
+          }
+        ]
       }
     },
-    "researchAt": "2026-10-19T18:06:50Z"
+    "researchAt": "2026-10-19T20:26:45Z",
+    "reviewStatus": "complete"
   },
-  "news": {
-    "memory": {
-      "kind": "reported",
-      "text": "Reuters午后更新显示MU上涨约5.3%、费城半导体指数反弹约3.7%，背景是上周连跌后的AI交易修复；这是共同市场背景，不能证明存储股存在新的独立基本面催化。",
-      "publishedAt": "2026-10-19",
-      "expiresAt": "2026-10-20T20:00:00Z",
-      "sources": [
-        {
-          "name": "Reuters",
-          "url": "https://www.reuters.com/business/wall-st-futures-climb-ai-stocks-rebound-oil-yields-fall-2026-10-19/"
-        }
-      ]
-    },
-    "cloud": {
-      "kind": "reported",
-      "text": "CoreWeave获上调评级后反弹，NBIS与IREN同步回升；Reuters仍将融资成本和高杠杆列为上周抛售核心担忧，因此当前更接近情绪修复而非风险解除。",
-      "publishedAt": "2026-10-19",
-      "expiresAt": "2026-10-20T20:00:00Z",
-      "sources": [
-        {
-          "name": "Reuters",
-          "url": "https://www.reuters.com/business/wall-st-futures-climb-ai-stocks-rebound-oil-yields-fall-2026-10-19/"
-        }
-      ]
-    }
-  },
+  "news": {},
   "cta": {
     "status": "unavailable",
     "note": "有可追溯的新仓位估算才展示；不参与核心判断"
