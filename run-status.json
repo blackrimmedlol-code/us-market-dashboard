@@ -1,9 +1,9 @@
 {
-  "session": "premarket",
+  "session": "intraday",
   "marketDate": "2026-10-20",
-  "startedAt": "2026-10-20T13:12:32.046163+00:00",
-  "deadlineAt": "2026-10-20T13:22:32.046163+00:00",
+  "startedAt": "2026-10-20T15:09:10.003930+00:00",
+  "deadlineAt": "2026-10-20T15:19:10.003930+00:00",
   "status": "failed",
-  "completedAt": "2026-10-20T13:12:50.780187+00:00",
-  "error": "Tencent WeStock exposes delayed historical K-lines but no separately identified fresh US premarket session; rejecting regular-session/duplicate rows\n"
+  "completedAt": "2026-10-20T15:09:34.631051+00:00",
+  "error": "Tencent WeStock intraday feed omitted SPY/QQQ benchmark rows and included uncompleted 30-minute rows; rejecting incomplete data\n"
 }
