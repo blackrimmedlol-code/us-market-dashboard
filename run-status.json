@@ -1,18 +1,9 @@
 {
-  "session": "close",
-  "marketDate": "2026-10-19",
-  "startedAt": "2026-10-19T20:25:18.346284+00:00",
-  "deadlineAt": "2026-10-19T20:35:18.346284+00:00",
-  "status": "partial",
-  "completedAt": "2026-10-19T20:27:13.051661+00:00",
-  "missing": [
-    "breadth",
-    "industry core tickers: Internet Retail",
-    "industry core tickers: Computer Hardware",
-    "industry core tickers: Oil & Gas Drilling",
-    "industry core tickers: Coking Coal",
-    "industry core tickers: REIT - Mortgage",
-    "industry core tickers: Utilities - Independent Power Producers"
-  ],
-  "newsPatchApplied": true
+  "session": "premarket",
+  "marketDate": "2026-10-20",
+  "startedAt": "2026-10-20T13:12:32.046163+00:00",
+  "deadlineAt": "2026-10-20T13:22:32.046163+00:00",
+  "status": "failed",
+  "completedAt": "2026-10-20T13:12:50.780187+00:00",
+  "error": "Tencent WeStock exposes delayed historical K-lines but no separately identified fresh US premarket session; rejecting regular-session/duplicate rows\n"
 }
