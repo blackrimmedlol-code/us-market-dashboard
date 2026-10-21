@@ -1,9 +1,9 @@
 {
-  "session": "premarket",
+  "session": "intraday",
   "marketDate": "2026-10-21",
-  "startedAt": "2026-10-21T13:06:06.983147+00:00",
-  "deadlineAt": "2026-10-21T13:16:06.983147+00:00",
+  "startedAt": "2026-10-21T15:12:00.119208+00:00",
+  "deadlineAt": "2026-10-21T15:22:00.119208+00:00",
   "status": "failed",
-  "completedAt": "2026-10-21T13:06:24.781169+00:00",
-  "error": "Tencent WeStock premarket feed returned only 2026-10-20 regular-session rows and omitted mandatory SPY/QQQ benchmarks; no valid 2026-10-21 five-minute premarket quote\n"
+  "completedAt": "2026-10-21T15:12:16.130226+00:00",
+  "error": "westock m30 batch reported 18/18 success but its response body omitted SPY, QQQ, RSP, SPMO and DRAM and included an uncompleted 11:30 bar; the required SPY/QQQ market structure cannot be verified\n"
 }
