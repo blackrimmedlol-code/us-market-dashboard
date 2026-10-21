@@ -1,9 +1,9 @@
 {
-  "session": "close",
-  "marketDate": "2026-10-20",
-  "startedAt": "2026-10-20T20:30:49.556355+00:00",
-  "deadlineAt": "2026-10-20T20:40:49.556355+00:00",
+  "session": "premarket",
+  "marketDate": "2026-10-21",
+  "startedAt": "2026-10-21T13:06:06.983147+00:00",
+  "deadlineAt": "2026-10-21T13:16:06.983147+00:00",
   "status": "failed",
-  "completedAt": "2026-10-20T20:31:20.355511+00:00",
-  "error": "Tencent WeStock close feed omitted mandatory SPY/QQQ benchmark rows (also RSP/SPMO/DRAM); rejecting incomplete data\n"
+  "completedAt": "2026-10-21T13:06:24.781169+00:00",
+  "error": "Tencent WeStock premarket feed returned only 2026-10-20 regular-session rows and omitted mandatory SPY/QQQ benchmarks; no valid 2026-10-21 five-minute premarket quote\n"
 }
