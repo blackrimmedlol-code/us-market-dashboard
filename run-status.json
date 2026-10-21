@@ -1,9 +1,9 @@
 {
-  "session": "intraday",
+  "session": "late",
   "marketDate": "2026-10-21",
-  "startedAt": "2026-10-21T15:12:00.119208+00:00",
-  "deadlineAt": "2026-10-21T15:22:00.119208+00:00",
+  "startedAt": "2026-10-21T18:08:29.270381+00:00",
+  "deadlineAt": "2026-10-21T18:18:29.270381+00:00",
   "status": "failed",
-  "completedAt": "2026-10-21T15:12:16.130226+00:00",
-  "error": "westock m30 batch reported 18/18 success but its response body omitted SPY, QQQ, RSP, SPMO and DRAM and included an uncompleted 11:30 bar; the required SPY/QQQ market structure cannot be verified\n"
+  "completedAt": "2026-10-21T18:08:47.256637+00:00",
+  "error": "westock m30 batch reported 18/18 success but its response body omitted SPY, QQQ, RSP, SPMO and DRAM and included uncompleted 14:00/14:30 bars; the required SPY/QQQ market structure cannot be verified\n"
 }
