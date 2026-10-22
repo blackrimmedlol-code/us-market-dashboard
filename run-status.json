@@ -1,9 +1,9 @@
 {
-  "session": "intraday",
+  "session": "late",
   "marketDate": "2026-10-22",
-  "startedAt": "2026-10-22T15:11:44.659170+00:00",
-  "deadlineAt": "2026-10-22T15:21:44.659170+00:00",
+  "startedAt": "2026-10-22T18:10:53.923433+00:00",
+  "deadlineAt": "2026-10-22T18:20:53.923433+00:00",
   "status": "failed",
-  "completedAt": "2026-10-22T15:12:02.694279+00:00",
-  "error": "Tencent WeStock batch reported success but returned no rows for usSPY, usQQQ; required benchmark structure cannot be verified\n"
+  "completedAt": "2026-10-22T18:11:13.888101+00:00",
+  "error": "Tencent WeStock batch reported success but omitted SPY/QQQ benchmark rows and returned uncompleted/future 14:30 bars; required late-session structure cannot be verified\n"
 }
