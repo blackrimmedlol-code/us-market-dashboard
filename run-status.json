@@ -1,9 +1,9 @@
 {
-  "session": "late",
+  "session": "close",
   "marketDate": "2026-10-22",
-  "startedAt": "2026-10-22T18:10:53.923433+00:00",
-  "deadlineAt": "2026-10-22T18:20:53.923433+00:00",
+  "startedAt": "2026-10-22T20:29:58.995290+00:00",
+  "deadlineAt": "2026-10-22T20:39:58.995290+00:00",
   "status": "failed",
-  "completedAt": "2026-10-22T18:11:13.888101+00:00",
-  "error": "Tencent WeStock batch reported success but omitted SPY/QQQ benchmark rows and returned uncompleted/future 14:30 bars; required late-session structure cannot be verified\n"
+  "completedAt": "2026-10-22T20:30:31.079103+00:00",
+  "error": "Tencent WeStock batch reported 18 successes but returned only 13 symbol tables; SPY, QQQ, RSP, SPMO and DRAM were absent, and the 16:00 rows were not verifiable as complete 30-minute bars\n"
 }
