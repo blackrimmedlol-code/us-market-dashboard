@@ -1,9 +1,9 @@
 {
-  "session": "premarket",
+  "session": "intraday",
   "marketDate": "2026-10-23",
-  "startedAt": "2026-10-23T13:10:52.110398+00:00",
-  "deadlineAt": "2026-10-23T13:20:52.110398+00:00",
+  "startedAt": "2026-10-23T15:13:15.836284+00:00",
+  "deadlineAt": "2026-10-23T15:23:15.836284+00:00",
   "status": "failed",
-  "completedAt": "2026-10-23T13:11:10.938194+00:00",
-  "error": "Tencent WeStock batch reported 18 successes but returned only 13 symbol tables; SPY, QQQ, RSP, SPMO and DRAM were absent, and all returned rows were from the 2026-10-22 regular session rather than the 2026-10-23 premarket window\n"
+  "completedAt": "2026-10-23T15:13:34.702268+00:00",
+  "error": "Tencent WeStock batch reported 23 successes but returned only 13 symbol tables; SPY, QQQ, RSP, SPMO, DRAM, SOXL, GDXU and BITX were absent, and the response included an uncompleted 11:30 America/New_York bar before 11:30\n"
 }
