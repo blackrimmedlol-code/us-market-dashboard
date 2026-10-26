@@ -1,10 +1,10 @@
 {
-  "session": "late",
+  "session": "close",
   "marketDate": "2026-10-26",
-  "startedAt": "2026-10-26T18:08:08.547667+00:00",
-  "deadlineAt": "2026-10-26T18:18:08.547667+00:00",
+  "startedAt": "2026-10-26T20:27:25.746282+00:00",
+  "deadlineAt": "2026-10-26T20:37:25.746282+00:00",
   "status": "failed",
-  "completedAt": "2026-10-26T18:08:25.021285+00:00",
-  "error": "Tencent WeStock batch reported 23 successes but returned only 13 symbol tables; SPY, QQQ, VIX, RSP, SPMO, VIX3M, DRAM, SOXL, GDXU and BITX were absent, and the response included uncompleted/future 14:30 America/New_York bars before 14:30\n"
+  "completedAt": "2026-10-26T20:27:46.430266+00:00",
+  "error": "Tencent WeStock batch reported 23 successes but returned only 13 symbol tables; SPY, QQQ, VIX, RSP, SPMO, VIX3M, DRAM, SOXL, GDXU and BITX were absent, and the 16:00 America/New_York rows could not be confirmed as complete regular-session 30-minute bars\n"
 }
 
